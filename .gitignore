@@ -10,6 +10,7 @@
 
 # production
 /build
+text.txt
 
 # misc
 .vscode
