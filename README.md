@@ -1,6 +1,6 @@
 # [PORTFOLIO](https://react-portfolio-wine-six.vercel.app/)
 
-![Landing page](https://i.imgur.com/TTGqxi8.png)
+![Landing page](https://i.imgur.com/4z276Ex.png)
 
 Mass Effect theme portfolio, using Lexica.art to create amazing AI-generated art assets and Avatar from a reference picture, react useState hooks, dynamic background, build modern website designs with CSS3, ClassNames to create dynamic class names, and create a secure fully functional Direct form submission using EmailJS.
 
