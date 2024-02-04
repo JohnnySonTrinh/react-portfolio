@@ -32,7 +32,7 @@ const subheadingsData = {
       ),
     },
     {
-      title: "2023 self-taught developer",
+      title: "2023 Self-taught Developer",
       content: (
         <>
           <p>
@@ -61,7 +61,7 @@ const subheadingsData = {
       ),
     },
     {
-      title: "2022 Ghostwriter for ProGuides Valorant",
+      title: "2022 Ghostwriter for ProGuides YouTube Channel",
       content: (
         <>
           <p>
@@ -75,7 +75,7 @@ const subheadingsData = {
       ),
     },
     {
-      title: "2019 Coach Valorant and Fornite",
+      title: "2019 Valorant & Fornite Coach",
       content: (
         <>
           <p>
