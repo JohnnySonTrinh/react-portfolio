@@ -56,13 +56,13 @@ The fonts are included at the beginning of our main CSS file using the `@import`
 
 The landing page presents a dynamic and visually compelling interface, designed to showcase the professional profile
 
-![screenshot](https://i.imgur.com/TTGqxi8.png)
+![screenshot](https://i.imgur.com/4z276Ex.png)
 
 ### Skills
 
 The skills are displayed in a split format, with a unique visual metaphor that borrows from the skill trees commonly found in video games, reinforcing the user's gaming background.
 
-![screenshot](https://i.imgur.com/bdL0Bdp.png)
+![screenshot](https://i.imgur.com/greyOIo.png)
 
 ### Projects
 
