@@ -27,8 +27,8 @@ export default class HackathonsMenu extends Component {
           <a href={hackathon.github} target="_blank" rel="noopener noreferrer">
             GITHUB
           </a>
-          <a href={hackathon.live} target="_blank" rel="noopener noreferrer">
-            LIVE
+          <a href={hackathon.Demo} target="_blank" rel="noopener noreferrer">
+            DEMO
           </a>
         </div>
       </div>

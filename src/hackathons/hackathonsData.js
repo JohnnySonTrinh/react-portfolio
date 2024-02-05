@@ -14,7 +14,7 @@ const hackathons = {
       </>
     ),
     github: "https://github.com/ogc1231/festive-quiz-game",
-    live: "https://ogc1231.github.io/festive-quiz-game/",
+    Demo: "https://ogc1231.github.io/festive-quiz-game/",
   },
   2: {
     title: "TEAM: Fund Frontier",
@@ -29,7 +29,7 @@ const hackathons = {
       </>
     ),
     github: "https://github.com/sean-meade/fund-frontier",
-    live: "https://fund-frontier.vercel.app",
+    Demo: "https://fund-frontier.vercel.app",
   },
 }
 
