@@ -27,7 +27,7 @@ I used [coolors.co](https://coolors.co/540351-3627b1-25afce) to generate my colo
 
 ### Typography
 
-For Tic Tac Tactics, I've chosen Russo One fonts to create "Mass effect vibe" engaging and readable user interface. The fonts were selected for their clarity and legibility.
+For the portfolio, I've chosen Russo One fonts to create "Mass effect vibe" engaging and readable user interface. The fonts were selected for their clarity and legibility.
 
 #### Implementation in CSS
 
