@@ -38,6 +38,21 @@ h2 {
   width: 6rem;
 }
 
+#playerStats a {
+  width: 2rem;
+}
+
+.icon-container {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: row;
+}
+
+.icons {
+  width: 2rem;
+}
+
 @media (max-width: 1100px) {
   #playerStats {
     left: 50%;
@@ -53,5 +68,14 @@ h2 {
   h3,
   p {
     font-size: 0.65rem;
+  }
+  #playerStats a {
+    width: 1.5rem;
+  }
+  .icon-container {
+    margin-top: 0.2rem;
+  }
+  .icons {
+    width: 1.5rem;
   }
 }
