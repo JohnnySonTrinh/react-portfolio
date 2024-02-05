@@ -44,7 +44,7 @@ const projects = {
         </p>
       </>
     ),
-    github: "https://event-app-pink-eight.vercel.app/",
+    github: "https://github.com/JohnnySonTrinh/modern-car-showcase-app",
     live: "https://event-app-pink-eight.vercel.app/",
   },
 }
