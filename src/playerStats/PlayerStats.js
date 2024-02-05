@@ -1,5 +1,7 @@
 import React from "react"
 import "../styles/playerStats.css"
+import Linkedin from "../assets/linkedin.png"
+import Github from "../assets/github.png"
 
 const PlayerStats = () => {
   return (
@@ -10,6 +12,17 @@ const PlayerStats = () => {
         <span id="playerStats__lines__thin"></span>
       </div>
       <h2>Fullstack Developer</h2>
+      <div className="icon-container">
+        <a
+          href="https://www.linkedin.com/in/johnny-trinh-732755123/"
+          target="_blank"
+        >
+          <img src={Linkedin} alt="Linkedin" className="icons" />
+        </a>
+        <a href="https://github.com/JohnnySonTrinh/" target="_blank">
+          <img src={Github} alt="Github" className="icons" />
+        </a>
+      </div>
     </div>
   )
 }
