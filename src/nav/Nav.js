@@ -17,6 +17,8 @@ export default function Nav() {
         return "nav-skills"
       case "/projects":
         return "nav-projects"
+      case "/hackathons":
+        return "nav-hackathons"
       case "/contact":
         return "nav-contact"
       default:
@@ -32,6 +34,8 @@ export default function Nav() {
         return "SKILLS"
       case "/projects":
         return "PROJECTS"
+      case "/hackathons":
+        return "HACKATHONS"
       case "/contact":
         return "CONTACT"
       default:
@@ -68,6 +72,7 @@ export default function Nav() {
       )}
       {renderNavLink("/skills", deadEye, "deadEye icon", "nav-skills")}
       {renderNavLink("/projects", stack, "stack icon", "nav-projects")}
+      {renderNavLink("/hackathons", global, "global icon", "nav-hackathons")}
       {renderNavLink("contact", envelope, "envelope icon", "nav-contact")}
     </nav>
   )

@@ -4,6 +4,7 @@ import Nav from "./nav/Nav"
 import About from "./about/About"
 import Skills from "./skills/Skills"
 import Projects from "./projects/Projects"
+import Hackathons from "./hackathons/Hackathons"
 import Contact from "./contact/Contact"
 import "./styles/app.css"
 import Background from "./background/Background"
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/" element={<About />} />
         <Route path="/skills" element={<Skills />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/hackathons" element={<Hackathons />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <PlayerStats />
