@@ -16,8 +16,11 @@
 .nav-projects {
   transform: translateX(-10.94rem);
 }
-.nav-contact {
+.nav-hackathons {
   transform: translateX(-15.62rem);
+}
+.nav-contact {
+  transform: translateX(-18.62rem);
 }
 
 a {
@@ -51,6 +54,7 @@ a {
   .nav-about,
   .nav-skills,
   .nav-projects,
+  .nav-hackathons,
   .nav-contact {
     transform: translateX(0);
   }
