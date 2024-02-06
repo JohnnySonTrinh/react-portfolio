@@ -1,5 +1,5 @@
-import hackathonOne from "../assets/hackathon-1.png"
-import hackathonTwo from "../assets/hackathon-2.png"
+import hackathonOne from "../assets/hackathon-1.webp"
+import hackathonTwo from "../assets/hackathon-2.webp"
 
 const hackathons = {
   1: {

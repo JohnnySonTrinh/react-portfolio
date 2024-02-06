@@ -1,6 +1,6 @@
-import projectOne from "../assets/project-1.png"
-import projectTwo from "../assets/project-2.png"
-import projectThree from "../assets/project-3.png"
+import projectOne from "../assets/project-1.webp"
+import projectTwo from "../assets/project-2.webp"
+import projectThree from "../assets/project-3.webp"
 
 const projects = {
   1: {
