@@ -1,7 +1,9 @@
-import projectOne from "../assets/project-1.webp"
-import projectTwo from "../assets/project-2.webp"
-import projectThree from "../assets/project-3.webp"
+// Importing necessary modules and assets
+import projectOne from "../assets/project-1.webp" // Project 1 image
+import projectTwo from "../assets/project-2.webp" // Project 2 image
+import projectThree from "../assets/project-3.webp" // Project 3 image
 
+// function to get the projects data
 const projects = {
   1: {
     title: "Tic Tac Tactics",
@@ -49,4 +51,5 @@ const projects = {
   },
 }
 
+// Exporting the projects data
 export default projects

@@ -1,15 +1,19 @@
-import React, { Component } from "react"
-import { Link, useLocation } from "react-router-dom"
-import astronautHelmet from "../assets/astronaut-helmet.png"
-import deadEye from "../assets/dead-eye.png"
-import stack from "../assets/stack.png"
-import global from "../assets/global.png"
-import envelope from "../assets/envelope.png"
-import "../styles/nav.css"
+// Importing necessary modules and assets
+import React from "react" // React library for building user interfaces
+import { Link, useLocation } from "react-router-dom" // React Router DOM for routing
+import astronautHelmet from "../assets/astronaut-helmet.png" // Astronaut helmet icon
+import deadEye from "../assets/dead-eye.png" // DeadEye icon
+import stack from "../assets/stack.png" // Stack icon
+import global from "../assets/global.png" // Global icon
+import envelope from "../assets/envelope.png" // Envelope icon
+import "../styles/nav.css" // CSS styles for the Nav component
 
+// Nav component
 export default function Nav() {
+  // Using the useLocation hook to get the current location
   const location = useLocation()
 
+  // Function to get the class for the current page
   const getNavPositionClass = () => {
     switch (location.pathname) {
       case "/":
@@ -27,6 +31,7 @@ export default function Nav() {
     }
   }
 
+  // Function to get the title for the current page
   const getPageTitle = () => {
     switch (location.pathname) {
       case "/":
@@ -44,13 +49,16 @@ export default function Nav() {
     }
   }
 
+  // Function to check if the current page is the same as the navClass
   const navPositionClass = getNavPositionClass()
   const pageTitle = getPageTitle()
 
+  // Function to check if the current page is the same as the navClass
   const isCurrentPage = (navClass) => {
     return navClass === navPositionClass
   }
 
+  // Function to render the nav link
   const renderNavLink = (to, imgSrc, altText, navClass) => {
     const isCurrent = isCurrentPage(navClass)
     const linkClass = isCurrent ? "nav-link current" : "nav-link"
@@ -63,6 +71,7 @@ export default function Nav() {
     )
   }
 
+  // Returning the Nav component
   return (
     <nav className={`nav ${navPositionClass}`}>
       {renderNavLink(

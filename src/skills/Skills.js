@@ -1,7 +1,11 @@
-import React, { Component } from "react"
-import Avatar from "../avatar/Avatar.js"
-import SkillsMenu from "./SkillsMenu.js"
+// Importing necessary modules and assets
+import React, { Component } from "react" // React library for building user interfaces
+import Avatar from "../avatar/Avatar.js" // Avatar component
+import SkillsMenu from "./SkillsMenu.js" // SkillsMenu component
+
+// About component
 export default class About extends Component {
+  // Render the About component
   render() {
     return (
       <>

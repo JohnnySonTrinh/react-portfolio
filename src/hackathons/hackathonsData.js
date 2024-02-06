@@ -1,6 +1,8 @@
-import hackathonOne from "../assets/hackathon-1.webp"
-import hackathonTwo from "../assets/hackathon-2.webp"
+// Importing necessary assets
+import hackathonOne from "../assets/hackathon-1.webp" // Image for the first hackathon
+import hackathonTwo from "../assets/hackathon-2.webp" // Image for the second hackathon
 
+// Object containing data for the hackathons
 const hackathons = {
   1: {
     title: "TEAM: Quizmas Elves",
@@ -33,4 +35,5 @@ const hackathons = {
   },
 }
 
+// Exporting the hackathons data
 export default hackathons

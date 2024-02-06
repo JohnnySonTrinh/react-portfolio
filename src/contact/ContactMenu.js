@@ -1,19 +1,23 @@
-import React, { useState } from "react"
-import emailjs from "emailjs-com"
-import DOMPurify from "dompurify"
+// Importing necessary modules and hooks
+import React, { useState } from "react" // React library and useState hook
+import emailjs from "emailjs-com" // EmailJS for sending emails
+import DOMPurify from "dompurify" // DOMPurify for sanitizing HTML
 
+// ContactMenu component
 export default function ContactMenu() {
+  // Initial state for form data
   const initialState = {
     name: "",
     email: "",
     message: "",
   }
-
+  // State variables for form data, errors, loading state, and sent state
   const [formData, setFormData] = useState(initialState)
   const [errors, setErrors] = useState({})
   const [isLoading, setIsLoading] = useState(false)
   const [isSent, setIsSent] = useState(false)
 
+  // Event handler for input change
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData((prevFormData) => ({
@@ -22,6 +26,7 @@ export default function ContactMenu() {
     }))
   }
 
+  // Event handler for form submit
   const handleSubmit = (e) => {
     e.preventDefault()
     const validateErrors = validateForm()
@@ -32,6 +37,7 @@ export default function ContactMenu() {
 
     setIsLoading(true)
 
+    // Sanitize form data
     const { name, email, message } = formData
     const sanitizedData = {
       name: "Name: " + DOMPurify.sanitize(name),
@@ -39,10 +45,12 @@ export default function ContactMenu() {
       message: "Message: " + DOMPurify.sanitize(message),
     }
 
+    // EmailJS service, template, and user IDs
     const serviceID = process.env.REACT_APP_EMAILJS_SERVICE_ID
     const templateID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID
     const userID = process.env.REACT_APP_EMAILJS_USER_ID
 
+    // Send email using EmailJS
     emailjs
       .send(serviceID, templateID, sanitizedData, userID)
       .then((response) => {
@@ -59,10 +67,12 @@ export default function ContactMenu() {
       })
   }
 
+  // Function to validate form data
   const validateForm = () => {
     const { name, email, message } = formData
     const errors = {}
 
+    // Validating each form field
     if (!name.trim()) {
       errors.name = "Name is required"
     }
@@ -80,11 +90,13 @@ export default function ContactMenu() {
     return errors
   }
 
+  // Function to validate email format
   const isValidEmail = (value) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     return emailRegex.test(value)
   }
 
+  // Rendering the ContactMenu component
   return (
     <div className="contact-menu">
       {!isSent && (

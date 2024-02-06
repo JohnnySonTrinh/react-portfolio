@@ -1,3 +1,4 @@
+// Skills data for the skills section
 const skills = {
   1: [
     {
@@ -69,4 +70,5 @@ const skills = {
   ],
 }
 
+// Export the skills data
 export default skills
