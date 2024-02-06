@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
-import avatarImage from "../assets/avatar-image.png"
+import avatarImage from "../assets/avatar-image.webp"
 import "../styles/avatar.css"
 
 const Avatar = ({ page }) => {
