@@ -1,9 +1,12 @@
-import React, { Component } from "react"
-import classNames from "classnames"
-import hackathons from "./hackathonsData"
-import "../styles/hackathonsMenu.css"
+// Importing necessary assets
+import React, { Component } from "react" // React library for building UI
+import classNames from "classnames" // Classnames library for conditionally joining class names together
+import hackathons from "./hackathonsData" // Data for the hackathons
+import "../styles/hackathonsMenu.css" // Styles for the hackathons menu
 
+// HackathonsMenu component
 export default class HackathonsMenu extends Component {
+  // Constructor method for initializing state and binding event handlers
   constructor(props) {
     super(props)
     this.state = {
@@ -11,12 +14,14 @@ export default class HackathonsMenu extends Component {
     }
   }
 
+  // Event handler for clicking a hackathon item
   handleHackathonClick = (hackathon) => {
     this.setState({
       activeHackathon: hackathon,
     })
   }
 
+  // Method for rendering the content of the hackathons
   renderContent = (hackathons) => {
     return hackathons.map((hackathon, index) => (
       <div key={index} className={`hackathon-sub-container-${index + 1}`}>
@@ -35,10 +40,12 @@ export default class HackathonsMenu extends Component {
     ))
   }
 
+  // Method for rendering the hackathons menu
   render() {
-    const { activeHackathon } = this.state
-    const hackathonItems = ["DEC 2023", "JAN 2024"]
+    const { activeHackathon } = this.state // Destructuring state variables
+    const hackathonItems = ["DEC 2023", "JAN 2024"] // Array of hackathon items
 
+    // Return the hackathons menu
     return (
       <div className="hackathon-menu">
         <div className="hackathon-items-container">

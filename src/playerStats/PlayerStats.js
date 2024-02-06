@@ -1,9 +1,12 @@
-import React from "react"
-import "../styles/playerStats.css"
-import Linkedin from "../assets/linkedin.png"
-import Github from "../assets/github.png"
+// Importing necessary modules and assets
+import React from "react" // React library for building user interfaces
+import "../styles/playerStats.css" // CSS styles for the PlayerStats component
+import Linkedin from "../assets/linkedin.png" // LinkedIn icon
+import Github from "../assets/github.png" // GitHub icon
 
+// PlayerStats component
 const PlayerStats = () => {
+  // PlayerStats component
   return (
     <div id="playerStats">
       <h1>JOHNNY TRINH LEVEL 27</h1>
@@ -27,4 +30,5 @@ const PlayerStats = () => {
   )
 }
 
+// Exporting the PlayerStats component
 export default PlayerStats
