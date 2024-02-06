@@ -1,6 +1,6 @@
 # [PORTFOLIO](https://react-portfolio-wine-six.vercel.app/)
 
-![Landing page](https://i.imgur.com/oVrc3gT.png)
+![Landing page](https://i.imgur.com/uSr4R1c.png)
 
 Halo theme portfolio, using DALL·E to create amazing AI-generated art assets and Avatar then using Midjourney and the Picsi.AI by InsightFaceSwap Bot to face swap, react useState hooks, dynamic background, build modern website designs with CSS3, ClassNames to create dynamic class names, and create a secure fully functional Direct form submission using EmailJS.
 
@@ -66,19 +66,25 @@ The landing page presents a dynamic and visually compelling interface, designed 
 
 The skills are displayed in a split format, with a unique visual metaphor that borrows from the skill trees commonly found in video games, reinforcing the user's gaming background.
 
-![screenshot](https://i.imgur.com/greyOIo.png)
+![screenshot](https://i.imgur.com/BzrqtkD.png)
 
 ### Projects
 
 Projects page is a thoughtful fusion of personal interests and professional showcase, geared towards engaging the viewer with both visual appeal and interactive elements.
 
-![screenshot](https://i.imgur.com/BzrqtkD.png)
+![screenshot](https://i.imgur.com/VVetZh1.png)
+
+### Hackathons
+
+Maintains the cosmic theme established throughout the site, which complements the forward-thinking and innovative spirit of hackathons. It's a testament involvement in collaborative and competitive coding events.
+
+![screenshot](https://i.imgur.com/FzUikpk.png)
 
 ### Contact
 
 Contact page is a fusion of functionality and thematic design, offering a straightforward user experience without sacrificing the portfolio's overarching aesthetic.
 
-![screenshot](https://i.imgur.com/P6SgMIO.png)
+![screenshot](https://i.imgur.com/fiTaATW.png)
 
 ## TESTING
 
