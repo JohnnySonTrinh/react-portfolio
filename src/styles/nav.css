@@ -59,11 +59,15 @@ a {
     transform: translateX(0);
   }
   .nav {
-    top: calc(100vh - 7rem);
     transform: translateX(-50%);
+    display: block;
+    left: 2rem;
+    top: 1.5rem;
+    z-index: 2;
   }
   .nav-link {
     width: 2rem;
+    padding: 0.5em;
   }
   .nav-link img {
     width: 2rem;
