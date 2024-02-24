@@ -43,7 +43,7 @@ export default class HackathonsMenu extends Component {
   // Method for rendering the hackathons menu
   render() {
     const { activeHackathon } = this.state // Destructuring state variables
-    const hackathonItems = ["DEC 2023", "JAN 2024"] // Array of hackathon items
+    const hackathonItems = ["DEC 2023", "JAN 2024", "FEB 2024"] // Array of hackathon items
 
     // Return the hackathons menu
     return (

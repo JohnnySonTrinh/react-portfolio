@@ -1,6 +1,7 @@
 // Importing necessary assets
 import hackathonOne from "../assets/hackathon-1.webp" // Image for the first hackathon
 import hackathonTwo from "../assets/hackathon-2.webp" // Image for the second hackathon
+import hackathonThree from "../assets/hackathon-3.png" // Image for the third hackathon
 
 // Object containing data for the hackathons
 const hackathons = {
@@ -32,6 +33,20 @@ const hackathons = {
     ),
     github: "https://github.com/sean-meade/fund-frontier",
     Demo: "https://fund-frontier.vercel.app",
+  },
+  3: {
+    title: "TEAM: Cupid Helper",
+    image: hackathonThree,
+    description: (
+      <>
+        <p>
+          A web application that helps users find the perfect gift for their
+          loved ones based on their personality and interests.
+        </p>
+      </>
+    ),
+    github: "",
+    Demo: "",
   },
 }
 
