@@ -1,45 +1,45 @@
-import React, { Component } from "react"
-import AboutMenuItem from "./AboutMenuItem"
-import AboutSubheading from "./AboutSubheading"
-import subheadingsData from "./subheadingsData"
-import personalIcon from "../assets/moebius-triangle.png"
-import educationIcon from "../assets/upgrade.png"
-import careerIcon from "../assets/triple-corn.png"
+import React, { Component } from "react";
+import AboutMenuItem from "./AboutMenuItem";
+import AboutSubheading from "./AboutSubheading";
+import subheadingsData from "./subheadingsData";
+import personalIcon from "../assets/moebius-triangle.png";
+import educationIcon from "../assets/upgrade.png";
+import careerIcon from "../assets/triple-corn.png";
 
 export default class AboutMenu extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       activeMenuItem: 1,
       activeSubheading: 1,
-    }
+    };
   }
 
   handleMenuItemClick = (menuItem) => {
     this.setState({
       activeMenuItem: menuItem,
       activeSubheading: 1,
-    })
-  }
+    });
+  };
 
   handleSubheadingClick = (subheading) => {
     this.setState({
       activeSubheading: subheading,
-    })
-  }
+    });
+  };
 
   render() {
-    const { activeMenuItem, activeSubheading } = this.state
-    const menuItems = ["PERSONAL", "EDUCATION", "CAREER"]
-    const activeMenuTitle = menuItems[activeMenuItem - 1]
+    const { activeMenuItem, activeSubheading } = this.state;
+    const menuItems = ["PERSONAL", "EDUCATION", "CAREER"];
+    const activeMenuTitle = menuItems[activeMenuItem - 1];
     const activeMenuIcon =
       activeMenuTitle === "PERSONAL"
         ? personalIcon
         : activeMenuTitle === "EDUCATION"
         ? educationIcon
-        : careerIcon
+        : careerIcon;
 
-    const subheadings = subheadingsData[activeMenuItem]
+    const subheadings = subheadingsData[activeMenuItem];
 
     return (
       <>
@@ -70,6 +70,6 @@ export default class AboutMenu extends Component {
           ))}
         </div>
       </>
-    )
+    );
   }
 }
