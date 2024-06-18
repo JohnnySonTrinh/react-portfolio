@@ -15,6 +15,10 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
+a {
+  text-decoration: none;
+}
+
 button:hover,
 .class-sub-container a:hover,
 .project-item:hover,
@@ -22,5 +26,5 @@ button:hover,
 .item:not(.active):hover,
 .sub-container-2:not(.active-subheading):hover,
 .sub-container-3:not(.active-subheading):hover {
-  background-image: linear-gradient(90deg, #ffffff00, #ffffff42 50%, #ffffff00);
+  background-image: linear-gradient(90deg, #ffffff00, #f5deb3c0 50%, #ffffff00);
 }
