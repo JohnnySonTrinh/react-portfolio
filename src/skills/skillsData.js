@@ -68,7 +68,24 @@ const skills = {
       level: 3,
     },
   ],
-}
+};
 
-// Export the skills data
-export default skills
+// Function to shuffle skill levels
+const shuffleLevels = (skills) => {
+  const shuffledSkills = JSON.parse(JSON.stringify(skills)); // Deep copy to avoid mutating original data
+  Object.keys(shuffledSkills).forEach((category) => {
+    const levels = shuffledSkills[category].map((skill) => skill.level);
+    for (let i = levels.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [levels[i], levels[j]] = [levels[j], levels[i]];
+    }
+    shuffledSkills[category].forEach((skill, index) => {
+      skill.level = levels[index];
+    });
+  });
+  return shuffledSkills;
+};
+
+// Export the shuffled skills data
+const shuffledSkills = shuffleLevels(skills);
+export default shuffledSkills;
