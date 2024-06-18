@@ -99,22 +99,23 @@
   width: 60%;
   padding-top: 1rem;
   border-radius: 0.5rem;
-  border: white 1px solid;
+  border: wheat 1px solid;
   text-align: center;
   font-size: 1rem;
-  color: white;
+  color: wheat;
 }
 
 .close-note {
   background: none;
   border: none;
   font-size: 1rem;
-  color: white;
+  color: wheat;
   cursor: pointer;
 }
 
 .close-note:hover {
   color: white;
+  background-image: linear-gradient(90deg, #ffffff00, #f5deb3c0 50%, #ffffff00);
 }
 
 @media (max-width: 1100px) {
