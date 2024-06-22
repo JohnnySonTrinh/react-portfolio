@@ -100,71 +100,15 @@ a {
 }
 
 /* Responsive styles for screens with max-width of 1100px */
-@media (max-width: 1100px) {
-  .hamburger-menu {
-    display: flex;
-  }
+@media (max-width: 1024px) {
   .nav {
-    left: 50%;
-    top: 1.5rem;
+    left: 65%;
     transform: translateX(-50%);
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .nav-about,
-  .nav-skills,
-  .nav-projects,
-  .nav-hackathons,
-  .nav-contact {
-    transform: translateX(0);
-  }
-
-  .nav-link {
-    width: 2rem;
-  }
-
-  .nav-link img {
-    width: 2rem;
-  }
-
-  .nav-title,
-  .page-title {
-    display: block;
-    color: grey;
-  }
-
-  .nav-link.current .page-title {
-    color: white;
-  }
-
-  .nav-title {
-    display: none;
-  }
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .nav.menu-open .nav-links {
-    display: flex;
-  }
-
-  .nav {
-    left: 2rem;
-    top: 1rem;
-    transform: translateX(0);
-  }
-
-  .page-title {
-    font-size: 0.6rem;
   }
 }
 
 /* Responsive styles for screens with max-width of 700px */
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   .hamburger-menu {
     display: flex;
   }
@@ -186,6 +130,8 @@ a {
     left: 1rem;
     top: 1rem;
     transform: translateX(0);
+    flex-direction: column;
+    gap: 1.5rem;
   }
 
   .nav-link {
