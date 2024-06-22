@@ -1,7 +1,7 @@
 // Importing necessary assets
-import hackathonOne from "../assets/hackathon-1.webp" // Image for the first hackathon
-import hackathonTwo from "../assets/hackathon-2.webp" // Image for the second hackathon
-import hackathonThree from "../assets/hackathon-3.png" // Image for the third hackathon
+import hackathonOne from "../assets/hackathon-1.webp"; // Image for the first hackathon
+import hackathonTwo from "../assets/hackathon-2.webp"; // Image for the second hackathon
+import hackathonThree from "../assets/hackathon-3.webp"; // Image for the third hackathon
 
 // Object containing data for the hackathons
 const hackathons = {
@@ -48,7 +48,7 @@ const hackathons = {
     github: "",
     Demo: "",
   },
-}
+};
 
 // Exporting the hackathons data
-export default hackathons
+export default hackathons;
