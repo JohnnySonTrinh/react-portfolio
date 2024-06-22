@@ -32,6 +32,12 @@ a {
   gap: 0.625rem;
 }
 
+.nav-title {
+  font-size: 0.6rem;
+  color: grey;
+  cursor: default;
+}
+
 .page-title {
   font-size: 0.875rem;
   color: white;
@@ -73,6 +79,9 @@ a {
     width: 2rem;
   }
   .page-title {
+    display: none;
+  }
+  .nav-title {
     display: none;
   }
 }
