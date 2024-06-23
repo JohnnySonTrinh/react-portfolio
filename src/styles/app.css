@@ -4,9 +4,16 @@
   --purple: #540351;
   --blue: #3627b1;
   --cyan: #25afce;
+  --white: #ffffff;
+  --grey: rgb(211, 211, 211);
   --transparent: #00000000;
   --radius-left: 3rem 0 0 3rem;
   --radius-right: 0 3rem 3rem 0;
+  --font-size-large: 1.5rem;
+  --font-size-medium: 1rem;
+  --font-size-small: 0.8rem;
+  --icon-size: 2rem;
+  --icon-size-small: 1.5rem;
 }
 
 body {
