@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Nav from "./nav/Nav";
-import About from "./about/About";
+import About from "./pages/about/About";
 import Skills from "./skills/Skills";
 import Projects from "./projects/Projects";
 import Hackathons from "./hackathons/Hackathons";
