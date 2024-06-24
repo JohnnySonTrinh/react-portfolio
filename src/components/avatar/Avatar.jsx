@@ -1,18 +1,11 @@
-import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types"; // Prop-types for typechecking of props
-import avatarImage from "../../assets/avatar-image.webp"; // Importing avatar image
-import "../../styles/avatar.css"; // Importing CSS for the avatar
+import React from "react";
+import PropTypes from "prop-types";
+import avatarImage from "../../assets/avatar-image.webp";
+import "../../styles/avatar.css";
+import { useAvatar } from "../../context/AvatarContext";
 
 const Avatar = ({ page }) => {
-  const [fadeIn, setFadeIn] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setFadeIn(true);
-    }, 100); // Delay to start animation
-
-    return () => clearTimeout(timer);
-  }, []);
+  const { fadeIn } = useAvatar();
 
   // Constructing class names based on the page prop
   const avatarClass = `avatar ${page} ${fadeIn ? "fade-in" : ""}`;
@@ -29,8 +22,7 @@ const Avatar = ({ page }) => {
 
 // Defining propTypes for the Avatar component
 Avatar.propTypes = {
-  page: PropTypes.string.isRequired, // page prop is required and should be a string
+  page: PropTypes.string.isRequired,
 };
 
-// Exporting the Avatar component
 export default Avatar;
