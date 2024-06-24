@@ -5,6 +5,7 @@
   --blue: #3627b1;
   --cyan: #25afce;
   --white: #ffffff;
+  --wheat: #f5deb3;
   --grey: rgb(211, 211, 211);
   --transparent: #00000000;
   --radius-left: 3rem 0 0 3rem;
@@ -18,7 +19,7 @@
 
 body {
   font-family: "Russo One", sans-serif;
-  color: white;
+  color: var(--white);
   -webkit-tap-highlight-color: transparent;
 }
 

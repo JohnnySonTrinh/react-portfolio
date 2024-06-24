@@ -67,7 +67,7 @@
 }
 
 .link-container a {
-  color: white;
+  color: var(--white);
   text-decoration: none;
   margin-top: 1rem;
   width: 50%;

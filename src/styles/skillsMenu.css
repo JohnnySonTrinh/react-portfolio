@@ -92,10 +92,10 @@
 .note {
   width: 60%;
   border-radius: 0.5rem;
-  border: wheat 1px solid;
+  border: var(--wheat) 1px solid;
   text-align: center;
   font-size: 1rem;
-  color: wheat;
+  color: var(--wheat);
   margin-top: 1rem;
   padding: 0 0.5rem 0 0.5rem;
 }
@@ -108,12 +108,12 @@
   background: none;
   border: none;
   font-size: 1rem;
-  color: wheat;
+  color: var(--wheat);
   cursor: pointer;
 }
 
 .close-note:hover {
-  color: white;
+  color: var(--white);
   background-image: linear-gradient(90deg, #ffffff00, #f5deb3c0 50%, #ffffff00);
 }
 

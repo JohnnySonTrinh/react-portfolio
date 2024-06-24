@@ -27,7 +27,7 @@
 .hamburger-menu .bar {
   width: 25px;
   height: 3px;
-  background-color: white;
+  background-color: var(--white);
   transition: all 0.3s ease;
 }
 
@@ -73,14 +73,14 @@ a {
 /* Title above the icon */
 .nav-title {
   font-size: 0.7rem;
-  color: grey;
+  color: var(--grey);
   cursor: default;
 }
 
 /* Title below the icon when active */
 .page-title {
   font-size: 0.8rem;
-  color: white;
+  color: var(--white);
   cursor: default;
 }
 
