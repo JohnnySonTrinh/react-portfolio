@@ -2,6 +2,8 @@
   position: fixed;
   overflow: hidden;
   z-index: -2;
+  opacity: 0; /* Start with 0 opacity for animation */
+  transition: opacity 2s ease-out; /* Smooth transition */
 }
 
 .avatar.about {
@@ -29,6 +31,10 @@
     rgba(255, 255, 255, 0)
   );
   z-index: -1;
+}
+
+.avatar.fade-in {
+  opacity: 1; /* End with full opacity */
 }
 
 @media (max-width: 1024px) {

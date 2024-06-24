@@ -18,7 +18,7 @@ export const PlayerStatsProvider = ({ children }) => {
       // Update the bar width based on the age
       const newBarWidth = `${8.75 + newAge * 0.1}rem`;
       setBarWidth(newBarWidth);
-    }, 1000); // Check every second to ensure it updates real-time (optional)
+    });
 
     return () => clearInterval(interval);
   }, []);
