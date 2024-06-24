@@ -1,15 +1,15 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { calculateAge, BIRTHDAY } from "../components/playerStats/playerData";
 
-const CurrentUserContext = createContext();
+const PlayerStatsContext = createContext();
 
-export const useCurrentUser = () => {
-  return useContext(CurrentUserContext);
+export const usePlayerStats = () => {
+  return useContext(PlayerStatsContext);
 };
 
-export const CurrentUserProvider = ({ children }) => {
+export const PlayerStatsProvider = ({ children }) => {
   const [age, setAge] = useState(calculateAge(BIRTHDAY));
-  const [barWidth, setBarWidth] = useState("8.75rem");
+  const [barWidth, setBarWidth] = useState("0"); // Start with 0 width for animation
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -23,9 +23,18 @@ export const CurrentUserProvider = ({ children }) => {
     return () => clearInterval(interval);
   }, []);
 
+  // Trigger animation on component mount
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setBarWidth(`${8.75 + age * 0.1}rem`);
+    }, 500); // Delay to start animation
+
+    return () => clearTimeout(timer);
+  }, [age]);
+
   return (
-    <CurrentUserContext.Provider value={{ age, barWidth }}>
+    <PlayerStatsContext.Provider value={{ age, barWidth }}>
       {children}
-    </CurrentUserContext.Provider>
+    </PlayerStatsContext.Provider>
   );
 };

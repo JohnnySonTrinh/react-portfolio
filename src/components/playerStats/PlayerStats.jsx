@@ -3,10 +3,10 @@ import "../../styles/playerStats.css";
 import Linkedin from "../../assets/linkedin.png";
 import Github from "../../assets/github.png";
 import { LINKEDIN_URL, GITHUB_URL } from "./playerData";
-import { useCurrentUser } from "../../context/CurrentUserContext";
+import { usePlayerStats } from "../../context/PlayerStatsContext";
 
 const PlayerStats = () => {
-  const { age, barWidth } = useCurrentUser();
+  const { age, barWidth } = usePlayerStats();
 
   return (
     <section id="playerStats" role="contentinfo">

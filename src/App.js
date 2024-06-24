@@ -2,20 +2,20 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Nav from "./nav/Nav";
 import About from "./pages/about/About";
-import Skills from "./skills/Skills";
-import Projects from "./projects/Projects";
-import Hackathons from "./hackathons/Hackathons";
-import Contact from "./contact/Contact";
+import Skills from "./skills/Skills"; // Placeholder, to be moved later
+import Projects from "./projects/Projects"; // Placeholder, to be moved later
+import Hackathons from "./hackathons/Hackathons"; // Placeholder, to be moved later
+import Contact from "./contact/Contact"; // Placeholder, to be moved later
 import "./styles/app.css";
-import Background from "./background/Background";
+import Background from "./background/Background"; // Placeholder, to be moved later
 import PlayerStats from "./components/playerStats/PlayerStats";
-import { CurrentUserProvider } from "./context/CurrentUserContext";
+import { PlayerStatsProvider } from "./context/PlayerStatsContext";
 
 // Main App component
 const App = () => {
   // Rendering the App component
   return (
-    <CurrentUserProvider>
+    <PlayerStatsProvider>
       <Router>
         <Nav />
         <Background />
@@ -28,7 +28,7 @@ const App = () => {
         </Routes>
         <PlayerStats />
       </Router>
-    </CurrentUserProvider>
+    </PlayerStatsProvider>
   );
 };
 
