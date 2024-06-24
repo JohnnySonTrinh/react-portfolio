@@ -1,12 +1,21 @@
-// Importing required modules and assets
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types"; // Prop-types for typechecking of props
-import avatarImage from "../assets/avatar-image.webp"; // Importing avatar image
-import "../styles/avatar.css"; // Importing CSS for the avatar
+import avatarImage from "../../assets/avatar-image.webp"; // Importing avatar image
+import "../../styles/avatar.css"; // Importing CSS for the avatar
 
-// Avatar component
 const Avatar = ({ page }) => {
+  const [fadeIn, setFadeIn] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setFadeIn(true);
+    }, 100); // Delay to start animation
+
+    return () => clearTimeout(timer);
+  }, []);
+
   // Constructing class names based on the page prop
-  const avatarClass = `avatar ${page}`;
+  const avatarClass = `avatar ${page} ${fadeIn ? "fade-in" : ""}`;
   const spanClass = `shadow-overlay-${page}`;
 
   // Returning the Avatar component
