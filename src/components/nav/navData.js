@@ -1,8 +1,8 @@
-import astronautHelmet from "../assets/astronaut-helmet.png";
-import deadEye from "../assets/dead-eye.png";
-import stack from "../assets/stack.png";
-import global from "../assets/global.png";
-import envelope from "../assets/envelope.png";
+import astronautHelmet from "../../assets/astronaut-helmet.png";
+import deadEye from "../../assets/dead-eye.png";
+import stack from "../../assets/stack.png";
+import global from "../../assets/global.png";
+import envelope from "../../assets/envelope.png";
 
 // Navigation data array containing information about each navigation item
 const navData = [

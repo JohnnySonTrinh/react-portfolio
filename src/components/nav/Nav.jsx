@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import navData from "./navData";
-import NavMenu from "./navMenu";
+import NavMenu from "./NavMenu";
 import HamburgerMenu from "./HamburgerMenu";
-import "../styles/nav.css";
+import "../../styles/nav.css";
 import { useLocation } from "react-router-dom";
 
 // Nav component to render the navigation bar
-export default function Nav() {
+const Nav = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
 
@@ -42,4 +42,6 @@ export default function Nav() {
       </div>
     </nav>
   );
-}
+};
+
+export default Nav;
