@@ -5,7 +5,7 @@ import About from "./pages/about/About";
 import Skills from "./skills/Skills";
 import Projects from "./projects/Projects";
 import Hackathons from "./hackathons/Hackathons";
-import Contact from "./contact/Contact";
+import Contact from "./pages/contact/Contact";
 import "./styles/app.css";
 import Background from "./components/background/Background";
 import PlayerStats from "./components/playerStats/PlayerStats";
