@@ -1,8 +1,7 @@
-// Importing necessary modules and assets
-import React from "react" // React library for building user interfaces
-import "../styles/background.css" // CSS styles for the background
-import video from "../assets/bg-universe.mp4" // Video file for the background
-import fallbackImage from "../assets/fallback-image.webp" // Fallback image in case the video doesn't load
+import React from "react";
+import "../../styles/background.css";
+import video from "../../assets/bg-universe.mp4";
+import fallbackImage from "../../assets/fallback-image.webp";
 
 // Background component
 const Background = () => {
@@ -22,7 +21,8 @@ const Background = () => {
         <source src={video} type="video/mp4"></source>
       </video>
     </>
-  )
-}
+  );
+};
+
 // Exporting the Background component
-export default Background
+export default Background;
