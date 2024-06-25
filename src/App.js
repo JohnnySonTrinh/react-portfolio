@@ -7,7 +7,7 @@ import Projects from "./projects/Projects";
 import Hackathons from "./hackathons/Hackathons";
 import Contact from "./contact/Contact";
 import "./styles/app.css";
-import Background from "./background/Background";
+import Background from "./components/background/Background";
 import PlayerStats from "./components/playerStats/PlayerStats";
 import { PlayerStatsProvider } from "./context/PlayerStatsContext";
 import { AvatarProvider } from "./context/AvatarContext";
