@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /private/
+Allow: /public/
+Allow: /assets/
+
+Sitemap: https://johnnytrinh.se/sitemap.xml
