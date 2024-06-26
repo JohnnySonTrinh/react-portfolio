@@ -18,6 +18,18 @@
   background-color: rgba(0, 0, 0, 0.4);
 }
 
+#bg::-webkit-media-controls {
+  display: none !important;
+}
+
+#bg::-webkit-media-controls-enclosure {
+  display: none !important;
+}
+
+#bg::-webkit-media-controls-play-button {
+  display: none !important;
+}
+
 @media (max-width: 1024px) {
   .shadow-overlay {
     background-color: rgba(0, 0, 0, 0.7);
