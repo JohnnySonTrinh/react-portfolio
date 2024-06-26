@@ -6,8 +6,8 @@ const AboutMenuItem = ({ title, active, onClick }) => {
     <div
       className={classNames("item", { active })}
       onClick={onClick}
-      role="button"
-      aria-pressed={active}
+      role="menuitem"
+      aria-current={active ? "page" : undefined}
       tabIndex="0"
       onKeyPress={(e) => {
         if (e.key === "Enter" || e.key === " ") {

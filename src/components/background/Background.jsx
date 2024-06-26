@@ -5,25 +5,24 @@ import fallbackImage from "../../assets/fallback-image.webp";
 
 // Background component
 const Background = () => {
-  // Rendering the Background component
   return (
     <>
-      <div className="shadow-overlay"></div>
+      <div className="shadow-overlay" aria-hidden="true"></div>
       <video
         playsInline
         autoPlay
-        autoplay="autoplay"
         muted
         loop
         preload="auto"
         id="bg"
         poster={fallbackImage}
+        aria-label="Background video"
       >
         <source src={video} type="video/mp4" />
+        Your browser does not support the video tag.
       </video>
     </>
   );
 };
 
-// Exporting the Background component
 export default Background;
