@@ -11,6 +11,7 @@ import "./styles/app.css";
 import PlayerStats from "./components/playerStats/PlayerStats";
 import { PlayerStatsProvider } from "./context/PlayerStatsContext";
 import { AvatarProvider } from "./context/AvatarContext";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 // Main App component
 const App = () => {
@@ -28,6 +29,7 @@ const App = () => {
             <Route path="/contact" element={<Contact />} />
           </Routes>
           <PlayerStats />
+          <SpeedInsights />
         </AvatarProvider>
       </Router>
     </PlayerStatsProvider>
