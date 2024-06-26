@@ -25,7 +25,7 @@ const Nav = () => {
   const pageTitle = getPageTitle();
 
   return (
-    <nav className={`nav ${navPositionClass} ${menuOpen ? 'menu-open' : ''}`}>
+    <nav className={`nav ${navPositionClass} ${menuOpen ? 'menu-open' : ''}`} aria-label="Main Navigation">
       <HamburgerMenu isOpen={menuOpen} toggleMenu={toggleMenu} />
       <div className="nav-links">
         {navData.map(item => (
