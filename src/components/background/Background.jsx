@@ -12,13 +12,14 @@ const Background = () => {
       <video
         playsInline
         autoPlay
+        autoplay="autoplay"
         muted
         loop
         preload="auto"
         id="bg"
         poster={fallbackImage}
       >
-        <source src={video} type="video/mp4"></source>
+        <source src={video} type="video/mp4" />
       </video>
     </>
   );

@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Background from "./components/background/Background";
 import Nav from "./components/nav/Nav";
 import About from "./pages/about/About";
 import Skills from "./skills/Skills";
@@ -7,7 +8,6 @@ import Projects from "./projects/Projects";
 import Hackathons from "./hackathons/Hackathons";
 import Contact from "./pages/contact/Contact";
 import "./styles/app.css";
-import Background from "./components/background/Background";
 import PlayerStats from "./components/playerStats/PlayerStats";
 import { PlayerStatsProvider } from "./context/PlayerStatsContext";
 import { AvatarProvider } from "./context/AvatarContext";
@@ -18,8 +18,8 @@ const App = () => {
     <PlayerStatsProvider>
       <Router>
         <AvatarProvider>
-          <Nav />
           <Background />
+          <Nav />
           <Routes>
             <Route path="/" element={<About />} />
             <Route path="/skills" element={<Skills />} />
