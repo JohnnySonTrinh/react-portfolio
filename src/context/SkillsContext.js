@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from "react";
-import skillsData, { shuffleLevels } from "../skills/skillsData";
+import skillsData, { shuffleLevels } from "../pages/skills/skillsData";
 
 const SkillsContext = createContext();
 
