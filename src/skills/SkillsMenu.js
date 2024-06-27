@@ -1,13 +1,10 @@
-// Importing necessary modules and assets
-import React, { Component } from "react"; // React library for building user interfaces
-import classNames from "classnames"; // A simple utility for conditionally joining classNames together
-import "../styles/skillsMenu.css"; // CSS styles for the SkillsMenu component
-import frontendIcon from "../assets/eagle-emblem.png"; // Frontend icon
-import backendIcon from "../assets/hawk-emblem.png"; // Backend icon
+import React, { Component } from "react";
+import classNames from "classnames";
+import "../styles/skillsMenu.css";
+import frontendIcon from "../assets/eagle-emblem.png";
+import backendIcon from "../assets/hawk-emblem.png";
 
-// SkillsMenu component
 export default class SkillsMenu extends Component {
-  // Constructor for the SkillsMenu component
   constructor(props) {
     super(props);
     this.state = {
@@ -16,7 +13,6 @@ export default class SkillsMenu extends Component {
     };
   }
 
-  // Function to handle the menu item click
   handleMenuItemClick = (menuItem) => {
     this.setState({
       activeMenuItem: menuItem,
@@ -24,12 +20,10 @@ export default class SkillsMenu extends Component {
     this.props.onCategoryChange(menuItem);
   };
 
-  // Function to handle closing the note
   handleCloseNote = () => {
     this.setState({ showNote: false });
   };
 
-  // Function to render the content
   renderContent = (skills) => {
     return skills.map((skill, index) => (
       <div
@@ -44,6 +38,7 @@ export default class SkillsMenu extends Component {
               className={`level-point ${
                 i < skill.level ? "filled" : "unfilled"
               }`}
+              style={{ animationDelay: `${i * 0.2}s` }} // Add delay to each bar
             />
           ))}
         </div>
@@ -55,11 +50,10 @@ export default class SkillsMenu extends Component {
   render() {
     const { activeMenuItem, showNote } = this.state;
     const menuItems = ["FRONT-END", "BACK-END"];
-
     const currentIcon = activeMenuItem === 1 ? frontendIcon : backendIcon;
 
     return (
-      <div className="skill-menu">
+      <div className="skill-menu" key={activeMenuItem}>
         {menuItems.map((item, index) => (
           <div
             key={index}
