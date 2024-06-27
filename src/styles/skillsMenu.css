@@ -69,13 +69,55 @@
   width: 3rem;
   height: 2rem;
   border-radius: 0.2rem;
+  opacity: 0;
+}
+
+/* Define the keyframe animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Define the keyframe animation for the wave effect */
+@keyframes wave {
+  0% {
+    opacity: 0;
+    background-position: 0 0;
+  }
+  25% {
+    box-shadow: rgba(255, 255, 255, 0.3) 0px 5px 15px;
+    background-position: 0 0;
+  }
+  50% {
+    box-shadow: rgba(245, 222, 179, 0.3) 0px 5px 15px;
+    background-position: 0 0;
+  }
+  75% {
+    box-shadow: rgba(255, 255, 255, 0.3) 0px 5px 15px;
+    background-position: 0 0;
+  }
+  100% {
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 15px;
+    background-position: 0 0;
+  }
+}
+
+.filled,
+.unfilled {
+  animation: wave 5s ease-in infinite, fadeIn 5s ease-out forwards;
 }
 
 .filled {
   background: linear-gradient(180deg, #236473, #25afce, #7ce7ff);
 }
+
 .unfilled {
   background: linear-gradient(180deg, #1c8298, #074654, #074654);
+  animation: fadeIn 10s ease-out forwards;
 }
 
 .skill-sub-container {
