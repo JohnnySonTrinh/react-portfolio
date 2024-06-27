@@ -27,6 +27,28 @@ a {
   text-decoration: none;
 }
 
+@keyframes breath {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+button,
+.class-sub-container a,
+.project-item,
+.skill-item,
+.item:not(.active),
+.sub-container-2:not(.active-subheading),
+.sub-container-3:not(.active-subheading) {
+  transition: background-image 0.1s ease-in-out;
+}
+
 button:hover,
 .class-sub-container a:hover,
 .project-item:hover,
@@ -35,6 +57,7 @@ button:hover,
 .sub-container-2:not(.active-subheading):hover,
 .sub-container-3:not(.active-subheading):hover {
   background-image: linear-gradient(90deg, #ffffff00, #f5deb3c0 50%, #ffffff00);
+  animation: breath 2.5s infinite;
 }
 
 @media (max-width: 1024px) {
