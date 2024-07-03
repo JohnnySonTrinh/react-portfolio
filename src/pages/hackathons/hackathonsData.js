@@ -1,11 +1,10 @@
-// Importing necessary assets
-import hackathonOne from "../assets/hackathon-1.webp"; // Image for the first hackathon
-import hackathonTwo from "../assets/hackathon-2.webp"; // Image for the second hackathon
-import hackathonThree from "../assets/hackathon-3.webp"; // Image for the third hackathon
+import hackathonOne from "../../assets/hackathon-1.webp"; // Image for the first hackathon
+import hackathonTwo from "../../assets/hackathon-2.webp"; // Image for the second hackathon
+import hackathonThree from "../../assets/hackathon-3.webp"; // Image for the third hackathon
 
-// Object containing data for the hackathons
-const hackathons = {
-  1: {
+// Array containing data for the hackathons
+const hackathons = [
+  {
     title: "TEAM: Quizmas Elves",
     image: hackathonOne,
     description: (
@@ -17,9 +16,9 @@ const hackathons = {
       </>
     ),
     github: "https://github.com/ogc1231/festive-quiz-game",
-    Demo: "https://ogc1231.github.io/festive-quiz-game/",
+    demo: "https://ogc1231.github.io/festive-quiz-game/",
   },
-  2: {
+  {
     title: "TEAM: Fund Frontier",
     image: hackathonTwo,
     description: (
@@ -32,9 +31,9 @@ const hackathons = {
       </>
     ),
     github: "https://github.com/sean-meade/fund-frontier",
-    Demo: "https://fund-frontier.vercel.app",
+    demo: "https://fund-frontier.vercel.app",
   },
-  3: {
+  {
     title: "TEAM: Cupid Helper",
     image: hackathonThree,
     description: (
@@ -46,9 +45,9 @@ const hackathons = {
       </>
     ),
     github: "",
-    Demo: "",
+    demo: "",
   },
-};
+];
 
 // Exporting the hackathons data
 export default hackathons;
