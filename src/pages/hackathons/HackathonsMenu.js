@@ -6,10 +6,18 @@ import "../../styles/hackathonsMenu.css";
 // HackathonsMenu component
 const HackathonsMenu = () => {
   const [activeHackathon, setActiveHackathon] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
+  const hackathonsPerPage = 3; // Number of hackathons per page
 
-  // Event handler for clicking a hackathon item
-  const handleHackathonClick = (hackathonIndex) => {
-    setActiveHackathon(hackathonIndex);
+  // Function to handle the hackathon click
+  const handleHackathonClick = (hackathon) => {
+    setActiveHackathon(hackathon);
+  };
+
+  // Function to handle page change
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    setActiveHackathon((page - 1) * hackathonsPerPage + 1);
   };
 
   // Method for rendering the content of the hackathons
@@ -35,26 +43,49 @@ const HackathonsMenu = () => {
     );
   };
 
-  const hackathonItems = ["DEC 2023", "JAN 2024", "FEB 2024"];
+  const hackathonItems = hackathons.slice(
+    (currentPage - 1) * hackathonsPerPage,
+    currentPage * hackathonsPerPage
+  );
   const activeHackathonData = hackathons[activeHackathon - 1];
+  const totalPages = Math.ceil(hackathons.length / hackathonsPerPage);
 
   return (
     <div className="hackathon-menu">
       <div className="hackathon-items-container">
-        {hackathonItems.map((item, index) => (
+        {hackathonItems.map((hackathon, index) => (
           <div
             key={index}
             className={classNames("hackathon-item", {
-              activeHackathon: activeHackathon === index + 1,
+              activeHackathon:
+                activeHackathon ===
+                index + 1 + (currentPage - 1) * hackathonsPerPage,
             })}
-            onClick={() => handleHackathonClick(index + 1)}
+            onClick={() =>
+              handleHackathonClick(
+                index + 1 + (currentPage - 1) * hackathonsPerPage
+              )
+            }
           >
-            <h2 className="title">{item}</h2>
+            <h2 className="title">{hackathon.title}</h2>
           </div>
         ))}
       </div>
       <div className="hackathon-sub-container">
         {renderContent(activeHackathonData)}
+        <div className="pagination">
+          {Array.from({ length: totalPages }, (_, index) => (
+            <button
+              key={index}
+              className={classNames("pagination-button", {
+                activePage: currentPage === index + 1,
+              })}
+              onClick={() => handlePageChange(index + 1)}
+            >
+              {index + 1}
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );
