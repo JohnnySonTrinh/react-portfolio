@@ -1,11 +1,10 @@
-import hackathonOne from "../../assets/hackathon-1.webp"; // Image for the first hackathon
-import hackathonTwo from "../../assets/hackathon-2.webp"; // Image for the second hackathon
-import hackathonThree from "../../assets/hackathon-3.webp"; // Image for the third hackathon
+import hackathonOne from "../../assets/hackathon-1.webp";
+import hackathonTwo from "../../assets/hackathon-2.webp";
+import hackathonThree from "../../assets/hackathon-3.webp";
 
-// Array containing data for the hackathons
 const hackathons = [
   {
-    title: "TEAM: Quizmas Elves",
+    title: "12 Days of Quizmas",
     image: hackathonOne,
     description: (
       <>
@@ -19,7 +18,7 @@ const hackathons = [
     demo: "https://ogc1231.github.io/festive-quiz-game/",
   },
   {
-    title: "TEAM: Fund Frontier",
+    title: "Fund Frontier",
     image: hackathonTwo,
     description: (
       <>
@@ -34,7 +33,7 @@ const hackathons = [
     demo: "https://fund-frontier.vercel.app",
   },
   {
-    title: "TEAM: Cupid Helper",
+    title: "Cupid's Helpers",
     image: hackathonThree,
     description: (
       <>
@@ -49,5 +48,4 @@ const hackathons = [
   },
 ];
 
-// Exporting the hackathons data
 export default hackathons;
