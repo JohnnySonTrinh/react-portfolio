@@ -27,7 +27,7 @@
 }
 
 .hackathon-item.activeHackathon .title {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .activeHackathon {
@@ -84,7 +84,21 @@
   justify-content: space-around;
 }
 
-@media (max-width: 1100px) {
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination-button {
+  padding: 10px;
+  margin: 0 5px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+@media (max-width: 1024px) {
   .hackathon-menu {
     width: 28rem;
     top: 20%;
@@ -101,7 +115,7 @@
     font-size: 0.8rem;
   }
 }
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   .hackathon-menu {
     width: 28rem;
     flex-direction: column;
@@ -125,18 +139,4 @@
   .hackathon-items-container {
     margin-top: 0;
   }
-}
-
-.pagination {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.pagination-button {
-  padding: 10px;
-  margin: 0 5px;
-  cursor: pointer;
-  border: none;
-  background-color: transparent;
 }
