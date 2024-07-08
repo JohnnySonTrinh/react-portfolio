@@ -29,8 +29,13 @@ const HackathonsMenu = () => {
     return (
       <div className={`hackathon-sub-container-${activeHackathon}`}>
         <h3>{hackathon.title}</h3>
-        <img src={hackathon.image} alt={hackathon.title}></img>
-        <div>{hackathon.description}</div>
+        <div className="image-container">
+          <img src={hackathon.image} alt={hackathon.title}></img>
+          <div className="hover-description">
+            {hackathon.description.props.children[1]}
+          </div>
+        </div>
+        <div>{hackathon.description.props.children[0]}</div>
         <div className="link-container">
           <a href={hackathon.github} target="_blank" rel="noopener noreferrer">
             GITHUB
@@ -67,7 +72,7 @@ const HackathonsMenu = () => {
               )
             }
           >
-            <h2 className="title">{hackathon.title}</h2>
+            <h2 className="title">{hackathon.team}</h2>
           </div>
         ))}
       </div>
