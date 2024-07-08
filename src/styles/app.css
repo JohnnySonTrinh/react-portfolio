@@ -50,8 +50,10 @@ button,
 }
 
 button:hover,
+.link-container a:hover,
 .class-sub-container a:hover,
 .project-item:hover,
+.hackathon-item:hover,
 .skill-item:hover,
 .item:not(.active):hover,
 .sub-container-2:not(.active-subheading):hover,
