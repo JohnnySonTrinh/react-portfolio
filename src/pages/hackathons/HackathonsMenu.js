@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import classNames from "classnames";
 import hackathons from "./hackathonsData";
 import "../../styles/hackathonsMenu.css";
+import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 
 // HackathonsMenu component
 const HackathonsMenu = () => {
@@ -15,9 +16,15 @@ const HackathonsMenu = () => {
   };
 
   // Function to handle page change
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
-    setActiveHackathon((page - 1) * hackathonsPerPage + 1);
+  const handlePageChange = (direction) => {
+    const newPage = currentPage + direction;
+    if (
+      newPage > 0 &&
+      newPage <= Math.ceil(hackathons.length / hackathonsPerPage)
+    ) {
+      setCurrentPage(newPage);
+      setActiveHackathon((newPage - 1) * hackathonsPerPage + 1);
+    }
   };
 
   // Method for rendering the content of the hackathons
@@ -58,6 +65,14 @@ const HackathonsMenu = () => {
   return (
     <div className="hackathon-menu">
       <div className="hackathon-items-container">
+        <div className="pagination-button-container">
+          {currentPage > 1 && (
+            <FaChevronUp
+              className="pagination-button"
+              onClick={() => handlePageChange(-1)}
+            />
+          )}
+        </div>
         {hackathonItems.map((hackathon, index) => (
           <div
             key={index}
@@ -75,22 +90,17 @@ const HackathonsMenu = () => {
             <h2 className="title">{hackathon.team}</h2>
           </div>
         ))}
+        <div className="pagination-button-container">
+          {currentPage < totalPages && (
+            <FaChevronDown
+              className="pagination-button"
+              onClick={() => handlePageChange(1)}
+            />
+          )}
+        </div>
       </div>
       <div className="hackathon-sub-container">
         {renderContent(activeHackathonData)}
-        <div className="pagination">
-          {Array.from({ length: totalPages }, (_, index) => (
-            <button
-              key={index}
-              className={classNames("pagination-button", {
-                activePage: currentPage === index + 1,
-              })}
-              onClick={() => handlePageChange(index + 1)}
-            >
-              {index + 1}
-            </button>
-          ))}
-        </div>
       </div>
     </div>
   );
