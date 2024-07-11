@@ -17,6 +17,7 @@ const Background = () => {
         id="bg"
         poster={fallbackImage}
         aria-label="Background video"
+        className="scale-in bg-video"
       >
         <source src={video} type="video/mp4" />
         Your browser does not support the video tag.
