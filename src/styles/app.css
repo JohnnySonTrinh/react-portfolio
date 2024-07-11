@@ -1,5 +1,7 @@
+/* Importing Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
 
+/* Defining CSS variables (custom properties) for reuse throughout the stylesheet */
 :root {
   --purple: #540351;
   --blue: #3627b1;
@@ -18,26 +20,27 @@
   --border-radius: 0.5rem;
 }
 
+/* General styles for the body */
 body {
   font-family: "Russo One", sans-serif;
   color: var(--white);
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent; /* Removes the highlight color when tapping on an element */
 }
 
+/* Removing default text decoration for links */
 a {
   text-decoration: none;
 }
 
-button,
-.class-sub-container a,
-.project-item,
-.skill-item,
-.item:not(.active),
-.sub-container-2:not(.active-subheading),
-.sub-container-3:not(.active-subheading) {
-  transition: background-image 0.1s ease-in-out;
+/* Adding a breathing animation to active items */
+.item.active,
+.activeSkill,
+.activeProject,
+.activeHackathon {
+  animation: breath 3s infinite;
 }
 
+/* Hover effect with a gradient and breathing animation */
 button:hover,
 .link-container a:hover,
 .class-sub-container a:hover,
@@ -51,6 +54,7 @@ button:hover,
   animation: breath 2.5s infinite;
 }
 
+/* Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -95,6 +99,52 @@ button:hover,
   }
 }
 
+@keyframes scaleInOut {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+/* Animation classes for applying the keyframes */
+.scale-in {
+  animation: scaleIn 2s ease-in forwards;
+}
+
+.fade-in {
+  animation: fadeIn 2s ease-in;
+}
+
+.wave {
+  animation: wave 2s infinite;
+}
+
+.breath {
+  animation: breath 3s infinite;
+}
+
+.scale-in-out {
+  animation: scaleInOut 2s infinite;
+}
+
+/* Responsive styles for smaller screens */
 @media (max-width: 1024px) {
   h1 {
     font-size: 0.8rem;
