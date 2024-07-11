@@ -5,6 +5,7 @@ import "../../styles/projectsMenu.css";
 
 // ProjectsMenu component
 const ProjectsMenu = () => {
+  // State for the active project and current page
   const [activeProject, setActiveProject] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
   const projectsPerPage = 3; // Number of projects per page
@@ -27,7 +28,7 @@ const ProjectsMenu = () => {
     }
 
     return (
-      <div className={`project-sub-container-${activeProject}`}>
+      <div className={`project-sub-container-${activeProject} fade-in`}>
         <h3>{project.title}</h3>
         <img src={project.image} alt={project.title}></img>
         <div>{project.description}</div>
@@ -43,6 +44,7 @@ const ProjectsMenu = () => {
     );
   };
 
+  // Slicing projects to show only the projects for the current page
   const projectItems = projects.slice(
     (currentPage - 1) * projectsPerPage,
     currentPage * projectsPerPage
@@ -51,8 +53,9 @@ const ProjectsMenu = () => {
   const totalPages = Math.ceil(projects.length / projectsPerPage);
 
   return (
-    <div className="project-menu">
+    <div className="project-menu fade-in">
       <div className="project-items-container">
+        {/* Render project items */}
         {projectItems.map((project, index) => (
           <div
             key={index}
@@ -72,8 +75,10 @@ const ProjectsMenu = () => {
         ))}
       </div>
       <div className="project-sub-container">
+        {/* Render the active project content */}
         {renderContent(activeProjectData)}
         <div className="pagination">
+          {/* Render pagination buttons */}
           {Array.from({ length: totalPages }, (_, index) => (
             <button
               key={index}
