@@ -16,12 +16,8 @@ const hackathons = [
         </p>
         <p className="hover-description">
           This game is designed to test your knowledge about Christmas
-          traditions, history, songs, movies, and more. Challenge yourself or
-          play with friends and family to see who knows the most about the
-          festive season! Multiple-choice questions about various
-          Christmas-related topics. Interactive and user-friendly interface.
-          Scores and leaderboard to track performance. Levels or difficulty
-          settings for different player experiences.
+          traditions. Multiple-choice questions about various Christmas-related
+          topics.
         </p>
       </>
     ),
@@ -46,8 +42,8 @@ const hackathons = [
         </p>
       </>
     ),
-    github: "https://github.com/lucia2007/love-letter-generator",
-    demo: "https://lucia2007.github.io/love-letter-generator",
+    github: "https://github.com/EmilionR/jedi-blades-hackathon",
+    demo: "https://jedi-blades-786cf143833b.herokuapp.com",
   },
   {
     team: "Fund Frontier",
@@ -64,11 +60,7 @@ const hackathons = [
         <p className="hover-description">
           NPV Calculator designed to empower users in making informed investment
           decisions. This program facilitates the evaluation of the Net Present
-          Value (NPV) for up to three projects simultaneously, enabling a
-          comprehensive analysis of their financial viability. The Net Present
-          Value, a crucial financial metric, considers the time value of money
-          to assess the profitability of an investment by calculating the
-          present value of future cash flows.
+          Value (NPV) for up to three projects simultaneously.
         </p>
       </>
     ),
@@ -90,9 +82,6 @@ const hackathons = [
         <p className="hover-description">
           A Medication Reminder and Tracker app helps patients manage their
           medications, ensuring they take the right doses at the right times.
-          This can be crucial for patients with chronic conditions, those on
-          complex medication regimens, or elderly patients who might forget to
-          take their medications.
         </p>
       </>
     ),
@@ -106,8 +95,8 @@ const hackathons = [
     description: (
       <>
         <p>
-          A web application that helps users find the perfect gift for their
-          loved ones based on their personality and interests.
+          Fullstack developer with a work on every function on the site, focus
+          on design "about page" and mouse animation on landing page.
         </p>
         <p className="hover-description">
           A web application that helps users find the perfect gift for their
