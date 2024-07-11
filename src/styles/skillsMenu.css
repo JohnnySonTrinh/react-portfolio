@@ -1,3 +1,4 @@
+/* Styles for the skill menu */
 .skill-menu {
   width: 31.2rem;
   position: fixed;
@@ -6,8 +7,10 @@
   top: 30%;
   right: 15vw;
   align-items: flex-end;
+  animation: fadeIn 2s ease-in;
 }
 
+/* Styles for individual skill items */
 .skill-item {
   height: 3.7rem;
   width: 50%;
@@ -23,6 +26,7 @@
   padding-right: 4.5rem;
 }
 
+/* Styles for active skill items */
 .skill-item.activeSkill .skill-title {
   font-size: 1.5rem;
 }
@@ -39,20 +43,24 @@
   background: linear-gradient(270deg, #ffffff00, var(--blue) 70%);
 }
 
+/* Styles for skill icons */
 .skill-icon {
   width: 5rem;
   height: 5rem;
   position: absolute;
   top: 1.8rem;
   left: 8rem;
+  animation: fadeIn 2s ease-in;
 }
 
+/* Styles for skill sub-container headers */
 .skill-sub-container-1 h3,
 .skill-sub-container-2 h3 {
   position: relative;
   margin: 0;
 }
 
+/* Styles for skill sub-containers */
 .skill-sub-container-1,
 .skill-sub-container-2 {
   display: flex;
@@ -60,11 +68,13 @@
   gap: 2rem;
 }
 
+/* Styles for level container */
 .level-container {
   display: flex;
   gap: 0.3rem;
 }
 
+/* Styles for level points */
 .level-point {
   width: 3rem;
   height: 2rem;
@@ -72,6 +82,7 @@
   opacity: 0;
 }
 
+/* Animation classes for filled and unfilled level points */
 .filled,
 .unfilled {
   animation: wave 5s ease-in infinite, fadeIn 5s ease-out forwards;
@@ -85,6 +96,7 @@
   background: linear-gradient(180deg, #1c8298, #074654, #074654);
 }
 
+/* Styles for the main skill sub-container */
 .skill-sub-container {
   margin-top: 2rem;
   display: flex;
@@ -96,6 +108,7 @@
   font-size: 1.17em;
 }
 
+/* Styles for the note section */
 .note {
   width: 60%;
   border-radius: 0.5rem;
@@ -111,6 +124,7 @@
   margin-bottom: 0;
 }
 
+/* Styles for the close note button */
 .close-note {
   background: none;
   border: none;
@@ -124,6 +138,7 @@
   background-image: linear-gradient(90deg, #ffffff00, #f5deb3c0 50%, #ffffff00);
 }
 
+/* Responsive styles for screens with max-width of 1024px */
 @media (max-width: 1024px) {
   .skill-item.activeSkill .skill-title {
     font-size: 1rem;
@@ -167,6 +182,8 @@
     font-size: 1rem;
   }
 }
+
+/* Responsive styles for screens with max-width of 768px */
 @media (max-width: 768px) {
   .note {
     width: 30%;
