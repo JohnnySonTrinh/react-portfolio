@@ -75,6 +75,7 @@ a {
   font-size: 0.7rem;
   color: var(--grey);
   cursor: default;
+  animation: breath 3s ease-in-out infinite;
 }
 
 /* Title below the icon when active */

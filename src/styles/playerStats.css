@@ -50,6 +50,7 @@ h2 {
 
 .icons {
   width: var(--icon-size);
+  border-radius: var(--border-radius);
 }
 
 @media (max-width: 768px) {
