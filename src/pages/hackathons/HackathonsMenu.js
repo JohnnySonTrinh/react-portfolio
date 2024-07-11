@@ -17,13 +17,9 @@ const HackathonsMenu = () => {
 
   // Function to handle page change
   const handlePageChange = (direction) => {
-    const newPage = currentPage + direction;
-    if (
-      newPage > 0 &&
-      newPage <= Math.ceil(hackathons.length / hackathonsPerPage)
-    ) {
-      setCurrentPage(newPage);
-      setActiveHackathon((newPage - 1) * hackathonsPerPage + 1);
+    const newHackathon = activeHackathon + direction;
+    if (newHackathon > 0 && newHackathon <= hackathons.length) {
+      setActiveHackathon(newHackathon);
     }
   };
 
@@ -55,48 +51,46 @@ const HackathonsMenu = () => {
     );
   };
 
+  const startIndex = Math.max(0, activeHackathon - 2);
   const hackathonItems = hackathons.slice(
-    (currentPage - 1) * hackathonsPerPage,
-    currentPage * hackathonsPerPage
+    startIndex,
+    startIndex + hackathonsPerPage
   );
   const activeHackathonData = hackathons[activeHackathon - 1];
-  const totalPages = Math.ceil(hackathons.length / hackathonsPerPage);
 
   return (
-    <div className="hackathon-menu">
+    <div className="hackathon-menu fade-in">
       <div className="hackathon-items-container">
-        <div className="pagination-button-container">
-          {currentPage > 1 && (
-            <FaChevronUp
-              className="pagination-button"
-              onClick={() => handlePageChange(-1)}
-            />
-          )}
+        <div
+          className={`pagination-button-container ${
+            activeHackathon > 1 ? "visible" : ""
+          }`}
+        >
+          <FaChevronUp
+            className="pagination-button scale-in-out"
+            onClick={() => handlePageChange(-1)}
+          />
         </div>
         {hackathonItems.map((hackathon, index) => (
           <div
             key={index}
             className={classNames("hackathon-item", {
-              activeHackathon:
-                activeHackathon ===
-                index + 1 + (currentPage - 1) * hackathonsPerPage,
+              activeHackathon: activeHackathon === index + 1 + startIndex,
             })}
-            onClick={() =>
-              handleHackathonClick(
-                index + 1 + (currentPage - 1) * hackathonsPerPage
-              )
-            }
+            onClick={() => handleHackathonClick(index + 1 + startIndex)}
           >
             <h2 className="title">{hackathon.team}</h2>
           </div>
         ))}
-        <div className="pagination-button-container">
-          {currentPage < totalPages && (
-            <FaChevronDown
-              className="pagination-button"
-              onClick={() => handlePageChange(1)}
-            />
-          )}
+        <div
+          className={`pagination-button-container ${
+            activeHackathon < hackathons.length ? "visible" : ""
+          }`}
+        >
+          <FaChevronDown
+            className="pagination-button scale-in-out"
+            onClick={() => handlePageChange(1)}
+          />
         </div>
       </div>
       <div className="hackathon-sub-container">
