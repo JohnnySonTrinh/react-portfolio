@@ -1,7 +1,6 @@
-// Importing necessary modules and hooks
-import React, { useState } from "react"; // React library and useState hook
-import emailjs from "emailjs-com"; // EmailJS for sending emails
-import DOMPurify from "dompurify"; // DOMPurify for sanitizing HTML
+import React, { useState } from "react";
+import emailjs from "emailjs-com";
+import DOMPurify from "dompurify";
 
 // ContactMenu component
 export default function ContactMenu() {
@@ -98,7 +97,7 @@ export default function ContactMenu() {
 
   // Rendering the ContactMenu component
   return (
-    <div className="contact-menu">
+    <div className="contact-menu fade-in">
       {!isSent && (
         <form onSubmit={handleSubmit}>
           <h2>Contact Me</h2>

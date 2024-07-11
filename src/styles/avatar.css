@@ -1,9 +1,9 @@
+/* Base styles for the avatar */
 .avatar {
   position: fixed;
   overflow: hidden;
   z-index: -2;
   opacity: 0;
-  transition: opacity 4s ease-in;
 }
 
 .avatar.about {
@@ -20,6 +20,7 @@
   transform: translateX(0%) scaleX(-1);
 }
 
+/* Styles for the shadow overlay */
 .shadow-overlay-skills {
   height: 100vh;
   width: 100vh;
@@ -33,10 +34,12 @@
   z-index: -1;
 }
 
+/* Styles for the avatar image */
 .avatar.fade-in {
   opacity: 1;
 }
 
+/* Responsive styles for screens with max-width of 1024px */
 @media (max-width: 1024px) {
   .avatar.skills {
     z-index: -5;
