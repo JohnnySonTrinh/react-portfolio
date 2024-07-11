@@ -1,3 +1,4 @@
+/* Menu container */
 .menu {
   width: 19rem;
   position: fixed;
@@ -8,6 +9,7 @@
   left: 10vw;
 }
 
+/* Individual menu item */
 .item {
   height: 3.7rem;
   display: flex;
@@ -16,15 +18,18 @@
   cursor: pointer;
 }
 
+/* Title within each menu item */
 .title {
   font-size: 1rem;
   padding-right: 2.5rem;
 }
 
+/* Active menu item title size */
 .item.active .title {
   font-size: 1.5rem;
 }
 
+/* Sub-container for subheadings */
 .sub-container {
   width: 18.5rem;
   position: fixed;
@@ -35,10 +40,12 @@
   cursor: pointer;
 }
 
+/* Style for active subheading */
 .active-subheading {
   cursor: default;
 }
 
+/* Background gradient for active menu items */
 .item.active:nth-child(1) {
   background: linear-gradient(90deg, var(--transparent), var(--purple) 70%);
   border-radius: var(--radius-right);
@@ -52,12 +59,14 @@
   border-radius: var(--radius-right);
 }
 
+/* Border radius for active subheading titles */
 .sub-container-1.active-subheading h3,
 .sub-container-2.active-subheading h3,
 .sub-container-3.active-subheading h3 {
   border-radius: var(--radius-left);
 }
 
+/* Background gradient for active subheading titles */
 .sub-container-1.active-subheading h3 {
   background: linear-gradient(90deg, var(--purple), var(--transparent) 100%);
 }
@@ -68,20 +77,23 @@
   background: linear-gradient(90deg, var(--cyan), var(--transparent) 100%);
 }
 
+/* Default cursor and animation for active items */
 .item.active {
   cursor: default;
-  /* animation: breath 3s ease-in-out infinite; */
 }
 
+/* Container for subheading content, hidden by default */
 .p-container {
   display: none;
 }
 
+/* Show subheading content when active */
 .active-subheading .p-container {
   display: block;
   font-size: 1rem;
 }
 
+/* Container for icon and title */
 .icon-title-container {
   display: flex;
   gap: 1.2rem;
@@ -89,11 +101,13 @@
   cursor: default;
 }
 
+/* Icon style */
 .icon {
   width: 3rem;
   height: 3rem;
 }
 
+/* Subheading styles */
 .sub-container-1 h3,
 .sub-container-2 h3,
 .sub-container-3 h3 {
@@ -101,6 +115,7 @@
   padding: 0.5rem 0 0.5rem 1rem;
 }
 
+/* Media query for screens with max-width of 1024px */
 @media (max-width: 1024px) {
   .menu {
     width: 15rem;
@@ -129,6 +144,7 @@
   }
 }
 
+/* Media query for screens with max-width of 768px */
 @media (max-width: 768px) {
   .menu {
     width: 10rem;
@@ -144,7 +160,6 @@
   .title {
     font-size: 0.8rem;
   }
-
   .sub-container {
     width: 10rem;
     top: 40%;

@@ -7,7 +7,9 @@ import educationIcon from "../../assets/upgrade.png";
 import careerIcon from "../../assets/triple-corn.png";
 import { useAbout } from "../../context/AboutContext";
 
+// AboutMenu component
 const AboutMenu = () => {
+  // Extracting values and functions from the useAbout hook
   const {
     activeMenuItem,
     activeSubheading,
@@ -15,6 +17,7 @@ const AboutMenu = () => {
     handleSubheadingClick,
   } = useAbout();
 
+  // Defining menu items and icons based on the active menu item
   const menuItems = ["PERSONAL", "EDUCATION", "CAREER"];
   const activeMenuTitle = menuItems[activeMenuItem - 1];
   const activeMenuIcon =
@@ -24,11 +27,13 @@ const AboutMenu = () => {
       ? educationIcon
       : careerIcon;
 
+  // Getting the subheadings data for the active menu item
   const subheadings = subheadingsData[activeMenuItem];
 
   return (
     <>
-      <div className="menu" role="menu">
+      {/* Menu container with fade-in animation */}
+      <div className="menu fade-in" role="menu">
         {menuItems.map((item, index) => (
           <AboutMenuItem
             key={index}
@@ -38,7 +43,8 @@ const AboutMenu = () => {
           />
         ))}
       </div>
-      <div className="sub-container">
+      {/* Sub-container with fade-in animation */}
+      <div className="sub-container fade-in">
         <div className="icon-title-container">
           <img src={activeMenuIcon} alt={activeMenuTitle} className="icon" />
           <h3>{activeMenuTitle}</h3>
