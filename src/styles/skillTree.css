@@ -1,0 +1,61 @@
+.skill-tree-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  margin-top: 20vh;
+}
+
+.skill-tree-header {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--white);
+}
+
+.skill-tree-content {
+  display: flex;
+  justify-content: space-evenly;
+  width: 50%;
+}
+
+.skill-tree-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.skill-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  width: 5rem;
+  height: 5rem;
+  justify-content: center;
+}
+
+.skill-node i {
+  font-size: 2rem;
+  color: var(--white);
+}
+
+.skill-node-title {
+  font-size: 0.8rem;
+  color: var(--white);
+  text-align: center;
+}
+
+.skill-tree-column h2 {
+  margin-bottom: 1rem;
+  color: var(--white);
+  font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .skill-tree-content {
+    flex-direction: column;
+    align-items: center;
+  }
+}
