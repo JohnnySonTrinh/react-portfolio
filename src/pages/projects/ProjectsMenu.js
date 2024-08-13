@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import classNames from "classnames";
 import projects from "./projectsData";
 import "../../styles/projectsMenu.css";
+import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 
 // ProjectsMenu component
 const ProjectsMenu = () => {
@@ -16,9 +17,11 @@ const ProjectsMenu = () => {
   };
 
   // Function to handle page change
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
-    setActiveProject((page - 1) * projectsPerPage + 1);
+  const handlePageChange = (direction) => {
+    const newProject = activeProject + direction;
+    if (newProject > 0 && newProject <= projects.length) {
+      setActiveProject(newProject);
+    }
   };
 
   // Function to render the content
@@ -28,10 +31,15 @@ const ProjectsMenu = () => {
     }
 
     return (
-      <div className={`project-sub-container-${activeProject} fade-in`}>
+      <div className={`project-sub-container-${activeProject}`}>
         <h3>{project.title}</h3>
-        <img src={project.image} alt={project.title}></img>
-        <div>{project.description}</div>
+        <div className="image-container">
+          <img src={project.image} alt={project.title}></img>
+          <div className="hover-description">
+            {project.description.props.children[1]}
+          </div>
+        </div>
+        <div>{project.description.props.children[0]}</div>
         <div className="link-container">
           <a href={project.github} target="_blank" rel="noopener noreferrer">
             GITHUB
@@ -45,52 +53,47 @@ const ProjectsMenu = () => {
   };
 
   // Slicing projects to show only the projects for the current page
-  const projectItems = projects.slice(
-    (currentPage - 1) * projectsPerPage,
-    currentPage * projectsPerPage
-  );
+  const startIndex = Math.max(0, activeProject - 2);
+  const projectItems = projects.slice(startIndex, startIndex + projectsPerPage);
   const activeProjectData = projects[activeProject - 1];
-  const totalPages = Math.ceil(projects.length / projectsPerPage);
 
   return (
     <div className="project-menu fade-in">
       <div className="project-items-container">
-        {/* Render project items */}
+        <div
+          className={`pagination-button-container ${
+            activeProject > 1 ? "visible" : ""
+          }`}
+        >
+          <FaChevronUp
+            className="pagination-button scale-in-out"
+            onClick={() => handlePageChange(-1)}
+          />
+        </div>
         {projectItems.map((project, index) => (
           <div
             key={index}
             className={classNames("project-item", {
-              activeProject:
-                activeProject ===
-                index + 1 + (currentPage - 1) * projectsPerPage,
+              activeProject: activeProject === index + 1 + startIndex,
             })}
-            onClick={() =>
-              handleProjectClick(
-                index + 1 + (currentPage - 1) * projectsPerPage
-              )
-            }
+            onClick={() => handleProjectClick(index + 1 + startIndex)}
           >
             <h2 className="title">{project.title}</h2>
           </div>
         ))}
+        <div
+          className={`pagination-button-container ${
+            activeProject < projects.length ? "visible" : ""
+          }`}
+        >
+          <FaChevronDown
+            className="pagination-button scale-in-out"
+            onClick={() => handlePageChange(1)}
+          />
+        </div>
       </div>
       <div className="project-sub-container">
-        {/* Render the active project content */}
         {renderContent(activeProjectData)}
-        <div className="pagination">
-          {/* Render pagination buttons */}
-          {Array.from({ length: totalPages }, (_, index) => (
-            <button
-              key={index}
-              className={classNames("pagination-button", {
-                activePage: currentPage === index + 1,
-              })}
-              onClick={() => handlePageChange(index + 1)}
-            >
-              {index + 1}
-            </button>
-          ))}
-        </div>
       </div>
     </div>
   );
