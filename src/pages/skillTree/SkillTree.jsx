@@ -4,7 +4,7 @@ import "../../styles/skillTree.css";
 
 const SkillTree = () => {
   return (
-    <div className="skill-tree-container">
+    <div className="skill-tree-container fade-in">
       <div className="skill-tree-content">
         <div className="skill-tree-column">
           <h2>Frontend</h2>
