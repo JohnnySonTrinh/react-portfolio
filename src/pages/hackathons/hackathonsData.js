@@ -36,9 +36,9 @@ const hackathons = [
           role of co-scrum master.
         </p>
         <p className="hover-description">
-          This project involves creating a festive quiz game where users can
-          test their knowledge about Christmas traditions, history, songs,
-          movies, and more.
+          Star Wars-themed lightsaber encyclopedia where users can explore and
+          learn about different lightsabers, their history, and the characters
+          who wield them.
         </p>
       </>
     ),
