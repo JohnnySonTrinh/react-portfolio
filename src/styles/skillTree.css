@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   padding: 2rem;
-  margin-top: 20vh;
+  margin-top: 15vh;
 }
 
 .skill-tree-header {
@@ -31,8 +31,8 @@
   align-items: center;
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 0.5rem;
-  width: 5rem;
-  height: 5rem;
+  width: 4rem;
+  height: 4rem;
   justify-content: center;
 }
 
@@ -42,13 +42,14 @@
 }
 
 .skill-node-title {
-  font-size: 0.8rem;
+  margin-top: 0.2rem;
+  font-size: 0.6rem;
   color: var(--white);
   text-align: center;
 }
 
 .skill-tree-column h2 {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   color: var(--white);
   font-size: 1.5rem;
 }
