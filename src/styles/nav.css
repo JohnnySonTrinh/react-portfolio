@@ -6,6 +6,7 @@
   top: 3rem;
   gap: 1.5625rem;
   left: 50%;
+  transform: translateX(-50%);
   z-index: 2;
 }
 
@@ -42,7 +43,7 @@
   transform: translateY(-8px) rotate(-45deg);
 }
 
-/* Positioning classes for the nav items */
+/* Positioning classes for the nav items
 .nav-about {
   transform: translateX(-1.56rem);
 }
@@ -57,7 +58,7 @@
 }
 .nav-contact {
   transform: translateX(-18.62rem);
-}
+} */
 
 /* Styles for navigation links */
 a {
@@ -98,7 +99,7 @@ a {
   opacity: 1;
 }
 
-/* Responsive styles for screens with max-width of 1100px */
+/* Responsive styles for screens with max-width of 1024px */
 @media (max-width: 1024px) {
   .nav {
     left: 65%;
@@ -106,7 +107,7 @@ a {
   }
 }
 
-/* Responsive styles for screens with max-width of 700px */
+/* Responsive styles for screens with max-width of 768px */
 @media (max-width: 768px) {
   .hamburger-menu {
     display: flex;
