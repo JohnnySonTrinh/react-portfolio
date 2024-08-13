@@ -116,6 +116,7 @@ a {
   .nav-title {
     display: none;
   }
+
   .nav-links {
     display: none;
     flex-direction: column;
@@ -127,7 +128,8 @@ a {
   }
 
   .nav {
-    left: 1rem;
+    right: 1rem;
+    left: auto;
     top: 1rem;
     transform: translateX(0);
     flex-direction: column;
@@ -141,6 +143,7 @@ a {
   .nav-link img {
     width: 2rem;
   }
+
   .page-title {
     font-size: 0.5rem;
   }
