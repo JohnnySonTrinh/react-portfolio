@@ -8,7 +8,7 @@ const skills = {
     { title: "JavaScript", level: 5 },
     { title: "React", level: 4 },
     { title: "TypeScript", level: 4 },
-    { title: "Figma", level: 1 },
+    { title: "Figma", level: 3 },
   ],
   2: [
     { title: "Python", level: 6 },
@@ -40,4 +40,5 @@ export const shuffleLevels = (skills) => {
 
 // Export the shuffled skills data
 const shuffledSkills = shuffleLevels(skills);
+
 export default shuffledSkills;
