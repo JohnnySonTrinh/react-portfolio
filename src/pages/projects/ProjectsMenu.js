@@ -8,7 +8,6 @@ import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 const ProjectsMenu = () => {
   // State for the active project and current page
   const [activeProject, setActiveProject] = useState(1);
-  const [currentPage, setCurrentPage] = useState(1);
   const projectsPerPage = 3; // Number of projects per page
 
   // Function to handle the project click
