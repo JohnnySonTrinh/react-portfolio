@@ -30,7 +30,7 @@ const ProjectsMenu = () => {
     }
 
     return (
-      <div className={`project-sub-container-${activeProject}`}>
+      <div className={`project-sub-container-${activeProject} fade-in`}>
         <h3>{project.title}</h3>
         <div className="image-container">
           <img src={project.image} alt={project.title}></img>
@@ -91,7 +91,7 @@ const ProjectsMenu = () => {
           />
         </div>
       </div>
-      <div className="project-sub-container">
+      <div key={activeProject} className="project-sub-container fade-in">
         {renderContent(activeProjectData)}
       </div>
     </div>
