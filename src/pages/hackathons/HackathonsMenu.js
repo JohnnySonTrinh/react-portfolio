@@ -7,7 +7,6 @@ import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 // HackathonsMenu component
 const HackathonsMenu = () => {
   const [activeHackathon, setActiveHackathon] = useState(1);
-  const [currentPage, setCurrentPage] = useState(1);
   const hackathonsPerPage = 3; // Number of hackathons per page
 
   // Function to handle the hackathon click
