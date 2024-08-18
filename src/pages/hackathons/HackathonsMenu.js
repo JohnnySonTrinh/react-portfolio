@@ -29,7 +29,7 @@ const HackathonsMenu = () => {
     }
 
     return (
-      <div className={`hackathon-sub-container-${activeHackathon}`}>
+      <div className={`hackathon-sub-container-${activeHackathon} fade-in`}>
         <h3>{hackathon.title}</h3>
         <div className="image-container">
           <img src={hackathon.image} alt={hackathon.title}></img>
@@ -92,7 +92,7 @@ const HackathonsMenu = () => {
           />
         </div>
       </div>
-      <div className="hackathon-sub-container">
+      <div key={activeHackathon} className="hackathon-sub-container fade-in">
         {renderContent(activeHackathonData)}
       </div>
     </div>
