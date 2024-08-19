@@ -27,20 +27,28 @@
 }
 
 /* Styles for active skill items */
-.skill-item.activeSkill .skill-title {
+.skill-item.activeSkill .skill-title,
+.skill-item.activeCategory .skill-title {
   font-size: 1.5rem;
 }
 
-.activeSkill {
+.activeSkill,
+.activeCategory {
   border-radius: var(--radius-left);
   cursor: default;
 }
 
-.skill-item.activeSkill:nth-child(1) {
+.skill-item.activeSkill:nth-child(1),
+.skill-item.activeCategory:nth-child(1) {
   background: linear-gradient(270deg, #ffffff00, var(--purple) 70%);
 }
-.skill-item.activeSkill:nth-child(2) {
+.skill-item.activeSkill:nth-child(2),
+.skill-item.activeCategory:nth-child(2) {
   background: linear-gradient(270deg, #ffffff00, var(--blue) 70%);
+}
+.skill-item.activeSkill:nth-child(3),
+.skill-item.activeCategory:nth-child(3) {
+  background: linear-gradient(270deg, #ffffff00, var(--cyan) 70%);
 }
 
 /* Styles for skill icons */
@@ -55,14 +63,16 @@
 
 /* Styles for skill sub-container headers */
 .skill-sub-container-1 h3,
-.skill-sub-container-2 h3 {
+.skill-sub-container-2 h3,
+.skill-sub-container-3 h3 {
   position: relative;
   margin: 0;
 }
 
 /* Styles for skill sub-containers */
 .skill-sub-container-1,
-.skill-sub-container-2 {
+.skill-sub-container-2,
+.skill-sub-container-3 {
   display: flex;
   justify-content: right;
   gap: 2rem;
@@ -138,6 +148,48 @@
   background-image: linear-gradient(90deg, #ffffff00, #f5deb3c0 50%, #ffffff00);
 }
 
+.skill-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  width: 4rem;
+  height: 4rem;
+  justify-content: center;
+}
+
+.skills-grid-container-1,
+.skills-grid-container-2,
+.skills-grid-container-3 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  justify-items: center;
+  /* margin-top: 1.5rem; */
+}
+
+.skill-icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 8rem;
+  height: 8rem;
+}
+
+.skill-icon-container i {
+  font-size: 3rem;
+}
+
+.skill-icon-container h3 {
+  text-align: center;
+}
+
+.devicon {
+  color: var(--white) !important;
+}
+
 /* Responsive styles for screens with max-width of 1024px */
 @media (max-width: 1024px) {
   .skill-item.activeSkill .skill-title {
@@ -187,5 +239,14 @@
 @media (max-width: 768px) {
   .note {
     width: 30%;
+  }
+
+  .skill-icon-container {
+    background-color: rgba(0, 0, 0, 0);
+    animation: none;
+  }
+
+  .devicon {
+    color: var(--white);
   }
 }
