@@ -1,41 +1,28 @@
 import React from "react";
-import skillsData from "./skillsData";
-import "../../styles/skillTree.css";
+import Avatar from "../../components/avatar/Avatar";
+import SkillsMenu from "./SkillTreeMenu";
+import { SkillTreeProvider, useSkillTree } from "../../context/SkillTreeContext";
 
-const SkillTree = () => {
+const SkillTreeContent = () => {
+  const { skills, currentCategory, handleCategoryChange } = useSkillTree();
+
   return (
-    <div className="skill-tree-container fade-in">
-      <div className="skill-tree-content">
-        <div className="skill-tree-column">
-          <h2>Frontend</h2>
-          {skillsData.frontend.map((skill, index) => (
-            <div key={index} className="skill-node">
-              <i className={skill.icon}></i>
-              <div className="skill-node-title">{skill.title}</div>
-            </div>
-          ))}
-        </div>
-        <div className="skill-tree-column">
-          <h2>Backend</h2>
-          {skillsData.backend.map((skill, index) => (
-            <div key={index} className="skill-node">
-              <i className={skill.icon}></i>
-              <div className="skill-node-title">{skill.title}</div>
-            </div>
-          ))}
-        </div>
-        <div className="skill-tree-column">
-          <h2>Fullstack</h2>
-          {skillsData.fullstack.map((skill, index) => (
-            <div key={index} className="skill-node">
-              <i className={skill.icon}></i>
-              <div className="skill-node-title">{skill.title}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
+    <>
+      <Avatar page="skills" />
+      <SkillsMenu
+        skills={skills}
+        currentCategory={currentCategory}
+        onCategoryChange={handleCategoryChange}
+      />
+    </>
   );
 };
 
+const SkillTree = () => {
+  return (
+    <SkillTreeProvider>
+      <SkillTreeContent />
+    </SkillTreeProvider>
+  );
+};
 export default SkillTree;

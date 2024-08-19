@@ -38,7 +38,8 @@ a {
 .item.active,
 .activeSkill,
 .activeProject,
-.activeHackathon {
+.activeHackathon,
+.activeCategory {
   animation: breath 3s infinite;
 }
 
