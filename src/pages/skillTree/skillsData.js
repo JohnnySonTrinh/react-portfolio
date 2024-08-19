@@ -1,5 +1,5 @@
 const skillsData = {
-  frontend: [
+  1: [
     { title: "JavaScript", icon: "devicon-javascript-plain" },
     { title: "React", icon: "devicon-react-original" },
     { title: "HTML", icon: "devicon-html5-plain" },
@@ -10,7 +10,7 @@ const skillsData = {
     { title: "Figma", icon: "devicon-figma-plain" },
     { title: "Postman", icon: "devicon-postman-plain" },
   ],
-  backend: [
+  2: [
     { title: "Python", icon: "devicon-python-plain" },
     { title: "Django", icon: "devicon-django-plain" },
     { title: "DjangoREST", icon: "devicon-djangorest-plain" },
@@ -20,7 +20,7 @@ const skillsData = {
     { title: "MongoDB", icon: "devicon-mongodb-plain" },
     { title: "Express.js", icon: "devicon-express-original" },
   ],
-  fullstack: [
+  3: [
     { title: "Git", icon: "devicon-git-plain" },
     { title: "Github", icon: "devicon-github-original" },
     { title: "Heroku", icon: "devicon-heroku-original" },
