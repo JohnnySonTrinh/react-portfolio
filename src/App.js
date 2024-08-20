@@ -24,11 +24,11 @@ const App = () => {
           <Nav />
           <Routes>
             <Route path="/" element={<About />} />
-            <Route path="/skills" element={<Skills />} />
+            <Route path="/skills" element={<SkillTree />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/hackathons" element={<Hackathons />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/skilltree" element={<SkillTree />} />
+            <Route path="/stack" element={<Skills />} />
           </Routes>
           <PlayerStats />
           <SpeedInsights />
