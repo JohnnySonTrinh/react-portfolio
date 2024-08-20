@@ -35,7 +35,7 @@ export const SkillTreeProvider = ({ children }) => {
       <div className={`skills-grid-container-${currentCategory}`}>
         {skills.map((skill, index) => (
           <div key={index} className="skill-icon-container">
-            <i className={`devicon ${skill.icon} colored`} />
+            <i className={`devicon ${skill.icon}`} />
             <h3>{skill.title}</h3>
           </div>
         ))}
