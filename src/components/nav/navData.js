@@ -41,13 +41,6 @@ const navData = [
     navClass: "nav-contact",
     title: "CONTACT",
   },
-  {
-    to: "/skilltree",
-    imgSrc: deadEye,
-    altText: "deadEye Icon",
-    navClass: "nav-contact",
-    title: "Tree",
-  },
 ];
 
 export default navData;
