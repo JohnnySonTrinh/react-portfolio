@@ -5,16 +5,15 @@ const subheadingsData = {
       content: (
         <>
           <p>
-            Full Stack Developer with a solid grasp of front-end and back-end
-            technologies. My journey from a gaming coach to tech enthusiast has
-            equipped me with unique problem-solving skills and a eye for detail.
-            I specialize in creating responsive web applications.
+            Frontend Developer with a solid grasp of fullstack technologies. My
+            journey from a gaming coach to tech enthusiast has equipped me with
+            unique problem-solving skills and a eye for detail. I specialize in
+            creating responsive web applications.
           </p>
         </>
       ),
     },
   ],
-
   2: [
     {
       title: "2024 Full Stack Developer Diploma",
@@ -23,9 +22,9 @@ const subheadingsData = {
           <p>
             Code Institute, full spectrum of web development, from the
             fundamentals of HTML, CSS, and JavaScript to advanced topics in
-            Python, Django, and advanced front-end using React. The curriculum
+            Python, Django, and advanced frontend using React. The curriculum
             was structured to ensure a comprehensive understanding of both
-            front-end and back-end technologies, enabling me to build dynamic,
+            frontend and backend technologies, enabling me to build dynamic,
             responsive websites and applications from scratch.
           </p>
         </>
@@ -90,6 +89,6 @@ const subheadingsData = {
       ),
     },
   ],
-}
+};
 
-export default subheadingsData
+export default subheadingsData;
