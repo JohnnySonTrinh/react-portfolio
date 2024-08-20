@@ -9,6 +9,7 @@ const skillsData = {
     { title: "TypeScript", icon: "devicon-typescript-plain" },
     { title: "Figma", icon: "devicon-figma-plain" },
     { title: "Postman", icon: "devicon-postman-plain" },
+    { title: "Redux", icon: "devicon-redux-plain" },
   ],
   2: [
     { title: "Python", icon: "devicon-python-plain" },
@@ -18,7 +19,6 @@ const skillsData = {
     { title: "Next.js", icon: "devicon-nextjs-plain" },
     { title: "PostgreSQL", icon: "devicon-postgresql-plain" },
     { title: "MongoDB", icon: "devicon-mongodb-plain" },
-    { title: "Express.js", icon: "devicon-express-original" },
   ],
   3: [
     { title: "Git", icon: "devicon-git-plain" },
