@@ -130,13 +130,9 @@
 @media (max-width: 1024px) {
   .icon-with-title i {
     font-size: 1rem;
-    display: block;
-    margin-bottom: 0.5rem;
   }
   .icon-with-title h3 {
     font-size: 0.5rem;
-    color: var(--wheat);
-    text-align: center;
   }
   .project-menu {
     width: 28rem;
@@ -183,5 +179,8 @@
   }
   .title {
     font-size: 0.6rem;
+  }
+  .icon-with-title h3 {
+    font-size: 0.4rem;
   }
 }
