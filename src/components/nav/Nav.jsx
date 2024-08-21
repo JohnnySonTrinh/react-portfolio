@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import navData from "./navData";
 import NavMenu from "./NavMenu";
 import HamburgerMenu from "./HamburgerMenu";
@@ -15,20 +15,27 @@ const Nav = () => {
   };
 
   // Function to get the CSS class for the current page
-  const getNavPositionClass = () => navData.find(item => item.to === location.pathname)?.navClass || "";
+  const getNavPositionClass = () =>
+    navData.find((item) => item.to === location.pathname)?.navClass || "";
 
   // Function to get the title for the current page
-  const getPageTitle = () => navData.find(item => item.to === location.pathname)?.title || "";
+  const getPageTitle = () =>
+    navData.find((item) => item.to === location.pathname)?.title || "";
 
   // Determine the CSS class and page title based on the current route
   const navPositionClass = getNavPositionClass();
   const pageTitle = getPageTitle();
 
   return (
-    <nav className={`fade-in nav ${navPositionClass} ${menuOpen ? 'menu-open' : ''}`} aria-label="Main Navigation">
+    <nav
+      className={`fade-in nav ${navPositionClass} ${
+        menuOpen ? "menu-open" : ""
+      }`}
+      aria-label="Main Navigation"
+    >
       <HamburgerMenu isOpen={menuOpen} toggleMenu={toggleMenu} />
       <div className="nav-links">
-        {navData.map(item => (
+        {navData.map((item) => (
           <NavMenu
             key={item.to}
             to={item.to}
