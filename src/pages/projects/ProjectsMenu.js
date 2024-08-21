@@ -35,10 +35,18 @@ const ProjectsMenu = () => {
         <div className="image-container">
           <img src={project.image} alt={project.title}></img>
           <div className="hover-description">
-            {project.description.props.children[1]}
+            <h3>Tech Stack</h3>
+            <div className="tech-stack">
+              {project.techStack.map((tech, index) => (
+                <div key={index} className="icon-with-title">
+                  <i className={`devicon colored ${tech.icon}`}></i>
+                  <h3>{tech.title}</h3>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-        <div>{project.description.props.children[0]}</div>
+        <p>{project.description}</p>
         <div className="link-container">
           <a href={project.github} target="_blank" rel="noopener noreferrer">
             GITHUB
@@ -57,8 +65,8 @@ const ProjectsMenu = () => {
   const activeProjectData = projects[activeProject - 1];
 
   return (
-    <div className="project-menu fade-in">
-      <div className="project-items-container">
+    <div className="project-menu">
+      <div className="project-items-container fade-in">
         <div
           className={`pagination-button-container ${
             activeProject > 1 ? "visible" : ""
