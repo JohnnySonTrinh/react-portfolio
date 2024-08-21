@@ -1,7 +1,6 @@
-import React from "react";
-import Avatar from "../../components/avatar/Avatar"; // Correct path to Avatar.jsx
+import Avatar from "../../components/avatar/Avatar";
 import AboutMenu from "./AboutMenu";
-import { AboutProvider } from "../../context/AboutContext"; // Import AboutProvider
+import { AboutProvider } from "../../context/AboutContext";
 
 const About = () => {
   return (

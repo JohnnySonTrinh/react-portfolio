@@ -1,4 +1,3 @@
-import React from "react";
 import AboutMenuItem from "./AboutMenuItems";
 import AboutSubheading from "./AboutSubheading";
 import subheadingsData from "./subheadingsData";

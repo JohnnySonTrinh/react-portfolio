@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import classNames from "classnames";
+import { useState } from "react";
 import hackathons from "./hackathonsData";
 import "../../styles/hackathonsMenu.css";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
@@ -73,9 +72,11 @@ const HackathonsMenu = () => {
         {hackathonItems.map((hackathon, index) => (
           <div
             key={index}
-            className={classNames("hackathon-item", {
-              activeHackathon: activeHackathon === index + 1 + startIndex,
-            })}
+            className={`hackathon-item ${
+              activeHackathon === index + 1 + startIndex
+                ? "activeHackathon"
+                : ""
+            }`}
             onClick={() => handleHackathonClick(index + 1 + startIndex)}
           >
             <h2 className="title">{hackathon.team}</h2>

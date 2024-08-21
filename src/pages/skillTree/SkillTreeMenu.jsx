@@ -1,5 +1,4 @@
 import React from "react";
-import classNames from "classnames";
 import "../../styles/skillsMenu.css";
 import frontendIcon from "../../assets/eagle-emblem.png";
 import backendIcon from "../../assets/hawk-emblem.png";
@@ -14,13 +13,12 @@ const SkillTreeMenu = () => {
 
   return (
     <div className="skill-menu">
-      
         {menuItems.map((item, index) => (
           <div
             key={index}
-            className={classNames("skill-item", {
-              activeCategory: currentCategory === index + 1,
-            })}
+            className={`skill-item ${
+              currentCategory === index + 1 ? "activeCategory" : ""
+            }`}
             onClick={() => handleMenuItemClick(index + 1)}
           >
             <h2 className="skill-title">{item.toUpperCase()}</h2>

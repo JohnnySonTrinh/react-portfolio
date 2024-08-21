@@ -1,10 +1,9 @@
-import classNames from "classnames";
 import "../../styles/aboutMenu.css";
 
 const AboutMenuItem = ({ title, active, onClick }) => {
   return (
     <div
-      className={classNames("item", { active })}
+    className={`item ${active ? 'active' : ''}`}
       onClick={onClick}
       role="menuitem"
       aria-current={active ? "page" : undefined}
