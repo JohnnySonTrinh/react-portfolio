@@ -87,57 +87,57 @@
   justify-content: space-around;
 }
 
-/* Pagination buttons */
-.pagination {
-  display: flex;
-  justify-content: center;
-}
-
-.pagination-button {
-  cursor: pointer;
-  color: wheat;
-}
-
-.pagination-button-container {
-  display: flex;
-  justify-content: center;
-  visibility: hidden;
-}
-
-.pagination-button-container.visible {
-  visibility: visible;
-}
-
 .image-container {
   position: relative;
-  width: 100%;
+  height: inherit;
   overflow: hidden;
 }
 
+/* Hover Description watch hackthonsMenu to change*/
 .hover-description {
-  margin: 0;
-  display: flex;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: var(--wheat);
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  transition: opacity 0.5s;
-  border-radius: 0.5rem 3rem 0.5rem 0.5rem;
-  box-shadow: none;
-  opacity: 0;
+  flex-direction: column;
 }
 
-.image-container:hover .hover-description {
-  opacity: 1;
+.hover-description i {
+  font-size: 3rem;
+}
+
+.projects-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.tech-stack {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+  gap: 10px;
+}
+
+.icon-with-title i {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.icon-with-title h3 {
+  font-size: 0.8rem;
+  color: var(--wheat);
+  text-align: center;
 }
 
 @media (max-width: 1024px) {
+  .icon-with-title i {
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  .icon-with-title h3 {
+    font-size: 0.5rem;
+    color: var(--wheat);
+    text-align: center;
+  }
   .project-menu {
     width: 28rem;
     top: 20%;
