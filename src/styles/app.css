@@ -119,16 +119,16 @@ button:hover,
     transform: scale(1);
   }
   50% {
-    transform: scale(1.05);
+    transform: scale(1.5);
   }
   100% {
-    transform: scale(1.05);
+    transform: scale(1);
   }
 }
 
 /* Animation classes for applying the keyframes */
 .scale-in {
-  animation: scaleIn 2s ease-in forwards;
+  animation: scaleIn 10s ease-in forwards;
 }
 
 .fade-in {
