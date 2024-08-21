@@ -1,101 +1,15 @@
-import { useState } from "react";
-import emailjs from "emailjs-com";
-import DOMPurify from "dompurify";
+import { useContactForm } from "./useContactForm";
 
-// ContactMenu component
-export default function ContactMenu() {
-  // Initial state for form data
+const ContactMenu = () => {
   const initialState = {
     name: "",
     email: "",
     message: "",
   };
-  // State variables for form data, errors, loading state, and sent state
-  const [formData, setFormData] = useState(initialState);
-  const [errors, setErrors] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
-  const [isSent, setIsSent] = useState(false);
 
-  // Event handler for input change
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value,
-    }));
-  };
+  const { formData, errors, isLoading, isSent, handleChange, handleSubmit } =
+    useContactForm(initialState);
 
-  // Event handler for form submit
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const validateErrors = validateForm();
-    if (Object.keys(validateErrors).length > 0) {
-      setErrors(validateErrors);
-      return;
-    }
-
-    setIsLoading(true);
-
-    // Sanitize form data
-    const { name, email, message } = formData;
-    const sanitizedData = {
-      name: "Name: " + DOMPurify.sanitize(name),
-      email: "Email: " + DOMPurify.sanitize(email),
-      message: "Message: " + DOMPurify.sanitize(message),
-    };
-
-    // EmailJS service, template, and user IDs
-    const serviceID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
-    const templateID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
-    const userID = process.env.REACT_APP_EMAILJS_USER_ID;
-
-    // Send email using EmailJS
-    emailjs
-      .send(serviceID, templateID, sanitizedData, userID)
-      .then((response) => {
-        console.log("Email is sent successfully!", response.text);
-        setFormData(initialState);
-        setErrors({});
-        setIsSent(true);
-      })
-      .catch((error) => {
-        console.error("Email sending failed", error);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  };
-
-  // Function to validate form data
-  const validateForm = () => {
-    const { name, email, message } = formData;
-    const errors = {};
-
-    // Validating each form field
-    if (!name.trim()) {
-      errors.name = "Name is required";
-    }
-
-    if (!email.trim()) {
-      errors.email = "Email is required";
-    } else if (!isValidEmail(email)) {
-      errors.email = "Invalid email format";
-    }
-
-    if (!message.trim()) {
-      errors.message = "Message is required";
-    }
-
-    return errors;
-  };
-
-  // Function to validate email format
-  const isValidEmail = (value) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(value);
-  };
-
-  // Rendering the ContactMenu component
   return (
     <div className="contact-menu fade-in">
       {!isSent && (
@@ -162,4 +76,6 @@ export default function ContactMenu() {
       )}
     </div>
   );
-}
+};
+
+export default ContactMenu;
