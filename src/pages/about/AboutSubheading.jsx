@@ -16,7 +16,7 @@ const AboutSubheading = ({ title, content, active, onClick, menuItem }) => {
       }}
     >
       <h3 onClick={onClick}>{title}</h3>
-      <div className="p-container">{content}</div>
+      <div key={title} className="p-container fade-in">{content}</div>
     </div>
   );
 };

@@ -2,7 +2,7 @@ import React from "react";
 import "../../styles/skillsMenu.css";
 import frontendIcon from "../../assets/eagle-emblem.png";
 import backendIcon from "../../assets/hawk-emblem.png";
-import fullstackIcon from "../../assets/eagle-emblem.png";
+import fullstackIcon from "../../assets/astronaut-helmet.png";
 import { useSkillTree } from "../../context/SkillTreeContext";
 
 const SkillTreeMenu = () => {
@@ -26,7 +26,7 @@ const SkillTreeMenu = () => {
         ))}
       <img className="skill-icon" src={currentIcon} alt="current skill" />
 
-      <div className="skill-sub-container">{renderContent(skills)}</div>
+      <div key={currentCategory} className="skill-sub-container fade-in">{renderContent(skills)}</div>
     </div>
   );
 };

@@ -39,16 +39,6 @@
   font-size: 1.2rem;
 }
 
-/* .hackathon-item.activeHackathon:nth-child(2) {
-  background: linear-gradient(270deg, #ffffff00, var(--purple) 70%);
-}
-.hackathon-item.activeHackathon:nth-child(3) {
-  background: linear-gradient(270deg, #ffffff00, var(--blue) 70%);
-}
-.hackathon-item.activeHackathon:nth-child(4) {
-  background: linear-gradient(270deg, #ffffff00, var(--cyan) 70%);
-} */
-
 .hackathon-sub-container {
   width: 60%;
   margin-top: 2rem;

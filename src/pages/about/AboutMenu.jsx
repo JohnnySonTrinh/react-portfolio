@@ -31,7 +31,6 @@ const AboutMenu = () => {
 
   return (
     <>
-      {/* Menu container with fade-in animation */}
       <div className="menu fade-in" role="menu">
         {menuItems.map((item, index) => (
           <AboutMenuItem
@@ -42,8 +41,7 @@ const AboutMenu = () => {
           />
         ))}
       </div>
-      {/* Sub-container with fade-in animation */}
-      <div className="sub-container fade-in">
+      <div key={activeMenuItem} className="sub-container fade-in">
         <div className="icon-title-container">
           <img src={activeMenuIcon} alt={activeMenuTitle} className="icon" />
           <h3>{activeMenuTitle}</h3>
