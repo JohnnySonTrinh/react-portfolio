@@ -27,7 +27,7 @@ const hackathons = [
   {
     team: "The Sabersmiths",
     title: "Jedi Blades",
-    image: "https://i.imgur.com/a6X3EDW.png",
+    image: "https://i.imgur.com/JSBwhiq.png",
     description: (
       <>
         <p>
