@@ -64,7 +64,9 @@ h2 {
   h1 {
     font-size: var(--font-size-small);
   }
-  h2,
+  #playerStats h2 {
+    font-size: 0.6rem;
+  }
   p {
     font-size: 0.65rem;
   }
