@@ -1,8 +1,9 @@
-import React from "react";
-
 const HamburgerMenu = ({ isOpen, toggleMenu }) => {
   return (
-    <div className={`hamburger-menu ${isOpen ? 'open' : ''}`} onClick={toggleMenu}>
+    <div
+      className={`hamburger-menu ${isOpen ? "open" : ""}`}
+      onClick={toggleMenu}
+    >
       <div className="bar"></div>
       <div className="bar"></div>
       <div className="bar"></div>
