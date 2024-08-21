@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import { calculateAge, BIRTHDAY } from "../components/playerStats/playerData";
 
 const PlayerStatsContext = createContext();
@@ -9,7 +9,7 @@ export const usePlayerStats = () => {
 
 export const PlayerStatsProvider = ({ children }) => {
   const [age, setAge] = useState(calculateAge(BIRTHDAY));
-  const [barWidth, setBarWidth] = useState("0"); // Start with 0 width for animation
+  const [barWidth, setBarWidth] = useState("0");
 
   useEffect(() => {
     const interval = setInterval(() => {

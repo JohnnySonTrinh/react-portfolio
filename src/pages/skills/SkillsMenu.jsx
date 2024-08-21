@@ -1,4 +1,3 @@
-import React from "react";
 import "../../styles/skillsMenu.css";
 import frontendIcon from "../../assets/eagle-emblem.png";
 import backendIcon from "../../assets/hawk-emblem.png";
@@ -22,19 +21,18 @@ const SkillsMenu = () => {
 
   return (
     <div className="skill-menu">
-      {/* Render the menu items */}
       {menuItems.map((item, index) => (
         <div
           key={index}
-          className={`skill-item ${currentCategory === index + 1 ? 'activeSkill' : ''}`}
+          className={`skill-item ${
+            currentCategory === index + 1 ? "activeSkill" : ""
+          }`}
           onClick={() => handleMenuItemClick(index + 1)}
         >
           <h2 className="skill-title">{item}</h2>
         </div>
       ))}
-      {/* Render the current icon */}
       <img className="skill-icon" src={currentIcon} alt="current skill" />
-      {/* Render the note if showNote is true */}
       {showNote && (
         <div className="note">
           <p>
@@ -45,7 +43,6 @@ const SkillsMenu = () => {
           </p>
         </div>
       )}
-      {/* Render the content for the skills */}
       <div className="skill-sub-container">{renderContent(skills)}</div>
     </div>
   );
