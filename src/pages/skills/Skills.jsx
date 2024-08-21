@@ -1,4 +1,3 @@
-import React from "react";
 import Avatar from "../../components/avatar/Avatar";
 import SkillsMenu from "./SkillsMenu";
 import { SkillsProvider, useSkills } from "../../context/SkillsContext";
