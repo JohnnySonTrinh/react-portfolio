@@ -24,7 +24,6 @@ const projects = [
       { title: "Bootstrap", icon: "devicon-bootstrap-plain" },
       { title: "DjangoRest", icon: "devicon-djangorest-plain" },
       { title: "PostgreSQL", icon: "devicon-postgresql-plain" },
-      { title: "Heroku", icon: "devicon-heroku-original" },
     ],
     github: "https://github.com/JohnnySonTrinh/review-api",
     live: "https://star-review-app-fb4aac8cda63.herokuapp.com",
@@ -51,7 +50,6 @@ const projects = [
       { title: "Python", icon: "devicon-python-plain" },
       { title: "HTML", icon: "devicon-html5-plain" },
       { title: "CSS", icon: "devicon-css3-plain" },
-      { title: "Heroku", icon: "devicon-heroku-original" },
     ],
     description:
       "Snake game implemented in Python. which runs in mock terminal on Heroku. The games features a fun and interactive rendition of the classic snake game we all know and love.",
@@ -69,7 +67,6 @@ const projects = [
       { title: "CSS", icon: "devicon-css3-plain" },
       { title: "Django", icon: "devicon-django-plain" },
       { title: "PostgreSQL", icon: "devicon-postgresql-plain" },
-      { title: "Heroku", icon: "devicon-heroku-original" },
     ],
     github: "https://github.com/JohnnySonTrinh/ebuddies",
     live: "https://ebuddies-42967ce5447d.herokuapp.com",
