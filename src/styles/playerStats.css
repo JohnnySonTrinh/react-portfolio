@@ -55,8 +55,8 @@ h2 {
 
 @media (max-width: 768px) {
   #playerStats {
-    left: 50%;
-    transform: translateX(-50%);
+    /* left: 50%;
+    transform: translateX(-50%); */
     width: 7.5rem;
     height: 2.5rem;
     top: 2rem;
