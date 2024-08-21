@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
 // NavMenu component to render individual navigation items
-const NavMenu = ({ to, imgSrc, altText, navClass, title, pageTitle }) => {
+const NavMenu = ({ to, imgSrc, altText, title, pageTitle }) => {
   const location = useLocation();
   
   // Determine if the current link is the active link

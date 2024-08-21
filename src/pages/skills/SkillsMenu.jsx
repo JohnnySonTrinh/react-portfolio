@@ -1,5 +1,4 @@
 import React from "react";
-import classNames from "classnames";
 import "../../styles/skillsMenu.css";
 import frontendIcon from "../../assets/eagle-emblem.png";
 import backendIcon from "../../assets/hawk-emblem.png";
@@ -27,9 +26,7 @@ const SkillsMenu = () => {
       {menuItems.map((item, index) => (
         <div
           key={index}
-          className={classNames("skill-item", {
-            activeSkill: currentCategory === index + 1,
-          })}
+          className={`skill-item ${currentCategory === index + 1 ? 'activeSkill' : ''}`}
           onClick={() => handleMenuItemClick(index + 1)}
         >
           <h2 className="skill-title">{item}</h2>

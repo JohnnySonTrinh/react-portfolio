@@ -1,4 +1,3 @@
-import classNames from "classnames";
 import "../../styles/aboutMenu.css";
 
 const AboutSubheading = ({ title, content, active, onClick, menuItem }) => {
@@ -6,7 +5,7 @@ const AboutSubheading = ({ title, content, active, onClick, menuItem }) => {
 
   return (
     <div
-      className={classNames(subContainerClass, { "active-subheading": active })}
+    className={`${subContainerClass} ${active ? 'active-subheading' : ''}`}
       role="button"
       aria-expanded={active}
       tabIndex="0"

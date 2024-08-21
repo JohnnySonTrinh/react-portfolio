@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import classNames from "classnames";
 import projects from "./projectsData";
 import "../../styles/projectsMenu.css";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
@@ -26,7 +25,7 @@ const ProjectsMenu = () => {
   // Function to render the content
   const renderContent = (project) => {
     if (!project) {
-      return null; // Return null if project is undefined
+      return null;
     }
 
     return (
@@ -80,9 +79,9 @@ const ProjectsMenu = () => {
         {projectItems.map((project, index) => (
           <div
             key={index}
-            className={classNames("project-item", {
-              activeProject: activeProject === index + 1 + startIndex,
-            })}
+            className={`project-item ${
+              activeProject === index + 1 + startIndex ? "activeProject" : ""
+            }`}
             onClick={() => handleProjectClick(index + 1 + startIndex)}
           >
             <h2 className="title">{project.title}</h2>
