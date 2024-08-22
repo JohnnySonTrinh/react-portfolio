@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import projects from "./projectsData";
-import "../../styles/projectsMenu.css";
+// import "../../styles/projectsMenu.css";
+import "../../styles/projects.css";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 
 // ProjectsMenu component
@@ -67,12 +68,12 @@ const ProjectsMenu = () => {
     <div className="project-menu">
       <div className="project-items-container fade-in">
         <div
-          className={`pagination-button-container ${
+          className={`arrow-button-container ${
             activeProject > 1 ? "visible" : ""
           }`}
         >
           <FaChevronUp
-            className="pagination-button scale-in-out"
+            className="arrow-button scale-in-out"
             onClick={() => handlePageChange(-1)}
           />
         </div>
@@ -88,12 +89,12 @@ const ProjectsMenu = () => {
           </div>
         ))}
         <div
-          className={`pagination-button-container ${
+          className={`arrow-button-container ${
             activeProject < projects.length ? "visible" : ""
           }`}
         >
           <FaChevronDown
-            className="pagination-button scale-in-out"
+            className="arrow-button scale-in-out"
             onClick={() => handlePageChange(1)}
           />
         </div>
