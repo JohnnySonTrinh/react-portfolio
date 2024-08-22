@@ -1,6 +1,7 @@
 import { useState } from "react";
 import hackathons from "./hackathonsData";
-import "../../styles/hackathonsMenu.css";
+// import "../../styles/hackathonsMenu.css";
+import "../../styles/projects.css";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 
 // HackathonsMenu component
@@ -24,11 +25,11 @@ const HackathonsMenu = () => {
   // Method for rendering the content of the hackathons
   const renderContent = (hackathon) => {
     if (!hackathon) {
-      return null; // Return null if hackathon is undefined
+      return null;
     }
 
     return (
-      <div className={`hackathon-sub-container-${activeHackathon} fade-in`}>
+      <div className={`project-sub-container-${activeHackathon} fade-in`}>
         <h3>{hackathon.title}</h3>
         <div className="image-container">
           <img src={hackathon.image} alt={hackathon.title}></img>
@@ -57,24 +58,24 @@ const HackathonsMenu = () => {
   const activeHackathonData = hackathons[activeHackathon - 1];
 
   return (
-    <div className="hackathon-menu fade-in">
-      <div className="hackathon-items-container">
+    <div className="project-menu fade-in">
+      <div className="project-items-container">
         <div
-          className={`pagination-button-container ${
+          className={`arrow-button-container ${
             activeHackathon > 1 ? "visible" : ""
           }`}
         >
           <FaChevronUp
-            className="pagination-button scale-in-out"
+            className="arrow-button scale-in-out"
             onClick={() => handlePageChange(-1)}
           />
         </div>
         {hackathonItems.map((hackathon, index) => (
           <div
             key={index}
-            className={`hackathon-item ${
+            className={`project-item ${
               activeHackathon === index + 1 + startIndex
-                ? "activeHackathon"
+                ? "activeProject"
                 : ""
             }`}
             onClick={() => handleHackathonClick(index + 1 + startIndex)}
@@ -83,17 +84,17 @@ const HackathonsMenu = () => {
           </div>
         ))}
         <div
-          className={`pagination-button-container ${
+          className={`arrow-button-container ${
             activeHackathon < hackathons.length ? "visible" : ""
           }`}
         >
           <FaChevronDown
-            className="pagination-button scale-in-out"
+            className="arrow-button scale-in-out"
             onClick={() => handlePageChange(1)}
           />
         </div>
       </div>
-      <div key={activeHackathon} className="hackathon-sub-container fade-in">
+      <div key={activeHackathon} className="project-sub-container fade-in">
         {renderContent(activeHackathonData)}
       </div>
     </div>

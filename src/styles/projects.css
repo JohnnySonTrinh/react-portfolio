@@ -16,6 +16,22 @@
   align-items: center;
 }
 
+/* arrow button */
+.arrow-button-container {
+  display: flex;
+  justify-content: center;
+  visibility: hidden;
+}
+
+.arrow-button-container.visible {
+  visibility: visible;
+}
+
+.arrow-button {
+  cursor: pointer;
+  color: wheat;
+}
+
 .project-item {
   height: 3.75rem;
   width: 90%;
@@ -38,16 +54,6 @@
   font-size: 1.2rem;
 }
 
-/* .project-item.activeProject:nth-child(1) {
-  background: linear-gradient(270deg, #ffffff00, var(--purple) 70%);
-}
-.project-item.activeProject:nth-child(2) {
-  background: linear-gradient(270deg, #ffffff00, var(--blue) 70%);
-}
-.project-item.activeProject:nth-child(3) {
-  background: linear-gradient(270deg, #ffffff00, var(--cyan) 70%);
-} */
-
 .project-sub-container {
   width: 60%;
   margin-top: 2rem;
@@ -58,6 +64,7 @@
 .project-sub-container h3 {
   position: relative;
   margin: 0;
+  font-size: 1.5rem;
 }
 .project-sub-container img {
   width: 100%;
@@ -65,8 +72,63 @@
   border-radius: 0.5rem 3rem 0.5rem 0.5rem;
   opacity: 0.9;
 }
+
+.image-container {
+  position: relative;
+  height: inherit;
+  overflow: hidden;
+}
+
+/* Hover Description*/
+.hover-description {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  margin: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: var(--wheat);
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 1s;
+  border-radius: 0.5rem 3rem 0.5rem 0.5rem;
+  box-shadow: none;
+  opacity: 0;
+}
+
+.image-container:hover .hover-description {
+  opacity: 1;
+}
+
+/* Project page hover description */
+.icon-with-title h3 {
+  font-size: 0.8rem;
+  color: var(--wheat);
+  text-align: center;
+}
+.hover-description i {
+  font-size: 3rem;
+}
+
+.tech-stack {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+  gap: 10px;
+}
+
+.icon-with-title i {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
 .project-sub-container p {
-  font-size: 0.875rem;
+  font-size: 1rem;
 }
 
 .link-container a {
@@ -87,46 +149,6 @@
   justify-content: space-around;
 }
 
-.image-container {
-  position: relative;
-  height: inherit;
-  overflow: hidden;
-}
-
-/* Hover Description watch hackthonsMenu to change*/
-.hover-description {
-  flex-direction: column;
-}
-
-.hover-description i {
-  font-size: 3rem;
-}
-
-.projects-menu {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.tech-stack {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 15px;
-  gap: 10px;
-}
-
-.icon-with-title i {
-  font-size: 2rem;
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
-.icon-with-title h3 {
-  font-size: 0.8rem;
-  color: var(--wheat);
-  text-align: center;
-}
-
 @media (max-width: 1024px) {
   .icon-with-title i {
     font-size: 1rem;
@@ -139,6 +161,9 @@
     top: 20%;
     transform: translateX(-50%);
   }
+  .project-menu p {
+    font-size: 0.7rem;
+  }
   .project-item {
     height: 2rem;
     width: 100%;
@@ -149,6 +174,9 @@
   .title {
     font-size: 0.7rem;
   }
+  .project-sub-container h3 {
+    font-size: 0.9rem;
+  }
 }
 @media (max-width: 768px) {
   .project-menu {
@@ -157,7 +185,7 @@
     align-items: center;
   }
   .project-menu p {
-    font-size: 0.5rem;
+    font-size: 0.65rem;
   }
   .project-sub-container {
     margin-top: 1rem;
@@ -167,15 +195,13 @@
     width: 12rem;
   }
   .link-container a {
-    margin-top: 0.5rem;
+    font-size: 0.6rem;
+    margin-top: 0;
     width: 50%;
     height: 2rem;
   }
   .project-items-container {
     margin-top: 0;
-  }
-  .hackathon-item.activeHackathon .title {
-    font-size: 0.8rem;
   }
   .title {
     font-size: 0.6rem;
