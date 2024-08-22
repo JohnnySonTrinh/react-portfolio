@@ -8,12 +8,10 @@ const Avatar = ({ page }) => {
 
   // Constructing class names based on the page prop
   const avatarClass = `avatar ${page} ${fadeIn ? "fade-in" : ""}`;
-  const spanClass = `shadow-overlay-${page}`;
 
   // Returning the Avatar component
   return (
     <>
-      <span className={spanClass}></span>
       <img src={avatarImage} className={avatarClass} alt="avatar" />
     </>
   );
