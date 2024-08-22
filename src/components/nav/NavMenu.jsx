@@ -13,6 +13,7 @@ const NavMenu = ({ to, imgSrc, altText, title, pageTitle }) => {
       {!isCurrent && <h1 className="nav-title">{title}</h1>}
       <img src={imgSrc} alt={altText} />
       {isCurrent && <h1 className="page-title">{pageTitle}</h1>}
+      {!isCurrent && <h1 className="hamburger-title">{title}</h1>}
     </Link>
   );
 };

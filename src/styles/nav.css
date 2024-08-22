@@ -113,10 +113,6 @@ a {
     display: flex;
   }
 
-  .nav-title {
-    display: none;
-  }
-
   .nav-links {
     display: none;
     flex-direction: column;
@@ -145,6 +141,13 @@ a {
   }
 
   .page-title {
-    font-size: 0.5rem;
+    font-size: 0.4rem;
+  }
+  .nav-title {
+    display: none;
+  }
+  .hamburger-title {
+    font-size: 0.4rem;
+    color: var(--grey);
   }
 }
