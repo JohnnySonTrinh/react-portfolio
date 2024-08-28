@@ -1,7 +1,8 @@
 const projects = [
   {
     title: "Tic Tac Tactics",
-    image: "https://i.imgur.com/YzvK3OI.png",
+    image:
+      "https://raw.githubusercontent.com/JohnnySonTrinh/JohnnySonTrinh/main/projects/tic-tac-tactics.webp",
     description:
       "Valorant Tic-Tac-Tactics combines the strategic gameplay of Valorant with the simplicity and charm of Tic-Tac-Toe. This project aims to provide a fun, engaging, and interactive gaming experience for both Valorant enthusiasts and casual gamers alike.",
     techStack: [
@@ -16,7 +17,7 @@ const projects = [
   {
     title: "Star Review",
     image:
-      "https://github.com/JohnnySonTrinh/review-app/raw/main/documentation/update-mockup.png",
+      "https://raw.githubusercontent.com/JohnnySonTrinh/JohnnySonTrinh/main/projects/star-review.webp",
     description:
       "Star Review is the ultimate platform for developers to collaborate, review, and enhance code quality through seamless peer feedback. Whether you're a beginner seeking guidance or an experienced coder looking to refine your skills.",
     techStack: [
@@ -30,7 +31,8 @@ const projects = [
   },
   {
     title: "Coach Profile",
-    image: "https://i.imgur.com/4ujDB8S.png",
+    image:
+      "https://raw.githubusercontent.com/JohnnySonTrinh/JohnnySonTrinh/main/projects/coach-profile.webp",
     description:
       "This project is more than just a portfolio; it's a vibrant showcase of gaming passion, skills, and experiences.",
     techStack: [
@@ -45,7 +47,7 @@ const projects = [
   {
     title: "Snake",
     image:
-      "https://raw.githubusercontent.com/JohnnySonTrinh/snake-game/main/documentation/mockup.png",
+      "https://raw.githubusercontent.com/JohnnySonTrinh/JohnnySonTrinh/main/projects/snake.webp",
     techStack: [
       { title: "Python", icon: "devicon-python-plain" },
       { title: "HTML", icon: "devicon-html5-plain" },
@@ -59,7 +61,7 @@ const projects = [
   {
     title: "eBuddies",
     image:
-      "https://github.com/JohnnySonTrinh/ebuddies/raw/main/documentation/mockup.png",
+      "https://raw.githubusercontent.com/JohnnySonTrinh/JohnnySonTrinh/main/projects/ebuddies.webp",
     description:
       "Community platform designed to connect gamers with shared interests and hobbies. Our mission is to create a welcoming space where users can find and interact with like-minded peers, share experiences, and build meaningful connections.",
     techStack: [
@@ -73,7 +75,8 @@ const projects = [
   },
   {
     title: "Portfolio",
-    image: "https://i.imgur.com/uSr4R1c.png",
+    image:
+      "https://raw.githubusercontent.com/JohnnySonTrinh/JohnnySonTrinh/main/projects/portfolio.webp",
     description:
       "Personal portfolio site designed to showcase my projects, skills, and experiences. This project serves as a digital resume and interactive platform for potential employers and collaborators.",
     techStack: [

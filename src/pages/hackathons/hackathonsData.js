@@ -6,7 +6,8 @@ const hackathons = [
   {
     team: "Quizmas Elves",
     title: "12 Days of Quizmas",
-    image: hackathonOne,
+    image:
+      "https://raw.githubusercontent.com/JohnnySonTrinh/JohnnySonTrinh/main/projects/12-days-of-quizmas.webp",
     description: (
       <>
         <p>
@@ -27,7 +28,8 @@ const hackathons = [
   {
     team: "The Sabersmiths",
     title: "Jedi Blades",
-    image: "https://i.imgur.com/JSBwhiq.png",
+    image:
+      "https://raw.githubusercontent.com/JohnnySonTrinh/JohnnySonTrinh/main/projects/jedi-blades.webp",
     description: (
       <>
         <p>
@@ -48,7 +50,8 @@ const hackathons = [
   {
     team: "Fund Frontier",
     title: "Fund Frontier",
-    image: hackathonTwo,
+    image:
+      "https://raw.githubusercontent.com/JohnnySonTrinh/JohnnySonTrinh/main/projects/fund-frontier.webp",
     description: (
       <>
         <p>
@@ -70,7 +73,8 @@ const hackathons = [
   {
     team: "Health Guardians",
     title: "RemindiCare",
-    image: "https://i.imgur.com/P7oIdHM.png",
+    image:
+      "https://raw.githubusercontent.com/JohnnySonTrinh/JohnnySonTrinh/main/projects/remind-i-care.webp",
     description: (
       <>
         <p>
@@ -91,7 +95,8 @@ const hackathons = [
   {
     team: "Cupid's Helpers",
     title: "Cupid's Quill",
-    image: hackathonThree,
+    image:
+      "https://raw.githubusercontent.com/JohnnySonTrinh/JohnnySonTrinh/main/projects/cupids-quill.webp",
     description: (
       <>
         <p>
