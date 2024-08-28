@@ -75,7 +75,6 @@
 
 .image-container {
   position: relative;
-  height: inherit;
   overflow: hidden;
 }
 
@@ -88,8 +87,8 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  height: 99%;
+  background-color: rgba(0, 0, 0, 0.5);
   color: var(--wheat);
   text-align: center;
   justify-content: center;
