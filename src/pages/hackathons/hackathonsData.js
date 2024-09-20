@@ -1,7 +1,3 @@
-import hackathonOne from "../../assets/hackathon-1.webp";
-import hackathonTwo from "../../assets/hackathon-2.webp";
-import hackathonThree from "../../assets/hackathon-3.webp";
-
 const hackathons = [
   {
     team: "Quizmas Elves",
