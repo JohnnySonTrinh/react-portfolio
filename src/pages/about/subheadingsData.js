@@ -6,13 +6,13 @@ const subheadingsData = {
         <>
           <p>
             Frontend Developer with a Diploma in Full Stack Software Development
-            from Code Institute. My journey from a gaming coach to a tech
-            enthusiast has equipped me with unique problem-solving skills and an
-            eye for detail. I specialize in creating responsive, user-centric
+            from Code Institute. Transitioned from a gaming coach to a tech
+            enthusiast, equipped with strong problem-solving skills and a keen
+            eye for detail. I specialize in building responsive, user-focused
             web applications using modern frontend frameworks like React and
-            TypeScript. With experience in both individual projects and
-            coaching, I bring strong communication skills and a passion for
-            building intuitive digital experiences.
+            TypeScript. My experience in both individual projects and coaching
+            has honed my communication abilities and passion for creating
+            intuitive digital experiences.
           </p>
         </>
       ),
@@ -20,30 +20,30 @@ const subheadingsData = {
   ],
   2: [
     {
-      title: "2024 Full Stack Developer Diploma",
+      title: "2024 Full Stack Software Development Diploma",
       content: (
         <>
           <p>
-            Code Institute, full spectrum of web development, from the
-            fundamentals of HTML, CSS, and JavaScript to advanced topics in
-            Python, Django, and advanced frontend using React. The curriculum
-            was structured to ensure a comprehensive understanding of both
-            frontend and backend technologies, enabling me to build dynamic,
-            responsive websites and applications from scratch.
+            Code Institute – Successfully completed a comprehensive full-stack
+            development program covering HTML, CSS, JavaScript, Python, Django,
+            and advanced frontend development with React. This curriculum
+            provided me with the skills to build dynamic, responsive web
+            applications from scratch, integrating both frontend and backend
+            technologies to create complete, full-stack solutions.
           </p>
         </>
       ),
     },
     {
-      title: "2023 Self-taught Developer",
+      title: "2023 Self-Taught Developer",
       content: (
         <>
           <p>
-            As I reflect on my journey in 2023, I am proud of the progress I've
-            made and the resilience I've shown in the face of challenges. Being
-            a self-taught developer has taught me more than just coding; it has
-            instilled in me a mindset of continuous learning and adaptation,
-            qualities that are indispensable in the ever-changing tech industry.
+            Developed foundational skills in full-stack development,
+            independently exploring technologies such as HTML, CSS, JavaScript,
+            and Python. This self-directed journey fostered a mindset of
+            continuous learning and adaptability, laying a solid foundation for
+            the structured training I later received at Code Institute.
           </p>
         </>
       ),
@@ -51,43 +51,46 @@ const subheadingsData = {
   ],
   3: [
     {
-      title: "2023 Content Creator & Coach at aimlab.gg",
+      title: "2023 Video Content Creator & Coach at AimLab.gg",
       content: (
         <>
           <p>
-            aimlab.gg emerged as a unique fusion of a forum and coaching
-            service, inspired by the interactive nature of Reddit forums, but
-            with a distinctive twist: coaches could respond to student or client
-            queries through personalized video responses.
+            Created and delivered personalized coaching content through video on
+            AimLab.gg, a platform blending interactive forums with customized
+            video responses. Engaged directly with clients to answer questions
+            and provide detailed feedback, fostering a supportive learning
+            community and enhancing client engagement through effective visual
+            content.
           </p>
         </>
       ),
     },
     {
-      title: "2022 Ghostwriter for ProGuides YouTube Channel",
+      title: "2022 Scriptwriter for ProGuides YouTube Channel",
       content: (
         <>
           <p>
-            I worked to ensure that each script was not only factually accurate
-            but also infused with a narrative that resonated with both new
-            players and seasoned veterans. My approach was to weave storytelling
-            elements with hard-hitting tips and tricks, creating a narrative
-            that was both educational and entertaining.
+            Developed narrative-driven scripts for ProGuides' YouTube channel,
+            engaging both new and veteran players with content that combined
+            expert tips and storytelling. This role allowed me to create
+            informative and entertaining material, significantly contributing to
+            a high-quality viewing experience for an audience exceeding one
+            million subscribers.
           </p>
         </>
       ),
     },
     {
-      title: "2019 Valorant & Fornite Coach",
+      title: "2019 Valorant & Fortnite Coach for ProGuides",
       content: (
         <>
           <p>
-            Each success story was a testament to the hard work, dedication, and
-            trust between me and my 2500+ clients/students. However, the role
-            was not without its challenges. Keeping up with the ever-evolving
-            game meta, managing diverse player personalities, and maintaining
-            motivation during tough times required constant effort and
-            innovation.
+            Delivered one-on-one coaching for over 2000 clients on ProGuides,
+            specializing in player development for Valorant and Fortnite.
+            Customized coaching techniques to suit diverse learning styles,
+            maintained an up-to-date understanding of game metas, and nurtured a
+            positive, motivating environment that promoted skill improvement and
+            client satisfaction.
           </p>
         </>
       ),
