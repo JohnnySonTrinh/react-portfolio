@@ -1,4 +1,3 @@
-import React from "react";
 import "../../styles/playerStats.css";
 import Linkedin from "../../assets/linkedin.png";
 import Github from "../../assets/github.png";
@@ -15,7 +14,6 @@ const PlayerStats = () => {
     <section className="fade-in" id="playerStats" role="contentinfo">
       <h1>Johnny Trinh Level {age}</h1>
       <div id="playerStats__lines">
-        {/* Dynamic width for the thick line based on barWidth */}
         <span id="playerStats__lines__thick" style={{ width: barWidth }}></span>
         <span id="playerStats__lines__thin"></span>
       </div>
