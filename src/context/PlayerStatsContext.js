@@ -9,28 +9,43 @@ export const usePlayerStats = () => {
 
 export const PlayerStatsProvider = ({ children }) => {
   const [age, setAge] = useState(calculateAge(BIRTHDAY));
-  const [barWidth, setBarWidth] = useState("0");
+  const [barWidth, setBarWidth] = useState("0%");
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      const newAge = calculateAge(BIRTHDAY);
-      setAge(newAge);
-      // Update the bar width based on the age
-      const newBarWidth = `${8.75 + newAge * 0.1}rem`;
-      setBarWidth(newBarWidth);
-    });
+    const updateBarWidth = () => {
+      const today = new Date();
+      const nextBirthday = new Date(
+        today.getFullYear(),
+        BIRTHDAY.getMonth(),
+        BIRTHDAY.getDate()
+      );
+
+      // Adjust to next year if today's date is past this year's birthday
+      if (today > nextBirthday) {
+        nextBirthday.setFullYear(today.getFullYear() + 1);
+      }
+
+      const daysUntilBirthday = Math.round(
+        (nextBirthday - today) / (1000 * 60 * 60 * 24)
+      );
+      const totalDaysInYear = 366; // Consider leap year if necessary
+      const percentage =
+        ((totalDaysInYear - daysUntilBirthday) / totalDaysInYear) * 100;
+
+      if (percentage >= 99) {
+        console.log("The progress bar has reached 99% or more!");
+      }
+      // Update age and bar width
+      setAge(calculateAge(BIRTHDAY));
+      setBarWidth(`${percentage}%`);
+    };
+
+    // Initial calculation and interval to update daily
+    updateBarWidth();
+    const interval = setInterval(updateBarWidth, 86400000); // Update once per day (86400000 ms = 24 hours)
 
     return () => clearInterval(interval);
   }, []);
-
-  // Trigger animation on component mount
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setBarWidth(`${8.75 + age * 0.1}rem`);
-    }, 500); // Delay to start animation
-
-    return () => clearTimeout(timer);
-  }, [age]);
 
   return (
     <PlayerStatsContext.Provider value={{ age, barWidth }}>
