@@ -41,6 +41,13 @@ const navData = [
     navClass: "nav-contact",
     title: "CONTACT",
   },
+  {
+    to: "/test",
+    imgSrc: envelope,
+    altText: "envelope icon",
+    navClass: "nav-contact",
+    title: "TESTS",
+  },
 ];
 
 export default navData;

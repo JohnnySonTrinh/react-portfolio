@@ -8,6 +8,7 @@ import Projects from "./pages/projects/Projects";
 import Hackathons from "./pages/hackathons/Hackathons";
 import Contact from "./pages/contact/Contact";
 import SkillTree from "./pages/skillTree/SkillTree";
+import Test from "./pages/test/Test";
 import "./styles/app.css";
 import PlayerStats from "./components/playerStats/PlayerStats";
 import { PlayerStatsProvider } from "./context/PlayerStatsContext";
@@ -29,6 +30,7 @@ const App = () => {
             <Route path="/hackathons" element={<Hackathons />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/stack" element={<Skills />} />
+            <Route path="/test" element={<Test />} />
           </Routes>
           <PlayerStats />
           <SpeedInsights />
