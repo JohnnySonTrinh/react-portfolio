@@ -36,7 +36,7 @@ h2 {
 }
 
 #playerStats__lines__thin {
-  background-color: var(--wheat);
+  background-color: var(--grey);
   height: 0.2rem;
   width: calc(1rem + 22.5rem);
 }
