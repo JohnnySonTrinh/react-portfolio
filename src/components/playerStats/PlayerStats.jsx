@@ -17,7 +17,7 @@ const PlayerStats = () => {
         <span id="playerStats__lines__thick" style={{ width: barWidth }}></span>
         <span id="playerStats__lines__thin"></span>
       </div>
-      <h2>Frontend Developer</h2>
+      <h2>Fullstack Developer</h2>
       <div className="icon-container">
         <a
           href={LINKEDIN_URL}
