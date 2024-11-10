@@ -5,14 +5,14 @@ const subheadingsData = {
       content: (
         <>
           <p>
-            Frontend Developer with a Diploma in Full Stack Software Development
-            from Code Institute. Transitioned from a gaming coach to a tech
-            enthusiast, equipped with strong problem-solving skills and a keen
-            eye for detail. I specialize in building responsive, user-focused
-            web applications using modern frontend frameworks like React and
-            TypeScript. My experience in both individual projects and coaching
-            has honed my communication abilities and passion for creating
-            intuitive digital experiences.
+            Fullstack Developer with a Diploma in Full Stack Software
+            Development from Code Institute. Transitioned from a gaming coach to
+            a tech enthusiast, equipped with strong problem-solving skills and a
+            keen eye for detail. I specialize in building responsive,
+            user-focused web applications using modern frontend frameworks like
+            React and TypeScript. My experience in both individual projects and
+            coaching has honed my communication abilities and passion for
+            creating intuitive digital experiences.
           </p>
         </>
       ),
