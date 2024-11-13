@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../../styles/ShadowOverlay.css"; // Import CSS for overlay styling
+import "../../styles/ShadowOverlay.css";
 
 const ShadowOverlay = () => {
   const [isOverlayVisible, setIsOverlayVisible] = useState(false);
@@ -11,12 +11,10 @@ const ShadowOverlay = () => {
 
   return (
     <>
-      {/* Button to toggle the overlay */}
       <button onClick={toggleOverlay} className="overlay-toggle-button">
         {isOverlayVisible ? "Hide Overlay" : "Show Overlay"}
       </button>
 
-      {/* Shadow overlay div, visible only when isOverlayVisible is true */}
       {isOverlayVisible && <div className="shadow-overlay"></div>}
     </>
   );
