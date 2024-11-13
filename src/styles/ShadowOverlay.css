@@ -1,0 +1,32 @@
+/* Shadow overlay styling */
+.shadow-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1; /* Ensure it appears above background but below main content */
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* Overlay toggle button styling */
+.overlay-toggle-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  z-index: 10; /* Ensure it appears above the overlay */
+}
+
+.overlay-toggle-button:hover {
+  background-color: #555;
+}
