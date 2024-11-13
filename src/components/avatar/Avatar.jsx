@@ -12,7 +12,7 @@ const Avatar = ({ page }) => {
   // Returning the Avatar component
   return (
     <>
-      <img src={avatarImage} className={avatarClass} alt="avatar" />
+      <img src={avatarImage} className={avatarClass} alt="Johnny Trinh - Fullsatck developer avatar" />
     </>
   );
 };
