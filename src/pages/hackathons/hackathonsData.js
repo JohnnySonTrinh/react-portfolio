@@ -1,5 +1,29 @@
 const hackathons = [
   {
+    team: "Ctrl+Alt+Defeat",
+    title: "All-inclusive",
+    image:
+      "https://raw.githubusercontent.com/JohnnySonTrinh/JohnnySonTrinh/main/projects/all-inclusive.webp",
+    description: (
+      <>
+        <p>
+          As a frontend developer and designer, I focused on creating an
+          accessible and intuitive user interface that aligns with the project's
+          core mission of inclusivity by design.
+        </p>
+        <p className="hover-description">
+          All-Inclusive is an innovative platform dedicated to promoting
+          accessibility and education for all users, regardless of their
+          abilities or backgrounds. Key features include interactive
+          accessibility tools, educational resources, seamless user experience,
+          and built-in contact functionality.
+        </p>
+      </>
+    ),
+    github: "https://github.com/JohnnySonTrinh/all-inclusive",
+    demo: "https://johnnysontrinh.github.io/all-inclusive/",
+  },
+  {
     team: "Quizmas Elves",
     title: "12 Days of Quizmas",
     image:
