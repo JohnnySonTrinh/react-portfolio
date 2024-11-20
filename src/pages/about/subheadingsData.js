@@ -6,11 +6,11 @@ const subheadingsData = {
         <>
           <p>
             Fullstack Developer with a Diploma in Full Stack Software
-            Development from Code Institute. Transitioned from a gaming coach to
-            a tech enthusiast, equipped with strong problem-solving skills and a
-            keen eye for detail. I specialize in building responsive,
-            user-focused web applications using modern frontend frameworks like
-            React and TypeScript. My experience in both individual projects and
+            Development from Code Institute. Transited from a gaming coach to a
+            tech enthusiast, having strong problem-solving skills and a eye for
+            detail. I specialize in building responsive, user-focused web
+            applications using modern frontend frameworks like React and
+            TypeScript. I have experience with both individual projects and
             coaching has honed my communication abilities and passion for
             creating intuitive digital experiences.
           </p>
@@ -24,11 +24,11 @@ const subheadingsData = {
       content: (
         <>
           <p>
-            Code Institute – Successfully completed a comprehensive full-stack
-            development program covering HTML, CSS, JavaScript, Python, Django,
-            and advanced frontend development with React. This curriculum
-            provided me with the skills to build dynamic, responsive web
-            applications from scratch, integrating both frontend and backend
+            Code Institute – Full-stack comprehensive course completed
+            development program in HTML, CSS, JavaScript, Python, Django
+            Advanced full-stack development with React. This curriculum provided
+            me with the skills to build dynamic, responsive web Building
+            applications from scratch, integrating both frontend and backend.
             technologies to create complete, full-stack solutions.
           </p>
         </>
@@ -39,11 +39,11 @@ const subheadingsData = {
       content: (
         <>
           <p>
-            Developed foundational skills in full-stack development,
-            independently exploring technologies such as HTML, CSS, JavaScript,
+            Developed foundational skills in full-stack development.
+            self-directed learning of technologies like HTML, CSS, JavaScript,
             and Python. This self-directed journey fostered a mindset of
-            continuous learning and adaptability, laying a solid foundation for
-            the structured training I later received at Code Institute.
+            continuous learning and adaptability that create a solid foundation
+            for The structured training I later got from Code Institute.
           </p>
         </>
       ),
@@ -55,12 +55,12 @@ const subheadingsData = {
       content: (
         <>
           <p>
-            Created and delivered personalized coaching content through video on
+            Created and delivered personalized coaching content via video on
             AimLab.gg, a platform blending interactive forums with customized
-            video responses. Engaged directly with clients to answer questions
-            and provide detailed feedback, fostering a supportive learning
-            community and enhancing client engagement through effective visual
-            content.
+            video responses. Interacted directly with clients to answer
+            questions. and give detailed feedback, thus creating a helpful
+            learning community and improving client involvement by effective
+            visual means. content.
           </p>
         </>
       ),
@@ -70,12 +70,12 @@ const subheadingsData = {
       content: (
         <>
           <p>
-            Developed narrative-driven scripts for ProGuides' YouTube channel,
+            Wrote narrative-driven screenplays for ProGuides' YouTube channel.
             engaging both new and veteran players with content that combined
-            expert tips and storytelling. This role allowed me to create
-            informative and entertaining material, significantly contributing to
-            a high-quality viewing experience for an audience exceeding one
-            million subscribers.
+            expert tips and storytelling. This role enabled me to create highly
+            informative and entertaining content greatly contributes to a
+            superior viewing experience for an audience of over one million
+            subscribers.
           </p>
         </>
       ),
@@ -85,12 +85,12 @@ const subheadingsData = {
       content: (
         <>
           <p>
-            Delivered one-on-one coaching for over 2000 clients on ProGuides,
-            specializing in player development for Valorant and Fortnite.
-            Customized coaching techniques to suit diverse learning styles,
-            maintained an up-to-date understanding of game metas, and nurtured a
-            positive, motivating environment that promoted skill improvement and
-            client satisfaction.
+            Delivered one-on-one coaching to over 2000 clients on ProGuides.
+            Specialized in player development for both Valorant and Fortnite.
+            Customized coaching techniques to suit diverse learning styles, kept
+            up-to-date knowledge of game metas, and fostered a positive,
+            motivating environment that promoted skill improvement and Client
+            satisfaction.
           </p>
         </>
       ),
