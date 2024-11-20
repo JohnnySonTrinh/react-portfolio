@@ -92,6 +92,12 @@ const ProjectsMenu = () => {
                 handlePageChange(-1);
               }
             }}
+            onWheel={(e) => {
+              if (e.deltaY < 0) {
+                // Trigger action for scroll up
+                handlePageChange(-1);
+              }
+            }}
           />
         </div>
         {projectItems.map((project, index) => (
@@ -108,6 +114,13 @@ const ProjectsMenu = () => {
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") {
                 handleProjectClick(index + 1 + startIndex);
+              }
+            }}
+            onWheel={(e) => {
+              if (e.deltaY > 0) {
+                handlePageChange(1);
+              } else if (e.deltaY < 0) {
+                handlePageChange(-1);
               }
             }}
           >
