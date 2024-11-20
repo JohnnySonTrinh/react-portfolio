@@ -18,7 +18,7 @@ Halo-themed portfolio built with accessibility and modern design in mind. Levera
 -----
 
 > [!NOTE]  
-> Old README.md [README.md](README.md) file.
+> Old README.md [README.md](/documentation/oldREADME.md) file.
 
 ### All Updates
 
