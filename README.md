@@ -2,26 +2,75 @@
 
 ![Landing page](https://i.imgur.com/uSr4R1c.png)
 
-Halo theme portfolio, using DALL·E to create amazing AI-generated art assets and Avatar then using Midjourney and the Picsi.AI by InsightFaceSwap Bot to face swap, react useState hooks, dynamic background, build modern website designs with CSS3, ClassNames to create dynamic class names, and create a secure fully functional Direct form submission using EmailJS.
+Halo-themed portfolio built with accessibility and modern design in mind. Leveraging cutting-edge technologies, this portfolio includes:
+
+- AI-Generated Art Assets: Created using DALL·E for stunning visuals and avatars, enhanced with Midjourney and Picsi.AI by InsightFaceSwap Bot for advanced face-swapping.
+- React Functionality: Utilizing React useState hooks to manage dynamic UI elements and provide seamless interactivity.
+- Keyboard Navigation: Fully accessible with Tab, Shift+Tab, and Enter keys, ensuring intuitive navigation for all users.
+- Dynamic Backgrounds: Engaging and responsive background animations that elevate the user experience.
+- Modern Web Design: Built with CSS3, featuring responsive layouts and sleek visual effects.
+- Direct Form Submission: Secure, fully functional contact forms powered by EmailJS for instant submissions without backend complexity.
+
+## Updates
+
+<details>
+<summary> Click here for detailed version 2 updates </summary>
+-----
+
+> [!NOTE]  
+> Old README.md [README.md](README.md) file.
+
+### All Updates
+
+- **Re-designing Skill Tree**: Removed the skill bars and added a more up-to-date, interactive Skill Tree.
+- **Enhanced Icons**: Implemented the Devicon Library to ensure sleekness and consistency in skill icons.
+- **Data Overhaul**: Updated and refined all project, skill, and profile data.
+- **Added Animations**: Smooth animations on all pages create a more dynamic user experience.
+- **Project and Hackathon Pages**: Updated with new projects to provide evidence of contributions.
+- **Code Refactor**: Improved code structure to be more readable and maintainable.
+- **Performance Insights**: Integrated SpeedInsights for further detailed analysis on website performance.
+- **CSS Improvements**: Updated and added CSS Root Variables to clean up the styling and make it more scalable.
+- **React Functional Components**: Removed all the React classes in favor of hooks to modernize the codebase.
+- **Keyboard Navigation**: Implemented full keyboard navigation by Tab, Shift+Tab, and Enter to improve accessibility.
+
+## Updated version VS Old version
+
+| Updates            | New version                                            | Old version                                            |
+| ------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
+| About/Landing Page | ![screenshot](documentation/readme/new-about.png)      | ![screenshot](documentation/readme/old-about.png)      |
+| Skills Page        | ![screenshot](documentation/readme/new-skills.png)     | ![screenshot](documentation/readme/old-skills.png)     |
+| Projects Page      | ![screenshot](documentation/readme/new-projects.png)   | ![screenshot](documentation/readme/old-projects.png)   |
+| Hackathons Page    | ![screenshot](documentation/readme/new-hackathons.png) | ![screenshot](documentation/readme/old-hackathons.png) |
+| Contact Page       | ![screenshot](documentation/readme/new-contact.png)    | ![screenshot](documentation/readme/old-contact.png)    |
+|                    |                                                        |                                                        |
+
+</details>
+
+### Stats
+
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/t/JohnnySonTrinh/react-portfolio)](https://github.com/JohnnySonTrinh/react-portfolio/commits/main)
+[![GitHub last commit](https://img.shields.io/github/last-commit/JohnnySonTrinh/react-portfolio)](https://github.com/JohnnySonTrinh/react-portfolio/commits/main)
+[![GitHub repo size](https://img.shields.io/github/repo-size/JohnnySonTrinh/react-portfolio)](https://github.com/JohnnySonTrinh/react-portfolio)
 
 ## UX
 
-### Colors Scheme
-
-I used [coolors.co](https://coolors.co/540351-3627b1-25afce) to generate my colour palette.
-
-![Add Project](https://i.imgur.com/OkDzIWE.png)
-
 ```css
-/* Root Variables */
 :root {
   --purple: #540351;
   --blue: #3627b1;
   --cyan: #25afce;
-  /* Commonly used CSS properties for consistency */
+  --white: #ffffff;
+  --wheat: #f5deb3;
+  --grey: rgb(211, 211, 211);
   --transparent: #00000000;
   --radius-left: 3rem 0 0 3rem;
   --radius-right: 0 3rem 3rem 0;
+  --font-size-large: 1.5rem;
+  --font-size-medium: 1rem;
+  --font-size-small: 0.8rem;
+  --icon-size: 2rem;
+  --icon-size-small: 1.5rem;
+  --border-radius: 0.5rem;
 }
 ```
 
@@ -34,7 +83,6 @@ For the portfolio, I've chosen Russo One fonts to create "Mass effect vibe" enga
 The fonts are included at the beginning of our main CSS file using the `@import` rule from Google Fonts. This method ensures that the fonts are available as soon as the CSS is loaded, maintaining a consistent typographic experience throughout portfolio.
 
 ```css
-/* Importing Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
 ```
 
@@ -53,6 +101,7 @@ The fonts are included at the beginning of our main CSS file using the `@import`
 - [Midjourney](https://www.midjourney.com/home?callbackUrl=%2Fexplore) used as middle-man to face swap.
 - [Picsi.AI](https://www.picsi.ai) used for face swap avatar.
 - [DALL·E](https://openai.com/dall-e-3) used for crate avatar and icons.
+- [Devicon](https://devicon.dev) used icon for skills page
 
 ## Features
 
@@ -60,52 +109,32 @@ The fonts are included at the beginning of our main CSS file using the `@import`
 
 The landing page presents a dynamic and visually compelling interface, designed to showcase the professional profile
 
-![screenshot](https://i.imgur.com/oVrc3gT.png)
+![screenshot](documentation/readme/new-about.png)
 
 ### Skills
 
 The skills are displayed in a split format, with a unique visual metaphor that borrows from the skill trees commonly found in video games, reinforcing the user's gaming background.
 
-![screenshot](https://i.imgur.com/BzrqtkD.png)
+![screenshot](documentation/readme/new-skills.png)
 
 ### Projects
 
 Projects page is a thoughtful fusion of personal interests and professional showcase, geared towards engaging the viewer with both visual appeal and interactive elements.
 
-![screenshot](https://i.imgur.com/VVetZh1.png)
+![screenshot](documentation/readme/new-projects.png)
 
 ### Hackathons
 
 Maintains the cosmic theme established throughout the site, which complements the forward-thinking and innovative spirit of hackathons. It's a testament involvement in collaborative and competitive coding events.
 
-![screenshot](https://i.imgur.com/FzUikpk.png)
+![screenshot](documentation/readme/new-hackathons.png)
 
 ### Contact
 
 Contact page is a fusion of functionality and thematic design, offering a straightforward user experience without sacrificing the portfolio's overarching aesthetic.
 
-![screenshot](https://i.imgur.com/fiTaATW.png)
-
-## TESTING
-
-## Lighthouse Audit
-
-I've tested my deployed project using the Lighthouse Audit tool to check for any major issues.
-
-| Page       | Mobile                                         | Desktop                                        | Notes                                                                                                                                                                                               |
-| ---------- | ---------------------------------------------- | ---------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Home       | ![screenshot](https://i.imgur.com/tY3vePH.png) | ![screenshot](https://i.imgur.com/0qDj0XX.png) | The performance is solid across devices; however, consider revising SEO strategies to improve visibility. No PWA implementation noted.                                                              |
-| Skills     | ![screenshot](https://i.imgur.com/4NbyHSC.png) | ![screenshot](https://i.imgur.com/lVGytbd.png) | Desktop Best Practices indicate an image optimization issue. Review image formats and sizes for improvements.                                                                                       |
-| Projects   | ![screenshot](https://i.imgur.com/e6BtHGm.png) | ![screenshot](https://i.imgur.com/VJqNpTP.png) | Consistent performance with other pages, minor SEO and Best Practices warnings suggest room for refinement.                                                                                         |
-| Hackathons | ![screenshot](https://i.imgur.com/Q8LnA8B.png) | ![screenshot](https://i.imgur.com/URzaSrx.png) | Scores are consistent with minor warnings; assess details to perfect these metrics.                                                                                                                 |
-| Contact    | ![screenshot](https://i.imgur.com/KgiYYas.png) | ![screenshot](https://i.imgur.com/KgiYYas.png) | Excellent performance on mobile; desktop SEO and Best Practices could be improved following the same suggestions as other pages. Note 'asd' appears out of context, needs clarification or removal. |
+![screenshot](documentation/readme/new-contact.png)
 
 ## Credits
 
-I am grateful for the various resources and individuals who contributed to the successful completion of this project:
-
-### Content
-
-- **[webdecoded](https://youtu.be/hYv6BM2fWd8?si=F-GU1qYnUUM0vYBJ)** inspiration from **webdecoded** youtbue channel how to build personalize portfolio.
-
-- **[Howfinity](https://youtu.be/LkjmwuP7Z1Q?si=SFNeGS-NrG57zppR)** Midjourney and the Picsi.AI by InsightFaceSwap Bot to face swap.
+I am grateful for the variety of resources and people that gave me feedback for how to improve to version 2 to the successful completion of this project!
