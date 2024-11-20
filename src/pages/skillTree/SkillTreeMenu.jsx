@@ -31,8 +31,12 @@ const SkillTreeMenu = () => {
             <h2 className="skill-title">{item.toUpperCase()}</h2>
           </div>
         ))}
-      <img className="skill-icon" src={currentIcon} alt="current skill" />
-
+      <img 
+        className="skill-icon" 
+        src={currentIcon} 
+        alt="current skill"
+        aria-label={`Current skill category: ${menuItems[currentCategory - 1]}`}
+      />
       <div key={currentCategory} className="skill-sub-container fade-in">{renderContent(skills)}</div>
     </div>
   );
