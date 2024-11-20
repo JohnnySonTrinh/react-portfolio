@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import projects from "./projectsData";
-// import "../../styles/projectsMenu.css";
 import "../../styles/projects.css";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 
@@ -48,10 +47,20 @@ const ProjectsMenu = () => {
         </div>
         <p>{project.description}</p>
         <div className="link-container">
-          <a href={project.github} target="_blank" rel="noopener noreferrer">
+          <a 
+            href={project.github} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            aria-label={`View ${project.title} on GitHub`}
+          >
             GITHUB
           </a>
-          <a href={project.live} target="_blank" rel="noopener noreferrer">
+          <a 
+            href={project.live} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            aria-label={`View live demo of ${project.title}`}
+          >
             LIVE
           </a>
         </div>
@@ -74,7 +83,15 @@ const ProjectsMenu = () => {
         >
           <FaChevronUp
             className="arrow-button scale-in-out"
+            tabIndex={0}
+            role="button"
+            aria-label="Navigate to the previous project"
             onClick={() => handlePageChange(-1)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                handlePageChange(-1);
+              }
+            }}
           />
         </div>
         {projectItems.map((project, index) => (
@@ -83,7 +100,16 @@ const ProjectsMenu = () => {
             className={`project-item ${
               activeProject === index + 1 + startIndex ? "activeProject" : ""
             }`}
+            role="button"
+            tabIndex="0"
+            aria-label={`Select project: ${project.title}`}
+            aria-pressed={activeProject === index + 1 + startIndex}
             onClick={() => handleProjectClick(index + 1 + startIndex)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                handleProjectClick(index + 1 + startIndex);
+              }
+            }}
           >
             <h2 className="title">{project.title}</h2>
           </div>
@@ -95,11 +121,23 @@ const ProjectsMenu = () => {
         >
           <FaChevronDown
             className="arrow-button scale-in-out"
+            tabIndex="0"
+            role="button"
+            aria-label="Navigate to the next project"
             onClick={() => handlePageChange(1)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                handlePageChange(1);
+              }
+            }}
           />
         </div>
       </div>
-      <div key={activeProject} className="project-sub-container fade-in">
+      <div 
+        key={activeProject} 
+        className="project-sub-container fade-in"
+        aria-live="polite"
+      >
         {renderContent(activeProjectData)}
       </div>
     </div>

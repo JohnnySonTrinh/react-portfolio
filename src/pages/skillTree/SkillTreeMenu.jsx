@@ -19,7 +19,14 @@ const SkillTreeMenu = () => {
             className={`skill-item ${
               currentCategory === index + 1 ? "activeCategory" : ""
             }`}
+            role="button"
+            tabIndex="0"
             onClick={() => handleMenuItemClick(index + 1)}
+            onKeyPress={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                handleMenuItemClick(index + 1); 
+              }
+            }}
           >
             <h2 className="skill-title">{item.toUpperCase()}</h2>
           </div>

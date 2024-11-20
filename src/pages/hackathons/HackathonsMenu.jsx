@@ -1,6 +1,5 @@
 import { useState } from "react";
 import hackathons from "./hackathonsData";
-// import "../../styles/hackathonsMenu.css";
 import "../../styles/projects.css";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 
@@ -39,10 +38,20 @@ const HackathonsMenu = () => {
         </div>
         <div>{hackathon.description.props.children[0]}</div>
         <div className="link-container">
-          <a href={hackathon.github} target="_blank" rel="noopener noreferrer">
+          <a 
+            href={hackathon.github} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            aria-label={`View ${hackathon.title} on GitHub`}
+          >
             GITHUB
           </a>
-          <a href={hackathon.demo} target="_blank" rel="noopener noreferrer">
+          <a 
+            href={hackathon.demo} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            aria-label={`View live demo of ${hackathon.title}`}
+          >
             DEMO
           </a>
         </div>
@@ -67,7 +76,15 @@ const HackathonsMenu = () => {
         >
           <FaChevronUp
             className="arrow-button scale-in-out"
+            tabIndex={0}
+            role="button"
+            aria-label="Navigate to previous hackathon"
             onClick={() => handlePageChange(-1)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                handlePageChange(-1);
+              }
+            }}
           />
         </div>
         {hackathonItems.map((hackathon, index) => (
@@ -78,7 +95,16 @@ const HackathonsMenu = () => {
                 ? "activeProject"
                 : ""
             }`}
+            role="button"
+            tabIndex={0}
+            aria-label={`Select project: ${hackathon.title}`}
+            aria-pressed={activeHackathon === index + 1 + startIndex}
             onClick={() => handleHackathonClick(index + 1 + startIndex)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                handleHackathonClick(index + 1 + startIndex);
+              }
+            }}
           >
             <h2 className="title">{hackathon.team}</h2>
           </div>
@@ -90,7 +116,15 @@ const HackathonsMenu = () => {
         >
           <FaChevronDown
             className="arrow-button scale-in-out"
+            tabIndex={0}
+            role="button"
+            aria-label="Navigate to next hackathon"
             onClick={() => handlePageChange(1)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                handlePageChange(1);
+              }
+            }}
           />
         </div>
       </div>
