@@ -34,7 +34,12 @@ export const SkillTreeProvider = ({ children }) => {
     return (
       <div className={`skills-grid-container-${currentCategory}`}>
         {skills.map((skill, index) => (
-          <div key={index} className="skill-icon-container">
+          <div
+            key={index}
+            className="skill-icon-container"
+            role="img"
+            aria-label={skill.ariaLabel}
+          >
             <i className={`devicon ${skill.icon}`} />
             <h3>{skill.title}</h3>
           </div>
