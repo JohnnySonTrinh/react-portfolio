@@ -11,7 +11,7 @@ const subheadingsData = {
             detail. I specialize in building responsive, user-focused web
             applications using modern frontend frameworks like React and
             TypeScript. I have experience with both individual projects and
-            coaching has honed my communication abilities and passion for
+            coaching has sharpened my communication abilities and passion for
             creating intuitive digital experiences.
           </p>
         </>
