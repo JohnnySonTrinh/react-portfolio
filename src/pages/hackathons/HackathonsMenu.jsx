@@ -105,6 +105,13 @@ const HackathonsMenu = () => {
                 handleHackathonClick(index + 1 + startIndex);
               }
             }}
+            onWheel={(e) => {
+              if (e.deltaY > 0) {
+                handlePageChange(1);
+              } else if (e.deltaY < 0) {
+                handlePageChange(-1);
+              }
+            }}
           >
             <h2 className="title">{hackathon.team}</h2>
           </div>
