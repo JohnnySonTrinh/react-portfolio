@@ -1,26 +1,22 @@
-import React, { useState } from "react";
 import projects from "./projectsData";
 import "../../styles/projects.css";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
+import useActiveProject from "../../hooks/useActiveProject";
 
 // ProjectsMenu component
 const ProjectsMenu = () => {
-  // State for the active project and current page
-  const [activeProject, setActiveProject] = useState(1);
   const projectsPerPage = 3; // Number of projects per page
 
-  // Function to handle the project click
-  const handleProjectClick = (project) => {
-    setActiveProject(project);
-  };
+  // Use custom hook for active project state
+  const { activeProject, changeProject, selectProject } = useActiveProject(
+    1,
+    projects.length
+  );
 
-  // Function to handle page change
-  const handlePageChange = (direction) => {
-    const newProject = activeProject + direction;
-    if (newProject > 0 && newProject <= projects.length) {
-      setActiveProject(newProject);
-    }
-  };
+  // Slicing projects to show only the projects for the current page
+  const startIndex = Math.max(0, activeProject - 2);
+  const projectItems = projects.slice(startIndex, startIndex + projectsPerPage);
+  const activeProjectData = projects[activeProject - 1];
 
   // Function to render the content
   const renderContent = (project) => {
@@ -47,17 +43,17 @@ const ProjectsMenu = () => {
         </div>
         <p>{project.description}</p>
         <div className="link-container">
-          <a 
-            href={project.github} 
-            target="_blank" 
+          <a
+            href={project.github}
+            target="_blank"
             rel="noopener noreferrer"
             aria-label={`View ${project.title} on GitHub`}
           >
             GITHUB
           </a>
-          <a 
-            href={project.live} 
-            target="_blank" 
+          <a
+            href={project.live}
+            target="_blank"
             rel="noopener noreferrer"
             aria-label={`View live demo of ${project.title}`}
           >
@@ -67,11 +63,6 @@ const ProjectsMenu = () => {
       </div>
     );
   };
-
-  // Slicing projects to show only the projects for the current page
-  const startIndex = Math.max(0, activeProject - 2);
-  const projectItems = projects.slice(startIndex, startIndex + projectsPerPage);
-  const activeProjectData = projects[activeProject - 1];
 
   return (
     <div className="project-menu">
@@ -86,16 +77,10 @@ const ProjectsMenu = () => {
             tabIndex={0}
             role="button"
             aria-label="Navigate to the previous project"
-            onClick={() => handlePageChange(-1)}
+            onClick={() => changeProject(-1)}
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") {
-                handlePageChange(-1);
-              }
-            }}
-            onWheel={(e) => {
-              if (e.deltaY < 0) {
-                // Trigger action for scroll up
-                handlePageChange(-1);
+                changeProject(-1);
               }
             }}
           />
@@ -110,17 +95,17 @@ const ProjectsMenu = () => {
             tabIndex="0"
             aria-label={`Select project: ${project.title}`}
             aria-pressed={activeProject === index + 1 + startIndex}
-            onClick={() => handleProjectClick(index + 1 + startIndex)}
+            onClick={() => selectProject(index + 1 + startIndex)}
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") {
-                handleProjectClick(index + 1 + startIndex);
+                selectProject(index + 1 + startIndex);
               }
             }}
             onWheel={(e) => {
               if (e.deltaY > 0) {
-                handlePageChange(1);
-              } else if (e.deltaY < 0) {
-                handlePageChange(-1);
+                changeProject(1); // Scroll down
+              } else {
+                changeProject(-1); // Scroll up
               }
             }}
           >
@@ -137,17 +122,17 @@ const ProjectsMenu = () => {
             tabIndex="0"
             role="button"
             aria-label="Navigate to the next project"
-            onClick={() => handlePageChange(1)}
+            onClick={() => changeProject(1)}
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") {
-                handlePageChange(1);
+                changeProject(1);
               }
             }}
           />
         </div>
       </div>
-      <div 
-        key={activeProject} 
+      <div
+        key={activeProject}
         className="project-sub-container fade-in"
         aria-live="polite"
       >
