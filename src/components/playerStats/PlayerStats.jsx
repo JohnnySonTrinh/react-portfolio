@@ -1,7 +1,6 @@
 import "../../styles/playerStats.css";
 import Linkedin from "../../assets/linkedin.png";
 import Github from "../../assets/github.png";
-import { LINKEDIN_URL, GITHUB_URL } from "../../utils/calculateAge";
 import usePlayerStats from "../../hooks/usePlayerStats";
 
 // PlayerStats component
@@ -20,7 +19,7 @@ const PlayerStats = () => {
       <h2>Fullstack Developer</h2>
       <div className="icon-container">
         <a
-          href={LINKEDIN_URL}
+          href="https://www.linkedin.com/in/johnny-trinh-dev/"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn Profile"
@@ -28,7 +27,7 @@ const PlayerStats = () => {
           <img src={Linkedin} alt="LinkedIn" className="icons" />
         </a>
         <a
-          href={GITHUB_URL}
+          href="https://github.com/JohnnySonTrinh"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub Profile"
