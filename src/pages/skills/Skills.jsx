@@ -1,10 +1,13 @@
-import React from "react";
 import Avatar from "../../components/avatar/Avatar";
 import SkillsMenu from "./SkillsMenu";
-import { SkillsProvider, useSkills } from "../../context/SkillsContext";
+import useSkills from "../../hooks/useSkills";
 
-const SkillsContent = () => {
-  const { skills, currentCategory, handleCategoryChange } = useSkills();
+const Skills = () => {
+  const {
+    skills,
+    currentCategory,
+    handleCategoryChange,
+  } = useSkills();
 
   return (
     <>
@@ -18,11 +21,4 @@ const SkillsContent = () => {
   );
 };
 
-const Skills = () => {
-  return (
-    <SkillsProvider>
-      <SkillsContent />
-    </SkillsProvider>
-  );
-};
 export default Skills;

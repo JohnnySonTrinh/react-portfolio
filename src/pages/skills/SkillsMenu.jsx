@@ -3,7 +3,7 @@ import "../../styles/skillsMenu.css";
 import frontendIcon from "../../assets/eagle-emblem.png";
 import backendIcon from "../../assets/hawk-emblem.png";
 import fullstackIcon from "../../assets/astronaut-helmet.png";
-import { useSkills } from "../../context/SkillsContext";
+import useSkills from "../../hooks/useSkills";
 import handleWheelScroll from "../../utils/handleWheelScroll";
 
 const SkillsMenu = () => {
