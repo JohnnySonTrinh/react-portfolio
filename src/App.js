@@ -1,13 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Background from "./components/background/Background";
 import Nav from "./components/nav/Nav";
+import Background from "./components/background/Background";
+import PlayerStats from "./components/playerStats/PlayerStats";
 import About from "./pages/about/About";
 import Projects from "./pages/projects/Projects";
 import Hackathons from "./pages/hackathons/Hackathons";
 import Contact from "./pages/contact/Contact";
 import Skills from "./pages/skills/Skills";
 import "./styles/app.css";
-import PlayerStats from "./components/playerStats/PlayerStats";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 
 // Main App component
