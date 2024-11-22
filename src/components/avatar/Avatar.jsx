@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import avatarImage from "../../assets/avatar-image.webp";
 import "../../styles/avatar.css";
-import { useAvatar } from "../../context/AvatarContext";
+import useAvatar from "../../hooks/useAvatar";
 
 const Avatar = ({ page }) => {
   const { fadeIn } = useAvatar();
