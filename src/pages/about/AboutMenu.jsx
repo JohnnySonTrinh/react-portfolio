@@ -5,6 +5,7 @@ import personalIcon from "../../assets/moebius-triangle.png";
 import educationIcon from "../../assets/upgrade.png";
 import careerIcon from "../../assets/triple-corn.png";
 import useAboutState from "../../hooks/useAbout";
+import handleWheelScroll from "../../utils/handleWheelScroll";
 
 const AboutMenu = () => {
   // Destructure custom hook values
@@ -28,22 +29,20 @@ const AboutMenu = () => {
   // Get subheadings data for the active menu item
   const subheadings = subheadingsData[activeMenuItem];
 
-  // Function to handle scrolling
+  // Function to handle wheel event
   const handleWheel = (e, type) => {
     if (type === "menu") {
-      // Handle menu scrolling
-      if (e.deltaY > 0 && activeMenuItem < menuItems.length) {
-        handleMenuItemClick(activeMenuItem + 1);
-      } else if (e.deltaY < 0 && activeMenuItem > 1) {
-        handleMenuItemClick(activeMenuItem - 1);
-      }
+      handleWheelScroll(e, {
+        currentIndex: activeMenuItem,
+        setIndex: handleMenuItemClick,
+        maxIndex: menuItems.length,
+      });
     } else if (type === "subheading") {
-      // Handle subheading scrolling
-      if (e.deltaY > 0 && activeSubheading < subheadings.length) {
-        handleSubheadingClick(activeSubheading + 1);
-      } else if (e.deltaY < 0 && activeSubheading > 1) {
-        handleSubheadingClick(activeSubheading - 1);
-      }
+      handleWheelScroll(e, {
+        currentIndex: activeSubheading,
+        setIndex: handleSubheadingClick,
+        maxIndex: subheadings.length,
+      });
     }
   };
 
