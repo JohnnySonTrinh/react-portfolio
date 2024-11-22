@@ -1,5 +1,5 @@
 import { useState } from "react";
-import navData from "./navData";
+import navData from "../../data/navData";
 import NavMenu from "./NavMenu";
 import HamburgerMenu from "./HamburgerMenu";
 import "../../styles/nav.css";
