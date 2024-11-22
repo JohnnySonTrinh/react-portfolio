@@ -8,7 +8,7 @@ import { useAbout } from "../../context/AboutContext";
 
 // AboutMenu component
 const AboutMenu = () => {
-  // Extracting values and functions from the useAbout hook
+  // Destructure values from the useAbout hook
   const {
     activeMenuItem,
     activeSubheading,
@@ -16,7 +16,7 @@ const AboutMenu = () => {
     handleSubheadingClick,
   } = useAbout();
 
-  // Defining menu items and icons based on the active menu item
+  // Define menu items and active menu title/icon
   const menuItems = ["PERSONAL", "EDUCATION", "CAREER"];
   const activeMenuTitle = menuItems[activeMenuItem - 1];
   const activeMenuIcon =
@@ -26,12 +26,35 @@ const AboutMenu = () => {
       ? educationIcon
       : careerIcon;
 
-  // Getting the subheadings data for the active menu item
+  // Get subheadings data for the active menu item
   const subheadings = subheadingsData[activeMenuItem];
+
+  // Function to handle scrolling
+  const handleWheel = (e, type) => {
+    if (type === "menu") {
+      // Handle menu scrolling
+      if (e.deltaY > 0 && activeMenuItem < menuItems.length) {
+        handleMenuItemClick(activeMenuItem + 1);
+      } else if (e.deltaY < 0 && activeMenuItem > 1) {
+        handleMenuItemClick(activeMenuItem - 1);
+      }
+    } else if (type === "subheading") {
+      // Handle subheading scrolling
+      if (e.deltaY > 0 && activeSubheading < subheadings.length) {
+        handleSubheadingClick(activeSubheading + 1);
+      } else if (e.deltaY < 0 && activeSubheading > 1) {
+        handleSubheadingClick(activeSubheading - 1);
+      }
+    }
+  };
 
   return (
     <>
-      <div className="menu fade-in" role="menu">
+      <div
+        className="menu fade-in"
+        role="menu"
+        onWheel={(e) => handleWheel(e, "menu")}
+      >
         {menuItems.map((item, index) => (
           <AboutMenuItem
             key={index}
@@ -41,7 +64,11 @@ const AboutMenu = () => {
           />
         ))}
       </div>
-      <div key={activeMenuItem} className="sub-container fade-in">
+      <div 
+        key={activeMenuItem} 
+        className="sub-container fade-in" 
+        onWheel={(e) => handleWheel(e, "subheading")}
+      >
         <div className="icon-title-container">
           <img src={activeMenuIcon} alt={activeMenuTitle} className="icon" />
           <h3>{activeMenuTitle}</h3>
