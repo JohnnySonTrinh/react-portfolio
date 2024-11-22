@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import { calculateAge, BIRTHDAY } from "../components/playerStats/playerData";
+import { calculateAge, BIRTHDAY } from "../utils/calculateAge";
 
 const PlayerStatsContext = createContext();
 
