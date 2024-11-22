@@ -2,6 +2,7 @@ import projects from "./projectsData";
 import "../../styles/projects.css";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 import useActiveProject from "../../hooks/useActiveProject";
+import handleProjectWheel from "../../utils/handleProjectWheel";
 
 // ProjectsMenu component
 const ProjectsMenu = () => {
@@ -101,13 +102,7 @@ const ProjectsMenu = () => {
                 selectProject(index + 1 + startIndex);
               }
             }}
-            onWheel={(e) => {
-              if (e.deltaY > 0) {
-                changeProject(1); // Scroll down
-              } else {
-                changeProject(-1); // Scroll up
-              }
-            }}
+            onWheel={(e) => handleProjectWheel(e, changeProject)}
           >
             <h2 className="title">{project.title}</h2>
           </div>

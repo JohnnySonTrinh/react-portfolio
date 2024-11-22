@@ -2,6 +2,7 @@ import hackathons from "./hackathonsData";
 import "../../styles/projects.css";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 import useActiveProject from "../../hooks/useActiveProject";
+import handleProjectWheel from "../../utils/handleProjectWheel";
 
 // HackathonsMenu component
 const HackathonsMenu = () => {
@@ -91,13 +92,7 @@ const HackathonsMenu = () => {
                 selectProject(index + 1 + startIndex);
               }
             }}
-            onWheel={(e) => {
-              if (e.deltaY > 0) {
-                changeProject(1);
-              } else if (e.deltaY < 0) {
-                changeProject(-1);
-              }
-            }}
+            onWheel={(e) => handleProjectWheel(e, changeProject)}
           >
             <h2 className="title">{hackathon.team}</h2>
           </div>
