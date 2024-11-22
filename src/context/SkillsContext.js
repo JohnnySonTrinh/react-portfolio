@@ -12,12 +12,14 @@ export const SkillsProvider = ({ children }) => {
 
   // Function to handle category changes
   const handleCategoryChange = (category) => {
+    // Ensure the category is within valid bounds
+    if (category < 1 || category > Object.keys(skillsData).length) {
+      return;
+    }
+
     setCurrentCategory(category);
 
-    // Debugging: Check what is being assigned to `skills`
-    // console.log("Setting skills to: ", skillsData[category]);
-
-    // Ensure `skillsData[category]` is defined before setting it
+    // Set the skills for the selected category
     setSkills(skillsData[category] || []);
   };
 
