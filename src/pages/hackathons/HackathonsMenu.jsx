@@ -1,25 +1,18 @@
-import { useState } from "react";
 import hackathons from "./hackathonsData";
 import "../../styles/projects.css";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
+import useActiveProject from "../../hooks/useActiveProject";
 
 // HackathonsMenu component
 const HackathonsMenu = () => {
-  const [activeHackathon, setActiveHackathon] = useState(1);
-  const hackathonsPerPage = 3; // Number of hackathons per page
+  const hackathonsPerPage = 3;
 
-  // Function to handle the hackathon click
-  const handleHackathonClick = (hackathon) => {
-    setActiveHackathon(hackathon);
-  };
+  // Use custom hook for active project state
+  const { activeProject, changeProject, selectProject } = useActiveProject(1, hackathons.length);
 
-  // Function to handle page change
-  const handlePageChange = (direction) => {
-    const newHackathon = activeHackathon + direction;
-    if (newHackathon > 0 && newHackathon <= hackathons.length) {
-      setActiveHackathon(newHackathon);
-    }
-  };
+  const startIndex = Math.max(0, activeProject - 2);
+  const hackathonItems = hackathons.slice(startIndex, startIndex + hackathonsPerPage);
+  const activeHackathonData = hackathons[activeProject - 1];
 
   // Method for rendering the content of the hackathons
   const renderContent = (hackathon) => {
@@ -28,7 +21,7 @@ const HackathonsMenu = () => {
     }
 
     return (
-      <div className={`project-sub-container-${activeHackathon} fade-in`}>
+      <div className={`project-sub-container-${activeProject} fade-in`}>
         <h3>{hackathon.title}</h3>
         <div className="image-container">
           <img src={hackathon.image} alt={hackathon.title}></img>
@@ -59,19 +52,12 @@ const HackathonsMenu = () => {
     );
   };
 
-  const startIndex = Math.max(0, activeHackathon - 2);
-  const hackathonItems = hackathons.slice(
-    startIndex,
-    startIndex + hackathonsPerPage
-  );
-  const activeHackathonData = hackathons[activeHackathon - 1];
-
   return (
     <div className="project-menu fade-in">
       <div className="project-items-container">
         <div
           className={`arrow-button-container ${
-            activeHackathon > 1 ? "visible" : ""
+            activeProject > 1 ? "visible" : ""
           }`}
         >
           <FaChevronUp
@@ -79,10 +65,10 @@ const HackathonsMenu = () => {
             tabIndex={0}
             role="button"
             aria-label="Navigate to previous hackathon"
-            onClick={() => handlePageChange(-1)}
+            onClick={() => changeProject(-1)}
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") {
-                handlePageChange(-1);
+                changeProject(-1);
               }
             }}
           />
@@ -91,25 +77,25 @@ const HackathonsMenu = () => {
           <div
             key={index}
             className={`project-item ${
-              activeHackathon === index + 1 + startIndex
+              activeProject === index + 1 + startIndex
                 ? "activeProject"
                 : ""
             }`}
             role="button"
             tabIndex={0}
             aria-label={`Select project: ${hackathon.title}`}
-            aria-pressed={activeHackathon === index + 1 + startIndex}
-            onClick={() => handleHackathonClick(index + 1 + startIndex)}
+            aria-pressed={activeProject === index + 1 + startIndex}
+            onClick={() => selectProject(index + 1 + startIndex)}
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") {
-                handleHackathonClick(index + 1 + startIndex);
+                selectProject(index + 1 + startIndex);
               }
             }}
             onWheel={(e) => {
               if (e.deltaY > 0) {
-                handlePageChange(1);
+                changeProject(1);
               } else if (e.deltaY < 0) {
-                handlePageChange(-1);
+                changeProject(-1);
               }
             }}
           >
@@ -118,7 +104,7 @@ const HackathonsMenu = () => {
         ))}
         <div
           className={`arrow-button-container ${
-            activeHackathon < hackathons.length ? "visible" : ""
+            activeProject < hackathons.length ? "visible" : ""
           }`}
         >
           <FaChevronDown
@@ -126,16 +112,16 @@ const HackathonsMenu = () => {
             tabIndex={0}
             role="button"
             aria-label="Navigate to next hackathon"
-            onClick={() => handlePageChange(1)}
+            onClick={() => changeProject(1)}
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") {
-                handlePageChange(1);
+                changeProject(1);
               }
             }}
           />
         </div>
       </div>
-      <div key={activeHackathon} className="project-sub-container fade-in">
+      <div key={activeProject} className="project-sub-container fade-in">
         {renderContent(activeHackathonData)}
       </div>
     </div>
