@@ -1,6 +1,6 @@
 export const LINKEDIN_URL = "https://www.linkedin.com/in/johnny-trinh-dev/";
 export const GITHUB_URL = "https://github.com/JohnnySonTrinh/";
-export const BIRTHDAY = new Date(1996, 8, 28); // September is month 8 (0-indexed)
+export const BIRTHDAY = new Date(1996, 8, 28);
 
 // Function to calculate age
 export const calculateAge = (birthday) => {
@@ -12,3 +12,5 @@ export const calculateAge = (birthday) => {
   }
   return age;
 };
+
+export default calculateAge;
