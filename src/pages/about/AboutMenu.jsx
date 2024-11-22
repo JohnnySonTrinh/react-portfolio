@@ -4,17 +4,16 @@ import subheadingsData from "./subheadingsData";
 import personalIcon from "../../assets/moebius-triangle.png";
 import educationIcon from "../../assets/upgrade.png";
 import careerIcon from "../../assets/triple-corn.png";
-import { useAbout } from "../../context/AboutContext";
+import useAboutState from "../../hooks/useAbout";
 
-// AboutMenu component
 const AboutMenu = () => {
-  // Destructure values from the useAbout hook
+  // Destructure custom hook values
   const {
     activeMenuItem,
     activeSubheading,
     handleMenuItemClick,
     handleSubheadingClick,
-  } = useAbout();
+  } = useAboutState();
 
   // Define menu items and active menu title/icon
   const menuItems = ["PERSONAL", "EDUCATION", "CAREER"];
