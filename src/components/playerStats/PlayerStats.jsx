@@ -2,7 +2,7 @@ import "../../styles/playerStats.css";
 import Linkedin from "../../assets/linkedin.png";
 import Github from "../../assets/github.png";
 import { LINKEDIN_URL, GITHUB_URL } from "../../utils/calculateAge";
-import { usePlayerStats } from "../../context/PlayerStatsContext";
+import usePlayerStats from "../../hooks/usePlayerStats";
 
 // PlayerStats component
 const PlayerStats = () => {
