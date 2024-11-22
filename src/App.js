@@ -1,4 +1,3 @@
-import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Background from "./components/background/Background";
 import Nav from "./components/nav/Nav";
@@ -9,27 +8,24 @@ import Contact from "./pages/contact/Contact";
 import Skills from "./pages/skills/Skills";
 import "./styles/app.css";
 import PlayerStats from "./components/playerStats/PlayerStats";
-import { PlayerStatsProvider } from "./context/PlayerStatsContext";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 
 // Main App component
 const App = () => {
   return (
-    <PlayerStatsProvider>
-      <Router>
-        <Background />
-        <Nav />
-        <Routes>
-          <Route path="/" element={<About />} />
-          <Route path="/skills" element={<Skills />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/hackathons" element={<Hackathons />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-        <PlayerStats />
-        <SpeedInsights />
-      </Router>
-    </PlayerStatsProvider>
+    <Router>
+      <SpeedInsights />
+      <Background />
+      <Nav />
+      <PlayerStats />
+      <Routes>
+        <Route path="/" element={<About />} />
+        <Route path="/skills" element={<Skills />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/hackathons" element={<Hackathons />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </Router>
   );
 };
 
