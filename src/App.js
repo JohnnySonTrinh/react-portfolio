@@ -10,7 +10,6 @@ import Skills from "./pages/skills/Skills";
 import "./styles/app.css";
 import PlayerStats from "./components/playerStats/PlayerStats";
 import { PlayerStatsProvider } from "./context/PlayerStatsContext";
-import { AvatarProvider } from "./context/AvatarContext";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 
 // Main App component
@@ -18,19 +17,17 @@ const App = () => {
   return (
     <PlayerStatsProvider>
       <Router>
-        <AvatarProvider>
-          <Background />
-          <Nav />
-          <Routes>
-            <Route path="/" element={<About />} />
-            <Route path="/skills" element={<Skills />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/hackathons" element={<Hackathons />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-          <PlayerStats />
-          <SpeedInsights />
-        </AvatarProvider>
+        <Background />
+        <Nav />
+        <Routes>
+          <Route path="/" element={<About />} />
+          <Route path="/skills" element={<Skills />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/hackathons" element={<Hackathons />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+        <PlayerStats />
+        <SpeedInsights />
       </Router>
     </PlayerStatsProvider>
   );
