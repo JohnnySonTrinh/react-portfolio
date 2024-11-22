@@ -1,45 +1,51 @@
 import { createContext, useContext, useState } from "react";
-import skillsData, { shuffleLevels } from "../pages/skills/skillsData";
+import skillsData from "../pages/skills/skillsData";
 
+// Create the Skills context
 const SkillsContext = createContext();
-
-export const useSkills = () => useContext(SkillsContext);
 
 export const SkillsProvider = ({ children }) => {
   const [currentCategory, setCurrentCategory] = useState(1);
-  const [skills, setSkills] = useState(shuffleLevels(skillsData)[1]);
-  const [showNote, setShowNote] = useState(true);
 
+  // Ensure that the skills are set with a default value to avoid undefined errors
+  const [skills, setSkills] = useState(skillsData[1] || []);
+
+  // Function to handle category changes
   const handleCategoryChange = (category) => {
     setCurrentCategory(category);
-    setSkills(shuffleLevels(skillsData)[category]);
+
+    // Debugging: Check what is being assigned to `skills`
+    // console.log("Setting skills to: ", skillsData[category]);
+
+    // Ensure `skillsData[category]` is defined before setting it
+    setSkills(skillsData[category] || []);
   };
 
   const handleMenuItemClick = (menuItem) => {
     handleCategoryChange(menuItem);
   };
 
-  const handleCloseNote = () => {
-    setShowNote(false);
-  };
-
   const renderContent = (skills) => {
-    return skills.map((skill, index) => (
-      <div key={index} className={`skill-sub-container-${currentCategory}`}>
-        <h3>{skill.title}</h3>
-        <div className="level-container">
-          {[...Array(6)].map((_, i) => (
-            <div
-              key={i}
-              className={`level-point ${
-                i < skill.level ? "filled" : "unfilled"
-              }`}
-              style={{ animationDelay: `${i * 0.3}s` }}
-            />
-          ))}
-        </div>
+    // Add a fallback in case `skills` is undefined or empty
+    if (!skills || skills.length === 0) {
+      return <div>No skills available for this category.</div>;
+    }
+
+    return (
+      <div className={`skills-grid-container-${currentCategory}`}>
+        {skills.map((skill, index) => (
+          <div
+            key={index}
+            className="skill-icon-container"
+            role="img"
+            aria-label={skill.ariaLabel}
+          >
+            <i className={`devicon ${skill.icon}`} />
+            <h3>{skill.title}</h3>
+          </div>
+        ))}
       </div>
-    ));
+    );
   };
 
   return (
@@ -47,13 +53,14 @@ export const SkillsProvider = ({ children }) => {
       value={{
         currentCategory,
         skills,
-        showNote,
         handleMenuItemClick,
-        handleCloseNote,
         renderContent,
+        handleCategoryChange,
       }}
     >
       {children}
     </SkillsContext.Provider>
   );
 };
+
+export const useSkills = () => useContext(SkillsContext);

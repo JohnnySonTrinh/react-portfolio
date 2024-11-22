@@ -3,11 +3,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Background from "./components/background/Background";
 import Nav from "./components/nav/Nav";
 import About from "./pages/about/About";
-import Skills from "./pages/skills/Skills";
 import Projects from "./pages/projects/Projects";
 import Hackathons from "./pages/hackathons/Hackathons";
 import Contact from "./pages/contact/Contact";
-import SkillTree from "./pages/skillTree/SkillTree";
+import Skills from "./pages/skills/Skills";
 import "./styles/app.css";
 import PlayerStats from "./components/playerStats/PlayerStats";
 import { PlayerStatsProvider } from "./context/PlayerStatsContext";
@@ -24,11 +23,10 @@ const App = () => {
           <Nav />
           <Routes>
             <Route path="/" element={<About />} />
-            <Route path="/skills" element={<SkillTree />} />
+            <Route path="/skills" element={<Skills />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/hackathons" element={<Hackathons />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/stack" element={<Skills />} />
           </Routes>
           <PlayerStats />
           <SpeedInsights />
