@@ -45,6 +45,7 @@ a {
 
 /* Hover effect with a gradient and breathing animation */
 button:hover,
+.home-button:hover,
 .link-container a:hover,
 .class-sub-container a:hover,
 .project-item:hover,
