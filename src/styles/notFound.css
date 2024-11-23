@@ -1,0 +1,26 @@
+.not-found {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: fadeIn 2s ease-in;
+
+  h1 {
+    font-size: 8rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.home-button {
+  margin-top: 3rem;
+  width: 10rem;
+  color: var(--white);
+  background: var(--purple);
+  border-radius: 3rem;
+}
+.home-button:hover {
+  background: var(--transparent);
+}
