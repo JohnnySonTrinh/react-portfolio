@@ -1,5 +1,5 @@
 import { useState } from "react";
-import skillsData from "../pages/skills/skillsData";
+import skillsData from "../data/skillsData";
 
 const useSkills = () => {
   const [currentCategory, setCurrentCategory] = useState(1);
