@@ -1,6 +1,6 @@
 import AboutMenuItem from "./AboutMenuItems";
 import AboutSubheading from "./AboutSubheading";
-import subheadingsData from "./subheadingsData";
+import subheadingsData from "../../data/subheadingsData";
 import personalIcon from "../../assets/moebius-triangle.png";
 import educationIcon from "../../assets/upgrade.png";
 import careerIcon from "../../assets/triple-corn.png";
@@ -62,9 +62,9 @@ const AboutMenu = () => {
           />
         ))}
       </div>
-      <div 
-        key={activeMenuItem} 
-        className="sub-container fade-in" 
+      <div
+        key={activeMenuItem}
+        className="sub-container fade-in"
         onWheel={(e) => handleWheel(e, "subheading")}
       >
         <div className="icon-title-container">

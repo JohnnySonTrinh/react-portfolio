@@ -1,4 +1,4 @@
-import hackathons from "./hackathonsData";
+import hackathons from "../../data/hackathonsData";
 import "../../styles/projects.css";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 import useActiveProject from "../../hooks/useActiveProject";
@@ -9,10 +9,16 @@ const HackathonsMenu = () => {
   const hackathonsPerPage = 3;
 
   // Use custom hook for active project state
-  const { activeProject, changeProject, selectProject } = useActiveProject(1, hackathons.length);
+  const { activeProject, changeProject, selectProject } = useActiveProject(
+    1,
+    hackathons.length
+  );
 
   const startIndex = Math.max(0, activeProject - 2);
-  const hackathonItems = hackathons.slice(startIndex, startIndex + hackathonsPerPage);
+  const hackathonItems = hackathons.slice(
+    startIndex,
+    startIndex + hackathonsPerPage
+  );
   const activeHackathonData = hackathons[activeProject - 1];
 
   // Method for rendering the content of the hackathons
@@ -32,17 +38,17 @@ const HackathonsMenu = () => {
         </div>
         <div>{hackathon.description.props.children[0]}</div>
         <div className="link-container">
-          <a 
-            href={hackathon.github} 
-            target="_blank" 
+          <a
+            href={hackathon.github}
+            target="_blank"
             rel="noopener noreferrer"
             aria-label={`View ${hackathon.title} on GitHub`}
           >
             GITHUB
           </a>
-          <a 
-            href={hackathon.demo} 
-            target="_blank" 
+          <a
+            href={hackathon.demo}
+            target="_blank"
             rel="noopener noreferrer"
             aria-label={`View live demo of ${hackathon.title}`}
           >
@@ -78,9 +84,7 @@ const HackathonsMenu = () => {
           <div
             key={index}
             className={`project-item ${
-              activeProject === index + 1 + startIndex
-                ? "activeProject"
-                : ""
+              activeProject === index + 1 + startIndex ? "activeProject" : ""
             }`}
             role="button"
             tabIndex={0}

@@ -1,4 +1,4 @@
-import projects from "./projectsData";
+import projects from "../../data/projectsData";
 import "../../styles/projects.css";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 import useActiveProject from "../../hooks/useActiveProject";
