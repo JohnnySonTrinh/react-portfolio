@@ -24,3 +24,22 @@
 .home-button:hover {
   background: var(--transparent);
 }
+
+canvas {
+  width: 50%;
+  height: 50%;
+  position: relative;
+  z-index: 3;
+}
+
+@keyframes pan-one {
+  from {
+    translate: -100%;
+  }
+}
+
+@keyframes pan-two {
+  to {
+    translate: 100%;
+  }
+}
