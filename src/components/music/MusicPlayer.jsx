@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import Sound from "../../assets/the-uprising.mp3";
+import "../../styles/notFound.css";
 
+// MusicPlayer component that plays the audio file and updates the audioData
 const MusicPlayer = ({ audioData }) => {
   const audioRef = useRef(null);
   const [audioCtx, setAudioCtx] = useState(null);
@@ -10,8 +12,9 @@ const MusicPlayer = ({ audioData }) => {
     let analyser;
     let dataArray;
     let bufferLength;
-    const localAudioRef = audioRef.current; // Save the current ref value to a local variable
+    const localAudioRef = audioRef.current;
 
+    // Initialize audio context and event listeners
     const initializeAudio = () => {
       if (!audioCtx) {
         const context = new (window.AudioContext || window.webkitAudioContext)();
@@ -29,6 +32,7 @@ const MusicPlayer = ({ audioData }) => {
       }
     };
 
+    // Handle audio play/pause
     const handleAudioToggle = () => {
       if (audioCtx.state === "suspended") {
         audioCtx.resume();
@@ -42,6 +46,7 @@ const MusicPlayer = ({ audioData }) => {
       }
     };
 
+    // Update audio data
     const updateAudioData = () => {
       if (analyser) {
         analyser.getByteFrequencyData(dataArray);
@@ -66,8 +71,8 @@ const MusicPlayer = ({ audioData }) => {
   }, [audioCtx, audioData]);
 
   return (
-    <div>
-      <button
+    <div className="music-menu">
+      <p
         onClick={() => {
           if (audioRef.current.paused) {
             audioRef.current.play();
@@ -77,11 +82,11 @@ const MusicPlayer = ({ audioData }) => {
             setIsPlaying(false);
           }
         }}
-        aria-label={isPlaying ? "Pause Music" : "Play Music"}
+        aria-label={isPlaying ? "Pause Music" : "Touch the Blob"}
       >
-        {isPlaying ? "Pause Music" : "Play Music"}
-      </button>
-      <audio ref={audioRef} src={Sound} crossOrigin="anonymous" volume="0.01" />
+        {isPlaying ? "Pause Music" : "Tap the Blob"}
+      </p>
+      <audio ref={audioRef} src={Sound} crossOrigin="anonymous" volume="0.5" />
     </div>
   );
 };
