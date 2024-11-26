@@ -32,6 +32,11 @@ Halo-themed portfolio built with accessibility and modern design in mind. Levera
 - **CSS Improvements**: Updated and added CSS Root Variables to clean up the styling and make it more scalable.
 - **React Functional Components**: Removed all the React classes in favor of hooks to modernize the codebase.
 - **Keyboard Navigation**: Implemented full keyboard navigation by Tab, Shift+Tab, and Enter to improve accessibility.
+- **Scroll Wheel Navigation**: Implemented scroll wheel functionality for smooth navigation through categories, projects, and hackathons.
+- **404 Page**: Added a fully interactive and animated 404 page with WebGL effects and music for a creative "lost in space" experience.
+- **Dynamic Meta Titles**: Introduced per-page dynamic meta title updates for better SEO and improved user experience.
+- **Background Enhancements**: Updated background with a green gradient transition effect, elevating the visual appeal.
+- **Utility Hooks**: Centralized repeated logic such as meta title updates and scroll handlers into reusable custom hooks for a more maintainable codebase.
 
 ## Updated version VS Old version
 
@@ -42,7 +47,6 @@ Halo-themed portfolio built with accessibility and modern design in mind. Levera
 | Projects Page      | ![screenshot](documentation/readme/new-projects.png)   | ![screenshot](documentation/readme/old-projects.png)   |
 | Hackathons Page    | ![screenshot](documentation/readme/new-hackathons.png) | ![screenshot](documentation/readme/old-hackathons.png) |
 | Contact Page       | ![screenshot](documentation/readme/new-contact.png)    | ![screenshot](documentation/readme/old-contact.png)    |
-|                    |                                                        |                                                        |
 
 </details>
 
