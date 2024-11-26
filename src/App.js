@@ -11,7 +11,6 @@ import NotFound from "./pages/404page/NotFound";
 import "./styles/app.css";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 
-// Main App component
 const App = () => {
   return (
     <Router>
@@ -31,5 +30,4 @@ const App = () => {
   );
 };
 
-// Exporting the App component
 export default App;
