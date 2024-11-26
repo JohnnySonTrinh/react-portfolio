@@ -1,15 +1,8 @@
-# [PORTFOLIO](https://react-portfolio-wine-six.vercel.app/)
+# [Johnny Trinh - Full-Stack Developer Portfolio](https://johnnytrinh.se)
 
-![Landing page](https://i.imgur.com/uSr4R1c.png)
+![Mockup](documentation/readme/mockup.png)
 
-Halo-themed portfolio built with accessibility and modern design in mind. Leveraging cutting-edge technologies, this portfolio includes:
-
-- AI-Generated Art Assets: Created using DALL·E for stunning visuals and avatars, enhanced with Midjourney and Picsi.AI by InsightFaceSwap Bot for advanced face-swapping.
-- React Functionality: Utilizing React useState hooks to manage dynamic UI elements and provide seamless interactivity.
-- Keyboard Navigation: Fully accessible with Tab, Shift+Tab, and Enter keys, ensuring intuitive navigation for all users.
-- Dynamic Backgrounds: Engaging and responsive background animations that elevate the user experience.
-- Modern Web Design: Built with CSS3, featuring responsive layouts and sleek visual effects.
-- Direct Form Submission: Secure, fully functional contact forms powered by EmailJS for instant submissions without backend complexity.
+This portfolio showcases my skills and experience as a full-stack developer, blending a visually engaging design with a focus on accessibility and modern web development techniques. The theme draws inspiration from the Halo universe, creating a unique and memorable user experience.
 
 ## Updates
 
@@ -38,7 +31,7 @@ Halo-themed portfolio built with accessibility and modern design in mind. Levera
 - **Background Enhancements**: Updated background with a green gradient transition effect, elevating the visual appeal.
 - **Utility Hooks**: Centralized repeated logic such as meta title updates and scroll handlers into reusable custom hooks for a more maintainable codebase.
 
-## Updated version VS Old version
+### Updated version VS Old version
 
 | Updates            | New version                                            | Old version                                            |
 | ------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
@@ -56,39 +49,18 @@ Halo-themed portfolio built with accessibility and modern design in mind. Levera
 [![GitHub last commit](https://img.shields.io/github/last-commit/JohnnySonTrinh/react-portfolio)](https://github.com/JohnnySonTrinh/react-portfolio/commits/main)
 [![GitHub repo size](https://img.shields.io/github/repo-size/JohnnySonTrinh/react-portfolio)](https://github.com/JohnnySonTrinh/react-portfolio)
 
-## UX
+## Key Features
 
-```css
-:root {
-  --purple: #540351;
-  --blue: #3627b1;
-  --cyan: #25afce;
-  --white: #ffffff;
-  --wheat: #f5deb3;
-  --grey: rgb(211, 211, 211);
-  --transparent: #00000000;
-  --radius-left: 3rem 0 0 3rem;
-  --radius-right: 0 3rem 3rem 0;
-  --font-size-large: 1.5rem;
-  --font-size-medium: 1rem;
-  --font-size-small: 0.8rem;
-  --icon-size: 2rem;
-  --icon-size-small: 1.5rem;
-  --border-radius: 0.5rem;
-}
-```
-
-### Typography
-
-For the portfolio, I've chosen Russo One fonts to create "Mass effect vibe" engaging and readable user interface. The fonts were selected for their clarity and legibility.
-
-#### Implementation in CSS
-
-The fonts are included at the beginning of our main CSS file using the `@import` rule from Google Fonts. This method ensures that the fonts are available as soon as the CSS is loaded, maintaining a consistent typographic experience throughout portfolio.
-
-```css
-@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
-```
+- **AI-Generated Art Assets:** Leveraging DALL-E, Midjourney, and Picsi.AI, I created custom avatars and visual elements, enhancing the portfolio's aesthetic appeal.
+- **Responsive Design:** Built with CSS3 and designed for optimal viewing across various devices and screen sizes.
+- **React.js Framework:** Developed using React.js, utilizing functional components and hooks for efficient and maintainable code.
+- **Smooth Navigation:** Intuitive navigation employing smooth scrolling, keyboard navigation (Tab, Shift+Tab, Enter), and mouse wheel support for seamless transitions between sections.
+- **Accessibility:** Prioritized accessibility with careful consideration of ARIA attributes and keyboard navigation for all users.
+- **Interactive Elements:** Engaging animations and interactive elements enhance the overall user experience.
+- **Dynamic Meta Titles:** SEO-optimized, dynamic meta titles update for each page.
+- **Contact Form:** A secure contact form powered by EmailJS allows for quick and easy communication.
+- **Custom Hooks:** Reusable custom hooks centralize and streamline common logic for improved code maintainability.
+- **Creative 404 Page:** A unique and engaging 404 page adds a touch of personality and guides users back to the main site.
 
 ## Tools & Technologies Used
 
@@ -107,37 +79,182 @@ The fonts are included at the beginning of our main CSS file using the `@import`
 - [DALL·E](https://openai.com/dall-e-3) used for crate avatar and icons.
 - [Devicon](https://devicon.dev) used icon for skills page
 
-## Features
+## Project Structure
 
-### Landing Page
+The project follows a well-organized structure, promoting maintainability and scalability:
 
-The landing page presents a dynamic and visually compelling interface, designed to showcase the professional profile
+```
+├── .gitignore
+├── README.md
+├── documentation
+│   ├── oldREADME.md
+│   └── readme
+│       ├── new-about.png
+│       ├── new-contact.png
+│       ├── new-hackathons.png
+│       ├── new-projects.png
+│       ├── new-skills.png
+│       ├── old-about.png
+│       ├── old-contact.png
+│       ├── old-hackathons.png
+│       ├── old-projects.png
+│       └── old-skills.png
+├── package-lock.json
+├── package.json
+├── public
+│   ├── favicon.ico
+│   ├── index.html
+│   └── robots.txt
+└── src
+    ├── App.js
+    ├── assets
+    │   ├── astronaut-helmet.png
+    │   ├── avatar-image.png
+    │   ├── avatar-image.webp
+    │   ├── background-transition.mp4
+    │   ├── bg-universe.mp4
+    │   ├── dead-eye.png
+    │   ├── eagle-emblem.png
+    │   ├── envelope.png
+    │   ├── fallback-image.webp
+    │   ├── github.png
+    │   ├── global.png
+    │   ├── hawk-emblem.png
+    │   ├── linkedin.png
+    │   ├── moebius-triangle.png
+    │   ├── stack.png
+    │   ├── the-uprising.mp3
+    │   ├── triple-corn.png
+    │   └── upgrade.png
+    ├── components
+    │   ├── avatar
+    │   │   └── Avatar.jsx
+    │   ├── background
+    │   │   └── Background.jsx
+    │   ├── music
+    │   │   └── MusicPlayer.jsx
+    │   ├── nav
+    │   │   ├── HamburgerMenu.jsx
+    │   │   ├── Nav.jsx
+    │   │   └── NavMenu.jsx
+    │   ├── playerStats
+    │   │   └── PlayerStats.jsx
+    │   └── shadowOverlay
+    │       └── ShadowOverlay.jsx
+    ├── data
+    │   ├── hackathonsData.js
+    │   ├── navData.js
+    │   ├── pageTitles.js
+    │   ├── projectsData.js
+    │   ├── skillsData.js
+    │   └── subheadingsData.js
+    ├── hooks
+    │   ├── useAbout.js
+    │   ├── useActiveProject.js
+    │   ├── useAvatar.js
+    │   ├── useMetaTitle.js
+    │   ├── usePlayerStats.js
+    │   ├── useSkills.js
+    │   └── useWebGLAnimation.js
+    ├── index.js
+    ├── pages
+    │   ├── 404page
+    │   │   ├── NotFound.jsx
+    │   │   └── NotFoundMenu.jsx
+    │   ├── about
+    │   │   ├── About.jsx
+    │   │   ├── AboutMenu.jsx
+    │   │   ├── AboutMenuItems.jsx
+    │   │   └── AboutSubheading.jsx
+    │   ├── contact
+    │   │   ├── Contact.jsx
+    │   │   ├── ContactMenu.jsx
+    │   │   └── useContactForm.js
+    │   ├── hackathons
+    │   │   ├── Hackathons.jsx
+    │   │   └── HackathonsMenu.jsx
+    │   ├── projects
+    │   │   ├── Projects.jsx
+    │   │   └── ProjectsMenu.jsx
+    │   └── skills
+    │       ├── Skills.jsx
+    │       └── SkillsMenu.jsx
+    ├── reportWebVitals.js
+    ├── setupTests.js
+    ├── styles
+    │   ├── ShadowOverlay.css
+    │   ├── aboutMenu.css
+    │   ├── app.css
+    │   ├── avatar.css
+    │   ├── background.css
+    │   ├── contact.css
+    │   ├── nav.css
+    │   ├── notFound.css
+    │   ├── playerStats.css
+    │   ├── projects.css
+    │   └── skillsMenu.css
+    └── utils
+        ├── calculateAge.js
+        ├── handleProjectWheel.js
+        ├── handleWheelScroll.js
+        └── updateMetaTitle.js
+
+```
+
+## Installation and Setup
+
+1. **Clone the repository:** `git clone <repository_url>`
+2. **Navigate to the project directory:** `cd react-portfolio`
+3. **Install dependencies:** `npm install`
+4. **Start the development server:** `npm start`
+
+This will start the application in development mode. You can then view the portfolio in your web browser.
+
+**Note:** You will need to set environment variables (`.env.local`) for EmailJS to function correctly. Refer to the EmailJS documentation for setup instructions.
+
+## Features: Detailed Overview
+
+### About/Landing Page
+
+This section provides a concise yet compelling introduction to my background and skills. The design is clean and visually appealing, immediately engaging the visitor. The avatar features a subtle fade-in animation.
 
 ![screenshot](documentation/readme/new-about.png)
 
-### Skills
+### Skills Section
 
-The skills are displayed in a split format, with a unique visual metaphor that borrows from the skill trees commonly found in video games, reinforcing the user's gaming background.
+The skills section uses a visually appealing skill tree metaphor, enhancing engagement and providing a unique way to present my proficiencies. Clicking on a skill category triggers a smooth transition and animation.
 
 ![screenshot](documentation/readme/new-skills.png)
 
-### Projects
+### Projects and Hackathons Sections
 
-Projects page is a thoughtful fusion of personal interests and professional showcase, geared towards engaging the viewer with both visual appeal and interactive elements.
+These sections showcase a selection of my projects and hackathon contributions. Each project/hackathon includes:
 
-![screenshot](documentation/readme/new-projects.png)
+- A high-quality image.
+- A concise description.
+- A list of technologies used.
+- Links to the GitHub repository and live demo (if available).
 
-### Hackathons
+Navigation between projects/hackathons is smooth and intuitive, thanks to integrated mouse wheel scrolling and arrow buttons, providing a user-friendly experience.
 
-Maintains the cosmic theme established throughout the site, which complements the forward-thinking and innovative spirit of hackathons. It's a testament involvement in collaborative and competitive coding events.
+![Projects Page Screenshot](documentation/readme/new-projects.png)
+![Hackathons Page Screenshot](documentation/readme/new-hackathons.png)
 
-![screenshot](documentation/readme/new-hackathons.png)
+### Contact Section
 
-### Contact
+The contact section features a clean and simple form with built-in validation to ensure accuracy. The submission is handled securely via EmailJS. A success message confirms successful submission.
 
-Contact page is a fusion of functionality and thematic design, offering a straightforward user experience without sacrificing the portfolio's overarching aesthetic.
+![Contact Page Screenshot](documentation/readme/new-contact.png)
 
-![screenshot](documentation/readme/new-contact.png)
+### 404 Page
+
+The custom 404 page provides a memorable and engaging experience when a user encounters a broken link, using WebGL to create a dynamic, animated background, enhanced by background music that activates when the central blob is clicked.
+
+![404 Page Screenshot](documentation/readme/new-notfound.png)
+
+## Contact
+
+You can reach me at [your email address] or connect with me on [LinkedIn](https://www.linkedin.com/in/johnny-trinh-dev/) and [GitHub](https://github.com/JohnnySonTrinh).
 
 ## Credits
 
