@@ -1,9 +1,12 @@
 import ContactMenu from "./ContactMenu";
 import "../../styles/contact.css";
+import useMetaTitle from "../../hooks/useMetaTitle";
+import pageTitles from "../../data/pageTitles";
 
-// Contact component
 const Contact = () => {
-  // Rendering the Contact component
+  // Set the meta title for the page
+  useMetaTitle(pageTitles.contact);
+
   return (
     <>
       <ContactMenu />
