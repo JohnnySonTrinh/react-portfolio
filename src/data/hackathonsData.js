@@ -14,9 +14,7 @@ const hackathons = [
         <p className="hover-description">
           All-Inclusive is an innovative platform dedicated to promoting
           accessibility and education for all users, regardless of their
-          abilities or backgrounds. Key features include interactive
-          accessibility tools, educational resources, seamless user experience,
-          and built-in contact functionality.
+          abilities or backgrounds.
         </p>
       </>
     ),
