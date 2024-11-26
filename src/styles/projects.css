@@ -202,6 +202,9 @@
   .project-items-container {
     margin-top: 0;
   }
+  .project-item.activeProject .title {
+    font-size: 0.8rem;
+  }
   .title {
     font-size: 0.6rem;
   }
