@@ -9,10 +9,8 @@ const subheadingsData = {
             Development from Code Institute. Transited from a gaming coach to a
             tech enthusiast, having strong problem-solving skills and a eye for
             detail. I specialize in building responsive, user-focused web
-            applications using modern frontend frameworks like React and
-            TypeScript. I have experience with both individual projects and
-            coaching has sharpened my communication abilities and passion for
-            creating intuitive digital experiences.
+            applications using modern frontend frameworks like React, TypeScript
+            and NextJS.
           </p>
         </>
       ),
@@ -60,7 +58,7 @@ const subheadingsData = {
             video responses. Interacted directly with clients to answer
             questions. and give detailed feedback, thus creating a helpful
             learning community and improving client involvement by effective
-            visual means. content.
+            communication.
           </p>
         </>
       ),
@@ -72,9 +70,7 @@ const subheadingsData = {
           <p>
             Wrote narrative-driven screenplays for ProGuides' YouTube channel.
             engaging both new and veteran players with content that combined
-            expert tips and storytelling. This role enabled me to create highly
-            informative and entertaining content greatly contributes to a
-            superior viewing experience for an audience of over one million
+            expert tips and storytelling for an audience of over one million
             subscribers.
           </p>
         </>
