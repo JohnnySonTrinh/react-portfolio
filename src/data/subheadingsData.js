@@ -5,11 +5,13 @@ const subheadingsData = {
       content: (
         <>
           <p>
-            Fullstack Developer with a Diploma in Full Stack Software
-            Development from Code Institute. I bring a background in gaming
-            coaching, where I developed strong problem-solving skills and
-            attention to detail. I focus on creating clean, responsive web
-            applications using tools like React, TypeScript, and Next.js.
+            Fullstack Developer with a diploma in Full Stack Software
+            Development from Code Institute. My experience as a gaming coach has
+            sharpened my problem-solving skills and ability to adapt to
+            different challenges. I build responsive, user-friendly web
+            applications, and I have an eye for details. I value clarity and
+            efficiency in my work and enjoy creating solutions that work
+            seamlessly for users.
           </p>
         </>
       ),
@@ -24,9 +26,9 @@ const subheadingsData = {
             Code Institute – Full-stack comprehensive course completed
             development program in HTML, CSS, JavaScript, Python, Django
             Advanced full-stack development with React. This curriculum provided
-            me with the skills to build dynamic, responsive web Building
+            me with the skills to build dynamic, responsive web-building
             applications from scratch, integrating both frontend and backend.
-            technologies to create complete, full-stack solutions.
+            Technologies to create complete, full-stack solutions.
           </p>
         </>
       ),
@@ -37,9 +39,9 @@ const subheadingsData = {
         <>
           <p>
             Developed foundational skills in full-stack development.
-            self-directed learning of technologies like HTML, CSS, JavaScript,
+            Self-directed learning of technologies like HTML, CSS, JavaScript,
             and Python. This self-directed journey fostered a mindset of
-            continuous learning and adaptability that create a solid foundation
+            continuous learning and adaptability that created a solid foundation
             for The structured training I later got from Code Institute.
           </p>
         </>
@@ -56,8 +58,8 @@ const subheadingsData = {
             AimLab.gg, a platform blending interactive forums with customized
             video responses. Interacted directly with clients to answer
             questions. and give detailed feedback, thus creating a helpful
-            learning community and improving client involvement by effective
-            communication.
+            learning community and improving client involvement through
+            effective communication.
           </p>
         </>
       ),
@@ -68,7 +70,7 @@ const subheadingsData = {
         <>
           <p>
             Wrote narrative-driven screenplays for ProGuides' YouTube channel.
-            engaging both new and veteran players with content that combined
+            Engaging both new and veteran players with content that combined
             expert tips and storytelling for an audience of over one million
             subscribers.
           </p>
@@ -83,7 +85,7 @@ const subheadingsData = {
             Delivered one-on-one coaching to over 2000 clients on ProGuides.
             Specialized in player development for both Valorant and Fortnite.
             Customized coaching techniques to suit diverse learning styles, kept
-            up-to-date knowledge of game metas, and fostered a positive,
+            up-to-date knowledge of the game "meta", and fostering a positive,
             motivating environment that promoted skill improvement and Client
             satisfaction.
           </p>
