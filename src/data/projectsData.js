@@ -54,7 +54,7 @@ const projects = [
       { title: "CSS", icon: "devicon-css3-plain" },
     ],
     description:
-      "Snake game implemented in Python. which runs in mock terminal on Heroku. The games features a fun and interactive rendition of the classic snake game we all know and love.",
+      "Snake game implemented in Python. Which runs in a mock terminal on Heroku. The game features a fun and interactive rendition of the classic snake game we all know and love.",
     github: "https://github.com/JohnnySonTrinh/snake-game",
     live: "https://snake-eat-food-game-b47e36d72bf2.herokuapp.com",
   },

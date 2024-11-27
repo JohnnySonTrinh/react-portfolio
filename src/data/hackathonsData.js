@@ -9,7 +9,7 @@ const hackathons = [
         <p>
           As a frontend developer and designer, I focused on creating an
           accessible and intuitive user interface that aligns with the project's
-          core mission of inclusivity by design.
+          the core mission of inclusivity by design.
         </p>
         <p className="hover-description">
           All-Inclusive is an innovative platform dedicated to promoting
@@ -79,9 +79,9 @@ const hackathons = [
           particularly the README.md file.
         </p>
         <p className="hover-description">
-          NPV Calculator designed to empower users in making informed investment
-          decisions. This program facilitates the evaluation of the Net Present
-          Value (NPV) for up to three projects simultaneously.
+          NPV Calculator is designed to empower users to make informed
+          investment decisions. This program facilitates the evaluation of the
+          Net Present Value (NPV) for up to three projects simultaneously.
         </p>
       </>
     ),
@@ -118,8 +118,8 @@ const hackathons = [
     description: (
       <>
         <p>
-          Fullstack developer with a work on every function on the site, focus
-          on design "about page" and mouse animation on landing page.
+          Fullstack developer with work on every function on the site, focus on
+          design "about page" and mouse animation on the landing page.
         </p>
         <p className="hover-description">
           A web application that helps users find the perfect gift for their
