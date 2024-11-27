@@ -6,11 +6,10 @@ const subheadingsData = {
         <>
           <p>
             Fullstack Developer with a Diploma in Full Stack Software
-            Development from Code Institute. Transited from a gaming coach to a
-            tech enthusiast, having strong problem-solving skills and a eye for
-            detail. I specialize in building responsive, user-focused web
-            applications using modern frontend frameworks like React, TypeScript
-            and NextJS.
+            Development from Code Institute. I bring a background in gaming
+            coaching, where I developed strong problem-solving skills and
+            attention to detail. I focus on creating clean, responsive web
+            applications using tools like React, TypeScript, and Next.js.
           </p>
         </>
       ),
