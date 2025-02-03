@@ -50,6 +50,20 @@ const subheadingsData = {
   ],
   3: [
     {
+      title: "2024 AI trainer at Scale AI",
+      content: (
+        <>
+          <p>
+            Train AI models through Reinforcement Learning with Human Feedback
+            (RLHF) on Scale AI's Outliner Platform. Evaluate, rank, and refine
+            AI-generated responses for accuracy and relevance. Improve AI's
+            conversational understanding by providing high-quality annotations,
+            rewrites, and structured feedback.
+          </p>
+        </>
+      ),
+    },
+    {
       title: "2023 Video Content Creator & Coach at AimLab.gg",
       content: (
         <>
