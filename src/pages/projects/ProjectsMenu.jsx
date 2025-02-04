@@ -130,6 +130,7 @@ const ProjectsMenu = () => {
         key={activeProject}
         className="project-sub-container fade-in"
         aria-live="polite"
+        onWheel={(e) => handleProjectWheel(e, changeProject)}
       >
         {renderContent(activeProjectData)}
       </div>
