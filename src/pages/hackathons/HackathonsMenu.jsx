@@ -120,8 +120,13 @@ const HackathonsMenu = () => {
           />
         </div>
       </div>
-      <div key={activeProject} className="project-sub-container fade-in">
+      <div key={activeProject}
+        className="project-sub-container fade-in"
+        aria-live="polite"
+        onWheel={(e) => handleProjectWheel(e, changeProject)}
+        >
         {renderContent(activeHackathonData)}
+        
       </div>
     </div>
   );
