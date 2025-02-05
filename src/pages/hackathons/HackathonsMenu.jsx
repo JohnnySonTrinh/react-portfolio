@@ -60,7 +60,9 @@ const HackathonsMenu = () => {
   };
 
   return (
-    <div className="project-menu fade-in">
+    <div className="project-menu fade-in"
+    onWheel={(e) => handleProjectWheel(e, changeProject)}
+    >
       <div className="project-items-container">
         <div
           className={`arrow-button-container ${
@@ -96,7 +98,6 @@ const HackathonsMenu = () => {
                 selectProject(index + 1 + startIndex);
               }
             }}
-            onWheel={(e) => handleProjectWheel(e, changeProject)}
           >
             <h2 className="title">{hackathon.team}</h2>
           </div>
@@ -123,10 +124,8 @@ const HackathonsMenu = () => {
       <div key={activeProject}
         className="project-sub-container fade-in"
         aria-live="polite"
-        onWheel={(e) => handleProjectWheel(e, changeProject)}
         >
         {renderContent(activeHackathonData)}
-        
       </div>
     </div>
   );

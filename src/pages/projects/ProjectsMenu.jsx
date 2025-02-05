@@ -66,7 +66,10 @@ const ProjectsMenu = () => {
   };
 
   return (
-    <div className="project-menu">
+    <div 
+      className="project-menu"
+      onWheel={(e) => handleProjectWheel(e, changeProject)}
+    >
       <div className="project-items-container fade-in">
         <div
           className={`arrow-button-container ${
@@ -102,7 +105,6 @@ const ProjectsMenu = () => {
                 selectProject(index + 1 + startIndex);
               }
             }}
-            onWheel={(e) => handleProjectWheel(e, changeProject)}
           >
             <h2 className="title">{project.title}</h2>
           </div>
@@ -130,7 +132,6 @@ const ProjectsMenu = () => {
         key={activeProject}
         className="project-sub-container fade-in"
         aria-live="polite"
-        onWheel={(e) => handleProjectWheel(e, changeProject)}
       >
         {renderContent(activeProjectData)}
       </div>
