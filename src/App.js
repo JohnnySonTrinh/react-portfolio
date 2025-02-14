@@ -9,6 +9,7 @@ import Contact from "./pages/contact/Contact";
 import Skills from "./pages/skills/Skills";
 import NotFound from "./pages/404page/NotFound";
 import Demo from "./pages/demo/Demo";
+import Chatbot from "./pages/chatbot/Chatbot";
 import "./styles/app.css";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/projects" element={<Projects />} />
         <Route path="/hackathons" element={<Hackathons />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/chatbot" element={<Chatbot />} />
         <Route path="/demo" element={<Demo />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

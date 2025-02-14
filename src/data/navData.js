@@ -21,6 +21,13 @@ const navData = [
     title: "SKILLS",
   },
   {
+    to: "/chatbot",
+    imgSrc: envelope,
+    altText: "envelope icon",
+    navClass: "nav-chatbot",
+    title: "CHATBOT",
+  },
+  {
     to: "/projects",
     imgSrc: stack,
     altText: "stack icon",
