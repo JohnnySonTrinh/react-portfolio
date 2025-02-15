@@ -3,12 +3,12 @@ import Nav from "./components/nav/Nav";
 import Background from "./components/background/Background";
 import PlayerStats from "./components/playerStats/PlayerStats";
 import About from "./pages/about/About";
+import Skills from "./pages/skills/Skills";
+import Chatbot from "./pages/chatbot/Chatbot";
 import Projects from "./pages/projects/Projects";
 import Hackathons from "./pages/hackathons/Hackathons";
 import Contact from "./pages/contact/Contact";
-import Skills from "./pages/skills/Skills";
 import NotFound from "./pages/404page/NotFound";
-import Chatbot from "./pages/chatbot/Chatbot";
 import "./styles/app.css";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 
@@ -23,9 +23,9 @@ const App = () => {
         <Route path="/" element={<About />} />
         <Route path="/skills" element={<Skills />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/chatbot" element={<Chatbot />} />
         <Route path="/hackathons" element={<Hackathons />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/chatbot" element={<Chatbot />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
