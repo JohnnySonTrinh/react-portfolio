@@ -1,5 +1,6 @@
 import astronautHelmet from "../assets/astronaut-helmet.png";
 import deadEye from "../assets/dead-eye.png";
+import robotBot from "../assets/robot-bot.png";
 import stack from "../assets/stack.png";
 import global from "../assets/global.png";
 import envelope from "../assets/envelope.png";
@@ -22,7 +23,7 @@ const navData = [
   },
   {
     to: "/chatbot",
-    imgSrc: envelope,
+    imgSrc: robotBot,
     altText: "envelope icon",
     navClass: "nav-chatbot",
     title: "CHATBOT",
