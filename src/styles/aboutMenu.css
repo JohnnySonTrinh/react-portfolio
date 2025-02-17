@@ -148,7 +148,7 @@
 @media (max-width: 768px) {
   .menu {
     width: 10rem;
-    top: 30%;
+    top: 25%;
     left: 40%;
   }
   .item {
@@ -162,8 +162,8 @@
   }
   .sub-container {
     width: 10rem;
-    top: 40%;
-    left: 40%;
+    top: 35%;
+    left: 35%;
     transform: translateX(-50%);
   }
   .active-subheading .p-container {
