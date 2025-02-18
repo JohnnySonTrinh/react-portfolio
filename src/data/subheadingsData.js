@@ -83,13 +83,10 @@ const subheadingsData = {
       content: (
         <>
           <p>
-            Provided expert coaching for Valorant and Fortnite, delivering
-            one-on-one training to over 2000 clients. Specialized in player
-            development, personalized training strategies, and adapting to
-            evolving game metas. Wrote narrative-driven screenplays for
-            ProGuides' YouTube channel, creating engaging video scripts for an
-            audience of over one million subscribers. Combined expert tips with
-            storytelling to enhance player learning and engagement.
+            Delivered one-on-one coaching for Valorant and Fortnite, helping
+            over 2000 clients improve their skills. Created engaging video
+            scripts for ProGuides' YouTube channel, combining expert tips with
+            storytelling to educate an audience of over one million subscribers.
           </p>
         </>
       ),
