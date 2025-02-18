@@ -79,29 +79,17 @@ const subheadingsData = {
       ),
     },
     {
-      title: "2022 Scriptwriter for ProGuides YouTube Channel",
+      title: "2019 Coach & Scriptwriter at ProGuides",
       content: (
         <>
           <p>
-            Wrote narrative-driven screenplays for ProGuides' YouTube channel.
-            Engaging both new and veteran players with content that combined
-            expert tips and storytelling for an audience of over one million
-            subscribers.
-          </p>
-        </>
-      ),
-    },
-    {
-      title: "2019 Valorant & Fortnite Coach for ProGuides",
-      content: (
-        <>
-          <p>
-            Delivered one-on-one coaching to over 2000 clients on ProGuides.
-            Specialized in player development for both Valorant and Fortnite.
-            Customized coaching techniques to suit diverse learning styles, kept
-            up-to-date knowledge of the game "meta", and fostering a positive,
-            motivating environment that promoted skill improvement and Client
-            satisfaction.
+            Provided expert coaching for Valorant and Fortnite, delivering
+            one-on-one training to over 2000 clients. Specialized in player
+            development, personalized training strategies, and adapting to
+            evolving game metas. Wrote narrative-driven screenplays for
+            ProGuides' YouTube channel, creating engaging video scripts for an
+            audience of over one million subscribers. Combined expert tips with
+            storytelling to enhance player learning and engagement.
           </p>
         </>
       ),
