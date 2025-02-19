@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 const ChatbotMenu = () => {
   // TODO: Step 2 - Implement basic chat input and display messages
@@ -8,7 +8,7 @@ const ChatbotMenu = () => {
   // TODO: Step 6 - Add Three.js avatar for AI Johnny
 
 // Fake chat messages
-const [messages] = useState([
+const [messages, setMessages] = useState([
   { id: 1, sender: "ai", text: "Hello! I'm AI Johnny. Ask me anything!" },
   { id: 2, sender: "user", text: "What technologies do you work with?" },
   { id: 3, sender: "ai", text: "I use React, TypeScript, and Three.js for frontend!" },
@@ -28,6 +28,41 @@ const [messages] = useState([
   { id: 17, sender: "ai", text: "Probably world domination. But for now, let's focus on getting this chatbot fully operational!" },
 ]);
 
+// State for user input
+const [input, setInput] = useState("");
+
+// Reference for auto-scrolling to latest message
+const chatEndRef = useRef(null);
+
+// Scroll to the latest message when messages update
+useEffect(() => {
+  chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
+}, [messages]);
+
+// Handle sending a message
+const handleSendMessage = () => {
+  if (!input.trim()) return;
+
+  const newUserMessage = { id: messages.length + 1, sender: "user", text: input };
+  const aiResponse = generateFakeResponse(input);
+
+  setMessages([...messages, newUserMessage, aiResponse]);
+  setInput("");
+};
+
+// Simulated AI responses (placeholder until OpenAI API is added)
+const generateFakeResponse = (userInput) => {
+  const responses = {
+    "hello": "Hey there! How can I assist you?",
+    "technologies": "I work with React, TypeScript, and Three.js!",
+    "game development": "I know Unity and Unreal Engine, but I love Three.js for web-based 3D.",
+    "dark mode": "Why do programmers prefer dark mode? Because light attracts bugs! 😆",
+    "future plans": "Probably world domination... just kidding! I want to integrate real AI soon.",
+  };
+
+  const responseText = responses[userInput.toLowerCase()] || "That's interesting! Could you elaborate?";
+  return { id: messages.length + 2, sender: "ai", text: responseText };
+};
 
 return (
   <div className="chat-menu fade-in">
@@ -38,13 +73,21 @@ return (
           {msg.text}
         </div>
       ))}
+      <div ref={chatEndRef} />
     </div>
     <div className="chat-input-container">
-      <input type="text" placeholder="Type a message..." className="chat-input" disabled />
-      <button className="send-button" disabled>Send</button>
+      <input
+        type="text"
+        placeholder="Type a message..."
+        className="chat-input"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
+      />
+      <button className="send-button" onClick={handleSendMessage}>Send</button>
     </div>
   </div>
-  );
+);
 };
 
 export default ChatbotMenu;
