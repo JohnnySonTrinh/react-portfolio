@@ -1,8 +1,7 @@
 .chatbot-container {
   position: fixed;
-  display: flex;
-  width: 100%;
-  top: 25%;
+  width: 90%;
+  top: 20%;
   left: 50%;
   transform: translateX(-50%);
   border-radius: var(--border-radius);
@@ -26,17 +25,6 @@
 /* Chatbotmenu */
 .chat-menu {
   padding: 1rem;
-}
-.chat-container {
-  width: 90%;
-  max-width: 500px;
-  height: 400px;
-  display: flex;
-  flex-direction: column;
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: var(--border-radius);
-  position: relative;
-  overflow: hidden;
 }
 
 .chat-header {
