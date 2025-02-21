@@ -20,7 +20,7 @@ const ChatbotMenu = () => {
 
   return (
     <div className="chat-menu fade-in">
-      <div className="chat-header">💬 AI Johnny</div>
+      <div className="chat-header">🟡 In Progress</div>
       <div className="chat-messages">
         {messages.map((msg) => (
           <div key={msg.id} className={`chat-bubble ${msg.sender}`}>
