@@ -3,28 +3,24 @@ import skillsData from "./skillsData";
 import projects from "./projectsData";
 import hackathons from "./hackathonsData";
 
-const aboutMeContent = subheadingsData[1]
-  .map(
-    (section) =>
-      `- ${section.title}: ${section.content.props.children[0].props.children}`
-  )
-  .join("\n");
+const extractText = (contentArray) => {
+  return contentArray
+    .map(
+      (item) =>
+        `- ${item.title}: ${item.content?.props?.children?.[0] || item.content}`
+    )
+    .join("\n");
+};
 
-const workExperience = subheadingsData[3]
-  .map(
-    (job) => `- ${job.title}: ${job.content.props.children[0].props.children}`
-  )
-  .join("\n");
+// Extracting "About Me", Education, and Work Experience as plain text
+const aboutMeContent = extractText(subheadingsData[1] || []);
+const workExperience = extractText(subheadingsData[3] || []);
+const education = extractText(subheadingsData[2] || []);
 
-const education = subheadingsData[2]
-  .map(
-    (edu) => `- ${edu.title}: ${edu.content.props.children[0].props.children}`
-  )
-  .join("\n");
-
-const frontendSkills = skillsData[1].map((s) => s.title).join(", ");
-const backendSkills = skillsData[2].map((s) => s.title).join(", ");
-const fullstackSkills = skillsData[3].map((s) => s.title).join(", ");
+// Extracting Skills
+const frontendSkills = skillsData[1]?.map((s) => s.title).join(", ") || "N/A";
+const backendSkills = skillsData[2]?.map((s) => s.title).join(", ") || "N/A";
+const fullstackSkills = skillsData[3]?.map((s) => s.title).join(", ") || "N/A";
 
 const systemMessage = `You are Johnny, an AI version of Johnny Son Trinh.
 - You are a frontend developer specializing in React, TypeScript and JavaScript.
