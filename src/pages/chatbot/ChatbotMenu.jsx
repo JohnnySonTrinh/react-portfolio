@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import useChatbot from "../../hooks/useChatbot"; // Import chatbot logic
+import useChatbot from "../../hooks/useChatbot";
 
 const ChatbotMenu = () => {
   const { messages, sendMessage, loading } = useChatbot();
@@ -15,7 +15,7 @@ const ChatbotMenu = () => {
   const handleSendMessage = () => {
     if (!input.trim()) return;
     sendMessage(input);
-    setInput(""); // Clear input field
+    setInput("");
   };
 
   return (
@@ -27,7 +27,7 @@ const ChatbotMenu = () => {
             {msg.text}
           </div>
         ))}
-        {loading && <div className="chat-bubble ai">Typing...</div>} {/* Show typing status */}
+        {loading && <div className="chat-bubble ai">Typing...</div>}
         <div ref={chatEndRef} />
       </div>
       <div className="chat-input-container">
