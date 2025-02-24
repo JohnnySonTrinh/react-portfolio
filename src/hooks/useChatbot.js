@@ -32,36 +32,23 @@ const useChatbot = () => {
     setMessages((prev) => [...prev, userMessage]);
     setLoading(true);
 
-    // Show "Typing..." before AI responds
-    setMessages((prev) => [
-      ...prev,
-      {
-        id: messages.length + 2,
-        sender: "ai",
-        text: "Typing...",
-        isTyping: true,
-      },
-    ]);
-
     try {
       const aiResponse = await fetchOpenAIResponse(userInput);
 
-      setMessages((prev) =>
-        prev
-          .filter((msg) => !msg.isTyping)
-          .concat({ id: messages.length + 3, sender: "ai", text: aiResponse })
-      );
+      setMessages((prev) => [
+        ...prev,
+        { id: messages.length + 2, sender: "ai", text: aiResponse },
+      ]);
     } catch (error) {
       console.error("Error fetching AI response:", error);
-      setMessages((prev) =>
-        prev
-          .filter((msg) => !msg.isTyping)
-          .concat({
-            id: messages.length + 3,
-            sender: "ai",
-            text: "Error: Unable to get response.",
-          })
-      );
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: messages.length + 2,
+          sender: "ai",
+          text: "Error: Unable to get response.",
+        },
+      ]);
     } finally {
       setLoading(false);
     }
