@@ -19,31 +19,54 @@ const ChatbotMenu = () => {
   };
 
   return (
-    <div className="chat-menu fade-in">
-      <div className="chat-header">🟡 In Progress</div>
-      <div className="chat-messages">
-        {messages.map((msg) => (
-          <div key={msg.id} className={`chat-bubble ${msg.sender}`}>
-            {msg.text}
-          </div>
-        ))}
-        {loading && <div className="chat-bubble ai">Typing...</div>}
-        <div ref={chatEndRef} />
+    <div className="chat-menu fade-in" role="region" aria-label="AI Chatbot">
+  <div className="chat-header" role="heading" aria-level="2">
+    🟡 In Progress
+  </div>
+
+  <div className="chat-messages" role="log" aria-live="polite">
+    {messages.map((msg) => (
+      <div
+        key={msg.id}
+        className={`chat-bubble ${msg.sender}`}
+        role="article"
+        aria-label={`Message from ${msg.sender === "ai" ? "AI Johnny" : "User"}`}
+      >
+        {msg.text}
       </div>
-      <div className="chat-input-container">
-        <input
-          type="text"
-          placeholder="Type a message..."
-          className="chat-input"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
-        />
-        <button className="send-button" onClick={handleSendMessage} disabled={loading}>
-          {loading ? "..." : "Send"}
-        </button>
+    ))}
+    {loading && (
+      <div className="chat-bubble ai" role="status" aria-live="assertive">
+        Typing...
       </div>
-    </div>
+    )}
+    <div ref={chatEndRef} />
+  </div>
+
+  <div className="chat-input-container">
+    <label htmlFor="chat-input" className="visually-hidden">
+      Type your message here
+    </label>
+    <input
+      id="chat-input"
+      type="text"
+      placeholder="Type a message..."
+      className="chat-input"
+      value={input}
+      onChange={(e) => setInput(e.target.value)}
+      onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
+      aria-label="Chat input field"
+    />
+    <button
+      className="send-button"
+      onClick={handleSendMessage}
+      disabled={loading}
+      aria-label={loading ? "Sending message, please wait" : "Send message"}
+    >
+      {loading ? "..." : "Send"}
+    </button>
+  </div>
+</div>
   );
 };
 
