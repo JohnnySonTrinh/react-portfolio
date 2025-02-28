@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import useChatbot from "../../hooks/useChatbot";
+import ReactMarkdown from "react-markdown";
 
 const ChatbotMenu = () => {
   const { messages, sendMessage, loading } = useChatbot();
@@ -24,15 +25,17 @@ const ChatbotMenu = () => {
     🟡 In Progress
   </div>
 
+  
+
   <div className="chat-messages" role="log" aria-live="polite">
     {messages.map((msg) => (
       <div
         key={msg.id}
         className={`chat-bubble ${msg.sender}`}
         role="article"
-        aria-label={`Message from ${msg.sender === "ai" ? "AI Johnny" : "User"}`}
+        aria-label={`Message from ${msg.sender === "ai" ? "Johnny" : "User"}`}
       >
-        {msg.text}
+        <ReactMarkdown>{msg.text}</ReactMarkdown>
       </div>
     ))}
     {loading && (
@@ -42,6 +45,7 @@ const ChatbotMenu = () => {
     )}
     <div ref={chatEndRef} />
   </div>
+
 
   <div className="chat-input-container">
     <label htmlFor="chat-input" className="visually-hidden">
