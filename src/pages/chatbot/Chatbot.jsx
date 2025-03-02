@@ -9,7 +9,6 @@ const Chatbot = () => {
 
   return (
     <div className="chatbot-container">
-
       <ChatbotMenu />
     </div>
   );
