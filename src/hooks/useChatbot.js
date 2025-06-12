@@ -3,6 +3,19 @@ import { fetchOpenAIResponse } from "../api/openai";
 
 const CHAT_STORAGE_KEY = "chatHistory";
 
+const introMessages = [
+  {
+    id: 1,
+    sender: "ai",
+    text: "Hey! I'm Johnny's personal chatbot. You can ask me anything about this portfolio site, my skills, projects, hackathon experience, or background as a developer!",
+  },
+  {
+    id: 2,
+    sender: "ai",
+    text: "You can type any question about Johnny or just click one of the suggestions below!",
+  },
+];
+
 const useChatbot = () => {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -13,17 +26,6 @@ const useChatbot = () => {
     if (savedMessages && JSON.parse(savedMessages).length > 0) {
       setMessages(JSON.parse(savedMessages));
     } else {
-      const welcome = {
-        id: 1,
-        sender: "ai",
-        text: "Hey! I'm Johnny's personal chatbot. You can ask me anything about this portfolio site — my skills, projects, hackathon experience, or background as a developer!",
-      };
-      const followUp = {
-        id: 2,
-        sender: "ai",
-        text: "Try asking: *What projects has Johnny built?*",
-      };
-      const introMessages = [welcome, followUp];
       setMessages(introMessages);
       localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(introMessages));
     }
@@ -69,13 +71,8 @@ const useChatbot = () => {
   };
 
   const clearChat = () => {
-    const defaultMessage = {
-      id: 1,
-      sender: "ai",
-      text: "Hey! I'm Johnny's personal chatbot. You can ask me anything about this portfolio site — my skills, projects, hackathon experience, or background as a developer!",
-    };
-    setMessages([defaultMessage]);
-    localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify([defaultMessage]));
+    setMessages(introMessages);
+    localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(introMessages));
   };
 
   return { messages, sendMessage, loading, clearChat };
