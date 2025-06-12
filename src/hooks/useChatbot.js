@@ -7,20 +7,34 @@ const useChatbot = () => {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  // Load chat history from localStorage when the chatbot initializes
   useEffect(() => {
     const savedMessages = localStorage.getItem(CHAT_STORAGE_KEY);
-    if (savedMessages) {
+
+    if (savedMessages && JSON.parse(savedMessages).length > 0) {
       setMessages(JSON.parse(savedMessages));
+    } else {
+      const welcome = {
+        id: 1,
+        sender: "ai",
+        text: "Hey! I'm Johnny's personal chatbot. You can ask me anything about this portfolio site — my skills, projects, hackathon experience, or background as a developer!",
+      };
+      const followUp = {
+        id: 2,
+        sender: "ai",
+        text: "Try asking: *What projects has Johnny built?*",
+      };
+      const introMessages = [welcome, followUp];
+      setMessages(introMessages);
+      localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(introMessages));
     }
   }, []);
 
-  // Save messages to localStorage whenever the chat updates
   useEffect(() => {
-    localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(messages));
+    if (messages.length > 0) {
+      localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(messages));
+    }
   }, [messages]);
 
-  // Function to send a message
   const sendMessage = async (userInput) => {
     if (!userInput.trim()) return;
 
@@ -54,7 +68,17 @@ const useChatbot = () => {
     }
   };
 
-  return { messages, sendMessage, loading };
+  const clearChat = () => {
+    const defaultMessage = {
+      id: 1,
+      sender: "ai",
+      text: "Hey! I'm Johnny's personal chatbot. You can ask me anything about this portfolio site — my skills, projects, hackathon experience, or background as a developer!",
+    };
+    setMessages([defaultMessage]);
+    localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify([defaultMessage]));
+  };
+
+  return { messages, sendMessage, loading, clearChat };
 };
 
 export default useChatbot;
