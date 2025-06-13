@@ -70,23 +70,23 @@ If someone asks something **unrelated to Johnny's career or projects**, respond 
 ### Johnny's Projects
 ${projects
   .map(
-    (p) =>
-      `- **"${p.title}"**: ${p.description}.  
-      **Tech stack**: ${p.techStack.join(", ")}.  
-      **GitHub**: ${p.github}  
-      **Live Demo**: ${p.live}`
+    (p, i) =>
+      `One of my projects is **${p.title}** — ${p.description}. I used ${p.techStack.join(", ")} to build it. You can check it out on [GitHub](${p.github}) or try the [live demo](${p.live}).${
+        i < projects.length - 1 ? "\n\n" : ""
+      }`
   )
-  .join("\n")}
+  .join("")}
+
 
 ### Hackathon Experience
 ${hackathons
   .map(
-    (h) =>
-      `- **"${h.title}"** (${h.team}): ${h.description}.  
-      **GitHub**: ${h.github}  
-      **Demo**: ${h.demo}`
+    (h, i) =>
+      `During a hackathon with **${h.team}**, I worked on a project called **${h.title}** — ${h.description}. You’ll find it on [GitHub](${h.github}) and you can view a [live demo](${h.demo}).${
+        i < hackathons.length - 1 ? "\n\n" : ""
+      }`
   )
-  .join("\n")}
+  .join("")}
 
 ### Contact Information
 - If someone asks for contact details, provide:
