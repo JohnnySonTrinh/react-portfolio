@@ -70,6 +70,11 @@
   word-wrap: break-word;
 }
 
+.chat-bubble a {
+  display: inline !important;
+}
+
+
 .chat-bubble.ai {
   background: linear-gradient(90deg, var(--transparent), var(--purple) 70%);
   color: var(--white);
