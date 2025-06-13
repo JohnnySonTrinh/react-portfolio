@@ -85,7 +85,7 @@ const ChatbotMenu = () => {
         className="clear-button"
         aria-label="Clear chat"
       >
-        Clear Chat
+        RESET
       </button>
     </div>
   );
