@@ -23,7 +23,7 @@ const ChatbotMenu = () => {
   return (
     <div className="chat-menu fade-in" role="region" aria-label="AI Chatbot">
       <div className="chat-header" role="heading" aria-level="2">
-        🟡 In Progress
+        🟢 Personal Assistant
       </div>
 
       <div className="chat-messages" role="log" aria-live="polite">
