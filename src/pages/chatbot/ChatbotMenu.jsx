@@ -46,7 +46,7 @@ const ChatbotMenu = () => {
         )}
         <div ref={chatEndRef} />
         {followUpSuggestions && messages.length <= 2 && (
-          <div className="suggestion-buttons" style={{ margin: "1rem 0" }}>
+          <div className="suggestion-buttons">
             {followUpSuggestions.map((suggestion, index) => (
               <button key={index} onClick={() => sendMessage(suggestion)}>
                 {suggestion}

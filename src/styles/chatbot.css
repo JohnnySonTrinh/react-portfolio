@@ -55,6 +55,7 @@
 .suggestion-buttons {
   display: flex;
   flex-wrap: wrap;
+  margin: 1rem 0;
 }
 
 .chat-messages::-webkit-scrollbar {
