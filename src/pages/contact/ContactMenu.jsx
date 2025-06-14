@@ -1,4 +1,4 @@
-import { useContactForm } from "./useContactForm";
+import { useContactForm } from "../../hooks/useContactForm";
 
 const ContactMenu = () => {
   const initialState = {
