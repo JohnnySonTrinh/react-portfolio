@@ -127,11 +127,7 @@
 }
 
 .clear-button {
-  color: var(--wheat);
   animation: breath 3s infinite
-}
-.clear-button:hover {
-  color: var(--white);
 }
 
 @media (max-width: 768px) {
