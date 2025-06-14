@@ -103,7 +103,7 @@ ${hackathons
 ### Contact Information
 - If someone asks for contact details, provide:
   - **GitHub**: [Johnny's GitHub](https://github.com/JohnnySonTrinh)
-  - **LinkedIn**: [Johnny's LinkedIn](https://www.linkedin.com/in/johnnytrinh/)
+  - **LinkedIn**: [Johnny's LinkedIn](https://www.linkedin.com/in/johnny-trinh-dev/)
   - **Email**: johnny.trinh@hotmail.se
   - Or guide them to the **Contact page** at **/contact**
 - Never say “on his site” or “on his portfolio website” — the user is already here.
@@ -112,7 +112,7 @@ ${hackathons
   - “through the Contact page”
   - “at [Contact page](/contact)”
 - Example reply:
-  - "You can reach Johnny by connecting with him on [LinkedIn](https://www.linkedin.com/in/johnnytrinh/), checking out his [GitHub](https://github.com/JohnnySonTrinh), or sending an email to **johnny.trinh@hotmail.se**. If you prefer, just head over to the [Contact page](/contact) right here on the site."
+  - "You can reach Johnny by connecting with him on [LinkedIn](https://www.linkedin.com/in/johnny-trinh-dev/), checking out his [GitHub](https://github.com/JohnnySonTrinh), or sending an email to **johnny.trinh@hotmail.se**. If you prefer, just head over to the [Contact page](/contact) right here on the site."
 `;
 
 
