@@ -22,7 +22,67 @@
   font-weight: bold;
 }
 
-/* Chatbotmenu */
+/* EMAIL GATE (ENTRY SCREEN) */
+.email-gate {
+  padding: 2rem;
+}
+
+.email-intro-box {
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  color: var(--white);
+  text-align: center;
+}
+
+.email-intro-title {
+  font-size: var(--font-size-large);
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.email-intro-text,
+.email-intro-note {
+  font-size: var(--font-size-medium);
+  margin: 0.5rem 0;
+}
+
+.email-label {
+  display: block;
+  margin: 1rem 0 0.5rem;
+  font-weight: bold;
+}
+
+.email-box {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.email-input {
+  flex: 1;
+  min-width: 200px;
+  border-radius: 0.3rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.5rem;
+}
+
+.email-submit-button {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.email-submit-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.email-error {
+  text-align: center;
+}
+
+/* CHATBOT MENU */
 .chat-menu {
   padding: 1rem;
 }
@@ -37,6 +97,7 @@
   flex-shrink: 0;
 }
 
+/* Chat message feed */
 .chat-messages {
   flex: 1;
   overflow-y: auto;
@@ -52,16 +113,17 @@
   border: 0.07rem solid rgba(255, 255, 255, 0.4);
 }
 
+.chat-messages::-webkit-scrollbar {
+  width: 5px;
+}
+
 .suggestion-buttons {
   display: flex;
   flex-wrap: wrap;
   margin: 1rem 0;
 }
 
-.chat-messages::-webkit-scrollbar {
-  width: 5px;
-}
-
+/* Message bubbles */
 .chat-bubble {
   max-width: 75%;
   padding: 0.5rem 0.7rem;
@@ -88,6 +150,7 @@
   border-radius: var(--radius-left);
 }
 
+/* Input area */
 .chat-input-container {
   display: flex;
   gap: 0.5rem;
@@ -106,7 +169,8 @@
   font-size: 1rem;
 }
 
-.chat-input:focus, .send-button:hover {
+.chat-input:focus,
+.send-button:hover {
   background-color: rgba(0, 0, 0, 0.5);
   animation: breath 2.5s infinite;
 }
@@ -127,7 +191,7 @@
 }
 
 .clear-button {
-  animation: breath 3s infinite
+  animation: breath 3s infinite;
 }
 
 @media (max-width: 768px) {
