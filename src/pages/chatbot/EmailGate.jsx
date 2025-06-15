@@ -8,7 +8,7 @@ const EmailGate = ({ email, setEmail, error, onSubmit }) => {
           Meet Johnny's Personal Assistant! This AI chatbot can help you explore his skills, projects, hackathon experience, or anything else you'd like to know about his developer journey.
         </p>
         <p className="email-intro-note">
-          Just enter your email to begin. It won't be saved!
+          Just enter your email to begin!
         </p>
         <label htmlFor="email-input" className="email-label">
           Enter your email to start:
