@@ -50,7 +50,6 @@ const useWebGLAnimation = (canvasRef, audioData) => {
       void main() {
           vec2 uv = gl_FragCoord.xy / u_resolution;
           uv = uv * 2.0 - 1.0;
-
           uv.x *= u_resolution.x / u_resolution.y;
 
           float radius = 0.5 + u_audioData * 0.5;
@@ -98,11 +97,7 @@ const useWebGLAnimation = (canvasRef, audioData) => {
     };
 
     const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
-    const fragmentShader = createShader(
-      gl,
-      gl.FRAGMENT_SHADER,
-      fragmentShaderSource
-    );
+    const fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
     const program = createProgram(gl, vertexShader, fragmentShader);
 
     const positionBuffer = gl.createBuffer();
@@ -120,27 +115,36 @@ const useWebGLAnimation = (canvasRef, audioData) => {
     const timeLocation = gl.getUniformLocation(program, "u_time");
     const audioDataLocation = gl.getUniformLocation(program, "u_audioData");
 
+    const resizeCanvasIfNeeded = () => {
+      const displayWidth = canvas.clientWidth;
+      const displayHeight = canvas.clientHeight;
+      if (canvas.width !== displayWidth || canvas.height !== displayHeight) {
+        canvas.width = displayWidth;
+        canvas.height = displayHeight;
+        gl.viewport(0, 0, canvas.width, canvas.height);
+      }
+    };
+
+    let frameId;
     const render = (time) => {
       time *= 0.001;
 
-      gl.canvas.width = gl.canvas.clientWidth;
-      gl.canvas.height = gl.canvas.clientHeight;
-      gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
+      resizeCanvasIfNeeded();
 
-      gl.uniform2f(resolutionLocation, gl.canvas.width, gl.canvas.height);
+      gl.uniform2f(resolutionLocation, canvas.width, canvas.height);
       gl.uniform1f(timeLocation, time);
       gl.uniform1f(audioDataLocation, audioData.current);
 
       gl.clear(gl.COLOR_BUFFER_BIT);
       gl.drawArrays(gl.TRIANGLES, 0, 6);
 
-      requestAnimationFrame(render);
+      frameId = requestAnimationFrame(render);
     };
 
-    requestAnimationFrame(render);
+    frameId = requestAnimationFrame(render);
 
     return () => {
-      cancelAnimationFrame(render);
+      cancelAnimationFrame(frameId);
     };
   }, [canvasRef, audioData]);
 };
