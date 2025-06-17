@@ -50,15 +50,15 @@ const subheadingsData = {
   ],
   3: [
     {
-      title: "2024 AI trainer at Scale AI",
-      content: (
+        title: "2024 AI Contractor at Outlier (Scale AI)",
+        content: (
         <>
           <p>
-            Train AI models through Reinforcement Learning with Human Feedback
-            (RLHF) on Scale AI's Outliner Platform. Evaluate, rank, and refine
-            AI-generated responses for accuracy and relevance. Improve AI's
-            conversational understanding by providing high-quality annotations,
-            rewrites, and structured feedback.
+            Contribute to training large language models through Reinforcement
+            Learning with Human Feedback (RLHF) on the Outlier platform by Scale AI.
+            Perform detailed evaluations, rankings, and corrections of AI outputs to
+            enhance their accuracy, coherence, and user relevance. Deliver structured
+            rewrites and feedback to improve conversational quality.
           </p>
         </>
       ),
