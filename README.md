@@ -268,7 +268,7 @@ The custom 404 page provides a memorable and engaging experience when a user enc
 
 ## Contact
 
-You can reach me at [your email address] or connect with me on [LinkedIn](https://www.linkedin.com/in/johnny-trinh-dev/) and [GitHub](https://github.com/JohnnySonTrinh).
+Connect with me on [LinkedIn](https://www.linkedin.com/in/johnny-trinh-dev/) and [GitHub](https://github.com/JohnnySonTrinh).
 
 ## Credits
 
