@@ -87,26 +87,30 @@ The project follows a well-organized structure, promoting maintainability and sc
 ├── .gitignore
 ├── README.md
 ├── documentation
-│   ├── oldREADME.md
-│   └── readme
-│       ├── new-about.png
-│       ├── new-contact.png
-│       ├── new-hackathons.png
-│       ├── new-projects.png
-│       ├── new-skills.png
-│       ├── old-about.png
-│       ├── old-contact.png
-│       ├── old-hackathons.png
-│       ├── old-projects.png
-│       └── old-skills.png
+    ├── oldREADME.md
+    └── readme
+    │   ├── mockup.png
+    │   ├── new-about.png
+    │   ├── new-contact.png
+    │   ├── new-hackathons.png
+    │   ├── new-notfound.png
+    │   ├── new-projects.png
+    │   ├── new-skills.png
+    │   ├── old-about.png
+    │   ├── old-contact.png
+    │   ├── old-hackathons.png
+    │   ├── old-projects.png
+    │   └── old-skills.png
 ├── package-lock.json
 ├── package.json
 ├── public
-│   ├── favicon.ico
-│   ├── index.html
-│   └── robots.txt
-└── src
+    ├── favicon.ico
+    ├── index.html
+    └── robots.txt
+├── src
     ├── App.js
+    ├── api
+    │   └── openai.js
     ├── assets
     │   ├── astronaut-helmet.png
     │   ├── avatar-image.png
@@ -122,6 +126,7 @@ The project follows a well-organized structure, promoting maintainability and sc
     │   ├── hawk-emblem.png
     │   ├── linkedin.png
     │   ├── moebius-triangle.png
+    │   ├── robot-bot.png
     │   ├── stack.png
     │   ├── the-uprising.mp3
     │   ├── triple-corn.png
@@ -140,8 +145,9 @@ The project follows a well-organized structure, promoting maintainability and sc
     │   ├── playerStats
     │   │   └── PlayerStats.jsx
     │   └── shadowOverlay
-    │       └── ShadowOverlay.jsx
+    │   │   └── ShadowOverlay.jsx
     ├── data
+    │   ├── chatData.js
     │   ├── hackathonsData.js
     │   ├── navData.js
     │   ├── pageTitles.js
@@ -152,10 +158,14 @@ The project follows a well-organized structure, promoting maintainability and sc
     │   ├── useAbout.js
     │   ├── useActiveProject.js
     │   ├── useAvatar.js
+    │   ├── useChatbot.js
+    │   ├── useChatbotUI.js
+    │   ├── useContactForm.js
+    │   ├── useEmailGate.js
     │   ├── useMetaTitle.js
     │   ├── usePlayerStats.js
     │   ├── useSkills.js
-    │   └── useWebGLAnimation.js
+    │   └── useWebGLAninimation.js
     ├── index.js
     ├── pages
     │   ├── 404page
@@ -166,10 +176,13 @@ The project follows a well-organized structure, promoting maintainability and sc
     │   │   ├── AboutMenu.jsx
     │   │   ├── AboutMenuItems.jsx
     │   │   └── AboutSubheading.jsx
+    │   ├── chatbot
+    │   │   ├── Chatbot.jsx
+    │   │   ├── ChatbotMenu.jsx
+    │   │   └── EmailGate.jsx
     │   ├── contact
     │   │   ├── Contact.jsx
-    │   │   ├── ContactMenu.jsx
-    │   │   └── useContactForm.js
+    │   │   └── ContactMenu.jsx
     │   ├── hackathons
     │   │   ├── Hackathons.jsx
     │   │   └── HackathonsMenu.jsx
@@ -177,8 +190,8 @@ The project follows a well-organized structure, promoting maintainability and sc
     │   │   ├── Projects.jsx
     │   │   └── ProjectsMenu.jsx
     │   └── skills
-    │       ├── Skills.jsx
-    │       └── SkillsMenu.jsx
+    │   │   ├── Skills.jsx
+    │   │   └── SkillsMenu.jsx
     ├── reportWebVitals.js
     ├── setupTests.js
     ├── styles
@@ -187,6 +200,7 @@ The project follows a well-organized structure, promoting maintainability and sc
     │   ├── app.css
     │   ├── avatar.css
     │   ├── background.css
+    │   ├── chatbot.css
     │   ├── contact.css
     │   ├── nav.css
     │   ├── notFound.css
@@ -194,11 +208,11 @@ The project follows a well-organized structure, promoting maintainability and sc
     │   ├── projects.css
     │   └── skillsMenu.css
     └── utils
-        ├── calculateAge.js
-        ├── handleProjectWheel.js
-        ├── handleWheelScroll.js
-        └── updateMetaTitle.js
-
+    │   ├── calculateAge.js
+    │   ├── handleProjectWheel.js
+    │   ├── handleWheelScroll.js
+    │   └── updateMetaTitle.js
+└── vercel.json
 ```
 
 ## Installation and Setup
