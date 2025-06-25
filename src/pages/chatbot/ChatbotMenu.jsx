@@ -5,6 +5,7 @@ import { followUpSuggestions } from "../../data/chatData";
 import ReactMarkdown from "react-markdown";
 
 const ChatbotMenu = () => {
+  // Custom hooks for email gate and chatbot UI
   const {
     emailSubmitted,
     email,
@@ -13,6 +14,7 @@ const ChatbotMenu = () => {
     handleEmailSubmit,
   } = useEmailGate();
 
+  // Custom hook for chatbot UI logic
   const {
     messages,
     loading,
@@ -31,7 +33,6 @@ const ChatbotMenu = () => {
           <div className="chat-header" role="heading" aria-level="2">
             🟢 Personal Assistant
           </div>
-
           <div className="chat-messages" role="log" aria-live="polite">
             {messages.map((msg) => (
               <div
@@ -43,15 +44,12 @@ const ChatbotMenu = () => {
                 <ReactMarkdown>{msg.text}</ReactMarkdown>
               </div>
             ))}
-
             {loading && (
               <div className="chat-bubble ai" role="status" aria-live="assertive">
                 Typing...
               </div>
             )}
-
             <div ref={chatEndRef} />
-
             {followUpSuggestions && messages.length <= 2 && (
               <div className="suggestion-buttons">
                 {followUpSuggestions.map((suggestion, index) => (
@@ -62,7 +60,6 @@ const ChatbotMenu = () => {
               </div>
             )}
           </div>
-
           <div className="chat-input-container">
             <label htmlFor="chat-input" className="visually-hidden">
               Type your message here
@@ -77,7 +74,6 @@ const ChatbotMenu = () => {
               onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
               aria-label="Chat input field"
             />
-
             <button
               className="send-button"
               onClick={handleSendMessage}
@@ -87,7 +83,6 @@ const ChatbotMenu = () => {
               {loading ? "..." : "Send"}
             </button>
           </div>
-
           <button onClick={clearChat} className="clear-button" aria-label="Clear chat">
             RESET
           </button>
