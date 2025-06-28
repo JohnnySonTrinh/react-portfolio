@@ -74,12 +74,30 @@
   cursor: pointer;
 }
 
-.email-submit-button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
 .email-error {
   text-align: center;
+}
+
+.assistant-choice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--border-radius);
+}
+
+.assistant-choice p {
+  font-size: var(--font-size-large);
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.back-button {
+  width: 100%;
 }
 
 /* CHATBOT MENU */
@@ -191,6 +209,7 @@
 }
 
 .clear-button {
+  width: 100%;
   animation: breath 3s infinite;
 }
 

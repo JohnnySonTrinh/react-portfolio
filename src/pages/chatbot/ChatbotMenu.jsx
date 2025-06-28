@@ -1,8 +1,10 @@
+import { useState } from "react";
 import EmailGate from "./EmailGate";
 import useEmailGate from "../../hooks/useEmailGate";
 import useChatbotUI from "../../hooks/useChatbotUI";
 import { followUpSuggestions } from "../../data/chatData";
 import ReactMarkdown from "react-markdown";
+import VoiceAssistant from "../../components/voiceAssistant/VoiceAssistant";
 
 const ChatbotMenu = () => {
   // Custom hooks for email gate and chatbot UI
@@ -26,9 +28,24 @@ const ChatbotMenu = () => {
     sendMessage,
   } = useChatbotUI();
 
+  const [assistantMode, setAssistantMode] = useState(null); // 'chat' or 'voice'
+
   return (
     <div className="chatbot-menu">
-      {emailSubmitted ? (
+      {!emailSubmitted ? (
+        <EmailGate
+          email={email}
+          setEmail={setEmail}
+          error={error}
+          onSubmit={handleEmailSubmit}
+        />
+      ) : assistantMode === null ? (
+        <div className="assistant-choice fade-in">
+          <p>How would you like to talk with Johnny's assistant?</p>
+          <button onClick={() => setAssistantMode("chat")}>💬 Chat Assistant</button>
+          <button onClick={() => setAssistantMode("voice")}>🎙️ Voice Assistant</button>
+        </div>
+      ) : assistantMode === "chat" ? (
         <div className="chat-menu fade-in" role="region" aria-label="AI Chatbot">
           <div className="chat-header" role="heading" aria-level="2">
             🟢 Personal Assistant
@@ -86,14 +103,17 @@ const ChatbotMenu = () => {
           <button onClick={clearChat} className="clear-button" aria-label="Clear chat">
             RESET
           </button>
+          <button onClick={() => setAssistantMode(null)} className="back-button">
+            🔁 Switch Assistant
+          </button>
         </div>
       ) : (
-        <EmailGate
-          email={email}
-          setEmail={setEmail}
-          error={error}
-          onSubmit={handleEmailSubmit}
-        />
+        <div className="voice-menu fade-in" role="region" aria-label="Voice Assistant">
+          <VoiceAssistant />
+          <button onClick={() => setAssistantMode(null)} className="back-button">
+            🔁 Switch Assistant
+          </button>
+        </div>
       )}
     </div>
   );
