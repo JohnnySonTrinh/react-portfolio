@@ -1,0 +1,136 @@
+{
+  "About": {
+    "topic": "About Johnny",
+    "summary": "Johnny is a Fullstack Developer with a diploma from Code Institute. His experience as a gaming coach sharpened his problem-solving and adaptability. He builds responsive, user-friendly web apps with attention to detail and values clarity and efficiency in all his work."
+  },
+  "Education": [
+    {
+      "title": "2024 Full Stack Software Development Diploma",
+      "institution": "Code Institute",
+      "description": "Completed a full-stack software development course covering HTML, CSS, JavaScript, Python, Django, and React. Learned to build complete dynamic web applications from scratch by integrating both frontend and backend technologies."
+    },
+    {
+      "title": "2023 Self-Taught Developer",
+      "institution": "Independent Study",
+      "description": "Built a solid foundation in full-stack development through self-directed learning. Focused on HTML, CSS, JavaScript, and Python. Developed adaptability and a growth mindset."
+    }
+  ],
+  "Career": [
+    {
+      "title": "2024 AI Contractor",
+      "company": "Outlier (Scale AI)",
+      "description": "Contributed to training large language models using RLHF. Performed detailed evaluations, ranked responses, corrected outputs, and delivered feedback to improve conversational quality."
+    },
+    {
+      "title": "2023 Content Creator & Coach",
+      "company": "AimLab.gg",
+      "description": "Produced personalized coaching videos and responded to user questions. Helped build a learning-focused gaming community through direct communication and detailed feedback."
+    },
+    {
+      "title": "2019 Coach & Scriptwriter",
+      "company": "ProGuides",
+      "description": "Coached over 2000 clients in Valorant and Fortnite. Wrote engaging scripts for YouTube videos, blending storytelling with gaming tips for a million-subscriber audience."
+    }
+  ],
+  "Skills": {
+    "Frontend": [
+      "JavaScript",
+      "React",
+      "HTML",
+      "CSS",
+      "Bootstrap",
+      "TailwindCSS",
+      "TypeScript",
+      "Figma",
+      "Postman",
+      "Redux"
+    ],
+    "Backend": [
+      "Python",
+      "Django",
+      "DjangoREST",
+      "Node.js",
+      "Next.js",
+      "PostgreSQL",
+      "MongoDB"
+    ],
+    "DevOps": [
+      "Git",
+      "Github",
+      "Heroku",
+      "Vercel",
+      "Docker",
+      "npm"
+    ]
+  },
+  "Projects": [
+    {
+      "project": "Tic Tac Tactics",
+      "stack": "JavaScript, HTML, CSS, Bootstrap",
+      "description": "A mashup of Valorant and Tic-Tac-Toe using basic web tech for a fun interactive twist."
+    },
+    {
+      "project": "Star Review",
+      "stack": "React, Bootstrap, Django REST, PostgreSQL",
+      "description": "A fullstack peer code review platform designed for developers to collaborate and enhance code quality."
+    },
+    {
+      "project": "Coach Profile",
+      "stack": "JavaScript, CSS, Bootstrap, HTML",
+      "description": "A personal gamer showcase site with visuals and layout inspired by gaming profiles."
+    },
+    {
+      "project": "Snake",
+      "stack": "Python, HTML, CSS",
+      "description": "Classic Snake game with a Python backend rendered through a web terminal emulator."
+    },
+    {
+      "project": "eBuddies",
+      "stack": "HTML, CSS, Django, PostgreSQL",
+      "description": "A social platform for gamers to connect, chat, and share hobbies in a supportive community."
+    },
+    {
+      "project": "Portfolio",
+      "stack": "React, CSS, Vercel",
+      "description": "This very portfolio site — showcasing Johnny's projects, skills, and contact info. Built in React and styled with care."
+    }
+  ],
+  "Hackathons": [
+    {
+      "project": "All-Inclusive",
+      "team": "Ctrl+Alt+Defeat",
+      "description": "An accessibility-focused platform designed to promote inclusive education and experiences. Johnny worked as a frontend developer and designer, emphasizing UI clarity and usability.",
+      "stack": "HTML, CSS, JavaScript, UX/UI Design, Accessibility"
+    },
+    {
+      "project": "12 Days of Quizmas",
+      "team": "Quizmas Elves",
+      "description": "A holiday-themed trivia game with multiple-choice questions about Christmas traditions. Johnny built the frontend and focused on engaging UI/UX.",
+      "stack": "HTML, CSS, JavaScript, UX/UI Design"
+    },
+    {
+      "project": "Jedi Blades",
+      "team": "The Sabersmiths",
+      "description": "A Star Wars-themed encyclopedia exploring different lightsabers and characters. Johnny contributed as a fullstack developer and co-scrum master, focusing on frontend implementation and design.",
+      "stack": "React, CSS, JavaScript, Scrum, UX"
+    },
+    {
+      "project": "Fund Frontier",
+      "team": "Fund Frontier",
+      "description": "A Net Present Value (NPV) calculator app to evaluate investments. Johnny built the frontend and helped document the project.",
+      "stack": "React, CSS, JavaScript, UI Design, Documentation"
+    },
+    {
+      "project": "RemindiCare",
+      "team": "Health Guardians",
+      "description": "A medication reminder and tracker app focused on patient accessibility. Johnny led the UI/UX design using Figma and user testing to ensure a clean experience.",
+      "stack": "React, Figma, UX/UI Design, Accessibility, JavaScript"
+    },
+    {
+      "project": "Cupid's Quill",
+      "team": "Cupid's Helpers",
+      "description": "A web app to help users find ideal gifts for loved ones based on personality and preferences. Johnny worked on all functions, including design for the About page and mouse animations.",
+      "stack": "JavaScript, CSS, UI Design, Animation, Fullstack"
+    }
+  ]
+}
