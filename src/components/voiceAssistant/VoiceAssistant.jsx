@@ -18,7 +18,7 @@ const VoiceAssistant = () => {
 
   return (
     <div>
-      <h2>🎙️ Voice Assistant is active—speak now!</h2>
+      <h2>Voice Assistant is active—speak now!</h2>
     </div>
   );
 };
