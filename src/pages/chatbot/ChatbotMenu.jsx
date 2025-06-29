@@ -104,14 +104,14 @@ const ChatbotMenu = () => {
             RESET
           </button>
           <button onClick={() => setAssistantMode(null)} className="back-button">
-            🔁 Switch Assistant
+            Switch Assistant
           </button>
         </div>
       ) : (
         <div className="voice-menu fade-in" role="region" aria-label="Voice Assistant">
           <VoiceAssistant />
           <button onClick={() => setAssistantMode(null)} className="back-button">
-            🔁 Switch Assistant
+            Switch Assistant
           </button>
         </div>
       )}
