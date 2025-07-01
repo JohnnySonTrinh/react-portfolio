@@ -1,5 +1,5 @@
 import ReactMarkdown from "react-markdown";
-import useChatbotUI from "../../hooks/useChatbotUI";
+import useChatbotUI from "../../hooks/useChatbot";
 import { followUpSuggestions } from "../../data/chatData";
 import "../../styles/chatAssistant.css";
 
