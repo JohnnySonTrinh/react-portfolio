@@ -11,7 +11,7 @@ const useVoiceAssistant = () => {
   const [isAssistantTyping, setIsAssistantTyping] = useState(false);
 
   useEffect(() => {
-    const vapi = new Vapi(process.env.REACT_APP_VAPI_PUBLIC_KEY);
+    const vapi = new Vapi(process.env.VAPI_PUBLIC_KEY);
     vapiRef.current = vapi;
 
     vapi.on("call-start", (call) => {
@@ -50,7 +50,7 @@ const useVoiceAssistant = () => {
 
   const startCall = () => {
     if (vapiRef.current) {
-      vapiRef.current.start(process.env.REACT_APP_VAPI_AGENT_ID);
+      vapiRef.current.start(process.env.VAPI_AGENT_ID);
     }
   };
 
