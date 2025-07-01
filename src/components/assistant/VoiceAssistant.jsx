@@ -6,12 +6,13 @@ const VoiceAssistant = () => {
 
   return (
     <div className="voice-assistant-ui">
-      {!inCall ? (
-        <button onClick={startCall}>Start Call</button>
-      ) : (
-        <button onClick={endCall}>End Call</button>
+      {!inCall && (
+        <p className="voice-intro">
+          Click below to start chatting with Johnny’s assistant using your voice.
+        </p>
       )}
-      {inCall && (
+
+      {(inCall || messages.length > 0) && (
         <div className="chat-messages">
           {messages.map((msg, index) => (
             <div
@@ -22,10 +23,17 @@ const VoiceAssistant = () => {
             </div>
           ))}
           {isAssistantTyping && (
-            <div className="chat-bubble ai typing">Speeking...</div>
+            <div className="chat-bubble ai typing">Speaking...</div>
           )}
         </div>
       )}
+
+      <button
+        onClick={inCall ? endCall : startCall}
+        className={inCall ? "end-call-button" : "start-call-button"}
+      >
+        {inCall ? "End Call" : "Start Call"}
+      </button>
     </div>
   );
 };
