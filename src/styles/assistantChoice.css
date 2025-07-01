@@ -17,6 +17,6 @@
 }
 
 .back-button {
-  width: 100%;
+  animation: breath 3s infinite;
 }
 
