@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { fetchOpenAIResponse } from "../api/openai";
 
 // Key for storing chat history in localStorage
@@ -18,15 +18,16 @@ const introMessages = [
   },
 ];
 
-// Custom hook to manage chatbot state and interactions
-const useChatbot = () => {
+// Combined hook: manages state, OpenAI logic, and UI behavior
+const useChatbotWithUI = () => {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [input, setInput] = useState("");
+  const chatEndRef = useRef(null);
 
-  // Load chat history from localStorage or set initial messages
+  // Load chat history or intro messages on mount
   useEffect(() => {
     const savedMessages = localStorage.getItem(CHAT_STORAGE_KEY);
-
     if (savedMessages && JSON.parse(savedMessages).length > 0) {
       setMessages(JSON.parse(savedMessages));
     } else {
@@ -35,14 +36,19 @@ const useChatbot = () => {
     }
   }, []);
 
-  // Save chat history to localStorage whenever messages change
+  // Save messages to localStorage whenever they change
   useEffect(() => {
     if (messages.length > 0) {
       localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(messages));
     }
   }, [messages]);
 
-  // Function to send user input to OpenAI and get a response
+  // Auto-scroll on new messages
+  useEffect(() => {
+    chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
+  // Sends user message and gets AI response
   const sendMessage = async (userInput) => {
     if (!userInput.trim()) return;
 
@@ -51,18 +57,17 @@ const useChatbot = () => {
       sender: "user",
       text: userInput,
     };
-    setMessages((prev) => [...prev, userMessage]); // Add user message to chat history
+    setMessages((prev) => [...prev, userMessage]);
     setLoading(true);
 
-    // Clear the input field (if using a form, this would be handled by the form state)
     try {
       const aiResponse = await fetchOpenAIResponse(userInput);
-
-      // Add AI response to chat history
-      setMessages((prev) => [
-        ...prev,
-        { id: messages.length + 2, sender: "ai", text: aiResponse },
-      ]);
+      const aiMessage = {
+        id: messages.length + 2,
+        sender: "ai",
+        text: aiResponse,
+      };
+      setMessages((prev) => [...prev, aiMessage]);
     } catch (error) {
       console.error("Error fetching AI response:", error);
       setMessages((prev) => [
@@ -78,13 +83,29 @@ const useChatbot = () => {
     }
   };
 
-  // Function to clear chat history and reset to initial messages
-  const clearChat = () => {
-    setMessages(introMessages);
-    localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(introMessages)); // Reset chat history in localStorage
+  // Handle send button or Enter key
+  const handleSendMessage = () => {
+    if (!input.trim()) return;
+    sendMessage(input);
+    setInput("");
   };
 
-  return { messages, sendMessage, loading, clearChat };
+  // Resets chat
+  const clearChat = () => {
+    setMessages(introMessages);
+    localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(introMessages));
+  };
+
+  return {
+    messages,
+    loading,
+    input,
+    setInput,
+    handleSendMessage,
+    clearChat,
+    chatEndRef,
+    sendMessage,
+  };
 };
 
-export default useChatbot;
+export default useChatbotWithUI;
