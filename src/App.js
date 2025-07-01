@@ -4,9 +4,9 @@ import Background from "./components/background/Background";
 import PlayerStats from "./components/playerStats/PlayerStats";
 import About from "./pages/about/About";
 import Skills from "./pages/skills/Skills";
-import Chatbot from "./pages/chatbot/Chatbot";
 import Projects from "./pages/projects/Projects";
 import Hackathons from "./pages/hackathons/Hackathons";
+import Chatbot from "./pages/chatbot/Chatbot";
 import Contact from "./pages/contact/Contact";
 import NotFound from "./pages/404page/NotFound";
 import "./styles/app.css";
@@ -23,8 +23,8 @@ const App = () => {
         <Route path="/" element={<About />} />
         <Route path="/skills" element={<Skills />} />
         <Route path="/projects" element={<Projects />} />
-        <Route path="/chatbot" element={<Chatbot />} />
         <Route path="/hackathons" element={<Hackathons />} />
+        <Route path="/chatbot" element={<Chatbot />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
