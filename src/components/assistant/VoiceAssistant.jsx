@@ -2,36 +2,32 @@ import useVoiceAssistant from "../../hooks/useVoiceAssistant";
 import "../../styles/voiceAssistant.css";
 
 const VoiceAssistant = () => {
-  const { isMuted, inCall, startCall, endCall, toggleMute } = useVoiceAssistant();
+  const { inCall, startCall, endCall, messages, isAssistantTyping } = useVoiceAssistant();
 
   return (
     <div className="voice-assistant-ui">
       <h2>Voice Assistant</h2>
 
       {!inCall ? (
-        <button
-          onClick={startCall}
-          aria-label="Start Call"
-        >
-          Start Call
-        </button>
+        <button onClick={startCall}>Start Call</button>
       ) : (
-        <>
-          <button
-            onClick={toggleMute}
-            aria-label={isMuted ? "Unmute Microphone" : "Mute Microphone"}
-          >
-            {isMuted ? "Unmute Mic" : "Mute Mic"}
-          </button>
+        <button onClick={endCall}>End Call</button>
+      )}
 
-          <button
-            onClick={endCall}
-            aria-label="End Call"
-            style={{ fontSize: "1.1rem", padding: "0.5rem 1rem", color: "red" }}
-          >
-            End Call
-          </button>
-        </>
+      {inCall && (
+        <div className="chat-messages">
+          {messages.map((msg, index) => (
+            <div
+              key={index}
+              className={`chat-bubble ${msg.role === "user" ? "user" : "ai"}`}
+            >
+              {msg.text}
+            </div>
+          ))}
+          {isAssistantTyping && (
+            <div className="chat-bubble ai typing">Typing...</div>
+          )}
+        </div>
       )}
     </div>
   );
