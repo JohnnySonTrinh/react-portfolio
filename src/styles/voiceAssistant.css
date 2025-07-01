@@ -12,14 +12,16 @@
   padding: 1rem;
   max-height: 300px;
   overflow-y: auto;
-  background: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.3);
   border-radius: var(--border-radius);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+/* === Voice Messages === */
 .voice-message {
-  margin-bottom: 0.5rem;
   font-size: 1rem;
+  margin-bottom: 0.5rem;
+  word-wrap: break-word;
 }
 
 .voice-message.user {
@@ -32,22 +34,16 @@
   color: var(--wheat);
 }
 
+/* === Buttons === */
 .start-call-button,
 .end-call-button {
   width: 100%;
+  padding: 0.6rem 1rem;
   font-weight: bold;
   font-size: 1rem;
   border: none;
   border-radius: 0.3rem;
   cursor: pointer;
-}
-
-.start-call-button {
-  background-color: green;
-  color: white;
-}
-
-.end-call-button {
-  background-color: red;
-  color: white;
+  margin-top: 1rem;
+  transition: background-color 0.2s ease;
 }
