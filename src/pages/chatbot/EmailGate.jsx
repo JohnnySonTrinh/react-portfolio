@@ -1,3 +1,5 @@
+import "../../styles/emailGate.css";
+
 const EmailGate = ({ email, setEmail, error, onSubmit }) => {
   return (
     <div className="email-gate">
