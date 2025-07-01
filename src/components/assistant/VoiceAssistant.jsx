@@ -9,11 +9,9 @@ const VoiceAssistant = () => {
       className="voice-assistant-ui"
       aria-labelledby="voice-assistant-heading"
     >
-      <h2 id="voice-assistant-heading">Voice Assistant</h2>
-
       {!inCall && (
         <p className="voice-intro">
-          Click below to start chatting with Johnny’s assistant using your voice.
+          Click below to start chatting with Johnny's assistant using your voice.
         </p>
       )}
       {(inCall || messages.length > 0) && (
