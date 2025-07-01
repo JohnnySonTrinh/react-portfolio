@@ -7,6 +7,12 @@
   color: var(--white);
 }
 
+.voice-intro {
+  font-size: var(--font-size-large);
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
 .voice-transcript {
   margin: 1rem 0;
   padding: 1rem;
@@ -37,13 +43,12 @@
 /* === Buttons === */
 .start-call-button,
 .end-call-button {
-  width: 100%;
-  padding: 0.6rem 1rem;
+  width: 30%;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: var(--border-radius);
+  border: 0.07rem solid rgba(255, 255, 255, 0.4);
+  outline: none;
+  color: var(--white);
   font-weight: bold;
   font-size: 1rem;
-  border: none;
-  border-radius: 0.3rem;
-  cursor: pointer;
-  margin-top: 1rem;
-  transition: background-color 0.2s ease;
 }
