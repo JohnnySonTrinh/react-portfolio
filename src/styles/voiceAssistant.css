@@ -1,37 +1,53 @@
 .voice-assistant-ui {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  padding: 2rem;
+  padding: 1rem;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.4);
   border-radius: var(--border-radius);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: var(--white);
 }
 
-.voice-assistant-ui h2 {
-  font-size: var(--font-size-large);
-  font-weight: bold;
+.voice-transcript {
+  margin: 1rem 0;
+  padding: 1rem;
+  max-height: 300px;
+  overflow-y: auto;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.voice-assistant-ui button {
+.voice-message {
+  margin-bottom: 0.5rem;
   font-size: 1rem;
-  padding: 0.6rem 1.2rem;
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 0.3rem;
-  color: var(--white);
+}
+
+.voice-message.user {
+  text-align: right;
+  color: var(--cyan);
+}
+
+.voice-message.assistant {
+  text-align: left;
+  color: var(--wheat);
+}
+
+.start-call-button,
+.end-call-button {
+  width: 100%;
   font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.3rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-.voice-assistant-ui button:hover {
-  background-color: rgba(255, 255, 255, 0.15);
+.start-call-button {
+  background-color: green;
+  color: white;
 }
 
-.voice-assistant-ui button:last-child {
-  color: red;
+.end-call-button {
+  background-color: red;
+  color: white;
 }

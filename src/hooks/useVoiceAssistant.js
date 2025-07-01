@@ -5,8 +5,9 @@ const useVoiceAssistant = () => {
   const vapiRef = useRef(null);
   const callRef = useRef(null);
 
-  const [isMuted, setIsMuted] = useState(false);
   const [inCall, setInCall] = useState(false);
+  const [messages, setMessages] = useState([]);
+  const [isAssistantTyping, setIsAssistantTyping] = useState(false);
 
   useEffect(() => {
     const vapi = new Vapi(process.env.REACT_APP_VAPI_PUBLIC_KEY);
@@ -20,13 +21,21 @@ const useVoiceAssistant = () => {
 
     vapi.on("message", (msg) => {
       console.log("📩 Message:", msg);
+
+      if (msg.type === "transcript" && msg.transcriptType === "final") {
+        setMessages(prev => [...prev, { role: msg.role, text: msg.transcript }]);
+      }
+
+      if (msg.type === "speech-update" && msg.role === "assistant") {
+        setIsAssistantTyping(msg.status === "started");
+      }
     });
 
     vapi.on("call-end", () => {
       console.log("🏁 Call ended");
       callRef.current = null;
-      setIsMuted(false);
       setInCall(false);
+      setIsAssistantTyping(false);
     });
 
     return () => {
@@ -46,20 +55,13 @@ const useVoiceAssistant = () => {
     }
   };
 
-  const toggleMute = () => {
-    const call = callRef.current;
-    if (!call) return;
-
-    if (isMuted) {
-      call.unmuteMicrophone();
-    } else {
-      call.muteMicrophone();
-    }
-
-    setIsMuted(!isMuted);
+  return {
+    inCall,
+    startCall,
+    endCall,
+    messages,
+    isAssistantTyping,
   };
-
-  return { isMuted, inCall, startCall, endCall, toggleMute };
 };
 
 export default useVoiceAssistant;
