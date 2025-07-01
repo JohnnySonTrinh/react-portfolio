@@ -17,7 +17,7 @@
   flex-direction: column;
   gap: 0.5rem;
   background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 0.3rem;
+  border-radius: var(--border-radius);
   border: var(--border);
 }
 
@@ -61,7 +61,7 @@
 .chat-input {
   width: 70%;
   background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 0.3rem;
+  border-radius: var(--border-radius);
   border: var(--border);
   outline: none;
   color: var(--white);
@@ -78,11 +78,9 @@
 .send-button {
   width: 30%;
   background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 0.3rem;
+  border-radius: var(--border-radius);
   border: var(--border);
   outline: none;
-  color: var(--white);
-  font-weight: bold;
   font-size: 1rem;
 }
 
@@ -91,8 +89,10 @@
 }
 
 .clear-button {
-  width: 100%;
-  animation: breath 3s infinite;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: var(--border-radius);
+  border: var(--border);
+  width: 15%;
 }
 
 @media (max-width: 768px) {

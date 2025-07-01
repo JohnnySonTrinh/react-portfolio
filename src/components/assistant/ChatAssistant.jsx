@@ -65,12 +65,12 @@ const ChatAssistant = () => {
             disabled={loading}
             aria-label={loading ? "Sending message, please wait" : "Send message"}
           >
-            {loading ? "..." : "Send"}
+            {loading ? "..." : "SEND"}
+          </button>
+          <button onClick={clearChat} className="clear-button" aria-label="Clear chat">
+            RESET
           </button>
         </div>
-        <button onClick={clearChat} className="clear-button" aria-label="Clear chat">
-          RESET
-        </button>
       </div>
     </div>
   );
