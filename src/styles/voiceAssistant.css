@@ -8,7 +8,7 @@
 }
 
 .voice-intro {
-  font-size: var(--font-size-large);
+  font-size: var(--font-size-medium);
   margin-bottom: 1rem;
   font-weight: bold;
 }
@@ -19,8 +19,6 @@
   max-height: 300px;
   overflow-y: auto;
   background-color: rgba(0, 0, 0, 0.3);
-  border-radius: var(--border-radius);
-  border: var(--border);
 }
 
 /* === Voice Messages === */
