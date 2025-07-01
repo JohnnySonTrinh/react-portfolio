@@ -1,6 +1,6 @@
 .email-intro-box {
   background-color: rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: var(--border);
   border-radius: var(--border-radius);
   padding: 1rem;
   color: var(--white);
@@ -36,7 +36,7 @@
   flex: 1;
   min-width: 200px;
   border-radius: 0.3rem;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: var(--border);
   padding: 0.5rem;
 }
 

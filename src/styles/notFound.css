@@ -28,7 +28,7 @@
   width: 10rem;
   color: var(--white);
   background: var(--transparent);
-  border-radius: 3rem;
+  border-radius: var(--border-radius);
   animation: breath 2.5s infinite;
 }
 .home-button:hover {
