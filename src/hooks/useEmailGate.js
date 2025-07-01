@@ -1,4 +1,3 @@
-// src/hooks/useEmailGate.js
 import { useState } from "react";
 
 const useEmailGate = () => {
