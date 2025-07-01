@@ -4,6 +4,7 @@ import Vapi from "@vapi-ai/web";
 const useVoiceAssistant = () => {
   const vapiRef = useRef(null);
   const callRef = useRef(null);
+  const chatEndRef = useRef(null);
 
   const [inCall, setInCall] = useState(false);
   const [messages, setMessages] = useState([]);
@@ -43,6 +44,10 @@ const useVoiceAssistant = () => {
     };
   }, []);
 
+  useEffect(() => {
+    chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
   const startCall = () => {
     if (vapiRef.current) {
       vapiRef.current.start(process.env.REACT_APP_VAPI_AGENT_ID);
@@ -61,6 +66,7 @@ const useVoiceAssistant = () => {
     endCall,
     messages,
     isAssistantTyping,
+    chatEndRef,
   };
 };
 
