@@ -17,7 +17,7 @@ const ChatbotMenu = () => {
   const [assistantMode, setAssistantMode] = useState(null);
 
   return (
-    <div className="chatbot-menu">
+    <div className="chatbot-menu" role="main" aria-label="Chatbot Interface">
       {!emailSubmitted ? (
         <EmailGate
           email={email}
@@ -28,14 +28,22 @@ const ChatbotMenu = () => {
       ) : assistantMode === "chat" ? (
         <>
           <ChatAssistant />
-          <button onClick={() => setAssistantMode(null)} className="back-button">
+          <button
+            onClick={() => setAssistantMode(null)}
+            className="back-button"
+            aria-label="Switch to voice assistant"
+          >
             Switch Assistant
           </button>
         </>
       ) : assistantMode === "voice" ? (
         <>
           <VoiceAssistant />
-          <button onClick={() => setAssistantMode(null)} className="back-button">
+          <button
+            onClick={() => setAssistantMode(null)}
+            className="back-button"
+            aria-label="Switch to chat assistant"
+          >
             Switch Assistant
           </button>
         </>

@@ -5,36 +5,44 @@ const VoiceAssistant = () => {
   const { inCall, startCall, endCall, messages, isAssistantTyping } = useVoiceAssistant();
 
   return (
-    <div className="voice-assistant-ui">
+    <section
+      className="voice-assistant-ui"
+      aria-labelledby="voice-assistant-heading"
+    >
+      <h2 id="voice-assistant-heading">Voice Assistant</h2>
+
       {!inCall && (
         <p className="voice-intro">
           Click below to start chatting with Johnny’s assistant using your voice.
         </p>
       )}
-
       {(inCall || messages.length > 0) && (
-        <div className="chat-messages">
+        <div className="chat-messages" role="log" aria-live="polite">
           {messages.map((msg, index) => (
             <div
               key={index}
               className={`chat-bubble ${msg.role === "user" ? "user" : "ai"}`}
+              role="article"
+              aria-label={`Message from ${msg.role === "user" ? "you" : "Johnny's assistant"}`}
             >
               {msg.text}
             </div>
           ))}
           {isAssistantTyping && (
-            <div className="chat-bubble ai typing">Speaking...</div>
+            <div className="chat-bubble ai typing" role="status" aria-live="assertive">
+              Speaking...
+            </div>
           )}
         </div>
       )}
-
       <button
         onClick={inCall ? endCall : startCall}
         className={inCall ? "end-call-button" : "start-call-button"}
+        aria-label={inCall ? "End voice call with Johnny's assistant" : "Start voice call with Johnny's assistant"}
       >
         {inCall ? "End Call" : "Start Call"}
       </button>
-    </div>
+    </section>
   );
 };
 
