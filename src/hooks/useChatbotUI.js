@@ -1,4 +1,3 @@
-// src/hooks/useChatbotUI.js
 import { useState, useRef, useEffect } from "react";
 import useChatbot from "./useChatbot";
 
