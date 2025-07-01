@@ -19,7 +19,7 @@ const introMessages = [
 ];
 
 // Combined hook: manages state, OpenAI logic, and UI behavior
-const useChatbotWithUI = () => {
+const useChatbot = () => {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
   const [input, setInput] = useState("");
@@ -108,4 +108,4 @@ const useChatbotWithUI = () => {
   };
 };
 
-export default useChatbotWithUI;
+export default useChatbot;

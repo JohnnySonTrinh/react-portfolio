@@ -1,5 +1,5 @@
 import ReactMarkdown from "react-markdown";
-import useChatbotUI from "../../hooks/useChatbot";
+import useChatbot from "../../hooks/useChatbot";
 import { followUpSuggestions } from "../../data/chatData";
 import "../../styles/chatAssistant.css";
 
@@ -13,7 +13,7 @@ const ChatAssistant = () => {
     clearChat,
     chatEndRef,
     sendMessage,
-  } = useChatbotUI();
+  } = useChatbot();
 
   return (
     <div className="chat-menu fade-in" role="region" aria-label="Johnny's Chat Assistant">
