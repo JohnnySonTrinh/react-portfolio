@@ -16,7 +16,15 @@
   font-weight: bold;
 }
 
-.back-button {
-  animation: breath 3s infinite;
+.assistant-buttons {
+  display: flex;
+  gap: 1rem;
 }
 
+.assistant-buttons button {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 0.3rem;
+  border: var(--border);
+  transition: background-color 0.2s ease;
+}
