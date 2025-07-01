@@ -19,6 +19,7 @@
 .assistant-buttons {
   display: flex;
   gap: 1rem;
+  width: 30%;
 }
 
 .assistant-buttons button {
