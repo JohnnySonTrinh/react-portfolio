@@ -2,7 +2,14 @@ import useVoiceAssistant from "../../hooks/useVoiceAssistant";
 import "../../styles/voiceAssistant.css";
 
 const VoiceAssistant = () => {
-  const { inCall, startCall, endCall, messages, isAssistantTyping } = useVoiceAssistant();
+  const {
+    inCall,
+    startCall,
+    endCall,
+    messages,
+    isAssistantTyping,
+    chatEndRef,
+  } = useVoiceAssistant();
 
   return (
     <section
@@ -31,6 +38,7 @@ const VoiceAssistant = () => {
               Speaking...
             </div>
           )}
+          <div ref={chatEndRef} />
         </div>
       )}
       <button
