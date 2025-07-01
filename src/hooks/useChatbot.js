@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { fetchOpenAIResponse } from "../api/openai";
+import { fetchOpenAIResponse } from "../api/fetchOpenAIResponse";
 
 // Key for storing chat history in localStorage
 const CHAT_STORAGE_KEY = "chatHistory";
