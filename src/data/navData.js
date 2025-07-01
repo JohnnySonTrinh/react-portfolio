@@ -22,13 +22,6 @@ const navData = [
     title: "SKILLS",
   },
   {
-    to: "/chatbot",
-    imgSrc: robotBot,
-    altText: "envelope icon",
-    navClass: "nav-chatbot",
-    title: "CHATBOT",
-  },
-  {
     to: "/projects",
     imgSrc: stack,
     altText: "stack icon",
@@ -41,6 +34,13 @@ const navData = [
     altText: "global icon",
     navClass: "nav-hackathons",
     title: "HACKATHONS",
+  },
+  {
+    to: "/chatbot",
+    imgSrc: robotBot,
+    altText: "envelope icon",
+    navClass: "nav-chatbot",
+    title: "CHATBOT",
   },
   {
     to: "/contact",
