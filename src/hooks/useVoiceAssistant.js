@@ -15,14 +15,11 @@ const useVoiceAssistant = () => {
     vapiRef.current = vapi;
 
     vapi.on("call-start", (call) => {
-      console.log("🎙️ Call started");
       callRef.current = call;
       setInCall(true);
     });
 
     vapi.on("message", (msg) => {
-      console.log("📩 Message:", msg);
-
       if (msg.type === "transcript" && msg.transcriptType === "final") {
         setMessages(prev => [...prev, { role: msg.role, text: msg.transcript }]);
       }
@@ -33,7 +30,6 @@ const useVoiceAssistant = () => {
     });
 
     vapi.on("call-end", () => {
-      console.log("🏁 Call ended");
       callRef.current = null;
       setInCall(false);
       setIsAssistantTyping(false);
