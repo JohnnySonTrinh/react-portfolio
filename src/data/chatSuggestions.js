@@ -1,5 +1,3 @@
-// This file contains suggestions for follow-up questions about Johnny, the frontend developer.
-// These suggestions can be used in a chat interface to guide users in learning more about Johnny.
 export const followUpSuggestions = [
   "What projects has Johnny built?",
   "What technologies does Johnny use?",
