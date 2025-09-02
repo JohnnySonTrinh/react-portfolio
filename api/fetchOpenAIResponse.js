@@ -1,10 +1,12 @@
 import { Configuration, OpenAIApi } from "openai";
-import systemMessage from "../data/chatData"; // ✅ adjust if needed
+import systemMessage from "../data/chatData";
 
+// Create a configuration object with the API key from environment variables
 const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY, // ✅ must exist in .env
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
+// Initialize OpenAI client
 const openai = new OpenAIApi(configuration);
 
 export default async function handler(req, res) {
@@ -12,8 +14,8 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Only POST requests allowed" });
   }
 
+  // Extract user input from request body
   const { userText } = req.body;
-  console.log("🟡 userText:", userText); // 👈 Add this log
 
   try {
     const response = await openai.createChatCompletion({
@@ -24,12 +26,13 @@ export default async function handler(req, res) {
       ],
     });
 
+    // Extract the assistant's reply
     const reply = response.data.choices[0].message.content;
-    console.log("✅ OpenAI replied:", reply);
+
+    // Return the response as JSON
     res.status(200).json({ text: reply });
   } catch (error) {
-    console.error("🔥 API crashed:", error.message);
-    console.error("🔥 Full error:", error); // 👈 Full stack trace
+    // Return error response if something goes wrong
     res.status(500).json({ text: "Error: Unable to get response." });
   }
 }
