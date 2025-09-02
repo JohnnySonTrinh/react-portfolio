@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { Link } from "react-router-dom";
-import useWebGLAnimation from "../../hooks/useWebGLAninimation";
+import useWebGLAnimation from "../../hooks/useWebGLAnimation";
 import MusicPlayer from "../../components/music/MusicPlayer";
 import "../../styles/notFound.css";
 
