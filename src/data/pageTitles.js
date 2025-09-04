@@ -1,5 +1,3 @@
-// data/pageTitles.js
-
 const pageTitles = {
   about: "Johnny Trinh - Fullstack Developer",
   skills: "Johnny Trinh - Skills",
