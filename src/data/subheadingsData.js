@@ -23,7 +23,7 @@ const subheadingsData = {
       content: (
         <>
           <p>
-            Code Institute – Full-stack comprehensive course completed
+            Code Institute - Full-stack comprehensive course completed
             development program in HTML, CSS, JavaScript, Python, Django
             Advanced full-stack development with React. This curriculum provided
             me with the skills to build dynamic, responsive web-building
