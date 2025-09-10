@@ -1,0 +1,162 @@
+{
+  "about": [
+    {
+      "title": "About Me",
+      "content": "Fullstack Developer with a diploma in Full Stack Software Development from Code Institute. My experience as a gaming coach has sharpened my problem-solving skills and ability to adapt to different challenges. I build responsive, user-friendly web applications and I have an eye for details. I value clarity and efficiency in my work and enjoy creating solutions that work seamlessly for users."
+    }
+  ],
+  "education": [
+    {
+      "title": "2024 Full Stack Software Development Diploma",
+      "content": "Code Institute. Full-stack comprehensive course covering HTML, CSS, JavaScript, Python, and Django. Advanced full-stack development with React. The program gave me the skills to build dynamic, responsive web applications from scratch and integrate frontend and backend technologies into complete solutions."
+    },
+    {
+      "title": "2023 Self-Taught Developer",
+      "content": "Developed foundational full-stack skills through self-directed learning with HTML, CSS, JavaScript, and Python. Built a habit of continuous learning and adaptability that prepared me for structured training at Code Institute."
+    }
+  ],
+  "experience": [
+    {
+      "title": "2024 AI Trainer and Senior Reviewer at Outlier (Scale AI)",
+      "content": "Worked on multiple RLHF projects as a Senior Reviewer. Led side-by-side evaluations, rubric tuning, and final quality checks. Reviewed prompts, rewrites, and model outputs to improve accuracy, clarity, tone, and safety. Mentored reviewers and flagged edge cases to refine guidelines."
+    },
+    {
+      "title": "2023 Video Content Creator and Coach at AimLab.gg",
+      "content": "Created personalized coaching content by video. Answered client questions and delivered actionable feedback. Helped build a supportive learning community and improved engagement through clear communication."
+    },
+    {
+      "title": "2019 Coach and Scriptwriter at ProGuides",
+      "content": "Delivered one-on-one coaching for Valorant and Fortnite to more than 2000 clients. Wrote engaging video scripts that combined expert tips with storytelling for an audience of over one million subscribers."
+    }
+  ],
+  "skills": {
+    "frontend": [
+      "JavaScript",
+      "React",
+      "HTML",
+      "CSS",
+      "Bootstrap",
+      "TailwindCSS",
+      "TypeScript",
+      "Figma",
+      "Postman",
+      "Redux"
+    ],
+    "backend": [
+      "Python",
+      "Django",
+      "DjangoREST",
+      "Node.js",
+      "Next.js",
+      "PostgreSQL",
+      "MongoDB"
+    ],
+    "fullstack": [
+      "Git",
+      "GitHub",
+      "Heroku",
+      "Vercel",
+      "Docker",
+      "npm"
+    ]
+  },
+  "projects": [
+    {
+      "title": "Tic Tac Tactics",
+      "image": "https://raw.githubusercontent.com/JohnnySonTrinh/JohnnySonTrinh/main/projects/tic-tac-tactics.webp",
+      "description": "Valorant Tic-Tac-Tactics combines the strategy of Valorant with the simplicity of Tic-Tac-Toe. Built as a fun, lightweight web game for both Valorant fans and casual players.",
+      "techStack": ["JavaScript", "HTML", "CSS", "Bootstrap"],
+      "github": "https://github.com/JohnnySonTrinh/valorant-tic-tac-tactics",
+      "live": "https://johnnysontrinh.github.io/valorant-tic-tac-tactics/"
+    },
+    {
+      "title": "Star Review",
+      "image": "https://raw.githubusercontent.com/JohnnySonTrinh/JohnnySonTrinh/main/projects/star-review.webp",
+      "description": "Peer review platform for developers to collaborate, give feedback, and improve code quality. Suitable for both beginners and experienced devs.",
+      "techStack": ["React", "Bootstrap", "Django REST Framework", "PostgreSQL"],
+      "github": "https://github.com/JohnnySonTrinh/review-api",
+      "live": "https://star-review-app-fb4aac8cda63.herokuapp.com"
+    },
+    {
+      "title": "Coach Profile",
+      "image": "https://raw.githubusercontent.com/JohnnySonTrinh/JohnnySonTrinh/main/projects/coach-profile.webp",
+      "description": "A vibrant gaming profile that showcases coaching background, skills, and experiences.",
+      "techStack": ["JavaScript", "CSS", "Bootstrap", "HTML"],
+      "github": "https://github.com/JohnnySonTrinh/a-gamers-portfolio-site",
+      "live": "https://johnnysontrinh.github.io/a-gamers-portfolio-site"
+    },
+    {
+      "title": "Snake",
+      "image": "https://raw.githubusercontent.com/JohnnySonTrinh/JohnnySonTrinh/main/projects/snake.webp",
+      "description": "Classic Snake implemented in Python and rendered in a mock terminal on Heroku.",
+      "techStack": ["Python", "HTML", "CSS"],
+      "github": "https://github.com/JohnnySonTrinh/snake-game",
+      "live": "https://snake-eat-food-game-b47e36d72bf2.herokuapp.com"
+    },
+    {
+      "title": "eBuddies",
+      "image": "https://raw.githubusercontent.com/JohnnySonTrinh/JohnnySonTrinh/main/projects/ebuddies.webp",
+      "description": "Community platform to connect gamers with shared interests. Focus on a welcoming space, sharing experiences, and building connections.",
+      "techStack": ["HTML", "CSS", "Django", "PostgreSQL"],
+      "github": "https://github.com/JohnnySonTrinh/ebuddies",
+      "live": "https://ebuddies-42967ce5447d.herokuapp.com"
+    },
+    {
+      "title": "Portfolio",
+      "image": "https://raw.githubusercontent.com/JohnnySonTrinh/JohnnySonTrinh/main/projects/portfolio.webp",
+      "description": "Personal portfolio that showcases projects, skills, and experience. Serves as a digital resume and demo space.",
+      "techStack": ["React", "CSS", "Vercel"],
+      "github": "https://github.com/JohnnySonTrinh/react-portfolio",
+      "live": "https://johnnytrinh.se"
+    }
+  ],
+  "hackathons": [
+    {
+      "team": "Ctrl+Alt+Defeat",
+      "title": "All-inclusive",
+      "description": "Frontend developer and designer. Built an accessible, intuitive UI. The project promotes inclusivity by design and offers accessibility-focused education.",
+      "github": "https://github.com/JohnnySonTrinh/all-inclusive",
+      "demo": "https://johnnysontrinh.github.io/all-inclusive/"
+    },
+    {
+      "team": "Quizmas Elves",
+      "title": "12 Days of Quizmas",
+      "description": "Frontend dev and UX designer. Designed and implemented the UI for a quiz game about Christmas traditions.",
+      "github": "https://github.com/ogc1231/festive-quiz-game",
+      "demo": "https://ogc1231.github.io/festive-quiz-game"
+    },
+    {
+      "team": "The Sabersmiths",
+      "title": "Jedi Blades",
+      "description": "Fullstack developer and co-scrum master. Built a Star Wars themed encyclopedia where users explore lightsabers and their wielders.",
+      "github": "https://github.com/EmilionR/jedi-blades-hackathon",
+      "demo": "https://jedi-blades-786cf143833b.herokuapp.com"
+    },
+    {
+      "team": "Fund Frontier",
+      "title": "Fund Frontier",
+      "description": "Created the UI for a Net Present Value calculator to compare up to three projects. Helped with README and flow design.",
+      "github": "https://github.com/sean-meade/fund-frontier",
+      "demo": "https://fund-frontier.vercel.app"
+    },
+    {
+      "team": "Health Guardians",
+      "title": "RemindiCare",
+      "description": "Led frontend and UX. Used Figma, wireframes, and user testing. The app helps patients track medications and get reminders.",
+      "github": "https://github.com/JohnnySonTrinh/remindicare",
+      "demo": "https://remindicare-c84864436945.herokuapp.com/"
+    },
+    {
+      "team": "Cupid's Helpers",
+      "title": "Cupid's Quill",
+      "description": "Worked across the stack, focused on landing page animation and the About page. Generates gift ideas from personality inputs.",
+      "github": "https://github.com/lucia2007/love-letter-generator",
+      "demo": "https://lucia2007.github.io/love-letter-generator/"
+    }
+  ],
+  "contact": {
+    "github": "https://github.com/JohnnySonTrinh",
+    "linkedin": "https://www.linkedin.com/in/johnny-trinh-dev/",
+    "email": "johnny.trinh@hotmail.se"
+  }
+}
