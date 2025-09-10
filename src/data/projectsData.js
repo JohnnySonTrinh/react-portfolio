@@ -78,10 +78,11 @@ const projects = [
     image:
       "https://raw.githubusercontent.com/JohnnySonTrinh/JohnnySonTrinh/main/projects/portfolio.webp",
     description:
-      "Personal portfolio site designed to showcase my projects, skills, and experiences. This project serves as a digital resume and interactive platform for potential employers and collaborators.",
+      "Personal portfolio that showcases projects, skills, and experience. Built with React and Vercel, with AI features powered by the OpenAI API. Fast, accessible, and easy to navigate for collaborators and hiring teams.",
     techStack: [
       { title: "React", icon: "devicon-react-original" },
       { title: "CSS", icon: "devicon-css3-plain" },
+      { title: "JavaScript", icon: "devicon-javascript-plain" },
       { title: "Vercel", icon: "devicon-vercel-plain" },
     ],
     github: "https://github.com/JohnnySonTrinh/react-portfolio",
