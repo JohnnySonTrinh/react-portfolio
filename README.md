@@ -54,8 +54,12 @@ The project follows a well-organized structure, promoting maintainability and sc
 ```
 ├── .gitignore
 ├── README.md
+├── api
+    ├── chat.js
+    └── systemMessage.js
 ├── documentation
-    ├── oldREADME.md
+    ├── README-v1.md
+    ├── README-v2.md
     └── readme
     │   ├── mockup.png
     │   ├── new-about.png
@@ -75,10 +79,12 @@ The project follows a well-organized structure, promoting maintainability and sc
     ├── favicon.ico
     ├── index.html
     └── robots.txt
+├── shared
+    └── profile.json
 ├── src
     ├── App.js
     ├── api
-    │   └── openai.js
+    │   └── assistantClient.js
     ├── assets
     │   ├── astronaut-helmet.png
     │   ├── avatar-image.png
@@ -100,6 +106,10 @@ The project follows a well-organized structure, promoting maintainability and sc
     │   ├── triple-corn.png
     │   └── upgrade.png
     ├── components
+    │   ├── assistant
+    │   │   ├── AssistantChoice.jsx
+    │   │   ├── ChatAssistant.jsx
+    │   │   └── VoiceAssistant.jsx
     │   ├── avatar
     │   │   └── Avatar.jsx
     │   ├── background
@@ -115,25 +125,26 @@ The project follows a well-organized structure, promoting maintainability and sc
     │   └── shadowOverlay
     │   │   └── ShadowOverlay.jsx
     ├── data
-    │   ├── chatData.js
+    │   ├── chatSuggestions.js
     │   ├── hackathonsData.js
     │   ├── navData.js
     │   ├── pageTitles.js
     │   ├── projectsData.js
     │   ├── skillsData.js
-    │   └── subheadingsData.js
+    │   ├── subheadingsData.js
+    │   └── voice-data.json
     ├── hooks
     │   ├── useAbout.js
     │   ├── useActiveProject.js
     │   ├── useAvatar.js
     │   ├── useChatbot.js
-    │   ├── useChatbotUI.js
     │   ├── useContactForm.js
     │   ├── useEmailGate.js
     │   ├── useMetaTitle.js
     │   ├── usePlayerStats.js
     │   ├── useSkills.js
-    │   └── useWebGLAninimation.js
+    │   ├── useVoiceAssistant.js
+    │   └── useWebGLAnimation.js
     ├── index.js
     ├── pages
     │   ├── 404page
@@ -166,15 +177,19 @@ The project follows a well-organized structure, promoting maintainability and sc
     │   ├── ShadowOverlay.css
     │   ├── aboutMenu.css
     │   ├── app.css
+    │   ├── assistantChoice.css
     │   ├── avatar.css
     │   ├── background.css
+    │   ├── chatAssistant.css
     │   ├── chatbot.css
     │   ├── contact.css
+    │   ├── emailGate.css
     │   ├── nav.css
     │   ├── notFound.css
     │   ├── playerStats.css
     │   ├── projects.css
-    │   └── skillsMenu.css
+    │   ├── skillsMenu.css
+    │   └── voiceAssistant.css
     └── utils
     │   ├── calculateAge.js
     │   ├── handleProjectWheel.js
