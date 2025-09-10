@@ -17,7 +17,7 @@ export default async function handler(req, res) {
     const systemMessage = buildSystemMessage();
 
     const response = await openai.createChatCompletion({
-      model: "gpt-4o-mini", // change here whenever you want
+      model: "gpt-4o-mini",
       messages: [
         { role: "system", content: systemMessage },
         { role: "user", content: userText }
