@@ -4,45 +4,18 @@
 
 This portfolio showcases my skills and experience as a full-stack developer, blending a visually engaging design with a focus on accessibility and modern web development techniques. The theme draws inspiration from the Halo universe, creating a unique and memorable user experience.
 
-## Updates
+## What’s new in v3
 
-<details>
-<summary> Click here for detailed version 2 updates </summary>
------
+- AI Agent on site: Chat assistant powered by the OpenAI API. Runs through a secure serverless route.
+- Serverless API: api/chat with a system prompt built from shared data.
+- Single source of truth: shared/profile.json feeds the assistant with projects, skills, and hackathons.
+- Stronger structure: Clear split between frontend and backend. Cleaner imports. Easier to evolve.
+- Consistent Markdown links: The server formats links so they render as clickable in the UI.
+
+V2 README.md [README.md](/documentation/README-v2.md) file.
 
 > [!NOTE]  
-> Old README.md [README.md](/documentation/oldREADME.md) file.
-
-### All Updates
-
-- **Re-designing Skill Tree**: Removed the skill bars and added a more up-to-date, interactive Skill Tree.
-- **Enhanced Icons**: Implemented the Devicon Library to ensure sleekness and consistency in skill icons.
-- **Data Overhaul**: Updated and refined all project, skill, and profile data.
-- **Added Animations**: Smooth animations on all pages create a more dynamic user experience.
-- **Project and Hackathon Pages**: Updated with new projects to provide evidence of contributions.
-- **Code Refactor**: Improved code structure to be more readable and maintainable.
-- **Performance Insights**: Integrated SpeedInsights for further detailed analysis on website performance.
-- **CSS Improvements**: Updated and added CSS Root Variables to clean up the styling and make it more scalable.
-- **React Functional Components**: Removed all the React classes in favor of hooks to modernize the codebase.
-- **Keyboard Navigation**: Implemented full keyboard navigation by Tab, Shift+Tab, and Enter to improve accessibility.
-- **Scroll Wheel Navigation**: Implemented scroll wheel functionality for smooth navigation through categories, projects, and hackathons.
-- **404 Page**: Added a fully interactive and animated 404 page with WebGL effects and music for a creative "lost in space" experience.
-- **Dynamic Meta Titles**: Introduced per-page dynamic meta title updates for better SEO and improved user experience.
-- **Background Enhancements**: Updated background with a green gradient transition effect, elevating the visual appeal.
-- **Utility Hooks**: Centralized repeated logic such as meta title updates and scroll handlers into reusable custom hooks for a more maintainable codebase.
-
-### Updated version VS Old version
-
-| Updates            | New version                                            | Old version                                            |
-| ------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
-| About/Landing Page | ![screenshot](documentation/readme/new-about.png)      | ![screenshot](documentation/readme/old-about.png)      |
-| Skills Page        | ![screenshot](documentation/readme/new-skills.png)     | ![screenshot](documentation/readme/old-skills.png)     |
-| Projects Page      | ![screenshot](documentation/readme/new-projects.png)   | ![screenshot](documentation/readme/old-projects.png)   |
-| Hackathons Page    | ![screenshot](documentation/readme/new-hackathons.png) | ![screenshot](documentation/readme/old-hackathons.png) |
-| Contact Page       | ![screenshot](documentation/readme/new-contact.png)    | ![screenshot](documentation/readme/old-contact.png)    |
-
-</details>
-
+> V1 README.md [README.md](/documentation/README-v1.md) file.
 ### Stats
 
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/t/JohnnySonTrinh/react-portfolio)](https://github.com/JohnnySonTrinh/react-portfolio/commits/main)
@@ -51,6 +24,8 @@ This portfolio showcases my skills and experience as a full-stack developer, ble
 
 ## Key Features
 
+- **Vapi.ai:** Voice interaction with Vapi.ai (mic in, audio out)
+- **AI chat assistant:** On-site agent that knows the portfolio content and routes questions back to relevant sections.
 - **AI-Generated Art Assets:** Leveraging DALL-E, Midjourney, and Picsi.AI, I created custom avatars and visual elements, enhancing the portfolio's aesthetic appeal.
 - **Responsive Design:** Built with CSS3 and designed for optimal viewing across various devices and screen sizes.
 - **React.js Framework:** Developed using React.js, utilizing functional components and hooks for efficient and maintainable code.
@@ -62,22 +37,15 @@ This portfolio showcases my skills and experience as a full-stack developer, ble
 - **Custom Hooks:** Reusable custom hooks centralize and streamline common logic for improved code maintainability.
 - **Creative 404 Page:** A unique and engaging 404 page adds a touch of personality and guides users back to the main site.
 
-## Tools & Technologies Used
+## Core stack (v3)
 
-- [HTML](https://en.wikipedia.org/wiki/HTML) used for the main site content.
-- [CSS](https://en.wikipedia.org/wiki/CSS) used for the main site design and layout.
-- [CSS :root variables](https://www.w3schools.com/css/css3_variables.asp) used for reusable styles throughout the site.
-- [JavaScript](https://www.javascript.com) used for user interaction on the site.
-- [React](https://react.dev) used for web and native user interfaces
-- [Git](https://git-scm.com) used for version control. (`git add`, `git commit`, `git push`)
-- [GitHub](https://github.com) used for secure online code storage.
-- [Vercel](https://pages.github.com) used for hosting the deployed front-end site.
-- [EmailJS](https://www.emailjs.com) create a secure fully functional Direct form submission.
-- [Discord](https://discord.com) used for connect face swap and create image.
-- [Midjourney](https://www.midjourney.com/home?callbackUrl=%2Fexplore) used as middle-man to face swap.
-- [Picsi.AI](https://www.picsi.ai) used for face swap avatar.
-- [DALL·E](https://openai.com/dall-e-3) used for crate avatar and icons.
-- [Devicon](https://devicon.dev) used icon for skills page
+- React for the UI
+- JavaScript for app logic
+- OpenAI API for the agent
+- Vercel for hosting and serverless routes
+
+> [!NOTE] 
+> Supporting tools: Vapi.ai Web, React Router, React Markdown, React Helmet, classnames, DOMPurify, Web Vitals, Testing Library.
 
 ## Project Structure
 
