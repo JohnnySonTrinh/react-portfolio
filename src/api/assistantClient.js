@@ -1,5 +1,5 @@
-export const fetchOpenAIResponse = async (userText) => {
-  const res = await fetch("/api/fetchOpenAIResponse", {
+export async function askAssistant(userText) {
+  const res = await fetch("/api/chat", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ userText })
@@ -17,4 +17,4 @@ export const fetchOpenAIResponse = async (userText) => {
   }
 
   return data.text;
-};
+}

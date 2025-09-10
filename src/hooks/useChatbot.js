@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { fetchOpenAIResponse } from "../api/fetchOpenAIResponse";
+import { askAssistant } from "../api/assistantClient";
 
 // Key for storing chat history in localStorage
 const CHAT_STORAGE_KEY = "chatHistory";
@@ -61,7 +61,7 @@ const useChatbot = () => {
     setLoading(true);
 
     try {
-      const aiResponse = await fetchOpenAIResponse(userInput);
+      const aiResponse = await askAssistant(userInput);
       const aiMessage = {
         id: messages.length + 2,
         sender: "ai",
