@@ -1,12 +1,7 @@
 import { Configuration, OpenAIApi } from "openai";
-import systemMessage from "../data/chatData";
+import buildSystemMessage from "./systemMessage.js";
 
-// Create a configuration object with the API key from environment variables
-const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-
-// Initialize OpenAI client
+const configuration = new Configuration({ apiKey: process.env.OPENAI_API_KEY });
 const openai = new OpenAIApi(configuration);
 
 export default async function handler(req, res) {
@@ -14,25 +9,25 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Only POST requests allowed" });
   }
 
-  // Extract user input from request body
-  const { userText } = req.body;
-
   try {
+    const body = typeof req.body === "string" ? JSON.parse(req.body || "{}") : (req.body || {});
+    const { userText } = body;
+    if (!userText) return res.status(400).json({ error: "Missing userText" });
+
+    const systemMessage = buildSystemMessage();
+
     const response = await openai.createChatCompletion({
-      model: "gpt-3.5-turbo",
+      model: "gpt-4o-mini", // change here whenever you want
       messages: [
         { role: "system", content: systemMessage },
-        { role: "user", content: userText },
+        { role: "user", content: userText }
       ],
+      temperature: 0.7
     });
 
-    // Extract the assistant's reply
-    const reply = response.data.choices[0].message.content;
-
-    // Return the response as JSON
-    res.status(200).json({ text: reply });
-  } catch (error) {
-    // Return error response if something goes wrong
-    res.status(500).json({ text: "Error: Unable to get response." });
+    const reply = response.data?.choices?.[0]?.message?.content ?? "";
+    return res.status(200).json({ text: reply });
+  } catch (e) {
+    return res.status(500).json({ error: e.message || "Server error" });
   }
 }
