@@ -1,10 +1,20 @@
 export const fetchOpenAIResponse = async (userText) => {
-  const res = await fetch("../../api/fetchOpenAIResponse", {
+  const res = await fetch("/api/fetchOpenAIResponse", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ userText }),
+    body: JSON.stringify({ userText })
   });
 
-  const data = await res.json();
+  let data;
+  try {
+    data = await res.json();
+  } catch {
+    throw new Error(`Bad response from API (${res.status})`);
+  }
+
+  if (!res.ok) {
+    throw new Error(data.error || `Request failed with ${res.status}`);
+  }
+
   return data.text;
 };
