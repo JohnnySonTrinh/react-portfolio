@@ -97,7 +97,11 @@ const useWebGLAnimation = (canvasRef, audioData) => {
     };
 
     const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
-    const fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
+    const fragmentShader = createShader(
+      gl,
+      gl.FRAGMENT_SHADER,
+      fragmentShaderSource
+    );
     const program = createProgram(gl, vertexShader, fragmentShader);
 
     const positionBuffer = gl.createBuffer();

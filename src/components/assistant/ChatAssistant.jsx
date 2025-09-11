@@ -16,14 +16,20 @@ const ChatAssistant = () => {
   } = useChatbot();
 
   return (
-    <div className="chat-menu fade-in" role="region" aria-label="Johnny's Chat Assistant">
+    <div
+      className="chat-menu fade-in"
+      role="region"
+      aria-label="Johnny's Chat Assistant"
+    >
       <div className="chat-messages" role="log" aria-live="polite">
         {messages.map((msg) => (
           <div
             key={msg.id}
             className={`chat-bubble ${msg.sender}`}
             role="article"
-            aria-label={`Message from ${msg.sender === "ai" ? "Johnny's assistant" : "You"}`}
+            aria-label={`Message from ${
+              msg.sender === "ai" ? "Johnny's assistant" : "You"
+            }`}
           >
             <ReactMarkdown>{msg.text}</ReactMarkdown>
           </div>
@@ -35,7 +41,11 @@ const ChatAssistant = () => {
         )}
         <div ref={chatEndRef} />
         {followUpSuggestions && messages.length <= 2 && (
-          <div className="suggestion-buttons" role="group" aria-label="Suggested questions">
+          <div
+            className="suggestion-buttons"
+            role="group"
+            aria-label="Suggested questions"
+          >
             {followUpSuggestions.map((suggestion, index) => (
               <button
                 key={index}

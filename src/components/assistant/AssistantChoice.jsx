@@ -2,7 +2,10 @@ import "../../styles/assistantChoice.css";
 
 const AssistantChoice = ({ onSelect }) => {
   return (
-    <section className="assistant-choice fade-in" aria-labelledby="assistant-choice-heading">
+    <section
+      className="assistant-choice fade-in"
+      aria-labelledby="assistant-choice-heading"
+    >
       <p id="assistant-choice-heading">
         How would you like to interact with Johnny's assistant?
       </p>

@@ -66,7 +66,7 @@ const ProjectsMenu = () => {
   };
 
   return (
-    <div 
+    <div
       className="project-menu"
       onWheel={(e) => handleProjectWheel(e, changeProject)}
     >

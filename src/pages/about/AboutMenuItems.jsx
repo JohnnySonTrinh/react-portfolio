@@ -3,7 +3,7 @@ import "../../styles/aboutMenu.css";
 const AboutMenuItem = ({ title, active, onClick }) => {
   return (
     <div
-    className={`item ${active ? 'active' : ''}`}
+      className={`item ${active ? "active" : ""}`}
       onClick={onClick}
       role="menuitem"
       aria-current={active ? "page" : undefined}
