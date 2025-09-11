@@ -50,14 +50,15 @@ const subheadingsData = {
   ],
   3: [
     {
-        title: "2024 AI Trainer and Senior Reviewer at Scale AI",
-        content: (
+      title: "2024 AI Trainer and Senior Reviewer at Scale AI",
+      content: (
         <>
           <p>
-            Worked on multiple RLHF projects as a Senior Reviewer. 
-            Led side-by-side evaluations, rubric tuning, and final quality checks. 
-            Reviewed prompts, rewrites, and model outputs to improve accuracy, clarity, tone, and safety. 
-            Mentored reviewers and flagged edge cases to refine guidelines.
+            Worked on multiple RLHF projects as a Senior Reviewer. Led
+            side-by-side evaluations, rubric tuning, and final quality checks.
+            Reviewed prompts, rewrites, and model outputs to improve accuracy,
+            clarity, tone, and safety. Mentored reviewers and flagged edge cases
+            to refine guidelines.
           </p>
         </>
       ),

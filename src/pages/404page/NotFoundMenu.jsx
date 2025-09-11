@@ -16,7 +16,7 @@ const NotFound = () => {
       <h2>LOOKS LIKE YOU ARE</h2>
       <h2>LOST</h2>
       <MusicPlayer audioData={audioData} />
-      <canvas ref={canvasRef} tabIndex={0}/>
+      <canvas ref={canvasRef} tabIndex={0} />
       <Link to="/" className="home-button">
         Go back home
       </Link>

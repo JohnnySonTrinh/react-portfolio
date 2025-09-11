@@ -17,7 +17,8 @@ const MusicPlayer = ({ audioData }) => {
     // Initialize audio context and event listeners
     const initializeAudio = () => {
       if (!audioCtx) {
-        const context = new (window.AudioContext || window.webkitAudioContext)();
+        const context = new (window.AudioContext ||
+          window.webkitAudioContext)();
         analyser = context.createAnalyser();
         analyser.fftSize = 256;
 
@@ -50,7 +51,8 @@ const MusicPlayer = ({ audioData }) => {
     const updateAudioData = () => {
       if (analyser) {
         analyser.getByteFrequencyData(dataArray);
-        const average = dataArray.reduce((sum, value) => sum + value, 0) / bufferLength;
+        const average =
+          dataArray.reduce((sum, value) => sum + value, 0) / bufferLength;
         audioData.current = average / 256.0;
       }
       requestAnimationFrame(updateAudioData);

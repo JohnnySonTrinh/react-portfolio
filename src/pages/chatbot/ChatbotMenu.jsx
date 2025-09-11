@@ -6,13 +6,8 @@ import VoiceAssistant from "../../components/assistant/VoiceAssistant";
 import AssistantChoice from "../../components/assistant/AssistantChoice";
 
 const ChatbotMenu = () => {
-  const {
-    emailSubmitted,
-    email,
-    setEmail,
-    error,
-    handleEmailSubmit,
-  } = useEmailGate();
+  const { emailSubmitted, email, setEmail, error, handleEmailSubmit } =
+    useEmailGate();
 
   const [assistantMode, setAssistantMode] = useState(null);
 

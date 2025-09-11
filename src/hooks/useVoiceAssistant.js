@@ -21,7 +21,10 @@ const useVoiceAssistant = () => {
 
     vapi.on("message", (msg) => {
       if (msg.type === "transcript" && msg.transcriptType === "final") {
-        setMessages(prev => [...prev, { role: msg.role, text: msg.transcript }]);
+        setMessages((prev) => [
+          ...prev,
+          { role: msg.role, text: msg.transcript },
+        ]);
       }
 
       if (msg.type === "speech-update" && msg.role === "assistant") {

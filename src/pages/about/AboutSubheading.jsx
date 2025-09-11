@@ -5,7 +5,7 @@ const AboutSubheading = ({ title, content, active, onClick, menuItem }) => {
 
   return (
     <div
-    className={`${subContainerClass} ${active ? 'active-subheading' : ''}`}
+      className={`${subContainerClass} ${active ? "active-subheading" : ""}`}
       role="button"
       aria-expanded={active}
       tabIndex="0"
@@ -16,7 +16,9 @@ const AboutSubheading = ({ title, content, active, onClick, menuItem }) => {
       }}
     >
       <h3 onClick={onClick}>{title}</h3>
-      <div key={title} className="p-container fade-in">{content}</div>
+      <div key={title} className="p-container fade-in">
+        {content}
+      </div>
     </div>
   );
 };

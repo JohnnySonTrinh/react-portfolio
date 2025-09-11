@@ -18,7 +18,8 @@ const VoiceAssistant = () => {
     >
       {!inCall && (
         <p className="voice-intro">
-          Click below to start chatting with Johnny's assistant using your voice.
+          Click below to start chatting with Johnny's assistant using your
+          voice.
         </p>
       )}
       {(inCall || messages.length > 0) && (
@@ -28,13 +29,19 @@ const VoiceAssistant = () => {
               key={index}
               className={`chat-bubble ${msg.role === "user" ? "user" : "ai"}`}
               role="article"
-              aria-label={`Message from ${msg.role === "user" ? "you" : "Johnny's assistant"}`}
+              aria-label={`Message from ${
+                msg.role === "user" ? "you" : "Johnny's assistant"
+              }`}
             >
               {msg.text}
             </div>
           ))}
           {isAssistantTyping && (
-            <div className="chat-bubble ai typing" role="status" aria-live="assertive">
+            <div
+              className="chat-bubble ai typing"
+              role="status"
+              aria-live="assertive"
+            >
               Speaking...
             </div>
           )}
@@ -44,7 +51,11 @@ const VoiceAssistant = () => {
       <button
         onClick={inCall ? endCall : startCall}
         className={inCall ? "end-call-button" : "start-call-button"}
-        aria-label={inCall ? "End voice call with Johnny's assistant" : "Start voice call with Johnny's assistant"}
+        aria-label={
+          inCall
+            ? "End voice call with Johnny's assistant"
+            : "Start voice call with Johnny's assistant"
+        }
       >
         {inCall ? "End Call" : "Start Call"}
       </button>
