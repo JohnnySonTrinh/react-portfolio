@@ -4,45 +4,56 @@ import { calculateAge, BIRTHDAY } from "../utils/calculateAge";
 const usePlayerStats = () => {
   const [age, setAge] = useState(calculateAge(BIRTHDAY));
   const [barWidth, setBarWidth] = useState("0%");
+  const [daysPassed, setDaysPassed] = useState(0);
+
+  // Helper function to get total days in a year (handles leap years)
+  const getTotalDaysInYear = (year) => {
+    const isLeapYear = (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+    return isLeapYear ? 366 : 365;
+  };
 
   useEffect(() => {
-    const updateBarWidth = () => {
+    const updateStats = () => {
       const today = new Date();
+      const currentYear = today.getFullYear();
       const nextBirthday = new Date(
-        today.getFullYear(),
+        currentYear,
         BIRTHDAY.getMonth(),
         BIRTHDAY.getDate()
       );
 
       // Adjust to next year if today's date is past this year's birthday
       if (today > nextBirthday) {
-        nextBirthday.setFullYear(today.getFullYear() + 1);
+        nextBirthday.setFullYear(currentYear + 1);
       }
 
       const daysUntilBirthday = Math.round(
         (nextBirthday - today) / (1000 * 60 * 60 * 24)
       );
-      const totalDaysInYear = 366; // Consider leap year if necessary
-      const percentage =
-        ((totalDaysInYear - daysUntilBirthday) / totalDaysInYear) * 100;
+      
+      // Use the helper function to get total days in current year
+      const totalDaysInYear = getTotalDaysInYear(currentYear);
+      const daysPassed = totalDaysInYear - daysUntilBirthday;
+      const percentage = (daysPassed / totalDaysInYear) * 100;
 
       if (percentage >= 99) {
         console.log("The progress bar has reached 99% or more!");
       }
 
-      // Update age and bar width
+      // Update age, bar width, and days passed
       setAge(calculateAge(BIRTHDAY));
       setBarWidth(`${percentage}%`);
+      setDaysPassed(daysPassed);
     };
 
     // Initial calculation and interval to update daily
-    updateBarWidth();
-    const interval = setInterval(updateBarWidth, 86400000); // Update once per day
+    updateStats();
+    const interval = setInterval(updateStats, 86400000); // Update once per day
 
     return () => clearInterval(interval);
   }, []);
 
-  return { age, barWidth };
+  return { age, barWidth, daysPassed };
 };
 
 export default usePlayerStats;
