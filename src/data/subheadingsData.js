@@ -5,13 +5,14 @@ const subheadingsData = {
       content: (
         <>
           <p>
-            Fullstack Developer with a diploma in Full Stack Software
-            Development from Code Institute. My experience as a gaming coach has
-            sharpened my problem-solving skills and ability to adapt to
-            different challenges. I build responsive, user-friendly web
-            applications, and I have an eye for details. I value clarity and
-            efficiency in my work and enjoy creating solutions that work
-            seamlessly for users.
+            Full-Stack Developer with a background in professional coaching and
+            AI review. I have built strong skills in communication, clarity, and
+            guiding others through complex challenges, and I bring the same
+            mindset to software development. I design and build responsive,
+            user-friendly applications with a focus on detail, adaptability, and
+            seamless experiences. My work in AI training and senior review has
+            sharpened my analytical eye and reinforced the importance of
+            precision, efficiency, and scalable solutions.
           </p>
         </>
       ),
