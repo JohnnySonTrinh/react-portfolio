@@ -7,7 +7,7 @@ const AssistantChoice = ({ onSelect }) => {
       aria-labelledby="assistant-choice-heading"
     >
       <p id="assistant-choice-heading">
-        How would you like to interact with Johnny's assistant?
+        How would you like to interact with assistant?
       </p>
       <div
         className="assistant-buttons"
@@ -16,15 +16,15 @@ const AssistantChoice = ({ onSelect }) => {
       >
         <button
           onClick={() => onSelect("chat")}
-          aria-label="Type your questions to Johnny's assistant"
+          aria-label="Type your questions to assistant"
         >
-          Type
+          Chat
         </button>
         <button
           onClick={() => onSelect("voice")}
-          aria-label="Talk to Johnny's assistant using your voice"
+          aria-label="Talk to assistant using your voice"
         >
-          Talk
+          Voice
         </button>
       </div>
     </section>

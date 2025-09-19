@@ -12,6 +12,7 @@
   --wheat: #f5deb3;
   --grey: rgb(211, 211, 211);
   --transparent: #00000000;
+  --background-window: #00000040;
   --radius-left: 3rem 0 0 3rem;
   --radius-right: 0 3rem 3rem 0;
   --font-size-large: 1.5rem;
@@ -159,4 +160,18 @@ button:hover,
   p {
     font-size: 0.7rem;
   }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1rem;
+  }
+  h2 {
+    font-size: 0.8rem;
+  }
+  h3,
+  p {
+    font-size: 0.6rem;
+  }
+  
 }
