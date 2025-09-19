@@ -5,6 +5,7 @@ const usePlayerStats = () => {
   const [age, setAge] = useState(calculateAge(BIRTHDAY));
   const [barWidth, setBarWidth] = useState("0%");
   const [daysPassed, setDaysPassed] = useState(0);
+  const [totalDaysInYear, setTotalDaysInYear] = useState(365);
 
   // Helper function to get total days in a year (handles leap years)
   const getTotalDaysInYear = (year) => {
@@ -32,18 +33,19 @@ const usePlayerStats = () => {
       );
       
       // Use the helper function to get total days in current year
-      const totalDaysInYear = getTotalDaysInYear(currentYear);
-      const daysPassed = totalDaysInYear - daysUntilBirthday;
-      const percentage = (daysPassed / totalDaysInYear) * 100;
+      const totalDays = getTotalDaysInYear(currentYear);
+      const daysPassed = totalDays - daysUntilBirthday;
+      const percentage = (daysPassed / totalDays) * 100;
 
       if (percentage >= 99) {
         console.log("The progress bar has reached 99% or more!");
       }
 
-      // Update age, bar width, and days passed
+      // Update age, bar width, days passed, and total days
       setAge(calculateAge(BIRTHDAY));
       setBarWidth(`${percentage}%`);
       setDaysPassed(daysPassed);
+      setTotalDaysInYear(totalDays);
     };
 
     // Initial calculation and interval to update daily
@@ -53,7 +55,7 @@ const usePlayerStats = () => {
     return () => clearInterval(interval);
   }, []);
 
-  return { age, barWidth, daysPassed };
+  return { age, barWidth, daysPassed, totalDaysInYear };
 };
 
 export default usePlayerStats;
