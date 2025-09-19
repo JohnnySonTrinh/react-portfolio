@@ -21,42 +21,42 @@ const ChatAssistant = () => {
       role="region"
       aria-label="Johnny's Chat Assistant"
     >
-      <div className="chat-messages" role="log" aria-live="polite">
-        {messages.map((msg) => (
-          <div
-            key={msg.id}
-            className={`chat-bubble ${msg.sender}`}
-            role="article"
-            aria-label={`Message from ${
-              msg.sender === "ai" ? "Johnny's assistant" : "You"
-            }`}
-          >
-            <ReactMarkdown>{msg.text}</ReactMarkdown>
-          </div>
-        ))}
-        {loading && (
-          <div className="chat-bubble ai" role="status" aria-live="assertive">
-            Typing...
-          </div>
-        )}
-        <div ref={chatEndRef} />
-        {followUpSuggestions && messages.length <= 2 && (
-          <div
-            className="suggestion-buttons"
-            role="group"
-            aria-label="Suggested questions"
-          >
-            {followUpSuggestions.map((suggestion, index) => (
-              <button
-                key={index}
-                onClick={() => sendMessage(suggestion)}
-                aria-label={`Send suggested message: ${suggestion}`}
-              >
-                {suggestion}
-              </button>
-            ))}
-          </div>
-        )}
+      <div className="chat-box" role="log" aria-live="polite">
+          {messages.map((msg) => (
+            <div
+              key={msg.id}
+              className={`chat-bubble ${msg.sender}`}
+              role="article"
+              aria-label={`Message from ${
+                msg.sender === "ai" ? "Johnny's assistant" : "You"
+              }`}
+            >
+              <ReactMarkdown>{msg.text}</ReactMarkdown>
+            </div>
+          ))}
+          {loading && (
+            <div className="chat-bubble ai" role="status" aria-live="assertive">
+              Typing...
+            </div>
+          )}
+          <div ref={chatEndRef} />
+          {followUpSuggestions && messages.length <= 2 && (
+            <div
+              className="suggestion-buttons"
+              role="group"
+              aria-label="Suggested questions"
+            >
+              {followUpSuggestions.map((suggestion, index) => (
+                <button
+                  key={index}
+                  onClick={() => sendMessage(suggestion)}
+                  aria-label={`Send suggested message: ${suggestion}`}
+                >
+                  {suggestion}
+                </button>
+              ))}
+            </div>
+          )}
       </div>
       <div className="chat-input-container">
         <label htmlFor="chat-input" className="visually-hidden">

@@ -1,20 +1,9 @@
 /* === Chatbot Container === */
 .chatbot-container {
-  position: fixed;
-  width: 90%;
-  top: 20%;
+  position: absolute;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
-  border-radius: var(--border-radius);
-  overflow: hidden;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease-in-out;
-  padding: 2rem;
-}
-
-.chatbot-container:hover .chatbot-alpha-overlay {
-  opacity: 1;
+  transform: translate(-50%, -50%);
 }
 
 .chatbot-text {
@@ -35,5 +24,8 @@
   }
   .chat-header {
     font-size: var(--font-size-medium);
+  }
+  .chat-box {
+    min-width: 300px;
   }
 }

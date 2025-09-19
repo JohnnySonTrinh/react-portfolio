@@ -2,12 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   text-align: center;
-  padding: 2rem;
-  background-color: rgba(0, 0, 0, 0.4);
-  border: var(--border);
-  border-radius: var(--border-radius);
 }
 
 .assistant-choice p {
@@ -19,15 +14,17 @@
 .assistant-buttons {
   display: flex;
   gap: 1rem;
-  width: 30%;
 }
 
 .assistant-buttons button {
+  display: flex;
+  justify-content: center;
   padding: 0.6rem 1.2rem;
-  font-size: 1rem;
   border-radius: 0.3rem;
   border: var(--border);
+  background-color: var(--background-window);
   transition: background-color 0.2s ease;
+  font-size: var(--font-size-medium);
 }
 
 @media (max-width: 768px) {

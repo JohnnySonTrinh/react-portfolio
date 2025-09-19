@@ -1,36 +1,21 @@
-.chat-header {
-  color: var(--white);
-  padding: 12px;
-  text-align: center;
-  font-size: var(--font-size-large);
-  font-weight: bold;
-  border-radius: var(--border-radius) var(--border-radius) 0 0;
-  flex-shrink: 0;
-}
-
-.chat-messages {
+.chat-box {
   flex: 1;
   overflow-y: auto;
   height: 50vh;
-  padding: 10px;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  min-width: 1200px;
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: var(--border-radius);
   border: var(--border);
 }
 
-.chat-messages::-webkit-scrollbar {
-  width: 5px;
-}
-
 .chat-bubble {
   max-width: 75%;
-  padding: 0.5rem 0.7rem;
+  padding: 0.1rem 0.6rem;
   border-radius: var(--border-radius);
   font-size: var(--font-size-medium);
-  word-wrap: break-word;
 }
 
 .chat-bubble a {
@@ -54,8 +39,7 @@
 .chat-input-container {
   display: flex;
   gap: 0.5rem;
-  padding-top: 1rem;
-  flex-shrink: 0;
+  padding-top: 0.5rem;
 }
 
 .chat-input {
@@ -76,12 +60,13 @@
 }
 
 .send-button {
-  width: 30%;
+  width: 20%;
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: var(--border-radius);
   border: var(--border);
   outline: none;
   font-size: 1rem;
+  font-weight: normal;
 }
 
 .send-button:disabled {
@@ -92,15 +77,24 @@
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: var(--border-radius);
   border: var(--border);
-  width: 15%;
+  width: 10%;
+  font-weight: normal;
 }
 
 @media (max-width: 768px) {
   .chat-messages {
     height: 300px;
   }
-
-  .chat-header {
-    font-size: var(--font-size-medium);
+  .clear-button {
+   display: none;
   }
+  .send-button {
+    font-size: var(--font-size-small);
+  }
+}
+
+@media (max-width: 768px) {
+    .assistant-buttons button {
+        font-size: var(--font-size-small);
+    }
 }

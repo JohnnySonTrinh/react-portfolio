@@ -1,52 +1,120 @@
+
 .voice-assistant-ui {
-  padding: 1rem;
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.4);
-  border-radius: var(--border-radius);
-  border: var(--border);
-  color: var(--white);
+  height: 50vh;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 1200px;
+  padding: 10px;
+  overflow: hidden;
+  min-width: 0;
 }
 
 .voice-intro {
+  text-align: center;
   font-size: var(--font-size-medium);
-  margin-bottom: 1rem;
   font-weight: bold;
 }
 
-.voice-transcript {
-  margin: 1rem 0;
-  padding: 1rem;
-  max-height: 300px;
+.voice-assistant-ui .chat-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
   overflow-y: auto;
-  background-color: rgba(0, 0, 0, 0.3);
 }
 
-/* === Voice Messages === */
-.voice-message {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-  word-wrap: break-word;
+
+.voice-assistant-ui .chat-messages::-webkit-scrollbar {
+  width: 5px;
 }
 
-.voice-message.user {
-  text-align: right;
-  color: var(--cyan);
-}
-
-.voice-message.assistant {
-  text-align: left;
-  color: var(--wheat);
-}
-
-/* === Buttons === */
-.start-call-button,
-.end-call-button {
-  width: 30%;
+.voice-assistant-ui .chat-bubble {
+  max-width: 75%;
+  padding: 0.1rem 0.6rem;
   border-radius: var(--border-radius);
-  border: var(--border);
-  outline: none;
+  font-size: var(--font-size-medium);
+  line-height: 1.4;
+  word-wrap: break-word;
+  align-self: flex-start;
+}
+
+.voice-assistant-ui .chat-bubble a {
+  display: inline !important;
+}
+
+.voice-assistant-ui .chat-bubble.ai {
+  background: linear-gradient(90deg, var(--transparent), var(--purple) 70%);
   color: var(--white);
-  font-weight: bold;
+  align-self: flex-start;
+  border-radius: var(--radius-right);
+}
+
+.voice-assistant-ui .chat-bubble.user {
+  background: linear-gradient(90deg, var(--cyan), var(--transparent) 100%);
+  color: var(--white);
+  align-self: flex-end;
+  border-radius: var(--radius-left);
+}
+
+/* Typing indicator matches AI bubble */
+.voice-assistant-ui .chat-bubble.typing {
+  opacity: 0.8;
+  font-style: italic;
+}
+
+/* Controls row */
+.voice-assistant-ui .voice-controls {
+  display: flex;
+  gap: 0.5rem;
+  padding-top: 0.5rem;
+}
+
+/* Buttons styled like your chat inputs */
+.voice-assistant-ui .start-call-button,
+.voice-assistant-ui .end-call-button {
+  outline: none;
   font-size: 1rem;
-  margin-top: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--border-radius);
+  align-self: center;
+}
+
+
+
+.start-call-button:hover {
+  background-image: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--cyan) 75%, transparent),
+    transparent
+  );
+}
+
+.end-call-button:hover {
+  background-image: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--purple) 75%, transparent),
+    transparent
+  );
+}
+.voice-assistant-ui .end-call-button:hover{
+  background-color: rgba(0, 0, 0, 0.5);
+  animation: breath 2.5s infinite;
+}
+
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .voice-assistant-ui {
+    min-width: 0;
+  }
+
+  .voice-assistant-ui .chat-messages {
+    height: 300px;
+  }
+  .voice-assistant-ui .chat-bubble.ai {
+    font-size: var(--font-size-medium);
+  }
 }

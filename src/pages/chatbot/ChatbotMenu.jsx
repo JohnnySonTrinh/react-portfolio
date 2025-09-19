@@ -12,7 +12,7 @@ const ChatbotMenu = () => {
   const [assistantMode, setAssistantMode] = useState(null);
 
   return (
-    <div className="chatbot-menu" role="main" aria-label="Chatbot Interface">
+    <div className="chatbot-menu fade-in" role="main" aria-label="Chatbot Interface">
       {!emailSubmitted ? (
         <EmailGate
           email={email}
