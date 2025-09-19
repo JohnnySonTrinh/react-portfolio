@@ -29,3 +29,15 @@
   border: var(--border);
   transition: background-color 0.2s ease;
 }
+
+@media (max-width: 768px) {
+  .assistant-buttons {
+    justify-content: center;
+  }
+  .assistant-buttons button {
+    font-size: var(--font-size-small);
+  }
+  .assistant-choice p {
+    font-size: var(--font-size-medium);
+  }
+}
