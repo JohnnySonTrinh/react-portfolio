@@ -37,6 +37,16 @@ const skillsData = {
   ],
   2: [
     {
+      title: "C#",
+      icon: "devicon-csharp-plain",
+      ariaLabel: "Skill: C#",
+    },
+    {
+      title: ".NET",
+      icon: "devicon-dot-net-plain",
+      ariaLabel: "Skill: .NET",
+    },
+    {
       title: "Python",
       icon: "devicon-python-plain",
       ariaLabel: "Skill: Python",
