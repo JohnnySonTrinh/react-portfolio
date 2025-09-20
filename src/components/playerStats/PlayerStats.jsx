@@ -17,10 +17,10 @@ const PlayerStats = () => {
     if (isHovered) {
       const targetText = `EXP ${daysPassed}/${totalDaysInYear}`;
       const targetName = `Johnny Trinh Level ${age}`;
-      const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      const chars = "abcdefghijklmnopqrstuvwxyz";
       
       let scrambleCount = 0;
-      const maxScrambles = 15;
+      const maxScrambles = 20;
       
       const scrambleInterval = setInterval(() => {
         if (scrambleCount < maxScrambles) {
