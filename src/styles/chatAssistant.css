@@ -86,7 +86,7 @@
     height: 300px;
   }
   .clear-button {
-   display: none;
+    display: none;
   }
   .send-button {
     font-size: var(--font-size-small);
@@ -94,7 +94,10 @@
 }
 
 @media (max-width: 768px) {
-    .assistant-buttons button {
-        font-size: var(--font-size-small);
-    }
+  .assistant-buttons button {
+    font-size: var(--font-size-small);
+  }
+  .chat-box {
+    margin-top: 2rem;
+  }
 }
