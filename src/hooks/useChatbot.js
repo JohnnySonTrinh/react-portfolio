@@ -52,6 +52,13 @@ const useChatbot = () => {
   const sendMessage = async (userInput) => {
     if (!userInput.trim()) return;
 
+    // Check if user wants to clear/reset chat
+    const lowerInput = userInput.toLowerCase().trim();
+    if (lowerInput === "clear" || lowerInput === "reset") {
+      clearChat();
+      return;
+    }
+
     const userMessage = {
       id: messages.length + 1,
       sender: "user",
