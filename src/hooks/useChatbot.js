@@ -9,12 +9,12 @@ const introMessages = [
   {
     id: 1,
     sender: "ai",
-    text: "Hey! I'm Johnny's personal chatbot. You can ask me anything about this portfolio site, my skills, projects, hackathon experience, or background as a developer!",
+    text: "Hey! I'm Johnny's personal chatbot. Ask me anything about his portfolio, skills, projects, or experience! You can type questions or click suggestions below.",
   },
   {
     id: 2,
     sender: "ai",
-    text: "You can type any question about Johnny or just click one of the suggestions below!",
+    text: "💡 Tip: Type 'clear' or 'reset' to start fresh!",
   },
 ];
 
