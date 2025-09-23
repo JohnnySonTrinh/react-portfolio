@@ -237,6 +237,31 @@ Navigation between projects/hackathons is smooth and intuitive, thanks to integr
 ![Projects Page Screenshot](documentation/readme/new-projects.png)
 ![Hackathons Page Screenshot](documentation/readme/new-hackathons.png)
 
+### AI Chat Assistant
+
+The AI-powered chat assistant provides an interactive way for visitors to learn about my background, skills, and projects. The assistant has knowledge of all portfolio content and can answer questions about my experience, redirect users to relevant sections, and provide detailed information about specific projects or skills.
+
+Key features:
+- Powered by OpenAI API through secure serverless routes
+- Trained on portfolio content from shared/profile.json
+- Supports markdown formatting for rich responses
+- Can direct users to specific portfolio sections
+
+![Chatbot Screenshot](documentation/readme/new-chatbot.png)
+
+### Voice Assistant
+
+The voice assistant integration powered by Vapi.ai enables hands-free interaction with the portfolio. Visitors can speak naturally to ask questions about my experience, skills, and projects, receiving audio responses that provide the same intelligent assistance as the chat interface.
+
+Key features:
+- Voice-to-voice interaction (mic in, audio out)
+- Powered by Vapi.ai integration
+- Natural language processing for spoken queries
+- Audio responses with human-like speech
+- Seamless integration with portfolio knowledge base
+
+![Voice Assistant Screenshot](documentation/readme/new-voice-assistant.png)
+
 ### Contact Section
 
 The contact section features a clean and simple form with built-in validation to ensure accuracy. The submission is handled securely via EmailJS. A success message confirms successful submission.
