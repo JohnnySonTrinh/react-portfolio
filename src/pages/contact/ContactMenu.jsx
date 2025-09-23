@@ -1,3 +1,4 @@
+import { TooltipWrapper } from "../../components/common";
 import { useContactForm } from "../../hooks/useContactForm";
 
 const ContactMenu = () => {
@@ -62,9 +63,11 @@ const ContactMenu = () => {
               <span className="error-message">{errors.message}</span>
             )}
           </div>
-          <button type="submit" disabled={isLoading}>
-            {isLoading ? "SENDING..." : "SUBMIT"}
-          </button>
+          <TooltipWrapper title="Ask for Resume/CV if needed">
+            <button type="submit" disabled={isLoading}>
+              {isLoading ? "SENDING..." : "SUBMIT"}
+            </button>
+          </TooltipWrapper>
         </form>
       )}
       {isSent && (
