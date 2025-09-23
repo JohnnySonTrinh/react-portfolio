@@ -1,4 +1,5 @@
 import "../../styles/assistantChoice.css";
+import { TooltipWrapper } from "../common";
 
 const AssistantChoice = ({ onSelect }) => {
   return (
@@ -20,12 +21,16 @@ const AssistantChoice = ({ onSelect }) => {
         >
           Chat
         </button>
-        <button
-          onClick={() => onSelect("voice")}
-          aria-label="Talk to assistant using your voice"
-        >
-          Voice
-        </button>
+        <TooltipWrapper title="Working on a new model">
+          <button
+            className="button-disabled"
+            onClick={() => onSelect("voice")}
+            aria-label="Talk to assistant using your voice"
+            disabled
+          >
+            Voice
+          </button>
+        </TooltipWrapper>
       </div>
     </section>
   );
