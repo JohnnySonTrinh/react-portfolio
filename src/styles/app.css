@@ -36,6 +36,12 @@ a {
   text-decoration: none;
 }
 
+/* Button styles if disabled */
+.button-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 /* Adding a breathing animation to active items */
 .item.active,
 .activeSkill,
@@ -173,5 +179,4 @@ button:hover,
   p {
     font-size: 0.6rem;
   }
-  
 }
