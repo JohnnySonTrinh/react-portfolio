@@ -1,0 +1,46 @@
+.wrapper {
+  display: inline-block;
+  position: relative;
+}
+.focusOutline {
+  outline: 2px solid #7aa7ff;
+  border-radius: 4px;
+}
+.tooltip {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+  bottom: calc(100% + 8px);
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  padding: 6px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-size: 0.85rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 150ms ease, transform 150ms ease;
+  z-index: 50;
+}
+.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-4px);
+}
+.top {
+  bottom: calc(100% + 8px);
+}
+.bottom {
+  top: calc(100% + 8px);
+  bottom: auto;
+}
+.left {
+  left: auto;
+  right: calc(100% + 8px);
+  transform: translateX(0) translateY(-50%);
+  top: 50%;
+}
+.right {
+  left: calc(100% + 8px);
+  transform: translateX(0) translateY(-50%);
+  top: 50%;
+}
