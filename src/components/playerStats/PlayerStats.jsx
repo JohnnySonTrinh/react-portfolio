@@ -3,6 +3,7 @@ import Linkedin from "../../assets/linkedin.png";
 import Github from "../../assets/github.png";
 import usePlayerStats from "../../hooks/usePlayerStats";
 import { useState, useEffect } from "react";
+import { TooltipWrapper } from "../common";
 
 // PlayerStats component
 const PlayerStats = () => {
@@ -18,10 +19,10 @@ const PlayerStats = () => {
       const targetText = `EXP ${daysPassed}/${totalDaysInYear}`;
       const targetName = `Johnny Trinh Level ${age}`;
       const chars = "abcdefghijklnopqrstuvwxyz1234567890"; // Characters to use for scrambling
-      
+
       let scrambleCount = 0;
       const maxScrambles = 20;
-      
+
       const scrambleInterval = setInterval(() => {
         if (scrambleCount < maxScrambles) {
           // Scramble the description text
@@ -33,7 +34,7 @@ const PlayerStats = () => {
               scrambledText += chars[Math.floor(Math.random() * chars.length)];
             }
           }
-          
+
           // Scramble the name/level text one letter at a time
           let scrambledName = "";
           for (let i = 0; i < targetName.length; i++) {
@@ -43,7 +44,7 @@ const PlayerStats = () => {
               scrambledName += chars[Math.floor(Math.random() * chars.length)];
             }
           }
-          
+
           setDisplayText(scrambledText);
           setDisplayName(scrambledName);
           scrambleCount++;
@@ -66,18 +67,24 @@ const PlayerStats = () => {
   return (
     // Main section with fade-in animation and role for accessibility
     <section className="fade-in" id="playerStats" role="contentinfo">
-      <div 
-        className="player-info"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        <h1 className={isHovered ? "" : ""}>{displayName}</h1>
-        <div id="playerStats__lines">
-          <span id="playerStats__lines__thick" style={{ width: barWidth }}></span>
-          <span id="playerStats__lines__thin"></span>
+      <TooltipWrapper title="EXP Progress" position="bottom">
+        <div
+          className="player-info"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <h1 className={isHovered ? "" : ""}>{displayName}</h1>
+
+          <div id="playerStats__lines">
+            <span
+              id="playerStats__lines__thick"
+              style={{ width: barWidth }}
+            ></span>
+            <span id="playerStats__lines__thin"></span>
+          </div>
+          <h2 className={isHovered ? "" : "breath"}>{displayText}</h2>
         </div>
-        <h2 className={isHovered ? "" : "breath"}>{displayText}</h2>
-      </div>
+      </TooltipWrapper>
       <div className="icon-container">
         <a
           href="https://www.linkedin.com/in/johnny-trinh-dev/"
