@@ -3,6 +3,7 @@ import "../../styles/projects.css";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 import useActiveProject from "../../hooks/useActiveProject";
 import handleProjectWheel from "../../utils/handleProjectWheel";
+import { TooltipWrapper } from "../../components/common";
 
 // ProjectsMenu component
 const ProjectsMenu = () => {
@@ -42,7 +43,9 @@ const ProjectsMenu = () => {
             </div>
           </div>
         </div>
-        <p>{project.description}</p>
+        <TooltipWrapper title="Hover over image to see tech stack">
+          <p>{project.description}</p>
+        </TooltipWrapper>
         <div className="link-container">
           <a
             href={project.github}

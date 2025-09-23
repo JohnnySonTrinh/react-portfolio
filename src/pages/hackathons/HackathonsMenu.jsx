@@ -3,6 +3,7 @@ import "../../styles/projects.css";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 import useActiveProject from "../../hooks/useActiveProject";
 import handleProjectWheel from "../../utils/handleProjectWheel";
+import { TooltipWrapper } from "../../components/common";
 
 // HackathonsMenu component
 const HackathonsMenu = () => {
@@ -36,7 +37,9 @@ const HackathonsMenu = () => {
             {hackathon.description.props.children[1]}
           </div>
         </div>
-        <div>{hackathon.description.props.children[0]}</div>
+        <TooltipWrapper title="Hover over image to see App Description">
+          <p>{hackathon.description.props.children[0]}</p>
+        </TooltipWrapper>
         <div className="link-container">
           <a
             href={hackathon.github}
