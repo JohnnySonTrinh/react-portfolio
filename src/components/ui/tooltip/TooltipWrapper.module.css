@@ -8,14 +8,15 @@
   left: 50%;
   transform: translateX(-50%) translateY(0);
   bottom: calc(100% + 8px);
-  background: var(--background-window);
+  background: rgba(0, 0, 0, 0.8);
   color: var(--wheat);
   border-radius: var(--border-radius);
-  white-space: nowrap;
   font-size: var(--font-size-small);
-  opacity: 0;
+  padding: 0.5rem;
+  white-space: nowrap;
   pointer-events: none;
   transition: opacity 150ms ease, transform 150ms ease;
+  opacity: 0;
   z-index: 50;
 }
 
