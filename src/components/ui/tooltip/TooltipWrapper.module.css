@@ -8,7 +8,7 @@
   left: 50%;
   transform: translateX(-50%) translateY(0);
   bottom: calc(100% + 8px);
-  background: rgba(0, 0, 0, 0.8);
+  background: var(--background-glass);
   color: var(--wheat);
   border-radius: var(--border-radius);
   font-size: var(--font-size-small);
