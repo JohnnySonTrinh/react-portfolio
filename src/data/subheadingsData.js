@@ -65,7 +65,7 @@ const subheadingsData = {
       ),
     },
     {
-      title: "2023 Video Content Creator & Coach at AimLab.gg",
+      title: "2023 Development Coach at AimLab.gg",
       content: (
         <>
           <p>
@@ -80,7 +80,7 @@ const subheadingsData = {
       ),
     },
     {
-      title: "2019 Coach & Scriptwriter at ProGuides",
+      title: "2019 Coach & Talent Coordinator at ProGuides",
       content: (
         <>
           <p>
