@@ -1,0 +1,152 @@
+.achievement-page {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 800px;
+  width: 90%;
+  padding: 2rem;
+  color: var(--white);
+}
+
+.achievement-page h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.achievements-box {
+  border: var(--border);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  max-height: 50vh;
+  overflow-y: auto;
+}
+
+.achievement-item {
+  background: linear-gradient(90deg, var(--cyan-bg), var(--purple-bg));
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.achievement-item:last-child {
+  margin-bottom: 0;
+}
+
+.achievement-item.unlocked {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 215, 0, 0.2),
+    rgba(255, 140, 0, 0.1)
+  );
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.achievement-header h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: var(--font-size-medium);
+  color: var(--white);
+}
+
+.achievement-header p {
+  margin: 0 0 1rem 0;
+  color: var(--wheat);
+  font-size: var(--font-size-small);
+}
+
+.achievement-progress {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--cyan), var(--purple));
+  transition: width 0.5s ease;
+  border-radius: var(--border-radius);
+}
+
+.unlocked .progress-fill {
+  background: linear-gradient(90deg, #ffd700, #ff8c00);
+}
+
+.progress-text {
+  font-size: var(--font-size-small);
+  color: var(--grey);
+  white-space: nowrap;
+}
+
+.unlocked .progress-text {
+  color: #ffd700;
+  font-weight: bold;
+}
+
+.reset-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  border: var(--border);
+  border-radius: var(--border-radius);
+  color: var(--white);
+  font-size: var(--font-size-medium);
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .achievement-page {
+    padding: 1rem;
+  }
+
+  .achievement-page h1 {
+    font-size: 1.5rem;
+  }
+
+  .achievements-box {
+    padding: 1rem;
+    max-height: 60vh;
+  }
+
+  .achievement-progress {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: stretch;
+  }
+
+  .progress-text {
+    text-align: center;
+  }
+}
+
+/* Scrollbar styling */
+.achievements-box::-webkit-scrollbar {
+  width: 8px;
+}
+
+.achievements-box::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.achievements-box::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+.achievements-box::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
