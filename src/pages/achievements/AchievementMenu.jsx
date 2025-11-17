@@ -31,7 +31,7 @@ const AchievementMenu = () => {
             className={`achievement-item ${achievement.unlocked ? 'unlocked' : ''}`}
           >
             <div className="achievement-header">
-              <h3>{achievement.title} {achievement.unlocked ? '✔️' : ''}</h3>
+              <h3>{achievement.title} {achievement.unlocked}</h3>
               <p>{achievement.desc}</p>
             </div>
             <div className="achievement-progress">
