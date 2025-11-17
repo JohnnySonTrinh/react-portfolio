@@ -27,7 +27,7 @@
 .hamburger-menu .bar {
   width: 25px;
   height: 3px;
-  background-color: var(--white);
+  background: linear-gradient(90deg, var(--cyan), var(--purple));
   transition: all 0.3s ease;
 }
 
@@ -142,6 +142,7 @@ a {
 
   .nav-link img {
     width: 2rem;
+    color: linear-gradient(90deg, var(--cyan), var(--purple));
   }
 
   .page-title {
