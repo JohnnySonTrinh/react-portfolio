@@ -1,15 +1,17 @@
 import useAchievementPanel from "../../hooks/useAchievementPanel";
-import "../../styles/achievementPanel.css";
 import { TooltipWrapper } from "../common";
+import "../../styles/achievementPanel.css";
 
 const AchievementsPanel = () => {
   const {
     isMinimized,
-    unlockedCount,
     sortedAchievements,
     achievements,
     handleGoToAchievements,
     toggleMinimized,
+    showUnlockedMessage,
+    displayText,
+    unlockedCount,
   } = useAchievementPanel();
 
   return (
@@ -17,7 +19,12 @@ const AchievementsPanel = () => {
       <header>
         <div className="header-content">
           <h3>
-            {isMinimized ? `🏆 ${unlockedCount} / ${achievements.length}` : `Achievements (${unlockedCount}/${achievements.length})`} 
+            {isMinimized && showUnlockedMessage 
+              ? displayText 
+              : isMinimized 
+                ? ''
+                : `Achievements (${unlockedCount}/${achievements.length})`
+            } 
           </h3>
           <div className="header-buttons">
             {!isMinimized && (
