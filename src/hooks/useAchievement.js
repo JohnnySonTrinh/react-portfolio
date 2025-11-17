@@ -167,9 +167,7 @@ export const AchievementsProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    let seconds = 0;
     const interval = setInterval(() => {
-      seconds++;
       updateProgress("visit_30s", 1);
       updateProgress("long_visitor", 1);
     }, 1000);
