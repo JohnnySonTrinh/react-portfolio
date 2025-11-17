@@ -17,7 +17,7 @@ const AchievementsPanel = () => {
       <header>
         <div className="header-content">
           <h3>
-            {isMinimized ? '🏆' : 'Achievements'} {unlockedCount}/{achievements.length}
+            {isMinimized ? `🏆 ${unlockedCount} / ${achievements.length}` : `Achievements (${unlockedCount}/${achievements.length})`} 
           </h3>
           <div className="header-buttons">
             {!isMinimized && (
