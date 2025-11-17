@@ -13,7 +13,7 @@ form {
 
   h2 {
     text-align: center;
-    font-size: 1.5rem;
+    font-size: var(--font-size-large);
   }
 }
 
@@ -30,8 +30,7 @@ input,
   outline: none;
   color: var(--white);
   padding: 0.5rem;
-  font-weight: bold;
-  font-size: 1rem;
+  font-size: var(--font-size-medium);
   font-family: "Russo One", sans-serif;
 }
 
@@ -40,7 +39,7 @@ input {
 }
 
 ::placeholder {
-  color: var(--white);
+  color: var(--grey);
   font-weight: 400;
 }
 
@@ -51,7 +50,7 @@ input {
 
 button {
   color: var(--white);
-  font-size: 1rem;
+  font-size: var(--font-size-medium);
   font-weight: 600;
   width: 100%;
   padding: 0.5rem 0;

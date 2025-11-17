@@ -117,7 +117,7 @@
   }
 
   .achievement-page h1 {
-    font-size: 1.5rem;
+    font-size: var(--font-size-large);
   }
 
   .achievements-box {
@@ -134,23 +134,4 @@
   .progress-text {
     text-align: center;
   }
-}
-
-/* Scrollbar styling */
-.achievements-box::-webkit-scrollbar {
-  width: 8px;
-}
-
-.achievements-box::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-}
-
-.achievements-box::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 4px;
-}
-
-.achievements-box::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.5);
 }
