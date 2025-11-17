@@ -11,8 +11,13 @@
 
 .achievement-page h1 {
   text-align: center;
-  margin-bottom: 2rem;
-  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-size: var(--font-size-large);
+}
+
+.achievement-page h2 {
+  margin-bottom: 0.5rem;
+  font-size: var(--font-size-medium);
 }
 
 .achievements-box {
@@ -20,16 +25,20 @@
   border-radius: var(--border-radius);
   padding: 1.5rem;
   margin-bottom: 2rem;
-  max-height: 50vh;
+  max-height: 45vh;
   overflow-y: auto;
 }
 
 .achievement-item {
-  background: linear-gradient(90deg, var(--cyan-bg), var(--purple-bg));
   border-radius: 0.5rem;
   padding: 1rem;
   margin-bottom: 1rem;
   transition: all 0.3s ease;
+  background: linear-gradient(90deg, var(--cyan-bg), var(--purple-bg));
+}
+
+.achievement-item:nth-child(even) {
+  background: linear-gradient(90deg, var(--purple-bg), var(--cyan-bg));
 }
 
 .achievement-item:last-child {
@@ -45,6 +54,13 @@
   border: 1px solid rgba(255, 215, 0, 0.3);
 }
 
+.achievement-item.unlocked:nth-child(even) {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 215, 0, 0.2),
+    rgba(255, 140, 0, 0.1)
+  );
+}
 .achievement-header h3 {
   margin: 0 0 0.5rem 0;
   font-size: var(--font-size-medium);
@@ -61,14 +77,6 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-}
-
-.progress-bar {
-  flex: 1;
-  height: 0.5rem;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: var(--border-radius);
-  overflow: hidden;
 }
 
 .progress-fill {
@@ -97,13 +105,10 @@
   display: block;
   margin: 0 auto;
   padding: 1rem 2rem;
-  border: var(--border);
-  border-radius: var(--border-radius);
   color: var(--white);
   font-size: var(--font-size-medium);
   font-weight: bold;
   cursor: pointer;
-  transition: all 0.3s ease;
 }
 
 /* Mobile responsive */
@@ -118,7 +123,7 @@
 
   .achievements-box {
     padding: 1rem;
-    max-height: 60vh;
+    max-height: 40vh;
   }
 
   .achievement-progress {
