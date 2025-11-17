@@ -17,7 +17,7 @@ const AchievementsPanel = () => {
       <header>
         <div className="header-content">
           <h3>
-            {isMinimized ? '🏆' : 'Achievements'} ({unlockedCount}/{achievements.length})
+            {isMinimized ? '🏆' : 'Achievements'} {unlockedCount}/{achievements.length}
           </h3>
           <div className="header-buttons">
             {!isMinimized && (
@@ -54,6 +54,10 @@ const AchievementsPanel = () => {
                 </div>
                 <div className="progress">
                   <div className="progress-bar">
+                  <div 
+                    className="progress-fill" 
+                    style={{ width: `${Math.min(100, (a.progress / a.target) * 100)}%` }}
+                  />
                   </div>
                   <span className="label">
                     {a.unlocked ? "Unlocked!" : `${a.progress}/${a.target} ${a.unit}`}
