@@ -2,18 +2,40 @@ import projects from "../../data/projectsData";
 import "../../styles/projects.css";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 import useActiveProject from "../../hooks/useActiveProject";
+import { useAchievements } from "../../hooks/achievements/useAchievement";
 import handleProjectWheel from "../../utils/handleProjectWheel";
 import { TooltipWrapper } from "../../components/common";
 
 // ProjectsMenu component
 const ProjectsMenu = () => {
   const projectsPerPage = 3; // Number of projects per page
+  const { updateProgress } = useAchievements();
 
   // Use custom hook for active project state
   const { activeProject, changeProject, selectProject } = useActiveProject(
     1,
     projects.length
   );
+
+  // Track viewed projects for achievements
+  const handleProjectView = (projectId) => {
+    updateProgress("view_projects");
+  };
+
+  // Enhanced project selection with achievement tracking
+  const handleSelectProject = (projectIndex) => {
+    selectProject(projectIndex);
+    handleProjectView(projectIndex);
+  };
+
+  // Enhanced project navigation with achievement tracking
+  const handleChangeProject = (direction) => {
+    changeProject(direction);
+    const newProjectIndex = activeProject + direction;
+    if (newProjectIndex >= 1 && newProjectIndex <= projects.length) {
+      handleProjectView(newProjectIndex);
+    }
+  };
 
   // Slicing projects to show only the projects for the current page
   const startIndex = Math.max(0, activeProject - 2);
@@ -71,7 +93,7 @@ const ProjectsMenu = () => {
   return (
     <div
       className="project-menu"
-      onWheel={(e) => handleProjectWheel(e, changeProject)}
+      onWheel={(e) => handleProjectWheel(e, handleChangeProject)}
     >
       <div className="project-items-container fade-in">
         <div
@@ -84,10 +106,10 @@ const ProjectsMenu = () => {
             tabIndex={0}
             role="button"
             aria-label="Navigate to the previous project"
-            onClick={() => changeProject(-1)}
+            onClick={() => handleChangeProject(-1)}
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") {
-                changeProject(-1);
+                handleChangeProject(-1);
               }
             }}
           />
@@ -102,10 +124,10 @@ const ProjectsMenu = () => {
             tabIndex="0"
             aria-label={`Select project: ${project.title}`}
             aria-pressed={activeProject === index + 1 + startIndex}
-            onClick={() => selectProject(index + 1 + startIndex)}
+            onClick={() => handleSelectProject(index + 1 + startIndex)}
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") {
-                selectProject(index + 1 + startIndex);
+                handleSelectProject(index + 1 + startIndex);
               }
             }}
           >
@@ -122,10 +144,10 @@ const ProjectsMenu = () => {
             tabIndex="0"
             role="button"
             aria-label="Navigate to the next project"
-            onClick={() => changeProject(1)}
+            onClick={() => handleChangeProject(1)}
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") {
-                changeProject(1);
+                handleChangeProject(1);
               }
             }}
           />
