@@ -53,7 +53,7 @@ const AchievementMenu = () => {
       </div>
       
       <button onClick={handleReset} className="reset-btn">
-        Reset All Achievements
+        Reset
       </button>
     </div>
   );
