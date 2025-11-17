@@ -1,6 +1,7 @@
 import Linkedin from "../../assets/linkedin.png";
 import Github from "../../assets/github.png";
 import usePlayerStats from "../../hooks/usePlayerStats";
+import { useAchievements } from "../../hooks/achievements/useAchievement";
 import { TooltipWrapper } from "../common";
 import "../../styles/playerStats.css";
 
@@ -15,6 +16,13 @@ const PlayerStats = () => {
     handleMouseEnter,
     handleMouseLeave
   } = usePlayerStats();
+
+  const { updateProgress } = useAchievements();
+
+  // Handle social media link clicks for achievements
+  const handleSocialClick = () => {
+    updateProgress("social_connector");
+  };
 
   return (
     // Main section with fade-in animation and role for accessibility
@@ -43,6 +51,7 @@ const PlayerStats = () => {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn Profile"
+          onClick={handleSocialClick}
         >
           <img src={Linkedin} alt="LinkedIn" className="icons" />
         </a>
@@ -51,6 +60,7 @@ const PlayerStats = () => {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub Profile"
+          onClick={handleSocialClick}
         >
           <img src={Github} alt="GitHub" className="icons" />
         </a>
