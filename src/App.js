@@ -3,7 +3,7 @@ import Nav from "./components/nav/Nav";
 import Background from "./components/background/Background";
 import PlayerStats from "./components/playerStats/PlayerStats";
 import AchievementsPanel from "./components/achievement/AchievementsPanel";
-import { AchievementsProvider } from "./hooks/useAchievement";
+import { AchievementsProvider } from "./hooks/achievements/useAchievement";
 import About from "./pages/about/About";
 import Skills from "./pages/skills/Skills";
 import Projects from "./pages/projects/Projects";

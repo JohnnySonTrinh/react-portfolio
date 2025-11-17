@@ -1,4 +1,4 @@
-import useAchievementPanel from "../../hooks/useAchievementPanel";
+import useAchievementPanel from "../../hooks/achievements/useAchievementPanel";
 import { TooltipWrapper } from "../common";
 import "../../styles/achievementPanel.css";
 

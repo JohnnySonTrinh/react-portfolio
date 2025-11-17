@@ -1,4 +1,10 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  useCallback,
+} from "react";
 
 const STORAGE_KEY = "achievements_v1";
 
@@ -134,13 +140,16 @@ export const AchievementsProvider = ({ children }) => {
     }
   });
 
+  // Track when user first arrives on site for quick_learner achievement
+  const [siteStartTime] = useState(() => Date.now());
+
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(achievements));
   }, [achievements]);
 
-  const updateProgress = (id, amount = 1) => {
-    setAchievements((prev) =>
-      prev.map((a) => {
+  const updateProgress = useCallback((id, amount = 1) => {
+    setAchievements((prev) => {
+      let updated = prev.map((a) => {
         if (a.id !== id || a.unlocked) return a;
         const progress = Math.min(a.target, a.progress + amount);
         return {
@@ -148,23 +157,90 @@ export const AchievementsProvider = ({ children }) => {
           progress,
           unlocked: progress >= a.target ? true : a.unlocked,
         };
-      })
-    );
-  };
+      });
 
-  const unlock = (id) => {
-    setAchievements((prev) =>
-      prev.map((a) =>
+      // Update meta-achievements after updating progress
+      updated = updateMetaAchievementsLogic(updated);
+      return updated;
+    });
+  }, []);
+
+  const unlock = useCallback((id) => {
+    setAchievements((prev) => {
+      let updated = prev.map((a) =>
         a.id === id ? { ...a, progress: a.target, unlocked: true } : a
-      )
-    );
+      );
+
+      // Update meta-achievements after unlocking
+      updated = updateMetaAchievementsLogic(updated);
+      return updated;
+    });
+  }, []);
+
+  // Helper function to update meta-achievements logic (pure function)
+  const updateMetaAchievementsLogic = (achievementsList) => {
+    const unlockedAchievements = achievementsList.filter((a) => a.unlocked);
+
+    // Exclude meta-achievements from the count for achievement_hunter
+    const nonMetaUnlocked = unlockedAchievements.filter(
+      (a) => a.id !== "achievement_hunter" && a.id !== "portfolio_master"
+    ).length;
+
+    const totalNonMasterAchievements = achievementsList.filter(
+      (a) => a.id !== "portfolio_master"
+    ).length;
+    const unlockedNonMasterCount = unlockedAchievements.filter(
+      (a) => a.id !== "portfolio_master"
+    ).length;
+
+    return achievementsList.map((a) => {
+      if (a.id === "achievement_hunter" && !a.unlocked) {
+        const newProgress = Math.min(nonMetaUnlocked, 3);
+        return {
+          ...a,
+          progress: newProgress,
+          unlocked: nonMetaUnlocked >= 3,
+        };
+      }
+      if (a.id === "portfolio_master" && !a.unlocked) {
+        return {
+          ...a,
+          progress: unlockedNonMasterCount,
+          unlocked: unlockedNonMasterCount >= totalNonMasterAchievements,
+        };
+      }
+      return a;
+    });
   };
 
-  const resetAll = () => {
+  const resetAll = useCallback(() => {
     setAchievements(
       defaultAchievements.map((a) => ({ ...a, progress: 0, unlocked: false }))
     );
-  };
+  }, []);
+
+  // Special function for quick_learner achievement
+  const checkQuickLearner = useCallback(() => {
+    setAchievements((prev) => {
+      const quickLearnerAchievement = prev.find(
+        (a) => a.id === "quick_learner"
+      );
+      if (quickLearnerAchievement && !quickLearnerAchievement.unlocked) {
+        const timeElapsed = (Date.now() - siteStartTime) / 1000; // Convert to seconds
+        if (timeElapsed <= 30) {
+          let updated = prev.map((a) =>
+            a.id === "quick_learner"
+              ? { ...a, progress: a.target, unlocked: true }
+              : a
+          );
+          // Update meta-achievements after unlocking
+          updated = updateMetaAchievementsLogic(updated);
+          return updated;
+        }
+      }
+      return prev; // No changes needed
+    });
+  }, [siteStartTime]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -172,11 +248,17 @@ export const AchievementsProvider = ({ children }) => {
       updateProgress("long_visitor", 1);
     }, 1000);
     return () => clearInterval(interval);
-  }, []);
+  }, [updateProgress]);
 
   return (
     <AchievementsContext.Provider
-      value={{ achievements, updateProgress, unlock, resetAll }}
+      value={{
+        achievements,
+        updateProgress,
+        unlock,
+        resetAll,
+        checkQuickLearner,
+      }}
     >
       {children}
     </AchievementsContext.Provider>

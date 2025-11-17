@@ -1,4 +1,4 @@
-import { useAchievements } from '../../hooks/useAchievement';
+import { useAchievements } from '../../hooks/achievements/useAchievement';
 import "../../styles/achievementMenu.css";
 
 const AchievementMenu = () => {
