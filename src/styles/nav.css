@@ -27,7 +27,7 @@
 .hamburger-menu .bar {
   width: 25px;
   height: 3px;
-  background: linear-gradient(90deg, var(--cyan), var(--purple));
+  background: linear-gradient(90deg, var(--purple), var(--cyan));
   transition: all 0.3s ease;
 }
 
