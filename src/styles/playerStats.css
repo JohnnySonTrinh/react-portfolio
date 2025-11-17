@@ -27,7 +27,7 @@ h2 {
 }
 
 #playerStats__lines__thick {
-  background-color: var(--white);
+  background: linear-gradient(90deg, var(--purple), var(--cyan));
   height: 0.2rem;
   width: 0;
   transition: width 2s ease-out;
@@ -61,7 +61,7 @@ h2 {
     margin-top: 0.2rem;
   }
   #playerStats__lines__thick {
-    height: 0.1rem;
+    height: 0.2rem;
   }
   #playerStats {
     left: 5%;
