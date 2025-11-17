@@ -5,6 +5,7 @@
   width: 320px;
   max-width: 90vw;
   padding: 0.75rem;
+  background: var(--background-window);
   border-radius: var(--border-radius);
   border: var(--border);
   backdrop-filter: blur(10px);
