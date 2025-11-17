@@ -43,7 +43,7 @@
 }
 
 .project-item.activeProject .title {
-  font-size: 1.5rem;
+  font-size: var(--font-size-large);
 }
 
 .activeProject {
@@ -51,7 +51,6 @@
   cursor: default;
   background: linear-gradient(270deg, #ffffff00, var(--purple) 70%);
   width: 100%;
-  font-size: 1.2rem;
 }
 
 .project-sub-container {
@@ -64,7 +63,7 @@
 .project-sub-container h3 {
   position: relative;
   margin: 0;
-  font-size: 1.5rem;
+  font-size: var(--font-size-large);
 }
 .project-sub-container img {
   width: 100%;
@@ -105,7 +104,7 @@
 
 /* Project page hover description */
 .icon-with-title h3 {
-  font-size: 0.8rem;
+  font-size: var(--font-size-small);
   color: var(--wheat);
   text-align: center;
 }
@@ -127,13 +126,12 @@
 }
 
 .project-sub-container p {
-  font-size: 1rem;
+  font-size: var(--font-size-medium);
 }
 
 .link-container a {
   color: var(--white);
   text-decoration: none;
-  margin-top: 1rem;
   width: 50%;
   height: 2.75rem;
   text-align: center;
@@ -150,7 +148,7 @@
 
 @media (max-width: 1024px) {
   .icon-with-title i {
-    font-size: 1rem;
+    font-size: var(--font-size-medium);
   }
   .icon-with-title h3 {
     font-size: 0.5rem;
@@ -168,13 +166,13 @@
     width: 100%;
   }
   .project-item.activeProject .title {
-    font-size: 0.9rem;
+    font-size: var(--font-size-medium);
   }
   .title {
-    font-size: 0.7rem;
+    font-size: var(--font-size-small);
   }
   .project-sub-container h3 {
-    font-size: 0.9rem;
+    font-size: var(--font-size-medium);
   }
 }
 @media (max-width: 768px) {
@@ -202,7 +200,7 @@
     margin-top: 0;
   }
   .project-item.activeProject .title {
-    font-size: 0.8rem;
+    font-size: var(--font-size-small);
   }
   .title {
     font-size: 0.6rem;

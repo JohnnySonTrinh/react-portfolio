@@ -20,13 +20,12 @@
 
 /* Title within each menu item */
 .title {
-  font-size: 1rem;
   padding-right: 2.5rem;
 }
 
 /* Active menu item title size */
 .item.active .title {
-  font-size: 1.5rem;
+  font-size: var(--font-size-large);
 }
 
 /* Sub-container for subheadings */
@@ -90,7 +89,7 @@
 /* Show subheading content when active */
 .active-subheading .p-container {
   display: block;
-  font-size: 1rem;
+  font-size: var(--font-size-medium);
 }
 
 /* Container for icon and title */
@@ -133,10 +132,10 @@
     transform: translateX(-110%);
   }
   .title {
-    font-size: 0.8rem;
+    font-size: var(--font-size-medium); /* check */
   }
   .active-subheading .p-container {
-    font-size: 0.8rem;
+    font-size: var(--font-size-small);
   }
   .icon-title-container,
   .icon {
@@ -155,10 +154,10 @@
     height: 2rem;
   }
   .item.active .title {
-    font-size: 1rem;
+    font-size: var(--font-size-medium);
   }
   .title {
-    font-size: 0.8rem;
+    font-size: var(--font-size-small);
   }
   .sub-container {
     width: 10rem;
@@ -167,7 +166,7 @@
     transform: translateX(-50%);
   }
   .active-subheading .p-container {
-    font-size: 0.8rem;
+    font-size: var(--font-size-small);
   }
   .icon-title-container,
   .icon {

@@ -83,7 +83,7 @@ a {
 
 /* Title below the icon when active */
 .page-title {
-  font-size: 0.8rem;
+  font-size: var(--font-size-small);
   color: var(--white);
   cursor: default;
 }

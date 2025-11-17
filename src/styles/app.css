@@ -184,3 +184,20 @@ button:hover,
     font-size: 0.6rem;
   }
 }
+
+/* Scrillbar styling for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background-window);
+  border-radius: var(--border-radius);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--purple-bg), var(--cyan-bg));
+  border-radius: var(--border-radius);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--purple), var(--cyan));
+  border-radius: var(--border-radius);
+}
