@@ -49,7 +49,7 @@ const AchievementsPanel = () => {
             <li key={a.id} className={a.unlocked ? "unlocked" : ""}>
               <div className="ach-row">
                 <div className="meta">
-                  <strong>{a.title} {a.unlocked ? '✔️' : ''}</strong>
+                  <strong>{a.title} {a.unlocked}</strong>
                   <small>{a.desc}</small>
                 </div>
                 <div className="progress">
