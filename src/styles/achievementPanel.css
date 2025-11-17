@@ -1,0 +1,227 @@
+.achievements-panel {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  width: 320px;
+  max-width: 90vw;
+  padding: 0.75rem;
+  border-radius: var(--border-radius);
+  border: var(--border);
+  color: var(--white);
+  z-index: 999;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.achievements-panel.minimized {
+  height: auto;
+  width: auto;
+}
+
+.achievements-panel header {
+  margin-bottom: 0.5rem;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.header-content h3 {
+  margin: 0;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 0.25rem;
+}
+
+/* Achievement hamburger styles - unique naming */
+.achievement-hamburger {
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.4rem;
+  cursor: pointer;
+  transition: 0.2s ease;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.achievement-hamburger:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.achievement-hamburger .bar {
+  width: 20px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cyan), var(--purple));
+  transition: all 0.3s ease;
+}
+
+.achievement-hamburger.open .bar:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.achievement-hamburger.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.achievement-hamburger.open .bar:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Achievement link button */
+.achievement-link-btn {
+  border: none;
+  border-radius: 0.25rem;
+  color: var(--white);
+  padding: 0.4rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.achievement-link-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.achievements-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.5rem;
+  max-height: 40vh;
+  overflow-y: auto;
+}
+
+.achievements-panel li {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  transition: all 0.3s ease;
+}
+
+.achievements-panel li.unlocked {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 215, 0, 0.2),
+    rgba(255, 140, 0, 0.1)
+  );
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.ach-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.meta {
+  flex: 1;
+}
+
+.meta strong {
+  display: block;
+  font-size: 0.85rem;
+  margin-bottom: 0.2rem;
+}
+
+.meta small {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.progress {
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 0.25rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--cyan), var(--purple));
+  border-radius: 0.25rem;
+  transition: width 0.5s ease;
+}
+
+.unlocked .progress-bar-fill {
+  background: linear-gradient(90deg, #ffd700, #ff8c00);
+}
+
+.label {
+  font-size: 0.65rem;
+  text-align: right;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.unlocked .label {
+  color: #ffd700;
+  font-weight: bold;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .achievements-panel {
+    right: 0.5rem;
+    bottom: 0.5rem;
+    width: 280px;
+    font-size: 0.85rem;
+  }
+
+  .header-content h3 {
+    font-size: 0.9rem;
+  }
+
+  .progress {
+    width: 100px;
+  }
+
+  .meta strong {
+    font-size: 0.8rem;
+  }
+
+  .meta small {
+    font-size: 0.65rem;
+  }
+}
+
+/* Scrollbar styling */
+.achievements-panel ul::-webkit-scrollbar {
+  width: 4px;
+}
+
+.achievements-panel ul::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+
+.achievements-panel ul::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+}
+
+.achievements-panel ul::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
