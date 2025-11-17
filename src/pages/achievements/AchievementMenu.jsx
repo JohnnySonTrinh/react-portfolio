@@ -22,8 +22,8 @@ const AchievementMenu = () => {
 
   return (
     <div className="achievement-page fade-in">
-      <h1>Achievements ({unlockedCount}/{achievements.length})</h1>
-      
+      <h1>Achievements </h1>
+      <h2>{unlockedCount} / {achievements.length}</h2>
       <div className="achievements-box">
         {sortedAchievements.map((achievement) => (
           <div 
