@@ -103,7 +103,7 @@ const defaultAchievements = [
     id: "portfolio_master",
     title: "Portfolio Master",
     desc: "Unlock all achievements",
-    target: 9,
+    target: 11,
     progress: 0,
     unlocked: false,
     unit: "achievements",
