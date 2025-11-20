@@ -89,9 +89,9 @@ const AchievementMenu = () => {
             <div className="modal-body">
               <div className="reward-section">
                 <h3>🎬 Exclusive Content</h3>
-                <p>Behind the scenes of how this portfolio was built!</p>
+                <p>First coaching promo video - Edit by me!</p>
                 <a
-                  href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                  href="https://www.youtube.com/watch?v=93fSMfJroTQ"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="youtube-btn"
