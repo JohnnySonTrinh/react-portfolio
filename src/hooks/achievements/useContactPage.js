@@ -11,7 +11,7 @@ const useContactPage = () => {
   useEffect(() => {
     // Check for quick learner achievement when contact page loads
     checkQuickLearner();
-  }, []); // Empty deps - only run once on mount
+  }, [checkQuickLearner]);
 };
 
 export default useContactPage;
