@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
 import { useAchievements } from "./useAchievement";
 
 /**
@@ -9,12 +9,17 @@ import { useAchievements } from "./useAchievement";
 const usePageVisit = (achievementId = "visit_all_pages", amount = 1) => {
   const { updateProgress } = useAchievements();
 
+  // Memoize the page visit tracking function
+  const trackPageVisit = useCallback(() => {
+    updateProgress(achievementId, amount);
+  }, [updateProgress, achievementId, amount]);
+
   useEffect(() => {
     // Update the specified achievement when page loads
-    updateProgress(achievementId, amount);
-  }, []); // Empty deps - only run once on mount
+    trackPageVisit();
+  }, [trackPageVisit]);
 
-  return { updateProgress }; // Return updateProgress in case page needs other achievement updates
+  return { updateProgress };
 };
 
 export default usePageVisit;
