@@ -69,6 +69,7 @@ const useAchievementPanel = () => {
     prevUnlockedCountRef.current = unlockedCount;
   }, [unlockedCount, achievements, processedAchievements]);
 
+  // Function to process the next achievement in the queue
   const processNextAchievement = useCallback(() => {
     console.log("🔄 processNextAchievement called");
 

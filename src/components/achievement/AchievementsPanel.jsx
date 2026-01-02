@@ -2,6 +2,7 @@ import useAchievementPanel from "../../hooks/achievements/useAchievementPanel";
 import { TooltipWrapper } from "../common";
 import "../../styles/achievementPanel.css";
 
+// AchievementsPanel component to display user achievements
 const AchievementsPanel = () => {
   const {
     isMinimized,
