@@ -16,6 +16,7 @@ V2 README.md [README.md](/documentation/README-v2.md) file.
 
 > [!NOTE]  
 > V1 README.md [README.md](/documentation/README-v1.md) file.
+
 ### Stats
 
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/t/JohnnySonTrinh/react-portfolio)](https://github.com/JohnnySonTrinh/react-portfolio/commits/main)
@@ -44,7 +45,7 @@ V2 README.md [README.md](/documentation/README-v2.md) file.
 - OpenAI API for the agent
 - Vercel for hosting and serverless routes
 
-> [!NOTE] 
+> [!NOTE]
 > Supporting tools: Vapi.ai Web, React Router, React Markdown, React Helmet, classnames, DOMPurify, Web Vitals, Testing Library.
 
 ## Project Structure
@@ -242,6 +243,7 @@ Navigation between projects/hackathons is smooth and intuitive, thanks to integr
 The AI-powered chat assistant provides an interactive way for visitors to learn about my background, skills, and projects. The assistant has knowledge of all portfolio content and can answer questions about my experience, redirect users to relevant sections, and provide detailed information about specific projects or skills.
 
 Key features:
+
 - Powered by OpenAI API through secure serverless routes
 - Trained on portfolio content from shared/profile.json
 - Supports markdown formatting for rich responses
@@ -254,6 +256,7 @@ Key features:
 The voice assistant integration powered by Vapi.ai enables hands-free interaction with the portfolio. Visitors can speak naturally to ask questions about my experience, skills, and projects, receiving audio responses that provide the same intelligent assistance as the chat interface.
 
 Key features:
+
 - Voice-to-voice interaction (mic in, audio out)
 - Powered by Vapi.ai integration
 - Natural language processing for spoken queries
@@ -267,6 +270,33 @@ Key features:
 The contact section features a clean and simple form with built-in validation to ensure accuracy. The submission is handled securely via EmailJS. A success message confirms successful submission.
 
 ![Contact Page Screenshot](documentation/readme/new-contact.png)
+
+### Achievements System
+
+<p align="center">
+ <img src="documentation/readme/new-achievements-1.png" width="30%" />
+</p>
+The achievements system introduces a lightweight gamification layer that encourages visitors to explore the portfolio organically. Achievements are unlocked automatically based on real user interactions, making the experience interactive and engaging rather than static.
+
+Each achievement displays clear progress indicators and unlock states, providing immediate visual feedback as users navigate through different sections of the site. Progress is tracked during the session and can be reset for testing or replayability.
+
+![Contact Page Screenshot](documentation/readme/new-achievements-2.png)
+
+Key features:
+
+- Automatic achievement tracking based on user behavior
+- Real-time progress bars and unlock indicators
+- Smooth animations and visual feedback on unlock
+- Modular and extensible achievement configuration
+- Optional reset functionality for development and testing
+- Designed to enhance engagement without distracting from content
+
+Example achievements include:
+
+- Spending time exploring the site
+- Visiting all primary sections
+- Viewing multiple projects
+- Interacting with skills and social links
 
 ### 404 Page
 
