@@ -25,7 +25,7 @@ const AchievementMenu = () => {
   });
 
   return (
-    <div className="achievement-page fade-in">
+    <div className="achievement-page fade-in" aria-label="Achievements page">
       {!isAllCompleted ? (
         <>
           <h1>Achievements </h1>
@@ -36,6 +36,7 @@ const AchievementMenu = () => {
           <button 
             onClick={() => setShowCompletionModal(true)}
             className="completion-btn"
+            aria-label="Claim your reward"
           >
             🏆 Claim Your Reward! 🏆
           </button>
@@ -49,11 +50,11 @@ const AchievementMenu = () => {
             className={`achievement-item ${achievement.unlocked ? 'unlocked' : ''}`}
           >
             <div className="achievement-header">
-              <h3>{achievement.title} {achievement.unlocked}</h3>
+              <h3>{achievement.title}</h3>
               <p>{achievement.desc}</p>
             </div>
             <div className="achievement-progress">
-              <div className="progress-bar">
+              <div className="progress-bar" role="progressbar" aria-valuenow={achievement.progress} aria-valuemin="0" aria-valuemax={achievement.target} aria-label={`${achievement.title} progress`}>
                 <div 
                   className="progress-fill" 
                   style={{ width: `${Math.min(100, (achievement.progress / achievement.target) * 100)}%` }}
@@ -70,12 +71,12 @@ const AchievementMenu = () => {
         ))}
       </div>
       
-      <button onClick={handleReset} className="reset-btn">
+      <button onClick={handleReset} className="reset-btn" aria-label="Reset all achievements">
         Reset
       </button>
       {showCompletionModal && (
         <div className="modal-overlay" onClick={() => setShowCompletionModal(false)}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true" aria-labelledby="reward-title">
             <div className="modal-header">
               <span></span>
               <button 
@@ -88,13 +89,14 @@ const AchievementMenu = () => {
             </div>
             <div className="modal-body">
               <div className="reward-section">
-                <h3>🎬 Exclusive Content</h3>
+                <h3 id="reward-title">🎬 Exclusive Content</h3>
                 <p>First coaching promo video - Edit by me!</p>
                 <a
                   href="https://www.youtube.com/watch?v=93fSMfJroTQ"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="youtube-btn"
+                  aria-label="Watch coaching promo video on YouTube"
                 >
                   🎲
                 </a>
