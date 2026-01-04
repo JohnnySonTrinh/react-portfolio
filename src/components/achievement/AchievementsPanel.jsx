@@ -16,7 +16,7 @@ const AchievementsPanel = () => {
   } = useAchievementPanel();
 
   return (
-    <aside className={`achievements-panel fade-in ${isMinimized ? 'minimized' : ''}`}>
+    <aside className={`achievements-panel fade-in ${isMinimized ? 'minimized' : ''}`} aria-label="Achievements panel">
       <header>
         <div className="header-content">
           <h3>
@@ -43,6 +43,8 @@ const AchievementsPanel = () => {
               onClick={toggleMinimized}
               className={`minimize-btn achievement-hamburger ${isMinimized ? '' : 'open'}`}
               aria-label={isMinimized ? "Expand achievements" : "Minimize achievements"}
+              aria-expanded={!isMinimized}
+              aria-controls="achievements-list"
             >
               <div className="bar"></div>
               <div className="bar"></div>
@@ -52,16 +54,16 @@ const AchievementsPanel = () => {
         </div>
       </header>
       {!isMinimized && (
-        <ul>
+        <ul id="achievements-list">
           {sortedAchievements.map((a) => (
             <li key={a.id} className={a.unlocked ? "unlocked" : ""}>
               <div className="ach-row">
                 <div className="meta">
-                  <strong>{a.title} {a.unlocked}</strong>
+                  <strong>{a.title}</strong>
                   <small>{a.desc}</small>
                 </div>
                 <div className="progress">
-                  <div className="progress-bar">
+                  <div className="progress-bar" role="progressbar" aria-valuenow={a.progress} aria-valuemin="0" aria-valuemax={a.target} aria-label={`${a.title} progress`}>
                   <div 
                     className="progress-fill" 
                     style={{ width: `${Math.min(100, (a.progress / a.target) * 100)}%` }}
