@@ -38,7 +38,7 @@ const defaultAchievements = [
   },
   {
     id: "view_projects",
-    title: "Project Viewer",
+    title: "Project Master",
     desc: "View 3 different projects",
     target: 3,
     progress: 0,
@@ -47,7 +47,7 @@ const defaultAchievements = [
   },
   {
     id: "skills_enthusiast",
-    title: "Skills Enthusiast",
+    title: "Watch This!",
     desc: "Visit skills page 3 times",
     target: 3,
     progress: 0,
@@ -56,7 +56,7 @@ const defaultAchievements = [
   },
   {
     id: "social_connector",
-    title: "Social Connector",
+    title: "Social Networker",
     desc: "Click on social media links",
     target: 2,
     progress: 0,
@@ -65,7 +65,7 @@ const defaultAchievements = [
   },
   {
     id: "long_visitor",
-    title: "Dedicated Visitor",
+    title: "Stalker Alert",
     desc: "Stay on site for 5 minutes",
     target: 300,
     progress: 0,
@@ -74,7 +74,7 @@ const defaultAchievements = [
   },
   {
     id: "quick_learner",
-    title: "Quick Learner",
+    title: "As Fast As Lightning",
     desc: "Visit contact page within 30 seconds",
     target: 1,
     progress: 0,
