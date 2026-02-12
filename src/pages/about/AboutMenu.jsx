@@ -68,7 +68,7 @@ const AboutMenu = () => {
         onWheel={(e) => handleWheel(e, "subheading")}
       >
         <div className="icon-title-container">
-          <img src={activeMenuIcon} alt={activeMenuTitle} className="icon" />
+          <img src={activeMenuIcon} alt={activeMenuTitle} loading="lazy" className="icon" />
           <h3>{activeMenuTitle}</h3>
         </div>
         {subheadings.map((subheading, index) => (

@@ -52,7 +52,7 @@ const ProjectsMenu = () => {
       <div className={`project-sub-container-${activeProject} fade-in`}>
         <h3>{project.title}</h3>
         <div className="image-container">
-          <img src={project.image} alt={project.title}></img>
+          <img src={project.image} alt={project.title} loading="lazy"></img>
           <div className="hover-description">
             <h3>Tech Stack</h3>
             <div className="tech-stack">

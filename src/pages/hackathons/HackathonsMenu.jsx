@@ -32,7 +32,7 @@ const HackathonsMenu = () => {
       <div className={`project-sub-container-${activeProject} fade-in`}>
         <h3>{hackathon.title}</h3>
         <div className="image-container">
-          <img src={hackathon.image} alt={hackathon.title}></img>
+          <img src={hackathon.image} alt={hackathon.title} loading="lazy"></img>
           <div className="hover-description">
             {hackathon.description.props.children[1]}
           </div>

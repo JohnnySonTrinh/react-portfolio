@@ -44,6 +44,7 @@ const SkillsMenu = () => {
       <img 
         className="skill-icon" 
         src={currentIcon} 
+        loading="lazy"
         alt="current skill"
         aria-label={`Current skill category: ${menuItems[currentCategory - 1]}`}
       />
