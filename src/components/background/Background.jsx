@@ -12,7 +12,7 @@ const Background = () => {
         autoPlay
         muted
         loop
-        preload="auto"
+        preload="none"
         id="bg"
         poster={fallbackImage}
         aria-label="Background video"
