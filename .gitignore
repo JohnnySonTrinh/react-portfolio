@@ -20,6 +20,7 @@ text.txt
 
 # misc
 .vscode
+.github
 .DS_Store
 .env.local
 .env.development.local
