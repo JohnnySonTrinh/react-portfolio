@@ -14,7 +14,8 @@ const Avatar = ({ page }) => {
     <>
       <img
         src={avatarImage}
-        loading="lazy"
+        fetchPriority="low"
+        decoding="async"
         className={avatarClass}
         alt="Johnny Trinh - Fullsatck developer avatar"
       />
