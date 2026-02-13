@@ -2,6 +2,8 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAchievements } from "./useAchievement";
 
+// Hook to manage achievement panel UI and notification queue
+// Displays unlocked achievements one at a time with 3 second notifications
 const useAchievementPanel = () => {
   const navigate = useNavigate();
   const { achievements } = useAchievements();
