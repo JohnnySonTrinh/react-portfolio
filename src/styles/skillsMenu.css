@@ -95,7 +95,9 @@
 /* Animation classes for filled and unfilled level points */
 .filled,
 .unfilled {
-  animation: wave 5s ease-in infinite, fadeIn 5s ease-out forwards;
+  animation:
+    wave 5s ease-in infinite,
+    fadeIn 5s ease-out forwards;
 }
 
 .filled {
@@ -215,7 +217,7 @@
     gap: 0.2rem;
   }
   .skill-sub-container h3 {
-    font-size: var(--font-size-medium);
+    font-size: var(--font-size-small);
   }
   .skill-menu {
     flex-direction: column;
@@ -242,8 +244,11 @@
     background-color: rgba(0, 0, 0, 0);
     animation: none;
   }
+  .skill-sub-container h3 {
+    font-size: var(--font-size-small);
+  }
   .skill-icon-container i {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   .skill-icon-container {
     width: 4rem;

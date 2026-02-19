@@ -23,7 +23,7 @@ const EmailGate = ({ email, setEmail, error, onSubmit }) => {
             aria-label="Email input"
           />
           <button className="email-submit-button" onClick={onSubmit}>
-            Submit
+            SUBMIT
           </button>
         </div>
       </div>
