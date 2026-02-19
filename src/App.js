@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Nav from "./components/nav/Nav";
 import Background from "./components/background/Background";
+import ParticleCanvas from "./components/background/ParticleCanvas";
 import PlayerStats from "./components/playerStats/PlayerStats";
 import AchievementsPanel from "./components/achievement/AchievementsPanel";
 import { AchievementsProvider } from "./hooks/achievements/useAchievement";
@@ -21,6 +22,7 @@ const App = () => {
       <Router>
         <SpeedInsights />
         <Background />
+        <ParticleCanvas />
         <Nav />
         <PlayerStats />
         <Routes>
