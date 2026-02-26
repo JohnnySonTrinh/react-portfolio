@@ -1,5 +1,19 @@
 const projects = [
   {
+    title: "Role Ready",
+    image:
+      "https://raw.githubusercontent.com/JohnnySonTrinh/JohnnySonTrinh/main/projects/roleready.webp",
+    description:
+      "Role Ready is an AI-powered job preparation tool that helps users understand job listings before applying. By pasting a job ad, users get structured insights into the role, the company, and likely interview questions, making it easier to prepare and practice in a focused way.",
+    techStack: [
+      { title: "TypeScript", icon: "devicon-typescript-plain" },
+      { title: "Tailwind CSS", icon: "devicon-tailwindcss-plain" },
+      { title: "Vercel", icon: "devicon-vercel-plain" },
+    ],
+    github: "https://github.com/JohnnySonTrinh/role-ready",
+    live: "https://role-ready-six.vercel.app/",
+  },
+  {
     title: "Tic Tac Tactics",
     image:
       "https://raw.githubusercontent.com/JohnnySonTrinh/JohnnySonTrinh/main/projects/tic-tac-tactics.webp",
