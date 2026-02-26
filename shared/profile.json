@@ -64,6 +64,14 @@
   },
   "projects": [
     {
+      "title": "Role Ready",
+      "image": "https://raw.githubusercontent.com/JohnnySonTrinh/JohnnySonTrinh/main/projects/roleready.webp",
+      "description": "Role Ready is an AI-powered job preparation tool that helps users understand job listings before applying. By pasting a job ad, users get structured insights into the role, the company, and likely interview questions, making it easier to prepare and practice in a focused way. The project is built with a strong emphasis on clean architecture, modern frontend patterns, and scalable auth and layout design.",
+      "techStack": ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "Vercel"],
+      "github": "https://github.com/JohnnySonTrinh/role-ready",
+      "live": "https://role-ready-six.vercel.app"
+    },
+    {
       "title": "Tic Tac Tactics",
       "image": "https://raw.githubusercontent.com/JohnnySonTrinh/JohnnySonTrinh/main/projects/tic-tac-tactics.webp",
       "description": "Valorant Tic-Tac-Tactics combines the strategy of Valorant with the simplicity of Tic-Tac-Toe. Built as a fun, lightweight web game for both Valorant fans and casual players.",
