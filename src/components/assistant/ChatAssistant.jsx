@@ -4,6 +4,9 @@ import { useAchievements } from "../../hooks/achievements/useAchievement";
 import { followUpSuggestions } from "../../data/chatSuggestions";
 import "../../styles/chatAssistant.css";
 
+const isExternalLink = (href = "") =>
+  /^https?:\/\//i.test(href) || href.startsWith("//");
+
 const ChatAssistant = () => {
   const {
     messages,
@@ -50,7 +53,26 @@ const ChatAssistant = () => {
                 msg.sender === "ai" ? "Johnny's assistant" : "You"
               }`}
             >
-              <ReactMarkdown>{msg.text}</ReactMarkdown>
+              <ReactMarkdown
+                components={{
+                  a: ({ href, children, ...props }) => {
+                    const external = isExternalLink(href);
+
+                    return (
+                      <a
+                        {...props}
+                        href={href}
+                        target={external ? "_blank" : undefined}
+                        rel={external ? "noopener noreferrer" : undefined}
+                      >
+                        {children}
+                      </a>
+                    );
+                  },
+                }}
+              >
+                {msg.text}
+              </ReactMarkdown>
             </div>
           ))}
           {loading && (
