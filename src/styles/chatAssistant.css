@@ -23,6 +23,26 @@
   display: inline !important;
 }
 
+.chat-cta-button {
+  width: auto;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  border: var(--border);
+  background: rgba(255, 255, 255, 0.08);
+  font-size: var(--font-size-small);
+}
+
+.chat-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.chat-cta-button:hover {
+  background-image: linear-gradient(90deg, var(--purple-bg), var(--cyan-bg));
+}
+
 .chat-bubble.ai {
   background: linear-gradient(90deg, var(--transparent), var(--purple) 70%);
   color: var(--white);

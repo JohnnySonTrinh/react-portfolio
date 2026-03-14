@@ -1,4 +1,5 @@
 import OpenAI from "openai";
+import { extractChatCtas } from "./chatCta.js";
 import buildSystemMessage from "./systemMessage.js";
 
 const MODEL = "gpt-4o-mini";
@@ -48,7 +49,10 @@ export default async function handler(req, res) {
     });
 
     const reply = response.output_text?.trim() || "";
-    return res.status(200).json({ text: reply });
+    return res.status(200).json({
+      text: reply,
+      ctas: extractChatCtas(reply),
+    });
   } catch (e) {
     if (e instanceof SyntaxError) {
       return res.status(400).json({ error: "Invalid JSON body" });
