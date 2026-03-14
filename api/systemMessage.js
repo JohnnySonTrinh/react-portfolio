@@ -1,12 +1,4 @@
-import fs from "fs";
-import path from "path";
-
-// Read and parse profile.json
-function readProfile() {
-  const file = path.join(process.cwd(), "shared", "profile.json");
-  const raw = fs.readFileSync(file, "utf8");
-  return JSON.parse(raw);
-}
+import { readProfile } from "./profileData.js";
 
 // Helper to format lists and sections
 const list = arr => Array.isArray(arr) && arr.length ? arr.join(", ") : "N/A";

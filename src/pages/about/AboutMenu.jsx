@@ -1,24 +1,29 @@
 import AboutMenuItem from "./AboutMenuItems";
 import AboutSubheading from "./AboutSubheading";
-import subheadingsData from "../../data/subheadingsData";
 import personalIcon from "../../assets/moebius-triangle.png";
 import educationIcon from "../../assets/upgrade.png";
 import careerIcon from "../../assets/triple-corn.png";
 import useAboutState from "../../hooks/useAbout";
 import handleWheelScroll from "../../utils/handleWheelScroll";
+import useProfileData from "../../hooks/useProfileData";
+import { aboutMenuItems } from "../../data/profileTransformers";
 
 const AboutMenu = () => {
+  const { aboutSections, isLoading, error } = useProfileData();
+  const totalSubheadings = Object.fromEntries(
+    Object.entries(aboutSections).map(([key, items]) => [key, items.length || 1])
+  );
+
   // Destructure custom hook values
   const {
     activeMenuItem,
     activeSubheading,
     handleMenuItemClick,
     handleSubheadingClick,
-  } = useAboutState();
+  } = useAboutState(aboutMenuItems.length, totalSubheadings);
 
   // Define menu items and active menu title/icon
-  const menuItems = ["PERSONAL", "EDUCATION", "CAREER"];
-  const activeMenuTitle = menuItems[activeMenuItem - 1];
+  const activeMenuTitle = aboutMenuItems[activeMenuItem - 1];
   const activeMenuIcon =
     activeMenuTitle === "PERSONAL"
       ? personalIcon
@@ -27,7 +32,7 @@ const AboutMenu = () => {
       : careerIcon;
 
   // Get subheadings data for the active menu item
-  const subheadings = subheadingsData[activeMenuItem];
+  const subheadings = aboutSections[activeMenuItem] || [];
 
   // Function to handle wheel event
   const handleWheel = (e, type) => {
@@ -35,7 +40,7 @@ const AboutMenu = () => {
       handleWheelScroll(e, {
         currentIndex: activeMenuItem,
         setIndex: handleMenuItemClick,
-        maxIndex: menuItems.length,
+        maxIndex: aboutMenuItems.length,
       });
     } else if (type === "subheading") {
       handleWheelScroll(e, {
@@ -53,7 +58,7 @@ const AboutMenu = () => {
         role="menu"
         onWheel={(e) => handleWheel(e, "menu")}
       >
-        {menuItems.map((item, index) => (
+        {aboutMenuItems.map((item, index) => (
           <AboutMenuItem
             key={index}
             title={item}
@@ -71,6 +76,8 @@ const AboutMenu = () => {
           <img src={activeMenuIcon} alt={activeMenuTitle} loading="lazy" className="icon" />
           <h3>{activeMenuTitle}</h3>
         </div>
+        {isLoading ? <p>Loading profile...</p> : null}
+        {error ? <p>Unable to load profile details right now.</p> : null}
         {subheadings.map((subheading, index) => (
           <AboutSubheading
             key={index}
