@@ -160,6 +160,29 @@ button:hover,
   animation: scaleInOut 2s infinite;
 }
 
+body.motion-paused .fade-in,
+body.motion-paused .wave,
+body.motion-paused .breath,
+body.motion-paused .scale-in,
+body.motion-paused .scale-in-out,
+body.motion-paused .item.active,
+body.motion-paused .activeSkill,
+body.motion-paused .activeProject,
+body.motion-paused .activeHackathon,
+body.motion-paused .activeCategory,
+body.motion-paused button:hover,
+body.motion-paused .home-button:hover,
+body.motion-paused .link-container a:hover,
+body.motion-paused .class-sub-container a:hover,
+body.motion-paused .project-item:hover,
+body.motion-paused .hackathon-item:hover,
+body.motion-paused .skill-item:hover,
+body.motion-paused .item:not(.active):hover,
+body.motion-paused .sub-container-2:not(.active-subheading):hover,
+body.motion-paused .sub-container-3:not(.active-subheading):hover {
+  animation: none !important;
+}
+
 /* Responsive styles for smaller screens */
 @media (max-width: 1024px) {
   h1 {

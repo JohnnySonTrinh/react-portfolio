@@ -4,6 +4,7 @@ import robotBot from "../assets/robot-bot.png";
 import stack from "../assets/stack.png";
 import global from "../assets/global.png";
 import envelope from "../assets/envelope.png";
+import upgrade from "../assets/upgrade.png";
 
 // Navigation data array containing information about each navigation item
 const navData = [
@@ -48,6 +49,13 @@ const navData = [
     altText: "envelope icon",
     navClass: "nav-contact",
     title: "CONTACT",
+  },
+  {
+    to: "/settings",
+    imgSrc: upgrade,
+    altText: "settings icon",
+    navClass: "nav-settings",
+    title: "SETTINGS",
   },
 ];
 

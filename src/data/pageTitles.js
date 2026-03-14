@@ -6,6 +6,7 @@ const pageTitles = {
   hackathons: "Hackathons & Competitions - Johnny Trinh | Developer",
   achievements: "Achievements & Milestones - Johnny Trinh | Portfolio",
   contact: "Contact Johnny Trinh - Fullstack Developer",
+  settings: "Settings - Johnny Trinh Portfolio",
   notFound: "404 - Page Not Found | Johnny Trinh Portfolio",
 };
 

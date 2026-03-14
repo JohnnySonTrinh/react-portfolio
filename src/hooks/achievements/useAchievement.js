@@ -31,7 +31,7 @@ const defaultAchievements = [
     id: "visit_all_pages",
     title: "Site Explorer",
     desc: "Visit all pages of the portfolio",
-    target: 6,
+    target: 7,
     progress: 0,
     unlocked: false,
     unit: "pages",
@@ -130,7 +130,18 @@ export const AchievementsProvider = ({ children }) => {
         // Merge with defaults to handle new achievements
         const merged = defaultAchievements.map((defaultAch) => {
           const savedAch = saved.find((s) => s.id === defaultAch.id);
-          return savedAch || defaultAch;
+          return savedAch
+            ? {
+                ...defaultAch,
+                progress: Math.min(
+                  defaultAch.target,
+                  Number(savedAch.progress) || 0
+                ),
+                unlocked:
+                  savedAch.unlocked ||
+                  (Number(savedAch.progress) || 0) >= defaultAch.target,
+              }
+            : defaultAch;
         });
         return merged;
       }
