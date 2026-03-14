@@ -9,6 +9,7 @@ const projects = [
       { title: "TypeScript", icon: "devicon-typescript-plain" },
       { title: "Tailwind CSS", icon: "devicon-tailwindcss-plain" },
       { title: "Vercel", icon: "devicon-vercel-plain" },
+      { title: "Supabase", icon: "devicon-supabase-plain" },
     ],
     github: "https://github.com/JohnnySonTrinh/role-ready",
     live: "https://role-ready-six.vercel.app/",

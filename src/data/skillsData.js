@@ -81,6 +81,11 @@ const skillsData = {
       icon: "devicon-mongodb-plain",
       ariaLabel: "Skill: MongoDB",
     },
+    {
+      title: "Supabase",
+      icon: "devicon-supabase-plain",
+      ariaLabel: "Skill: Supabase",
+    },
   ],
   3: [
     { title: "Git", icon: "devicon-git-plain", ariaLabel: "Skill: Git" },
