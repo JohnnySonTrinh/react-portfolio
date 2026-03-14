@@ -1,9 +1,24 @@
-import { Configuration, OpenAIApi } from "openai";
+import OpenAI from "openai";
 import buildSystemMessage from "./systemMessage.js";
 
-// Initialize OpenAI API
-const configuration = new Configuration({ apiKey: process.env.OPENAI_API_KEY });
-const openai = new OpenAIApi(configuration);
+const MODEL = "gpt-4o-mini";
+const TEMPERATURE = 0.7;
+
+const client = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+
+function parseBody(body) {
+  if (!body) {
+    return {};
+  }
+
+  if (typeof body === "string") {
+    return JSON.parse(body || "{}");
+  }
+
+  return body;
+}
 
 // API route handler
 export default async function handler(req, res) {
@@ -12,28 +27,33 @@ export default async function handler(req, res) {
   }
 
   try {
-    const body = typeof req.body === "string" ? JSON.parse(req.body || "{}") : (req.body || {});
-    const { userText } = body;
-    if (!userText) return res.status(400).json({ error: "Missing userText" });
+    if (!process.env.OPENAI_API_KEY) {
+      return res.status(500).json({ error: "Missing OPENAI_API_KEY" });
+    }
 
-    // Build system message from profile data
+    const body = parseBody(req.body);
+    const userText =
+      typeof body.userText === "string" ? body.userText.trim() : "";
+
+    if (!userText) {
+      return res.status(400).json({ error: "Missing userText" });
+    }
+
     const systemMessage = buildSystemMessage();
-
-    // Call OpenAI Chat Completion
-    const response = await openai.createChatCompletion({
-      model: "gpt-4o-mini",
-      messages: [
-        { role: "system", content: systemMessage },
-        { role: "user", content: userText }
-      ],
-      // Set response format and other parameters
-      temperature: 0.7
+    const response = await client.responses.create({
+      model: MODEL,
+      instructions: systemMessage,
+      input: userText,
+      temperature: TEMPERATURE,
     });
 
-    // Extract and return the AI's reply
-    const reply = response.data?.choices?.[0]?.message?.content ?? "";
+    const reply = response.output_text?.trim() || "";
     return res.status(200).json({ text: reply });
   } catch (e) {
+    if (e instanceof SyntaxError) {
+      return res.status(400).json({ error: "Invalid JSON body" });
+    }
+
     return res.status(500).json({ error: e.message || "Server error" });
   }
 }
