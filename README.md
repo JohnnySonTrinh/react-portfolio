@@ -2,312 +2,390 @@
 
 ![Mockup](documentation/readme/mockup.png)
 
-This portfolio showcases my skills and experience as a full-stack developer, blending a visually engaging design with a focus on accessibility and modern web development techniques. The theme draws inspiration from the Halo universe, creating a unique and memorable user experience.
+Version 3 of my portfolio is a Halo-inspired React experience built to showcase projects, skills, hackathons, and working style in a way that feels interactive rather than static. It combines a cinematic visual layer with AI-assisted exploration, voice interaction, achievement tracking, and a cleaner content architecture than the previous versions.
 
-## What’s new in v3
+Previous versions:
 
-- AI Agent on site: Chat assistant powered by the OpenAI API. Runs through a secure serverless route.
-- Serverless API: api/chat with a system prompt built from shared data.
-- Single source of truth: shared/profile.json feeds the assistant with projects, skills, and hackathons.
-- Stronger structure: Clear split between frontend and backend. Cleaner imports. Easier to evolve.
-- Consistent Markdown links: The server formats links so they render as clickable in the UI.
+- [README v2](documentation/README-v2.md)
+- [README v1](documentation/README-v1.md)
 
-V2 README.md [README.md](/documentation/README-v2.md) file.
+## What's New In v3
 
-> [!NOTE]  
-> V1 README.md [README.md](/documentation/README-v1.md) file.
+- AI chat assistant powered by the OpenAI API through a serverless route
+- Voice assistant powered by Vapi for voice-to-voice interaction
+- Shared profile data model in `shared/profile.json` used across the app
+- Automatic profile sync to `public/profile.json` for frontend consumption
+- Achievement system with persistent progress and reset support
+- New settings page with controls for background video, particles, UI motion, and the floating achievements panel
+- Cleaner split between UI code, shared content, and API logic
 
-### Stats
+## Highlights
+
+- Halo-inspired visual direction with custom AI-assisted art assets
+- React app with functional components, hooks, and reusable UI patterns
+- Smooth keyboard, click, and wheel-based navigation
+- Dynamic page titles for each route
+- Secure contact form flow with EmailJS
+- Chat assistant trained on portfolio-specific data instead of generic copy
+- Persistent site preferences and achievement progress via `localStorage`
+- Accessible labels and interactive states across key UI elements
+
+## Feature Overview
+
+### About
+
+The landing page introduces my background, education, and experience through a layered menu system built for both pointer and keyboard navigation.
+
+![About screenshot](documentation/readme/new-about.png)
+
+### Skills
+
+The skills page presents frontend, backend, and fullstack tooling through a game-inspired selection flow instead of a static list.
+
+![Skills screenshot](documentation/readme/new-skills.png)
+
+### Projects And Hackathons
+
+Projects and hackathons use focused detail panels, wheel navigation, hover states, and quick links to source code and live demos.
+
+![Projects screenshot](documentation/readme/new-projects.png)
+![Hackathons screenshot](documentation/readme/new-hackathons.png)
+
+### AI Chat Assistant
+
+The chatbot is backed by a serverless OpenAI route and a portfolio-specific system prompt built from shared data. Visitors can ask about my experience, stack, projects, and hackathons in natural language.
+
+Key details:
+
+- Portfolio-aware answers based on `shared/profile.json`
+- Markdown-friendly replies in the UI
+- Route-aware guidance to relevant sections like `/projects` and `/contact`
+- Email gate before chat access
+
+![Chatbot screenshot](documentation/readme/new-chatbot.png)
+
+### Voice Assistant
+
+The voice assistant uses Vapi to let visitors speak with the site instead of typing. It shares the same portfolio-focused assistant experience in a voice-first format.
+
+### Contact
+
+The contact page uses EmailJS with client-side validation and input sanitization to keep outreach simple and direct.
+
+![Contact screenshot](documentation/readme/new-contact.png)
+
+### Achievements
+
+The portfolio includes a lightweight achievement system that rewards exploration and interaction. Progress is stored locally, surfaced in a floating panel, and can be reset from the settings page.
+
+<p align="center">
+  <img src="documentation/readme/new-achievements-1.png" width="30%" />
+</p>
+
+![Achievements screenshot](documentation/readme/new-achievements-2.png)
+
+### Settings
+
+The settings page lets visitors personalize the experience without changing the design language of the site.
+
+![Achievements screenshot](documentation/readme/new-settings.png)
+
+Current options:
+
+- Toggle background video
+- Toggle particle effects
+- Pause UI motion
+- Show or hide the floating achievements panel
+- Reset achievements
+- Restore default visual settings
+
+### 404 Experience
+
+The custom 404 page keeps the theme intact with its own animated presentation instead of dropping users into a plain fallback route.
+
+![404 screenshot](documentation/readme/new-notfound.png)
+
+## Tech Stack
+
+### Core
+
+- React 18
+- JavaScript
+- React Router
+- CSS3
+- Vercel serverless functions
+
+### Integrations
+
+- OpenAI API
+- Vapi Web SDK
+- EmailJS
+- React Markdown
+- DOMPurify
+- Devicon
+- Vercel Speed Insights
+
+## Architecture
+
+The project is organized around a small set of responsibilities:
+
+- `src/` contains the React application, pages, hooks, components, and styles
+- `api/` contains serverless routes and prompt-building logic
+- `shared/profile.json` is the main source of truth for portfolio content
+- `public/profile.json` is generated automatically from the shared profile for frontend reads
+- `documentation/` stores earlier READMEs and project images
+
+### Content Flow
+
+`shared/profile.json` -> `scripts/sync-profile.js` -> `public/profile.json` -> frontend UI
+
+`shared/profile.json` -> `api/systemMessage.js` -> `api/chat.js` -> chatbot responses
+
+## Project Structure
+
+```text
+├── public/
+│   ├── favicon.ico
+│   ├── robots.txt
+│   └── index.html
+├── src/
+│   ├── assets/
+│   │   ├── github.png
+│   │   ├── global.png
+│   │   ├── stack.png
+│   │   ├── dead-eye.png
+│   │   ├── envelope.png
+│   │   ├── linkedin.png
+│   │   ├── upgrade.png
+│   │   ├── bg-universe.mp4
+│   │   ├── hawk-emblem.png
+│   │   ├── robot-bot.png
+│   │   ├── triple-corn.png
+│   │   ├── avatar-image.png
+│   │   ├── avatar-image.webp
+│   │   ├── eagle-emblem.png
+│   │   ├── the-uprising.mp3
+│   │   ├── astronaut-helmet.png
+│   │   ├── fallback-image.webp
+│   │   ├── moebius-triangle.png
+│   │   └── background-transition.mp4
+│   ├── components/
+│   │   ├── common/
+│   │   │   └── index.js
+│   │   ├── nav/
+│   │   │   ├── HamburgerMenu.jsx
+│   │   │   ├── NavMenu.jsx
+│   │   │   └── Nav.jsx
+│   │   ├── shadowOverlay/
+│   │   │   └── ShadowOverlay.jsx
+│   │   ├── ui/
+│   │   │   └── tooltip/
+│   │   │       ├── TooltipWrapper.module.css
+│   │   │       └── TooltipWrapper.jsx
+│   │   ├── avatar/
+│   │   │   └── Avatar.jsx
+│   │   ├── assistant/
+│   │   │   ├── AssistantChoice.jsx
+│   │   │   ├── VoiceAssistant.jsx
+│   │   │   └── ChatAssistant.jsx
+│   │   ├── background/
+│   │   │   ├── Background.jsx
+│   │   │   └── ParticleCanvas.jsx
+│   │   ├── playerStats/
+│   │   │   └── PlayerStats.jsx
+│   │   ├── music/
+│   │   │   └── MusicPlayer.jsx
+│   │   └── achievement/
+│   │       └── AchievementsPanel.jsx
+│   ├── data/
+│   │   ├── chatSuggestions.js
+│   │   ├── pageTitles.js
+│   │   ├── navData.js
+│   │   ├── profileTransformers.js
+│   │   └── voice-data.json
+│   ├── index.js
+│   ├── setupTests.js
+│   ├── utils/
+│   │   ├── handleProjectWheel.js
+│   │   ├── updateMetaTitle.js
+│   │   ├── handleWheelScroll.js
+│   │   └── calculateAge.js
+│   ├── hooks/
+│   │   ├── useMetaTitle.js
+│   │   ├── achievements/
+│   │   │   ├── index.js
+│   │   │   ├── useContactPage.js
+│   │   │   ├── usePageVisit.js
+│   │   │   ├── useAchievementPanel.js
+│   │   │   └── useAchievement.js
+│   │   ├── useAvatar.js
+│   │   ├── useEmailGate.js
+│   │   ├── useAbout.js
+│   │   ├── useActiveProject.js
+│   │   ├── useSkills.js
+│   │   ├── useProfileData.js
+│   │   ├── useSiteSettings.js
+│   │   ├── useVoiceAssistant.js
+│   │   ├── useContactForm.js
+│   │   ├── useChatbot.js
+│   │   ├── usePlayerStats.js
+│   │   └── useWebGLAnimation.js
+│   ├── pages/
+│   │   ├── 404page/
+│   │   │   ├── NotFound.jsx
+│   │   │   └── NotFoundMenu.jsx
+│   │   ├── achievements/
+│   │   │   ├── Achievement.jsx
+│   │   │   └── AchievementMenu.jsx
+│   │   ├── settings/
+│   │   │   ├── Settings.jsx
+│   │   │   └── SettingsMenu.jsx
+│   │   ├── projects/
+│   │   │   ├── Projects.jsx
+│   │   │   └── ProjectsMenu.jsx
+│   │   ├── about/
+│   │   │   ├── AboutMenuItems.jsx
+│   │   │   ├── About.jsx
+│   │   │   ├── AboutSubheading.jsx
+│   │   │   └── AboutMenu.jsx
+│   │   ├── chatbot/
+│   │   │   ├── Chatbot.jsx
+│   │   │   ├── EmailGate.jsx
+│   │   │   └── ChatbotMenu.jsx
+│   │   ├── contact/
+│   │   │   ├── Contact.jsx
+│   │   │   └── ContactMenu.jsx
+│   │   ├── hackathons/
+│   │   │   ├── Hackathons.jsx
+│   │   │   └── HackathonsMenu.jsx
+│   │   └── skills/
+│   │       ├── Skills.jsx
+│   │       └── SkillsMenu.jsx
+│   ├── reportWebVitals.js
+│   ├── api/
+│   │   ├── profileClient.js
+│   │   └── assistantClient.js
+│   ├── styles/
+│   │   ├── chatbot.css
+│   │   ├── ShadowOverlay.css
+│   │   ├── emailGate.css
+│   │   ├── avatar.css
+│   │   ├── assistantChoice.css
+│   │   ├── notFound.css
+│   │   ├── background.css
+│   │   ├── playerStats.css
+│   │   ├── settings.css
+│   │   ├── contact.css
+│   │   ├── chatAssistant.css
+│   │   ├── particle-effects.css
+│   │   ├── nav.css
+│   │   ├── voiceAssistant.css
+│   │   ├── aboutMenu.css
+│   │   ├── projects.css
+│   │   ├── achievementPanel.css
+│   │   ├── app.css
+│   │   ├── skillsMenu.css
+│   │   └── achievementMenu.css
+│   └── App.js
+├── vercel.json
+├── documentation/
+│   ├── readme/
+│   │   ├── mockup.png
+│   │   ├── new-about.png
+│   │   ├── new-chatbot.png
+│   │   ├── new-contact.png
+│   │   ├── new-skills.png
+│   │   ├── old-about.png
+│   │   ├── old-contact.png
+│   │   ├── old-skills.png
+│   │   ├── new-notfound.png
+│   │   ├── new-projects.png
+│   │   ├── old-projects.png
+│   │   ├── new-hackathons.png
+│   │   ├── old-hackathons.png
+│   │   ├── new-achievements-1.png
+│   │   └── new-achievements-2.png
+│   └── README-v1.md
+├── api/
+│   ├── profileData.js
+│   ├── profile.js
+│   ├── chat.js
+│   └── systemMessage.js
+├── scripts/
+│   └── sync-profile.js
+├── .gitignore
+└── package.json
+```
+
+## Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone <repository-url>
+cd react-portfolio
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Add environment variables
+
+Create `.env.local` and add the variables used by the project:
+
+```env
+OPENAI_API_KEY=your_openai_api_key
+REACT_APP_EMAILJS_SERVICE_ID=your_emailjs_service_id
+REACT_APP_EMAILJS_TEMPLATE_ID=your_emailjs_template_id
+REACT_APP_EMAILJS_USER_ID=your_emailjs_user_id
+REACT_APP_VAPI_PUBLIC_KEY=your_vapi_public_key
+REACT_APP_VAPI_AGENT_ID=your_vapi_agent_id
+```
+
+### 4. Start the app
+
+```bash
+npm start
+```
+
+The `prestart` script automatically syncs `shared/profile.json` into `public/profile.json` before the dev server starts.
+
+## Available Scripts
+
+- `npm start` runs the app in development mode
+- `npm run build` creates a production build
+- `npm test` runs the test watcher
+- `npm run sync:profile` manually syncs the shared profile file to `public/profile.json`
+
+## Deployment
+
+The site is deployed on Vercel. The frontend is served as a React app, while the AI chat flow runs through serverless API routes in `api/`.
+
+## Accessibility And UX Notes
+
+- Keyboard-friendly interactions across navigation and menu systems
+- Clear ARIA labels on key interactive elements
+- Motion and ambient effects can be reduced from the settings page
+- Fallback background image when video is disabled
+
+## Stats
 
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/t/JohnnySonTrinh/react-portfolio)](https://github.com/JohnnySonTrinh/react-portfolio/commits/main)
 [![GitHub last commit](https://img.shields.io/github/last-commit/JohnnySonTrinh/react-portfolio)](https://github.com/JohnnySonTrinh/react-portfolio/commits/main)
 [![GitHub repo size](https://img.shields.io/github/repo-size/JohnnySonTrinh/react-portfolio)](https://github.com/JohnnySonTrinh/react-portfolio)
 
-## Key Features
-
-- **Vapi.ai:** Voice interaction with Vapi.ai (mic in, audio out)
-- **AI chat assistant:** On-site agent that knows the portfolio content and routes questions back to relevant sections.
-- **AI-Generated Art Assets:** Leveraging DALL-E, Midjourney, and Picsi.AI, I created custom avatars and visual elements, enhancing the portfolio's aesthetic appeal.
-- **Responsive Design:** Built with CSS3 and designed for optimal viewing across various devices and screen sizes.
-- **React.js Framework:** Developed using React.js, utilizing functional components and hooks for efficient and maintainable code.
-- **Smooth Navigation:** Intuitive navigation employing smooth scrolling, keyboard navigation (Tab, Shift+Tab, Enter), and mouse wheel support for seamless transitions between sections.
-- **Accessibility:** Prioritized accessibility with careful consideration of ARIA attributes and keyboard navigation for all users.
-- **Interactive Elements:** Engaging animations and interactive elements enhance the overall user experience.
-- **Dynamic Meta Titles:** SEO-optimized, dynamic meta titles update for each page.
-- **Contact Form:** A secure contact form powered by EmailJS allows for quick and easy communication.
-- **Custom Hooks:** Reusable custom hooks centralize and streamline common logic for improved code maintainability.
-- **Creative 404 Page:** A unique and engaging 404 page adds a touch of personality and guides users back to the main site.
-
-## Core stack (v3)
-
-- React for the UI
-- JavaScript for app logic
-- OpenAI API for the agent
-- Vercel for hosting and serverless routes
-
-> [!NOTE]
-> Supporting tools: Vapi.ai Web, React Router, React Markdown, React Helmet, classnames, DOMPurify, Web Vitals, Testing Library.
-
-## Project Structure
-
-The project follows a well-organized structure, promoting maintainability and scalability:
-
-```
-├── .gitignore
-├── README.md
-├── api
-    ├── chat.js
-    └── systemMessage.js
-├── documentation
-    ├── README-v1.md
-    ├── README-v2.md
-    └── readme
-    │   ├── mockup.png
-    │   ├── new-about.png
-    │   ├── new-contact.png
-    │   ├── new-hackathons.png
-    │   ├── new-notfound.png
-    │   ├── new-projects.png
-    │   ├── new-skills.png
-    │   ├── old-about.png
-    │   ├── old-contact.png
-    │   ├── old-hackathons.png
-    │   ├── old-projects.png
-    │   └── old-skills.png
-├── package-lock.json
-├── package.json
-├── public
-    ├── favicon.ico
-    ├── index.html
-    └── robots.txt
-├── shared
-    └── profile.json
-├── src
-    ├── App.js
-    ├── api
-    │   └── assistantClient.js
-    ├── assets
-    │   ├── astronaut-helmet.png
-    │   ├── avatar-image.png
-    │   ├── avatar-image.webp
-    │   ├── background-transition.mp4
-    │   ├── bg-universe.mp4
-    │   ├── dead-eye.png
-    │   ├── eagle-emblem.png
-    │   ├── envelope.png
-    │   ├── fallback-image.webp
-    │   ├── github.png
-    │   ├── global.png
-    │   ├── hawk-emblem.png
-    │   ├── linkedin.png
-    │   ├── moebius-triangle.png
-    │   ├── robot-bot.png
-    │   ├── stack.png
-    │   ├── the-uprising.mp3
-    │   ├── triple-corn.png
-    │   └── upgrade.png
-    ├── components
-    │   ├── assistant
-    │   │   ├── AssistantChoice.jsx
-    │   │   ├── ChatAssistant.jsx
-    │   │   └── VoiceAssistant.jsx
-    │   ├── avatar
-    │   │   └── Avatar.jsx
-    │   ├── background
-    │   │   └── Background.jsx
-    │   ├── music
-    │   │   └── MusicPlayer.jsx
-    │   ├── nav
-    │   │   ├── HamburgerMenu.jsx
-    │   │   ├── Nav.jsx
-    │   │   └── NavMenu.jsx
-    │   ├── playerStats
-    │   │   └── PlayerStats.jsx
-    │   └── shadowOverlay
-    │   │   └── ShadowOverlay.jsx
-    ├── data
-    │   ├── chatSuggestions.js
-    │   ├── hackathonsData.js
-    │   ├── navData.js
-    │   ├── pageTitles.js
-    │   ├── projectsData.js
-    │   ├── skillsData.js
-    │   ├── subheadingsData.js
-    │   └── voice-data.json
-    ├── hooks
-    │   ├── useAbout.js
-    │   ├── useActiveProject.js
-    │   ├── useAvatar.js
-    │   ├── useChatbot.js
-    │   ├── useContactForm.js
-    │   ├── useEmailGate.js
-    │   ├── useMetaTitle.js
-    │   ├── usePlayerStats.js
-    │   ├── useSkills.js
-    │   ├── useVoiceAssistant.js
-    │   └── useWebGLAnimation.js
-    ├── index.js
-    ├── pages
-    │   ├── 404page
-    │   │   ├── NotFound.jsx
-    │   │   └── NotFoundMenu.jsx
-    │   ├── about
-    │   │   ├── About.jsx
-    │   │   ├── AboutMenu.jsx
-    │   │   ├── AboutMenuItems.jsx
-    │   │   └── AboutSubheading.jsx
-    │   ├── chatbot
-    │   │   ├── Chatbot.jsx
-    │   │   ├── ChatbotMenu.jsx
-    │   │   └── EmailGate.jsx
-    │   ├── contact
-    │   │   ├── Contact.jsx
-    │   │   └── ContactMenu.jsx
-    │   ├── hackathons
-    │   │   ├── Hackathons.jsx
-    │   │   └── HackathonsMenu.jsx
-    │   ├── projects
-    │   │   ├── Projects.jsx
-    │   │   └── ProjectsMenu.jsx
-    │   └── skills
-    │   │   ├── Skills.jsx
-    │   │   └── SkillsMenu.jsx
-    ├── reportWebVitals.js
-    ├── setupTests.js
-    ├── styles
-    │   ├── ShadowOverlay.css
-    │   ├── aboutMenu.css
-    │   ├── app.css
-    │   ├── assistantChoice.css
-    │   ├── avatar.css
-    │   ├── background.css
-    │   ├── chatAssistant.css
-    │   ├── chatbot.css
-    │   ├── contact.css
-    │   ├── emailGate.css
-    │   ├── nav.css
-    │   ├── notFound.css
-    │   ├── playerStats.css
-    │   ├── projects.css
-    │   ├── skillsMenu.css
-    │   └── voiceAssistant.css
-    └── utils
-    │   ├── calculateAge.js
-    │   ├── handleProjectWheel.js
-    │   ├── handleWheelScroll.js
-    │   └── updateMetaTitle.js
-└── vercel.json
-```
-
-## Installation and Setup
-
-1. **Clone the repository:** `git clone <repository_url>`
-2. **Navigate to the project directory:** `cd react-portfolio`
-3. **Install dependencies:** `npm install`
-4. **Start the development server:** `npm start`
-
-This will start the application in development mode. You can then view the portfolio in your web browser.
-
-**Note:** You will need to set environment variables (`.env.local`) for EmailJS to function correctly. Refer to the EmailJS documentation for setup instructions.
-
-## Features: Detailed Overview
-
-### About/Landing Page
-
-This section provides a concise yet compelling introduction to my background and skills. The design is clean and visually appealing, immediately engaging the visitor. The avatar features a subtle fade-in animation.
-
-![screenshot](documentation/readme/new-about.png)
-
-### Skills Section
-
-The skills section uses a visually appealing skill tree metaphor, enhancing engagement and providing a unique way to present my proficiencies. Clicking on a skill category triggers a smooth transition and animation.
-
-![screenshot](documentation/readme/new-skills.png)
-
-### Projects and Hackathons Sections
-
-These sections showcase a selection of my projects and hackathon contributions. Each project/hackathon includes:
-
-- A high-quality image.
-- A concise description.
-- A list of technologies used.
-- Links to the GitHub repository and live demo (if available).
-
-Navigation between projects/hackathons is smooth and intuitive, thanks to integrated mouse wheel scrolling and arrow buttons, providing a user-friendly experience.
-
-![Projects Page Screenshot](documentation/readme/new-projects.png)
-![Hackathons Page Screenshot](documentation/readme/new-hackathons.png)
-
-### AI Chat Assistant
-
-The AI-powered chat assistant provides an interactive way for visitors to learn about my background, skills, and projects. The assistant has knowledge of all portfolio content and can answer questions about my experience, redirect users to relevant sections, and provide detailed information about specific projects or skills.
-
-Key features:
-
-- Powered by OpenAI API through secure serverless routes
-- Trained on portfolio content from shared/profile.json
-- Supports markdown formatting for rich responses
-- Can direct users to specific portfolio sections
-
-![Chatbot Screenshot](documentation/readme/new-chatbot.png)
-
-### Voice Assistant
-
-The voice assistant integration powered by Vapi.ai enables hands-free interaction with the portfolio. Visitors can speak naturally to ask questions about my experience, skills, and projects, receiving audio responses that provide the same intelligent assistance as the chat interface.
-
-Key features:
-
-- Voice-to-voice interaction (mic in, audio out)
-- Powered by Vapi.ai integration
-- Natural language processing for spoken queries
-- Audio responses with human-like speech
-- Seamless integration with portfolio knowledge base
-
-![Voice Assistant Screenshot](documentation/readme/new-voice-assistant.png)
-
-### Contact Section
-
-The contact section features a clean and simple form with built-in validation to ensure accuracy. The submission is handled securely via EmailJS. A success message confirms successful submission.
-
-![Contact Page Screenshot](documentation/readme/new-contact.png)
-
-### Achievements System
-
-<p align="center">
- <img src="documentation/readme/new-achievements-1.png" width="30%" />
-</p>
-The achievements system introduces a lightweight gamification layer that encourages visitors to explore the portfolio organically. Achievements are unlocked automatically based on real user interactions, making the experience interactive and engaging rather than static.
-
-Each achievement displays clear progress indicators and unlock states, providing immediate visual feedback as users navigate through different sections of the site. Progress is tracked during the session and can be reset for testing or replayability.
-
-![Contact Page Screenshot](documentation/readme/new-achievements-2.png)
-
-Key features:
-
-- Automatic achievement tracking based on user behavior
-- Real-time progress bars and unlock indicators
-- Smooth animations and visual feedback on unlock
-- Modular and extensible achievement configuration
-- Optional reset functionality for development and testing
-- Designed to enhance engagement without distracting from content
-
-Example achievements include:
-
-- Spending time exploring the site
-- Visiting all primary sections
-- Viewing multiple projects
-- Interacting with skills and social links
-
-### 404 Page
-
-The custom 404 page provides a memorable and engaging experience when a user encounters a broken link, using WebGL to create a dynamic, animated background, enhanced by background music that activates when the central blob is clicked.
-
-![404 Page Screenshot](documentation/readme/new-notfound.png)
-
-## Contact
-
-Connect with me on [LinkedIn](https://www.linkedin.com/in/johnny-trinh-dev/) and [GitHub](https://github.com/JohnnySonTrinh).
-
 ## Credits
 
-I am grateful for the variety of resources and people that gave me feedback for how to improve to version 2 to the successful completion of this project!
+Thanks to the people, tools, and feedback loops that helped shape each version of this portfolio.
+
+Creative and technical inspiration/tools used across versions:
+
+- DALL-E
+- Midjourney
+- Picsi.AI
+- Devicon
+- Vapi
+- OpenAI
