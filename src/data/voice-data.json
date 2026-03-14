@@ -52,7 +52,8 @@
       "Node.js",
       "Next.js",
       "PostgreSQL",
-      "MongoDB"
+      "MongoDB",
+      "Supabase"
     ],
     "DevOps": [
       "Git",
@@ -64,6 +65,11 @@
     ]
   },
   "Projects": [
+    {
+      "project": "Role Ready",
+      "stack": "Next.js, TypeScript, Tailwind CSS, shadcn/ui, Vercel, Supabase, OpenAI API",
+      "description": "An AI-powered job preparation tool that helps users understand job listings before applying. By pasting a job ad, users get structured insights into the role, the company, and likely interview questions, making it easier to prepare and practice in a focused way. The project is built with a strong emphasis on clean architecture, modern frontend patterns, and scalable auth and layout design."
+    },
     {
       "project": "Tic Tac Tactics",
       "stack": "JavaScript, HTML, CSS, Bootstrap",
