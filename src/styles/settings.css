@@ -1,0 +1,99 @@
+.settings-menu {
+  position: absolute;
+  top: 53%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(42rem, 88vw);
+}
+
+.settings-card {
+  background: var(--background-window);
+  border: var(--border);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  backdrop-filter: blur(12px);
+}
+
+.settings-header {
+  margin-bottom: 1rem;
+}
+
+.settings-header h2,
+.settings-copy h3,
+.settings-copy p {
+  margin: 0;
+}
+
+.settings-header p {
+  margin-top: 0.5rem;
+  color: var(--grey);
+}
+
+.settings-section {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.action-section {
+  margin-top: 1rem;
+}
+
+.settings-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: var(--border);
+  border-radius: 0.75rem;
+}
+
+.settings-copy {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.settings-copy p {
+  color: var(--grey);
+}
+
+.settings-toggle,
+.settings-action {
+  width: auto;
+  min-width: 6.5rem;
+  padding: 0.75rem 1rem;
+  border: var(--border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--white);
+}
+
+.settings-toggle.enabled {
+  background: linear-gradient(90deg, var(--purple-bg), var(--cyan-bg));
+}
+
+.settings-action.danger {
+  background: rgba(255, 59, 59, 0.15);
+}
+
+@media (max-width: 768px) {
+  .settings-menu {
+    top: 56%;
+    width: 92vw;
+  }
+
+  .settings-card {
+    padding: 1rem;
+  }
+
+  .settings-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .settings-toggle,
+  .settings-action {
+    width: 100%;
+  }
+}

@@ -1,9 +1,11 @@
 import useAchievementPanel from "../../hooks/achievements/useAchievementPanel";
 import { TooltipWrapper } from "../common";
 import "../../styles/achievementPanel.css";
+import { useSiteSettings } from "../../hooks/useSiteSettings";
 
 // AchievementsPanel component to display user achievements
 const AchievementsPanel = () => {
+  const { settings } = useSiteSettings();
   const {
     isMinimized,
     sortedAchievements,
@@ -14,6 +16,10 @@ const AchievementsPanel = () => {
     displayText,
     unlockedCount,
   } = useAchievementPanel();
+
+  if (!settings.showAchievementsPanel) {
+    return null;
+  }
 
   return (
     <aside className={`achievements-panel fade-in ${isMinimized ? 'minimized' : ''}`} aria-label="Achievements panel">

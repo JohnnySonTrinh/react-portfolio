@@ -1,5 +1,6 @@
 import { useEffect, useRef, useCallback } from 'react';
 import "../../styles/particle-effects.css";
+import { useSiteSettings } from "../../hooks/useSiteSettings";
 
 // Next step move this logic into a custom hook (e.g. useParticleCanvas)
 
@@ -11,6 +12,7 @@ import "../../styles/particle-effects.css";
 // the rendering and physics logic directly.
 
 const ParticleCanvas = () => {
+  const { settings } = useSiteSettings();
   const canvasRef = useRef(null);
   const particlesRef = useRef([]);
   const mouseRef = useRef({ x: 0, y: 0 });
@@ -45,6 +47,10 @@ const ParticleCanvas = () => {
   }, []);
 
   useEffect(() => {
+    if (!settings.showParticles) {
+      return undefined;
+    }
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -156,13 +162,14 @@ const ParticleCanvas = () => {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [initParticles]);
+  }, [initParticles, settings.showParticles]);
 
   return (
     <canvas 
       ref={canvasRef} 
       className="particle-canvas"
       style={{
+        display: settings.showParticles ? 'block' : 'none',
         position: 'fixed',
         top: 0,
         left: 0,
