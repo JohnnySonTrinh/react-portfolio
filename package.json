@@ -22,6 +22,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "sync:profile": "node scripts/sync-profile.js",
+    "prestart": "npm run sync:profile",
+    "prebuild": "npm run sync:profile",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

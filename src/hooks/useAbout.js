@@ -1,16 +1,8 @@
 import { useState } from "react";
 
-const useAboutState = () => {
+const useAboutState = (totalMenuItems = 3, totalSubheadings = {}) => {
   const [activeMenuItem, setActiveMenuItem] = useState(1);
   const [activeSubheading, setActiveSubheading] = useState(1);
-
-  // Define the total number of menu items and subheadings
-  const totalMenuItems = 3;
-  const totalSubheadings = {
-    1: 1, // Replace with actual number of subheadings for "PERSONAL"
-    2: 2, // Replace with actual number of subheadings for "EDUCATION"
-    3: 5, // Replace with actual number of subheadings for "CAREER"
-  };
 
   // Handle menu item click and reset subheading
   const handleMenuItemClick = (menuItem) => {
@@ -23,7 +15,7 @@ const useAboutState = () => {
 
   // Handle subheading click
   const handleSubheadingClick = (subheading) => {
-    const maxSubheadings = totalSubheadings[activeMenuItem] || 0;
+    const maxSubheadings = totalSubheadings[activeMenuItem] || 1;
     if (subheading < 1 || subheading > maxSubheadings) {
       return;
     }

@@ -1,19 +1,28 @@
 import { useState } from "react";
-import skillsData from "../data/skillsData";
+import useProfileData from "./useProfileData";
+import { skillCategories } from "../data/profileTransformers";
 
 const useSkills = () => {
+  const { skillsByCategory, isLoading, error } = useProfileData();
   const [currentCategory, setCurrentCategory] = useState(1);
-  const [skills, setSkills] = useState(skillsData[1] || []);
+  const skills = skillsByCategory[currentCategory] || [];
 
   const handleMenuItemClick = (category) => {
-    if (category < 1 || category > Object.keys(skillsData).length) {
+    if (category < 1 || category > skillCategories.length) {
       return; // Prevent invalid categories
     }
     setCurrentCategory(category);
-    setSkills(skillsData[category] || []);
   };
 
   const renderContent = (skills) => {
+    if (isLoading) {
+      return <div>Loading skills...</div>;
+    }
+
+    if (error) {
+      return <div>Unable to load skills right now.</div>;
+    }
+
     if (!skills || skills.length === 0) {
       return <div>No skills available for this category.</div>;
     }
@@ -27,7 +36,7 @@ const useSkills = () => {
             role="img"
             aria-label={skill.ariaLabel}
           >
-            <i className={`devicon ${skill.icon}`} />
+            {skill.icon ? <i className={`devicon ${skill.icon}`} /> : null}
             <h3>{skill.title}</h3>
           </div>
         ))}
@@ -38,6 +47,8 @@ const useSkills = () => {
   return {
     skills,
     currentCategory,
+    isLoading,
+    error,
     handleMenuItemClick,
     renderContent,
   };

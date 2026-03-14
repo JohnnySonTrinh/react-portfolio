@@ -1,15 +1,16 @@
-import projects from "../../data/projectsData";
 import "../../styles/projects.css";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 import useActiveProject from "../../hooks/useActiveProject";
 import { useAchievements } from "../../hooks/achievements/useAchievement";
 import handleProjectWheel from "../../utils/handleProjectWheel";
 import { TooltipWrapper } from "../../components/common";
+import useProfileData from "../../hooks/useProfileData";
 
 // ProjectsMenu component
 const ProjectsMenu = () => {
   const projectsPerPage = 3; // Number of projects per page
   const { updateProgress } = useAchievements();
+  const { projects, isLoading, error } = useProfileData();
 
   // Use custom hook for active project state
   const { activeProject, changeProject, selectProject } = useActiveProject(
@@ -42,6 +43,18 @@ const ProjectsMenu = () => {
   const projectItems = projects.slice(startIndex, startIndex + projectsPerPage);
   const activeProjectData = projects[activeProject - 1];
 
+  if (isLoading) {
+    return <div className="project-menu fade-in"><p>Loading projects...</p></div>;
+  }
+
+  if (error) {
+    return <div className="project-menu fade-in"><p>Unable to load projects right now.</p></div>;
+  }
+
+  if (projects.length === 0) {
+    return <div className="project-menu fade-in"><p>No projects available.</p></div>;
+  }
+
   // Function to render the content
   const renderContent = (project) => {
     if (!project) {
@@ -58,7 +71,7 @@ const ProjectsMenu = () => {
             <div className="tech-stack">
               {project.techStack.map((tech, index) => (
                 <div key={index} className="icon-with-title">
-                  <i className={`devicon colored ${tech.icon}`}></i>
+                  {tech.icon ? <i className={`devicon colored ${tech.icon}`}></i> : null}
                   <h3>{tech.title}</h3>
                 </div>
               ))}

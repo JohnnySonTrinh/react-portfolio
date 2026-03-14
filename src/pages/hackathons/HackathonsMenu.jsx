@@ -1,13 +1,14 @@
-import hackathons from "../../data/hackathonsData";
 import "../../styles/projects.css";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 import useActiveProject from "../../hooks/useActiveProject";
 import handleProjectWheel from "../../utils/handleProjectWheel";
 import { TooltipWrapper } from "../../components/common";
+import useProfileData from "../../hooks/useProfileData";
 
 // HackathonsMenu component
 const HackathonsMenu = () => {
   const hackathonsPerPage = 3;
+  const { hackathons, isLoading, error } = useProfileData();
 
   // Use custom hook for active project state
   const { activeProject, changeProject, selectProject } = useActiveProject(
@@ -22,6 +23,18 @@ const HackathonsMenu = () => {
   );
   const activeHackathonData = hackathons[activeProject - 1];
 
+  if (isLoading) {
+    return <div className="project-menu fade-in"><p>Loading hackathons...</p></div>;
+  }
+
+  if (error) {
+    return <div className="project-menu fade-in"><p>Unable to load hackathons right now.</p></div>;
+  }
+
+  if (hackathons.length === 0) {
+    return <div className="project-menu fade-in"><p>No hackathons available.</p></div>;
+  }
+
   // Method for rendering the content of the hackathons
   const renderContent = (hackathon) => {
     if (!hackathon) {
@@ -34,11 +47,11 @@ const HackathonsMenu = () => {
         <div className="image-container">
           <img src={hackathon.image} alt={hackathon.title} loading="lazy"></img>
           <div className="hover-description">
-            {hackathon.description.props.children[1]}
+            <p>{hackathon.projectSummary}</p>
           </div>
         </div>
         <TooltipWrapper title="Hover over image to see App Description">
-          <p>{hackathon.description.props.children[0]}</p>
+          <p>{hackathon.roleSummary}</p>
         </TooltipWrapper>
         <div className="link-container">
           <a

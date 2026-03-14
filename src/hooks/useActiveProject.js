@@ -1,9 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // Custom hook to manage the active project state
 // It allows changing the active project by direction or selecting a specific project index
 const useActiveProject = (initialProject = 1, totalProjects = 0) => {
   const [activeProject, setActiveProject] = useState(initialProject);
+
+  useEffect(() => {
+    if (totalProjects === 0) {
+      return;
+    }
+
+    if (activeProject > totalProjects) {
+      setActiveProject(totalProjects);
+    }
+  }, [activeProject, totalProjects]);
 
   // Ensure the initial project is within the valid range
   const changeProject = (direction) => {

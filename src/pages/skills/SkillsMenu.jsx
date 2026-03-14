@@ -4,12 +4,14 @@ import backendIcon from "../../assets/hawk-emblem.png";
 import fullstackIcon from "../../assets/astronaut-helmet.png";
 import useSkills from "../../hooks/useSkills";
 import handleWheelScroll from "../../utils/handleWheelScroll";
+import { skillCategories } from "../../data/profileTransformers";
 
 const SkillsMenu = () => {
   const { skills, currentCategory, handleMenuItemClick, renderContent } = useSkills();
 
-  const menuItems = ["Frontend", "Backend", "Fullstack"];
-  const currentIcon = currentCategory === 1 ? frontendIcon : currentCategory === 2 ? backendIcon : fullstackIcon;
+  const menuItems = skillCategories.map((item) => item.label);
+  const currentIcon =
+    currentCategory === 1 ? frontendIcon : currentCategory === 2 ? backendIcon : fullstackIcon;
 
   // Function to handle wheel event
   const handleWheel = (e) => {
