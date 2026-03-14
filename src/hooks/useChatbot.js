@@ -10,11 +10,13 @@ const introMessages = [
     id: 1,
     sender: "ai",
     text: "Hey! I'm Johnny's personal chatbot. Ask me anything about his portfolio, skills, projects, or experience! You can type questions or click suggestions below.",
+    ctas: [],
   },
   {
     id: 2,
     sender: "ai",
     text: "💡 Tip: Type 'clear' or 'reset' to start fresh!",
+    ctas: [],
   },
 ];
 
@@ -63,6 +65,7 @@ const useChatbot = () => {
       id: messages.length + 1,
       sender: "user",
       text: userInput,
+      ctas: [],
     };
     setMessages((prev) => [...prev, userMessage]);
     setLoading(true);
@@ -72,7 +75,8 @@ const useChatbot = () => {
       const aiMessage = {
         id: messages.length + 2,
         sender: "ai",
-        text: aiResponse,
+        text: aiResponse.text,
+        ctas: aiResponse.ctas,
       };
       setMessages((prev) => [...prev, aiMessage]);
     } catch (error) {
@@ -83,6 +87,7 @@ const useChatbot = () => {
           id: messages.length + 2,
           sender: "ai",
           text: "Error: Unable to get response.",
+          ctas: [],
         },
       ]);
     } finally {

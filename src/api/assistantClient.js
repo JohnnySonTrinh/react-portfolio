@@ -19,5 +19,8 @@ export async function askAssistant(userText) {
     throw new Error(data.error || `Request failed with ${res.status}`);
   }
 
-  return data.text;
+  return {
+    text: data.text,
+    ctas: data.ctas || [],
+  };
 }

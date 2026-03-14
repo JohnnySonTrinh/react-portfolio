@@ -9,10 +9,22 @@ describe("askAssistant", () => {
     jest.spyOn(global, "fetch").mockResolvedValue({
       ok: true,
       status: 200,
-      json: async () => ({ text: "Hello from assistant" }),
+      json: async () => ({
+        text: "Hello from assistant",
+        ctas: [
+          { label: "View Projects", route: "/projects" },
+          { label: "View Skills", route: "/skills" },
+        ],
+      }),
     });
 
-    await expect(askAssistant("hello")).resolves.toBe("Hello from assistant");
+    await expect(askAssistant("hello")).resolves.toEqual({
+      text: "Hello from assistant",
+      ctas: [
+        { label: "View Projects", route: "/projects" },
+        { label: "View Skills", route: "/skills" },
+      ],
+    });
     expect(global.fetch).toHaveBeenCalledWith("/api/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },

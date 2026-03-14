@@ -1,13 +1,16 @@
 import ReactMarkdown from "react-markdown";
+import { useLocation, useNavigate } from "react-router-dom";
 import useChatbot from "../../hooks/useChatbot";
 import { useAchievements } from "../../hooks/achievements/useAchievement";
-import { followUpSuggestions } from "../../data/chatSuggestions";
+import { getSuggestionsByRoute } from "../../data/chatSuggestions";
 import "../../styles/chatAssistant.css";
 
 const isExternalLink = (href = "") =>
   /^https?:\/\//i.test(href) || href.startsWith("//");
 
 const ChatAssistant = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const {
     messages,
     loading,
@@ -20,6 +23,11 @@ const ChatAssistant = () => {
   } = useChatbot();
 
   const { updateProgress } = useAchievements();
+  const followUpSuggestions = getSuggestionsByRoute(location.pathname);
+
+  const handleCtaClick = (route) => {
+    navigate(route);
+  };
 
   // Track chat message achievements
   const handleSendWithTracking = () => {
@@ -73,6 +81,21 @@ const ChatAssistant = () => {
               >
                 {msg.text}
               </ReactMarkdown>
+              {msg.sender === "ai" && msg.ctas?.length > 0 ? (
+                <div className="chat-cta-group">
+                  {msg.ctas.map((cta) => (
+                    <button
+                      key={cta.route}
+                      type="button"
+                      className="chat-cta-button"
+                      onClick={() => handleCtaClick(cta.route)}
+                      aria-label={cta.label}
+                    >
+                      {cta.label}
+                    </button>
+                  ))}
+                </div>
+              ) : null}
             </div>
           ))}
           {loading && (
@@ -81,7 +104,7 @@ const ChatAssistant = () => {
             </div>
           )}
           <div ref={chatEndRef} />
-          {followUpSuggestions && messages.length <= 2 && (
+          {followUpSuggestions.length > 0 && messages.length <= 2 && (
             <div
               className="suggestion-buttons"
               role="group"
