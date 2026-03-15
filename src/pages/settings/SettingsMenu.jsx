@@ -1,4 +1,5 @@
 import { useAchievements } from "../../hooks/achievements/useAchievement";
+import useEmailGate from "../../hooks/useEmailGate";
 import { useSiteSettings } from "../../hooks/useSiteSettings";
 
 const settingItems = [
@@ -27,6 +28,7 @@ const settingItems = [
 const SettingsMenu = () => {
   const { settings, updateSetting, resetSettings } = useSiteSettings();
   const { resetAll } = useAchievements();
+  const { emailSubmitted, email, resetEmailGate } = useEmailGate();
 
   return (
     <div className="settings-menu fade-in">
@@ -61,6 +63,26 @@ const SettingsMenu = () => {
         </section>
 
         <section className="settings-section action-section" aria-label="Reset settings">
+          {emailSubmitted ? (
+            <div className="settings-row">
+              <div className="settings-copy">
+                <h3>Chat Assistant Email</h3>
+                <p>
+                  Saved as {email}. Clear it here if you want to enter a different email
+                  next time you open the assistant.
+                </p>
+              </div>
+              <button
+                type="button"
+                className="settings-action"
+                onClick={resetEmailGate}
+                aria-label="Change saved chatbot email"
+              >
+                CHANGE
+              </button>
+            </div>
+          ) : null}
+
           <div className="settings-row">
             <div className="settings-copy">
               <h3>Reset Achievements</h3>
