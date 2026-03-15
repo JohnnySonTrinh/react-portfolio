@@ -3,6 +3,9 @@ import { useLocation, useNavigate } from "react-router-dom";
 import useChatbot from "../../hooks/useChatbot";
 import { useAchievements } from "../../hooks/achievements/useAchievement";
 import { getSuggestionsByRoute } from "../../data/chatSuggestions";
+import useProfileData from "../../hooks/useProfileData";
+import { matchChatPortfolioItems } from "../../utils/matchChatPortfolioItems";
+import ChatPortfolioCard from "./ChatPortfolioCard";
 import "../../styles/chatAssistant.css";
 
 const isExternalLink = (href = "") =>
@@ -23,7 +26,9 @@ const ChatAssistant = () => {
   } = useChatbot();
 
   const { updateProgress } = useAchievements();
+  const { projects, hackathons } = useProfileData();
   const followUpSuggestions = getSuggestionsByRoute(location.pathname);
+  const isStreaming = loading || messages.some((message) => message.isStreaming);
 
   const handleCtaClick = (route) => {
     navigate(route);
@@ -51,58 +56,69 @@ const ChatAssistant = () => {
       role="region"
       aria-label="Johnny's Chat Assistant"
     >
-      <div className="chat-box" role="log" aria-live="polite">
+      <div className={`chat-box ${isStreaming ? "live" : ""}`} role="log" aria-live="polite">
+          {isStreaming ? (
+            <div className="chat-live-status" role="status" aria-live="polite">
+              <span className="chat-live-dot"></span>
+              Johnny's assistant is responding live...
+            </div>
+          ) : null}
           {messages.map((msg) => (
-            <div
-              key={msg.id}
-              className={`chat-bubble ${msg.sender}`}
-              role="article"
-              aria-label={`Message from ${
-                msg.sender === "ai" ? "Johnny's assistant" : "You"
-              }`}
-            >
-              <ReactMarkdown
-                components={{
-                  a: ({ href, children, ...props }) => {
-                    const external = isExternalLink(href);
-
-                    return (
-                      <a
-                        {...props}
-                        href={href}
-                        target={external ? "_blank" : undefined}
-                        rel={external ? "noopener noreferrer" : undefined}
-                      >
-                        {children}
-                      </a>
-                    );
-                  },
-                }}
+            <div key={msg.id} className={`chat-message ${msg.sender}`}>
+              <div
+                className={`chat-bubble ${msg.sender} ${
+                  msg.isStreaming ? "streaming" : ""
+                }`}
+                role="article"
+                aria-label={`Message from ${
+                  msg.sender === "ai" ? "Johnny's assistant" : "You"
+                }`}
               >
-                {msg.text}
-              </ReactMarkdown>
-              {msg.sender === "ai" && msg.ctas?.length > 0 ? (
-                <div className="chat-cta-group">
-                  {msg.ctas.map((cta) => (
-                    <button
-                      key={cta.route}
-                      type="button"
-                      className="chat-cta-button"
-                      onClick={() => handleCtaClick(cta.route)}
-                      aria-label={cta.label}
-                    >
-                      {cta.label}
-                    </button>
-                  ))}
+                <div className="chat-markdown">
+                  <ReactMarkdown
+                    components={{
+                      a: ({ href, children, ...props }) => {
+                        const external = isExternalLink(href);
+
+                        return (
+                          <a
+                            {...props}
+                            href={href}
+                            target={external ? "_blank" : undefined}
+                            rel={external ? "noopener noreferrer" : undefined}
+                          >
+                            {children}
+                          </a>
+                        );
+                      },
+                    }}
+                  >
+                    {msg.text}
+                  </ReactMarkdown>
                 </div>
-              ) : null}
+                {msg.sender === "ai" && !msg.isStreaming && msg.ctas?.length > 0 ? (
+                  <div className="chat-cta-group">
+                    {msg.ctas.map((cta) => (
+                      <button
+                        key={cta.route}
+                        type="button"
+                        className="chat-cta-button"
+                        onClick={() => handleCtaClick(cta.route)}
+                        aria-label={cta.label}
+                      >
+                        {cta.label}
+                      </button>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
+              {msg.sender === "ai" && !msg.isStreaming
+                ? matchChatPortfolioItems(msg.text, projects, hackathons).map(
+                    (item) => <ChatPortfolioCard key={`${item.type}:${item.title}`} item={item} />
+                  )
+                : null}
             </div>
           ))}
-          {loading && (
-            <div className="chat-bubble ai" role="status" aria-live="assertive">
-              Typing...
-            </div>
-          )}
           <div ref={chatEndRef} />
           {followUpSuggestions.length > 0 && messages.length <= 2 && (
             <div
@@ -129,9 +145,10 @@ const ChatAssistant = () => {
         <input
           id="chat-input"
           type="text"
-          placeholder="Type a message..."
+          placeholder={loading ? "Assistant is responding live..." : "Type a message..."}
           className="chat-input"
           value={input}
+          disabled={loading}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && handleSendWithTracking()}
           aria-label="Type a message to Johnny's assistant"
@@ -142,7 +159,7 @@ const ChatAssistant = () => {
           disabled={loading}
           aria-label={loading ? "Sending message, please wait" : "Send message"}
         >
-          {loading ? "..." : "SEND"}
+          {loading ? "LIVE" : "SEND"}
         </button>
         <button
           onClick={clearChat}

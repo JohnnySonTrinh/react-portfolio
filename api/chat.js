@@ -9,6 +9,15 @@ const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
+function wantsStreaming(req) {
+  const acceptHeader = req.headers?.accept || "";
+  return acceptHeader.includes("application/x-ndjson");
+}
+
+function writeStreamEvent(res, payload) {
+  res.write(`${JSON.stringify(payload)}\n`);
+}
+
 function parseBody(body) {
   if (!body) {
     return {};
@@ -41,21 +50,91 @@ export default async function handler(req, res) {
     }
 
     const systemMessage = buildSystemMessage();
-    const response = await client.responses.create({
-      model: MODEL,
-      instructions: systemMessage,
-      input: userText,
-      temperature: TEMPERATURE,
+    const streamRequested = wantsStreaming(req);
+
+    if (!streamRequested) {
+      const response = await client.responses.create({
+        model: MODEL,
+        instructions: systemMessage,
+        input: userText,
+        temperature: TEMPERATURE,
+      });
+
+      const reply = response.output_text?.trim() || "";
+      return res.status(200).json({
+        text: reply,
+        ctas: extractChatCtas(reply),
+      });
+    }
+
+    const abortController = new AbortController();
+    req.on("close", () => abortController.abort());
+
+    res.writeHead(200, {
+      "Content-Type": "application/x-ndjson; charset=utf-8",
+      "Cache-Control": "no-cache, no-transform",
+      Connection: "keep-alive",
+      "X-Accel-Buffering": "no",
     });
 
-    const reply = response.output_text?.trim() || "";
-    return res.status(200).json({
-      text: reply,
-      ctas: extractChatCtas(reply),
+    const stream = await client.responses.create(
+      {
+        model: MODEL,
+        instructions: systemMessage,
+        input: userText,
+        temperature: TEMPERATURE,
+        stream: true,
+      },
+      { signal: abortController.signal }
+    );
+
+    let fullText = "";
+
+    for await (const event of stream) {
+      if (event.type === "response.output_text.delta") {
+        fullText += event.delta;
+        writeStreamEvent(res, {
+          type: "text",
+          chunk: event.delta,
+        });
+      }
+
+      if (event.type === "response.completed") {
+        fullText = event.response.output_text?.trim() || fullText.trim();
+      }
+    }
+
+    writeStreamEvent(res, {
+      type: "done",
+      text: fullText,
+      ctas: extractChatCtas(fullText),
     });
+    return res.end();
   } catch (e) {
     if (e instanceof SyntaxError) {
       return res.status(400).json({ error: "Invalid JSON body" });
+    }
+
+    if (e?.name === "AbortError" || e?.name === "APIUserAbortError") {
+      if (res.headersSent) {
+        return res.end();
+      }
+
+      return res.status(499).end();
+    }
+
+    if (wantsStreaming(req) && !res.headersSent) {
+      return res
+        .status(500)
+        .json({ error: e.message || "Server error" });
+    }
+
+    if (wantsStreaming(req) && res.headersSent) {
+      writeStreamEvent(res, {
+        type: "error",
+        error: e.message || "Server error",
+      });
+      return res.end();
     }
 
     return res.status(500).json({ error: e.message || "Server error" });
