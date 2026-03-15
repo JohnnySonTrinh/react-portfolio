@@ -84,7 +84,7 @@
         "Designing a flow that feels fast and practical for job seekers"
       ],
       "whyItMatters": "This is one of the strongest examples of Johnny building a practical AI-assisted product with both frontend polish and real user value.",
-      "techStack": ["TypeScript", "Tailwind CSS", "Vercel", "Supabase", "OpenAI API"],
+      "techStack": ["TypeScript", "Tailwind CSS", "Vercel", "Supabase"],
       "github": "https://github.com/JohnnySonTrinh/role-ready",
       "live": "https://role-ready-six.vercel.app"
     },
