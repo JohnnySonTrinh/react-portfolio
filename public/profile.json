@@ -68,7 +68,7 @@
       "title": "Role Ready",
       "image": "https://raw.githubusercontent.com/JohnnySonTrinh/JohnnySonTrinh/main/projects/roleready.webp",
       "description": "Role Ready is an AI-powered job preparation tool that helps users understand job listings before applying. By pasting a job ad, users get structured insights into the role, the company, and likely interview questions, making it easier to prepare and practice in a focused way. The project is built with a strong emphasis on clean architecture, modern frontend patterns, and scalable auth and layout design.",
-      "techStack": ["Next.js", "TypeScript", "Tailwind CSS", "Vercel", "Supabase"],
+      "techStack": ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "Vercel", "Supabase", "OpenAI API"],
       "github": "https://github.com/JohnnySonTrinh/role-ready",
       "live": "https://role-ready-six.vercel.app"
     },
@@ -84,7 +84,7 @@
       "title": "Star Review",
       "image": "https://raw.githubusercontent.com/JohnnySonTrinh/JohnnySonTrinh/main/projects/star-review.webp",
       "description": "Peer review platform for developers to collaborate, give feedback, and improve code quality. Suitable for both beginners and experienced devs.",
-      "techStack": ["React", "Bootstrap", "Django", "PostgreSQL"],
+      "techStack": ["React", "Bootstrap", "Django REST Framework", "PostgreSQL"],
       "github": "https://github.com/JohnnySonTrinh/review-api",
       "live": "https://star-review-app-fb4aac8cda63.herokuapp.com"
     },
