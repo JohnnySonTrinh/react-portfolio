@@ -51,12 +51,20 @@ const useEmailGate = () => {
     }
   };
 
+  const resetEmailGate = () => {
+    setEmailSubmitted(false);
+    setEmail("");
+    setError("");
+    localStorage.removeItem(EMAIL_GATE_STORAGE_KEY);
+  };
+
   return {
     emailSubmitted,
     email,
     setEmail,
     error,
     handleEmailSubmit,
+    resetEmailGate,
   };
 };
 
