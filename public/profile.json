@@ -68,7 +68,23 @@
       "title": "Role Ready",
       "image": "https://raw.githubusercontent.com/JohnnySonTrinh/JohnnySonTrinh/main/projects/roleready.webp",
       "description": "Role Ready is an AI-powered job preparation tool that helps users understand job listings before applying. By pasting a job ad, users get structured insights into the role, the company, and likely interview questions, making it easier to prepare and practice in a focused way. The project is built with a strong emphasis on clean architecture, modern frontend patterns, and scalable auth and layout design.",
-      "techStack": ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "Vercel", "Supabase", "OpenAI API"],
+      "role": "Fullstack product builder focused on frontend architecture, UX, auth flow, and AI-powered experience design.",
+      "problem": "Job listings are often dense and vague, which makes it harder for applicants to understand the role quickly and prepare with confidence.",
+      "solution": "Role Ready turns a pasted job listing into structured role insights, company context, and likely interview questions so users can prepare in a more focused way.",
+      "impact": "Shows Johnny's ability to combine product thinking, modern frontend patterns, auth-aware architecture, and OpenAI integration in a polished real-world app.",
+      "keyFeatures": [
+        "Structured AI breakdown of job ads",
+        "Interview prep guidance from listing context",
+        "Scalable auth and layout design",
+        "Clean modern UI built for clarity"
+      ],
+      "challenges": [
+        "Keeping AI output useful instead of generic",
+        "Balancing strong UX with scalable architecture",
+        "Designing a flow that feels fast and practical for job seekers"
+      ],
+      "whyItMatters": "This is one of the strongest examples of Johnny building a practical AI-assisted product with both frontend polish and real user value.",
+      "techStack": ["TypeScript", "Tailwind CSS", "Vercel", "Supabase"],
       "github": "https://github.com/JohnnySonTrinh/role-ready",
       "live": "https://role-ready-six.vercel.app"
     },
@@ -76,6 +92,20 @@
       "title": "Tic Tac Tactics",
       "image": "https://raw.githubusercontent.com/JohnnySonTrinh/JohnnySonTrinh/main/projects/tic-tac-tactics.webp",
       "description": "Valorant Tic-Tac-Tactics combines the strategy of Valorant with the simplicity of Tic-Tac-Toe. Built as a fun, lightweight web game for both Valorant fans and casual players.",
+      "role": "Frontend developer and designer for a lightweight browser game with a strong thematic identity.",
+      "problem": "Many small browser games are mechanically simple but lack a memorable theme or personality that makes people want to share them.",
+      "solution": "Johnny combined familiar Tic-Tac-Toe gameplay with Valorant-inspired styling and positioning to create a more playful and recognizable experience.",
+      "impact": "Demonstrates Johnny's ability to make simple mechanics feel more engaging through theme, presentation, and clean UI execution.",
+      "keyFeatures": [
+        "Valorant-inspired visual theme",
+        "Accessible browser-based gameplay",
+        "Fast lightweight frontend implementation"
+      ],
+      "challenges": [
+        "Making a very simple game feel distinctive",
+        "Balancing playful styling with clear usability"
+      ],
+      "whyItMatters": "It is a good example of Johnny using design instincts and frontend fundamentals to create a fun, polished small-scope product.",
       "techStack": ["JavaScript", "HTML", "CSS", "Bootstrap"],
       "github": "https://github.com/JohnnySonTrinh/valorant-tic-tac-tactics",
       "live": "https://johnnysontrinh.github.io/valorant-tic-tac-tactics/"
@@ -84,7 +114,21 @@
       "title": "Star Review",
       "image": "https://raw.githubusercontent.com/JohnnySonTrinh/JohnnySonTrinh/main/projects/star-review.webp",
       "description": "Peer review platform for developers to collaborate, give feedback, and improve code quality. Suitable for both beginners and experienced devs.",
-      "techStack": ["React", "Bootstrap", "Django REST Framework", "PostgreSQL"],
+      "role": "Frontend-focused fullstack contributor on a peer review platform built around developer collaboration.",
+      "problem": "Developers often need a simple way to exchange code feedback, especially when they are learning and want peer input without a heavy workflow.",
+      "solution": "Star Review provides a dedicated platform for peer reviews, collaboration, and code-quality feedback in a more approachable format.",
+      "impact": "Highlights Johnny's ability to work across frontend and backend concerns in a collaboration-focused product space.",
+      "keyFeatures": [
+        "Peer review workflow for developers",
+        "Collaboration-oriented interface",
+        "Fullstack integration with Django REST and PostgreSQL"
+      ],
+      "challenges": [
+        "Connecting frontend usability with backend review data",
+        "Keeping the review experience approachable for a wide range of users"
+      ],
+      "whyItMatters": "This project gives recruiters a clear example of Johnny working on a more application-like product instead of a simple static site.",
+      "techStack": ["React", "Bootstrap", "Django", "PostgreSQL"],
       "github": "https://github.com/JohnnySonTrinh/review-api",
       "live": "https://star-review-app-fb4aac8cda63.herokuapp.com"
     },
@@ -92,6 +136,20 @@
       "title": "Coach Profile",
       "image": "https://raw.githubusercontent.com/JohnnySonTrinh/JohnnySonTrinh/main/projects/coach-profile.webp",
       "description": "A vibrant gaming profile that showcases coaching background, skills, and experiences.",
+      "role": "Solo frontend builder translating gaming identity and coaching experience into a themed portfolio site.",
+      "problem": "A standard personal site would not fully reflect Johnny's background in gaming, coaching, and community-driven communication.",
+      "solution": "Johnny built a themed profile site that blended personality, visual identity, and portfolio-style content into one focused experience.",
+      "impact": "Shows where Johnny's portfolio work started and how he learned to turn personal identity into a more memorable UI direction.",
+      "keyFeatures": [
+        "Strong themed visual identity",
+        "Clear profile storytelling",
+        "Gaming-inspired presentation"
+      ],
+      "challenges": [
+        "Balancing theme with readability",
+        "Turning a personality-driven concept into a coherent web experience"
+      ],
+      "whyItMatters": "This project reflects the bridge between Johnny's coaching background and the more advanced portfolio work he builds now.",
       "techStack": ["JavaScript", "CSS", "Bootstrap", "HTML"],
       "github": "https://github.com/JohnnySonTrinh/a-gamers-portfolio-site",
       "live": "https://johnnysontrinh.github.io/a-gamers-portfolio-site"
@@ -100,6 +158,20 @@
       "title": "Snake",
       "image": "https://raw.githubusercontent.com/JohnnySonTrinh/JohnnySonTrinh/main/projects/snake.webp",
       "description": "Classic Snake implemented in Python and rendered in a mock terminal on Heroku.",
+      "role": "Builder of a Python-based terminal game adapted for deployment and presentation on the web.",
+      "problem": "Classic programming projects often stay local and feel less approachable when shown to users or recruiters.",
+      "solution": "Johnny implemented Snake in Python and presented it in a web-hosted mock terminal format to make the project easier to experience.",
+      "impact": "Demonstrates backend and logic fundamentals, along with the ability to package a terminal-style experience for a broader audience.",
+      "keyFeatures": [
+        "Classic Snake gameplay in Python",
+        "Mock terminal presentation",
+        "Web deployment for easier access"
+      ],
+      "challenges": [
+        "Presenting a terminal game in a user-friendly way",
+        "Maintaining the charm of a command-line experience in a hosted format"
+      ],
+      "whyItMatters": "It is a useful example of Johnny's early Python problem-solving and how he thinks about making technical work more accessible.",
       "techStack": ["Python", "HTML", "CSS"],
       "github": "https://github.com/JohnnySonTrinh/snake-game",
       "live": "https://snake-eat-food-game-b47e36d72bf2.herokuapp.com"
@@ -108,6 +180,20 @@
       "title": "eBuddies",
       "image": "https://raw.githubusercontent.com/JohnnySonTrinh/JohnnySonTrinh/main/projects/ebuddies.webp",
       "description": "Community platform to connect gamers with shared interests. Focus on a welcoming space, sharing experiences, and building connections.",
+      "role": "Fullstack builder of a community-oriented platform centered on connection and shared interests.",
+      "problem": "Gamers often need social spaces that feel more welcoming and interest-driven than generic discussion platforms.",
+      "solution": "eBuddies creates a community platform designed around shared hobbies, interaction, and a friendlier sense of belonging.",
+      "impact": "Shows Johnny working on community UX, social-product thinking, and backend-backed functionality in a larger fullstack project.",
+      "keyFeatures": [
+        "Community platform for shared interests",
+        "User-focused social interaction",
+        "Fullstack implementation with Django and PostgreSQL"
+      ],
+      "challenges": [
+        "Designing for community and clarity at the same time",
+        "Building an experience that feels welcoming instead of generic"
+      ],
+      "whyItMatters": "It is one of the clearer examples of Johnny building for community needs, not just technical showcase value.",
       "techStack": ["HTML", "CSS", "Django", "PostgreSQL"],
       "github": "https://github.com/JohnnySonTrinh/ebuddies",
       "live": "https://ebuddies-42967ce5447d.herokuapp.com"
@@ -116,6 +202,22 @@
       "title": "Portfolio",
       "image": "https://raw.githubusercontent.com/JohnnySonTrinh/JohnnySonTrinh/main/projects/portfolio.webp",
       "description": "Personal portfolio that showcases projects, skills, and experience. Serves as a digital resume and demo space.",
+      "role": "Designer and developer of the full portfolio experience, including frontend interaction patterns, assistant features, and content architecture.",
+      "problem": "A portfolio needs to do more than list projects. It should communicate personality, technical skill, and decision-making in a memorable way.",
+      "solution": "Johnny built a themed React portfolio with AI chat, voice assistant support, achievement tracking, settings controls, and structured shared content.",
+      "impact": "Acts as both a resume and a live product demo, showing frontend polish, API integration, accessibility awareness, and iterative product thinking.",
+      "keyFeatures": [
+        "AI chatbot with portfolio-aware answers",
+        "Voice assistant integration",
+        "Achievements and settings system",
+        "Route-aware chat suggestions and CTA buttons"
+      ],
+      "challenges": [
+        "Balancing personality-heavy design with maintainable code",
+        "Integrating AI features without losing usability",
+        "Keeping shared content synchronized between frontend and backend"
+      ],
+      "whyItMatters": "This is the project that best combines Johnny's design sense, frontend engineering, AI integration, and product iteration.",
       "techStack": ["React", "CSS", "Vercel"],
       "github": "https://github.com/JohnnySonTrinh/react-portfolio",
       "live": "https://johnnytrinh.se"
@@ -129,6 +231,20 @@
       "roleSummary": "Frontend developer and designer. Built an accessible, intuitive UI aligned with the project's mission of inclusivity by design.",
       "projectSummary": "All-Inclusive is an accessibility-focused platform built to promote inclusive design and make learning resources easier to use for a wider range of people.",
       "description": "Frontend developer and designer. Built an accessible, intuitive UI. The project promotes inclusivity by design and offers accessibility-focused education.",
+      "role": "Frontend developer and designer focused on accessibility-first UI decisions.",
+      "problem": "Accessibility is often treated as an afterthought, which leaves many users with harder or less inclusive product experiences.",
+      "solution": "The team created an accessibility-focused platform that promotes inclusive design and makes educational content easier to navigate.",
+      "impact": "Shows Johnny contributing thoughtful frontend and UX work in a mission-driven team project with a clear social purpose.",
+      "keyFeatures": [
+        "Accessibility-focused interface",
+        "Education around inclusive design",
+        "Clearer UX for broader user needs"
+      ],
+      "challenges": [
+        "Translating accessibility goals into actual interface choices",
+        "Designing quickly while still keeping usability standards high"
+      ],
+      "whyItMatters": "This is one of the strongest hackathon examples of Johnny connecting design work with real user inclusion goals.",
       "github": "https://github.com/JohnnySonTrinh/all-inclusive",
       "demo": "https://johnnysontrinh.github.io/all-inclusive/"
     },
@@ -139,6 +255,20 @@
       "roleSummary": "Frontend developer and UX designer. Designed and implemented the UI to create a playful and intuitive quiz experience.",
       "projectSummary": "A holiday quiz game built around Christmas traditions, with multiple-choice questions and a lightweight festive interface.",
       "description": "Frontend dev and UX designer. Designed and implemented the UI for a quiz game about Christmas traditions.",
+      "role": "Frontend developer and UX designer shaping the visual direction and user flow.",
+      "problem": "Short hackathon projects can feel rushed or generic if the user experience is not prioritized early.",
+      "solution": "Johnny helped build a playful festive quiz experience with an interface that was easy to understand and visually inviting.",
+      "impact": "Demonstrates quick UX decision-making and the ability to make a time-boxed project feel polished and cohesive.",
+      "keyFeatures": [
+        "Festive themed quiz gameplay",
+        "Lightweight and approachable UI",
+        "Strong emphasis on visual engagement"
+      ],
+      "challenges": [
+        "Designing a complete user flow under time pressure",
+        "Keeping the interface playful without hurting clarity"
+      ],
+      "whyItMatters": "It is a good example of Johnny bringing UX structure and visual polish to a fast-moving team build.",
       "github": "https://github.com/ogc1231/festive-quiz-game",
       "demo": "https://ogc1231.github.io/festive-quiz-game"
     },
@@ -149,6 +279,20 @@
       "roleSummary": "Fullstack developer and co-scrum master. Helped bring the product vision to life with a strong frontend and collaboration focus.",
       "projectSummary": "A Star Wars themed encyclopedia where users explore lightsabers, their lore, and the characters who wield them.",
       "description": "Fullstack developer and co-scrum master. Built a Star Wars themed encyclopedia where users explore lightsabers and their wielders.",
+      "role": "Fullstack developer and co-scrum master with a strong frontend and collaboration focus.",
+      "problem": "Hackathon teams need quick coordination and a product concept that is broad enough to divide work while still feeling cohesive.",
+      "solution": "The team built a Star Wars themed encyclopedia around lightsabers and their wielders, with Johnny contributing across the stack and helping coordinate delivery.",
+      "impact": "Highlights both technical contribution and leadership qualities in a collaborative, fast-paced build environment.",
+      "keyFeatures": [
+        "Themed encyclopedia experience",
+        "Lore and character exploration",
+        "Fullstack team collaboration"
+      ],
+      "challenges": [
+        "Balancing team coordination with hands-on development",
+        "Keeping the product coherent while multiple contributors moved quickly"
+      ],
+      "whyItMatters": "This is one of the clearest hackathon examples of Johnny combining implementation with team leadership.",
       "github": "https://github.com/EmilionR/jedi-blades-hackathon",
       "demo": "https://jedi-blades-786cf143833b.herokuapp.com"
     },
@@ -159,6 +303,20 @@
       "roleSummary": "Built the UI for an NPV calculator and also contributed to the README and product flow.",
       "projectSummary": "A finance tool that compares the Net Present Value of up to three projects to support clearer investment decisions.",
       "description": "Created the UI for a Net Present Value calculator to compare up to three projects. Helped with README and flow design.",
+      "role": "Frontend-focused contributor on interface design, product flow, and documentation.",
+      "problem": "Finance tools can be intimidating if the interface does not help users understand the comparison clearly.",
+      "solution": "Fund Frontier turned NPV comparison into a more approachable UI that lets users evaluate multiple projects side by side.",
+      "impact": "Shows Johnny adapting quickly to a more finance-oriented product domain and contributing beyond code through flow and README work.",
+      "keyFeatures": [
+        "NPV comparison for up to three projects",
+        "Cleaner decision-support UI",
+        "Documentation contribution for the team"
+      ],
+      "challenges": [
+        "Making a finance concept feel understandable in a short timeframe",
+        "Aligning interface choices with a more analytical use case"
+      ],
+      "whyItMatters": "It is a useful example of Johnny stepping into a less familiar domain and still producing clear, user-focused UI work.",
       "github": "https://github.com/sean-meade/fund-frontier",
       "demo": "https://fund-frontier.vercel.app"
     },
@@ -169,6 +327,20 @@
       "roleSummary": "Led frontend and UX, using Figma, wireframes, and user testing to shape a clearer and more accessible experience.",
       "projectSummary": "A medication reminder and tracker that helps patients stay on schedule and manage doses more confidently.",
       "description": "Led frontend and UX. Used Figma, wireframes, and user testing. The app helps patients track medications and get reminders.",
+      "role": "Frontend and UX lead responsible for the product experience from wireframes through testing.",
+      "problem": "Medication adherence is a high-stakes problem, so reminder tools need to feel clear, trustworthy, and easy to use.",
+      "solution": "RemindiCare helps patients track medications and reminders through a more accessible, user-tested interface.",
+      "impact": "This is one of Johnny's strongest examples of combining UX process, health-focused clarity, and frontend execution in a team setting.",
+      "keyFeatures": [
+        "Medication reminders and tracking",
+        "UX process supported by Figma and wireframes",
+        "User testing to improve clarity"
+      ],
+      "challenges": [
+        "Designing for a health-related use case where usability matters more",
+        "Balancing speed with trust and accessibility"
+      ],
+      "whyItMatters": "It highlights Johnny's strength in thoughtful UX leadership and frontend delivery on a meaningful user problem.",
       "github": "https://github.com/JohnnySonTrinh/remindicare",
       "demo": "https://remindicare-c84864436945.herokuapp.com/"
     },
@@ -179,6 +351,20 @@
       "roleSummary": "Worked across the stack with a focus on landing-page animation and the About page experience.",
       "projectSummary": "A web app that generates gift ideas from personality-based inputs to help users find more thoughtful presents.",
       "description": "Worked across the stack, focused on landing page animation and the About page. Generates gift ideas from personality inputs.",
+      "role": "Cross-functional contributor working across the stack with emphasis on frontend interaction and page experience.",
+      "problem": "Gift idea tools can feel generic if they do not create a playful or emotionally engaging entry point for users.",
+      "solution": "The team built a personality-based gift idea generator, while Johnny focused on the landing page feel and About page presentation.",
+      "impact": "Shows Johnny contributing both technically and experientially, especially in the parts of the product that shape first impressions.",
+      "keyFeatures": [
+        "Gift ideas generated from personality-based inputs",
+        "Animated landing page experience",
+        "Cross-stack team contribution"
+      ],
+      "challenges": [
+        "Creating a playful tone without making the experience feel messy",
+        "Contributing across multiple areas within hackathon constraints"
+      ],
+      "whyItMatters": "It reflects Johnny's flexibility in team projects and his habit of improving the parts of a product users notice first.",
       "github": "https://github.com/lucia2007/love-letter-generator",
       "demo": "https://lucia2007.github.io/love-letter-generator/"
     }

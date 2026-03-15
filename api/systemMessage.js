@@ -1,89 +1,124 @@
 import { readProfile } from "./profileData.js";
 
-// Helper to format lists and sections
-const list = arr => Array.isArray(arr) && arr.length ? arr.join(", ") : "N/A";
+const list = (items) =>
+  Array.isArray(items) && items.length ? items.join(", ") : "N/A";
 
-// Convert array of {title, content} to markdown section
-function sectionFromPairs(arr = []) {
-  return arr
-    .map(item => `- ${item.title || ""}: ${item.content || ""}`)
+const maybeLine = (label, value) => (value ? `- ${label}: ${value}` : null);
+
+function sectionFromPairs(items = []) {
+  return items
+    .map((item) => `- ${item.title || ""}: ${item.content || ""}`)
     .join("\n");
 }
 
-// Format projects into markdown
+function listBlock(items = []) {
+  return items.length ? items.map((item) => `- ${item}`).join("\n") : "- N/A";
+}
+
 function projectsBlock(projects = []) {
   return projects
-    .map(p => {
-      const stack = Array.isArray(p.techStack) && p.techStack.length ? p.techStack.join(", ") : "N/A";
-      const git = p.github ? `[GitHub](${p.github})` : "";
-      const live = p.live ? ` · [Live](${p.live})` : "";
-      return `**${p.title}** — ${p.description} Tech: ${stack}. ${git}${live}`;
+    .map((project) => {
+      const lines = [
+        `**${project.title}**`,
+        maybeLine("Summary", project.description),
+        maybeLine("Role", project.role),
+        maybeLine("Problem", project.problem),
+        maybeLine("Solution", project.solution),
+        maybeLine("Impact", project.impact),
+        maybeLine("Why it matters", project.whyItMatters),
+        maybeLine("Tech", list(project.techStack)),
+        maybeLine("Key features", list(project.keyFeatures)),
+        maybeLine("Challenges", list(project.challenges)),
+        maybeLine("GitHub", project.github),
+        maybeLine("Live", project.live),
+      ].filter(Boolean);
+
+      return lines.join("\n");
     })
     .join("\n\n");
 }
 
-// Format hackathons into markdown
 function hackathonsBlock(items = []) {
   return items
-    .map(h => {
-      const git = h.github ? `[GitHub](${h.github})` : "";
-      const demo = h.demo ? ` · [Demo](${h.demo})` : "";
-      return `**${h.title}** (${h.team}) — ${h.description} ${git}${demo}`;
+    .map((hackathon) => {
+      const lines = [
+        `**${hackathon.title}** (${hackathon.team})`,
+        maybeLine("Summary", hackathon.description),
+        maybeLine("Role", hackathon.role || hackathon.roleSummary),
+        maybeLine("Problem", hackathon.problem),
+        maybeLine("Solution", hackathon.solution || hackathon.projectSummary),
+        maybeLine("Impact", hackathon.impact),
+        maybeLine("Why it matters", hackathon.whyItMatters),
+        maybeLine("Key features", list(hackathon.keyFeatures)),
+        maybeLine("Challenges", list(hackathon.challenges)),
+        maybeLine("GitHub", hackathon.github),
+        maybeLine("Demo", hackathon.demo),
+      ].filter(Boolean);
+
+      return lines.join("\n");
     })
     .join("\n\n");
 }
 
-// Build the comprehensive system message for the AI
 export default function buildSystemMessage() {
   const profile = readProfile();
 
-  // Extract and format profile sections
   const about = sectionFromPairs(profile.about || []);
   const education = sectionFromPairs(profile.education || []);
   const experience = sectionFromPairs(profile.experience || []);
 
-  // Format skills
   const frontend = list(profile.skills?.frontend || []);
   const backend = list(profile.skills?.backend || []);
   const fullstack = list(profile.skills?.fullstack || []);
 
-  // Format projects and hackathons
   const projects = projectsBlock(profile.projects || []);
   const hackathons = hackathonsBlock(profile.hackathons || []);
 
-  // Format contact info
-  const c = profile.contact || {};
   const contact = [
-    c.github ? `- **GitHub**: ${c.github}` : null,
-    c.linkedin ? `- **LinkedIn**: ${c.linkedin}` : null,
-    c.email ? `- **Email**: ${c.email}` : null,
-    `- Or head to the Contact page at /contact.`
-  ].filter(Boolean).join("\n");
+    maybeLine("GitHub", profile.contact?.github),
+    maybeLine("LinkedIn", profile.contact?.linkedin),
+    maybeLine("Email", profile.contact?.email),
+    "- Best direct route on the site: /contact",
+  ]
+    .filter(Boolean)
+    .join("\n");
 
-  // Construct the full prompt
-  const prompt = `
-You are Johnny's site assistant. Speak in third person about Johnny.
-Keep answers concise, friendly and practical. Focus on his skills, projects, hackathons and ways he works.
-If users drift off topic, steer back to Johnny's work. Never say you're an AI.
+  return `
+You are Johnny's site assistant. Speak in third person about Johnny. Never say you are an AI.
+
+Primary goal
+- Help visitors quickly understand Johnny's experience, strengths, projects, and hackathons.
+- Act like a sharp portfolio guide, not a generic chatbot.
+
+Answer style
+- Lead with the strongest direct answer first.
+- Keep replies concise by default, but be specific when the user asks for detail.
+- Emphasize impact, decision-making, product thinking, and role clarity, not just tools.
+- Use natural sentences, not long bullet lists, unless the user is clearly asking for a list.
+- Avoid fluff, filler, and stock phrases.
 
 Site awareness
-- You are embedded in Johnny's portfolio at johnnytrinh.se.
-- Do not suggest visiting the site. The user is already here.
-- When useful, point to sections like /projects, /hackathons or /contact.
-- When recommending a section, explicitly mention the route path in the reply, like /skills, /projects, /hackathons, /contact, /settings, or /achievements.
-- If a user asks about technologies or stack, naturally point them to /skills when relevant.
-- If a user asks about projects, naturally point them to /projects when relevant.
-- If a user asks about reaching Johnny, naturally point them to /contact when relevant.
+- The user is already inside Johnny's portfolio at johnnytrinh.se.
+- Do not tell them to visit the site. They are already here.
+- When useful, point them to relevant routes such as /skills, /projects, /hackathons, /contact, /settings, or /achievements.
+- When recommending a section, mention the route path explicitly so the UI can help them navigate there.
 
-Personality
-- Confident, sharp and to the point.
-- Comfortable with gaming and coding metaphors.
-- Skip fluff and stock phrases. Give clear, direct answers.
+Behavior rules
+- If the user asks what Johnny is best at, synthesize across experience, projects, and skills rather than listing everything.
+- If the user asks for a recommended project, prefer the project with the clearest match to their intent and explain why.
+- If the user asks about technologies, connect the stack to real project use instead of listing tools without context.
+- If the user asks about hackathons, highlight teamwork, role, speed, and collaboration.
+- If the user drifts off topic, gently steer back toward Johnny's work, projects, skills, or experience.
+- If the user asks how to contact Johnny, point them to /contact.
 
-Formatting
-- Prefer full sentences over bullet points in replies.
-- Use short, natural transitions.
-- For links, plain URLs are fine.
+High-signal strengths to keep in mind
+${listBlock([
+  "Frontend polish with a strong eye for presentation and interaction design",
+  "Fullstack adaptability across React, Django, Next.js, and API-driven work",
+  "Clear communication shaped by coaching and AI review experience",
+  "Ability to make products feel approachable, not just technically complete",
+  "Comfort blending design, engineering, and product thinking",
+])}
 
 About Johnny
 ${about}
@@ -95,9 +130,9 @@ Experience
 ${experience}
 
 Technical Skills
-Frontend: ${frontend}
-Backend: ${backend}
-Fullstack and DevOps: ${fullstack}
+- Frontend: ${frontend}
+- Backend: ${backend}
+- Fullstack and DevOps: ${fullstack}
 
 Projects
 ${projects}
@@ -108,6 +143,4 @@ ${hackathons}
 Contact
 ${contact}
   `.trim();
-
-  return prompt;
 }
