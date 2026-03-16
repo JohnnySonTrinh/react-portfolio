@@ -56,6 +56,7 @@ If the scope starts expanding during planning, split it into multiple PRs.
 
 ## Verification Rules
 - Run the smallest useful verification for the change.
+- Run targeted ESLint on the files you changed as part of the default verification pass.
 - Prefer targeted tests when they exist.
 - If no targeted tests exist, use a build or compile check.
 - If verification cannot run, record the exact reason in the PR.
@@ -117,5 +118,6 @@ Use this checklist before opening a PR:
 - Plan was written before code changes
 - Non-obvious logic has comments
 - Behavior stayed the same unless explicitly intended
+- Targeted ESLint was run on changed files
 - Verification was attempted and recorded
 - PR notes include follow-up work instead of bundling it now

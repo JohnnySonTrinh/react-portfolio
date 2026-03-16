@@ -79,9 +79,10 @@ describe("useChatbot", () => {
 
     await waitFor(() => {
       expect(result.current.loading).toBe(false);
-      expect(
-        result.current.messages[result.current.messages.length - 1].text
-      ).toBe("Error: Unable to get response.");
     });
+
+    expect(
+      result.current.messages[result.current.messages.length - 1].text
+    ).toBe("Error: Unable to get response.");
   });
 });
