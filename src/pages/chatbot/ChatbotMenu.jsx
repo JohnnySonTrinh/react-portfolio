@@ -21,7 +21,7 @@ const ChatbotMenu = () => {
       {!emailSubmitted ? (
         <EmailGate
           email={email}
-          setEmail={setEmail}
+          onEmailChange={setEmail}
           error={error}
           onSubmit={handleEmailSubmit}
         />
