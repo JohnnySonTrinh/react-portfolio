@@ -8,8 +8,15 @@ const ContactMenu = () => {
     message: "",
   };
 
-  const { formData, errors, isLoading, isSent, handleChange, handleSubmit } =
-    useContactForm(initialState);
+  const {
+    formData,
+    errors,
+    isLoading,
+    isSent,
+    submitError,
+    handleChange,
+    handleSubmit,
+  } = useContactForm(initialState);
 
   return (
     <div className="contact-menu fade-in">
@@ -63,6 +70,11 @@ const ContactMenu = () => {
               <span className="error-message">{errors.message}</span>
             )}
           </div>
+          {submitError && (
+            <p className="error-message" role="alert">
+              {submitError}
+            </p>
+          )}
           <TooltipWrapper title="Ask for Resume/CV if needed">
             <button type="submit" disabled={isLoading}>
               {isLoading ? "SENDING..." : "SUBMIT"}
