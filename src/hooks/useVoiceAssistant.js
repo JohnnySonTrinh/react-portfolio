@@ -1,5 +1,16 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Vapi from "@vapi-ai/web";
+
+const isFinalTranscriptMessage = (message) =>
+  message.type === "transcript" && message.transcriptType === "final";
+
+const isAssistantSpeechUpdate = (message) =>
+  message.type === "speech-update" && message.role === "assistant";
+
+const createTranscriptMessage = (message) => ({
+  role: message.role,
+  text: message.transcript,
+});
 
 const useVoiceAssistant = () => {
   const vapiRef = useRef(null);
@@ -10,40 +21,48 @@ const useVoiceAssistant = () => {
   const [messages, setMessages] = useState([]);
   const [isAssistantTyping, setIsAssistantTyping] = useState(false);
 
+  const resetCallState = useCallback(() => {
+    callRef.current = null;
+    setInCall(false);
+    setIsAssistantTyping(false);
+  }, []);
+
+  const handleCallStart = useCallback((call) => {
+    callRef.current = call;
+    setInCall(true);
+  }, []);
+
+  const handleVapiMessage = useCallback((message) => {
+    if (isFinalTranscriptMessage(message)) {
+      setMessages((prev) => [...prev, createTranscriptMessage(message)]);
+    }
+
+    if (isAssistantSpeechUpdate(message)) {
+      setIsAssistantTyping(message.status === "started");
+    }
+  }, []);
+
+  const handleCallEnd = useCallback(() => {
+    resetCallState();
+  }, [resetCallState]);
+
   useEffect(() => {
+    // Keep the Vapi client setup in one place so start/end actions only deal with call control.
     const vapi = new Vapi(process.env.REACT_APP_VAPI_PUBLIC_KEY);
     vapiRef.current = vapi;
 
-    vapi.on("call-start", (call) => {
-      callRef.current = call;
-      setInCall(true);
-    });
-
-    vapi.on("message", (msg) => {
-      if (msg.type === "transcript" && msg.transcriptType === "final") {
-        setMessages((prev) => [
-          ...prev,
-          { role: msg.role, text: msg.transcript },
-        ]);
-      }
-
-      if (msg.type === "speech-update" && msg.role === "assistant") {
-        setIsAssistantTyping(msg.status === "started");
-      }
-    });
-
-    vapi.on("call-end", () => {
-      callRef.current = null;
-      setInCall(false);
-      setIsAssistantTyping(false);
-    });
+    vapi.on("call-start", handleCallStart);
+    vapi.on("message", handleVapiMessage);
+    vapi.on("call-end", handleCallEnd);
 
     return () => {
       vapi.stop();
+      resetCallState();
     };
-  }, []);
+  }, [handleCallEnd, handleCallStart, handleVapiMessage, resetCallState]);
 
   useEffect(() => {
+    // Scroll the transcript as new final messages arrive.
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
