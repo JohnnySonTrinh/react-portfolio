@@ -32,6 +32,7 @@ This file tells coding agents how to work safely and efficiently in this reposit
 - Start local app: `npm start`
 - Build production bundle: `npm run build`
 - Run tests: `npm test -- --watch=false`
+- Run ESLint on targeted files: `npx eslint <file ...>`
 - Sync shared profile data: `npm run sync:profile`
 
 ## Architecture Notes
@@ -89,6 +90,7 @@ Rules:
 - For UI changes, run at least a build or relevant tests when possible.
 - For API changes, verify request validation, error handling, and client compatibility.
 - For profile/content changes, sync the generated profile file and sanity-check affected pages.
+- For refactors, run targeted ESLint on the files you changed alongside the smallest useful test command.
 
 ## Good Change Patterns
 - Update source data, then sync generated data.

@@ -24,6 +24,7 @@
 
 ## Verification
 
+- ESLint run:
 - Tests run:
 - Build or compile checks:
 - Manual checks:
