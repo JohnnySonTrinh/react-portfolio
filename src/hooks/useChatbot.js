@@ -233,7 +233,8 @@ const useChatbot = () => {
   useEffect(() => {
     return () => {
       abortActiveRequest();
-      clearPendingChunkState();
+      pendingChunkRef.current = "";
+      clearFlushTimeout();
     };
   }, []);
 
