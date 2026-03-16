@@ -8,8 +8,104 @@ import { matchChatPortfolioItems } from "../../utils/matchChatPortfolioItems";
 import ChatPortfolioCard from "./ChatPortfolioCard";
 import "../../styles/chatAssistant.css";
 
+const CHAT_ACHIEVEMENT_IDS = ["chat_messages", "conversation_starter"];
+
 const isExternalLink = (href = "") =>
   /^https?:\/\//i.test(href) || href.startsWith("//");
+
+const getMessageLabel = (sender) =>
+  `Message from ${sender === "ai" ? "Johnny's assistant" : "You"}`;
+
+const trackChatAchievements = (updateProgress) => {
+  CHAT_ACHIEVEMENT_IDS.forEach((id) => {
+    updateProgress(id);
+  });
+};
+
+const LiveStatus = () => (
+  <div className="chat-live-status" role="status" aria-live="polite">
+    <span className="chat-live-dot"></span>
+    Johnny's assistant is responding live...
+  </div>
+);
+
+const ChatMessage = ({ msg, projects, hackathons, onCtaClick }) => {
+  const matchedItems =
+    msg.sender === "ai" && !msg.isStreaming
+      ? matchChatPortfolioItems(msg.text, projects, hackathons) || []
+      : [];
+
+  return (
+    <div className={`chat-message ${msg.sender}`}>
+      <div
+        className={`chat-bubble ${msg.sender} ${
+          msg.isStreaming ? "streaming" : ""
+        }`}
+        role="article"
+        aria-label={getMessageLabel(msg.sender)}
+      >
+        <div className="chat-markdown">
+          <ReactMarkdown
+            components={{
+              a: ({ href, children, ...props }) => {
+                const external = isExternalLink(href);
+
+                return (
+                  <a
+                    {...props}
+                    href={href}
+                    target={external ? "_blank" : undefined}
+                    rel={external ? "noopener noreferrer" : undefined}
+                  >
+                    {children}
+                  </a>
+                );
+              },
+            }}
+          >
+            {msg.text}
+          </ReactMarkdown>
+        </div>
+        {msg.sender === "ai" && !msg.isStreaming && msg.ctas?.length > 0 ? (
+          <div className="chat-cta-group">
+            {msg.ctas.map((cta) => (
+              <button
+                key={cta.route}
+                type="button"
+                className="chat-cta-button"
+                onClick={() => onCtaClick(cta.route)}
+                aria-label={cta.label}
+              >
+                {cta.label}
+              </button>
+            ))}
+          </div>
+        ) : null}
+      </div>
+      {matchedItems.map((item) => (
+        <ChatPortfolioCard key={`${item.type}:${item.title}`} item={item} />
+      ))}
+    </div>
+  );
+};
+
+const SuggestionButtons = ({ suggestions, onSuggestionClick }) => (
+  <div
+    className="suggestion-buttons"
+    role="group"
+    aria-label="Suggested questions"
+  >
+    {suggestions.map((suggestion, index) => (
+      <button
+        key={index}
+        onClick={() => onSuggestionClick(suggestion)}
+        aria-label={`Send suggested message: ${suggestion}`}
+      >
+        {suggestion}
+      </button>
+    ))}
+  </div>
+);
 
 const ChatAssistant = () => {
   const location = useLocation();
@@ -29,25 +125,22 @@ const ChatAssistant = () => {
   const { projects, hackathons } = useProfileData();
   const followUpSuggestions = getSuggestionsByRoute(location.pathname);
   const isStreaming = loading || messages.some((message) => message.isStreaming);
+  const shouldShowSuggestions =
+    followUpSuggestions.length > 0 && messages.length <= 2;
 
   const handleCtaClick = (route) => {
     navigate(route);
   };
 
-  // Track chat message achievements
+  // Keep achievement updates in one place so typed and suggested prompts stay aligned.
   const handleSendWithTracking = () => {
     handleSendMessage();
-    // Update both chat achievements
-    updateProgress("chat_messages"); // For 5 messages achievement
-    updateProgress("conversation_starter"); // For 10 messages achievement
+    trackChatAchievements(updateProgress);
   };
 
-  // Track suggestion button messages
   const handleSuggestionClick = (suggestion) => {
     sendMessage(suggestion);
-    // Update both chat achievements
-    updateProgress("chat_messages"); // For 5 messages achievement
-    updateProgress("conversation_starter"); // For 10 messages achievement
+    trackChatAchievements(updateProgress);
   };
 
   return (
@@ -57,86 +150,23 @@ const ChatAssistant = () => {
       aria-label="Johnny's Chat Assistant"
     >
       <div className={`chat-box ${isStreaming ? "live" : ""}`} role="log" aria-live="polite">
-          {isStreaming ? (
-            <div className="chat-live-status" role="status" aria-live="polite">
-              <span className="chat-live-dot"></span>
-              Johnny's assistant is responding live...
-            </div>
-          ) : null}
-          {messages.map((msg) => (
-            <div key={msg.id} className={`chat-message ${msg.sender}`}>
-              <div
-                className={`chat-bubble ${msg.sender} ${
-                  msg.isStreaming ? "streaming" : ""
-                }`}
-                role="article"
-                aria-label={`Message from ${
-                  msg.sender === "ai" ? "Johnny's assistant" : "You"
-                }`}
-              >
-                <div className="chat-markdown">
-                  <ReactMarkdown
-                    components={{
-                      a: ({ href, children, ...props }) => {
-                        const external = isExternalLink(href);
-
-                        return (
-                          <a
-                            {...props}
-                            href={href}
-                            target={external ? "_blank" : undefined}
-                            rel={external ? "noopener noreferrer" : undefined}
-                          >
-                            {children}
-                          </a>
-                        );
-                      },
-                    }}
-                  >
-                    {msg.text}
-                  </ReactMarkdown>
-                </div>
-                {msg.sender === "ai" && !msg.isStreaming && msg.ctas?.length > 0 ? (
-                  <div className="chat-cta-group">
-                    {msg.ctas.map((cta) => (
-                      <button
-                        key={cta.route}
-                        type="button"
-                        className="chat-cta-button"
-                        onClick={() => handleCtaClick(cta.route)}
-                        aria-label={cta.label}
-                      >
-                        {cta.label}
-                      </button>
-                    ))}
-                  </div>
-                ) : null}
-              </div>
-              {msg.sender === "ai" && !msg.isStreaming
-                ? matchChatPortfolioItems(msg.text, projects, hackathons).map(
-                    (item) => <ChatPortfolioCard key={`${item.type}:${item.title}`} item={item} />
-                  )
-                : null}
-            </div>
-          ))}
-          <div ref={chatEndRef} />
-          {followUpSuggestions.length > 0 && messages.length <= 2 && (
-            <div
-              className="suggestion-buttons"
-              role="group"
-              aria-label="Suggested questions"
-            >
-              {followUpSuggestions.map((suggestion, index) => (
-                <button
-                  key={index}
-                  onClick={() => handleSuggestionClick(suggestion)}
-                  aria-label={`Send suggested message: ${suggestion}`}
-                >
-                  {suggestion}
-                </button>
-              ))}
-            </div>
-          )}
+        {isStreaming ? <LiveStatus /> : null}
+        {messages.map((msg) => (
+          <ChatMessage
+            key={msg.id}
+            msg={msg}
+            projects={projects}
+            hackathons={hackathons}
+            onCtaClick={handleCtaClick}
+          />
+        ))}
+        <div ref={chatEndRef} />
+        {shouldShowSuggestions ? (
+          <SuggestionButtons
+            suggestions={followUpSuggestions}
+            onSuggestionClick={handleSuggestionClick}
+          />
+        ) : null}
       </div>
       <div className="chat-input-container">
         <label htmlFor="chat-input" className="visually-hidden">
