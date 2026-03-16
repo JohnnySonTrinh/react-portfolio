@@ -1,20 +1,8 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Nav from "./components/nav/Nav";
-import Background from "./components/background/Background";
-import ParticleCanvas from "./components/background/ParticleCanvas";
-import PlayerStats from "./components/playerStats/PlayerStats";
-import AchievementsPanel from "./components/achievement/AchievementsPanel";
+import { BrowserRouter as Router } from "react-router-dom";
+import AppShell from "./components/layout/AppShell";
 import { AchievementsProvider } from "./hooks/achievements/useAchievement";
 import { SiteSettingsProvider } from "./hooks/useSiteSettings";
-import About from "./pages/about/About";
-import Skills from "./pages/skills/Skills";
-import Projects from "./pages/projects/Projects";
-import Hackathons from "./pages/hackathons/Hackathons";
-import Chatbot from "./pages/chatbot/Chatbot";
-import Achievement from "./pages/achievements/Achievement";
-import Contact from "./pages/contact/Contact";
-import Settings from "./pages/settings/Settings";
-import NotFound from "./pages/404page/NotFound";
+import AppRoutes from "./routes/AppRoutes";
 import "./styles/app.css";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 
@@ -24,22 +12,9 @@ const App = () => {
       <AchievementsProvider>
         <Router>
           <SpeedInsights />
-          <Background />
-          <ParticleCanvas />
-          <Nav />
-          <PlayerStats />
-          <Routes>
-            <Route path="/" element={<About />} />
-            <Route path="/skills" element={<Skills />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/hackathons" element={<Hackathons />} />
-            <Route path="/chatbot" element={<Chatbot />} />
-            <Route path="/achievements" element={<Achievement />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/settings" element={<Settings />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          <AchievementsPanel />
+          <AppShell>
+            <AppRoutes />
+          </AppShell>
         </Router>
       </AchievementsProvider>
     </SiteSettingsProvider>
