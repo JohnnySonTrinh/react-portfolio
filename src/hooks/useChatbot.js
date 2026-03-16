@@ -23,6 +23,8 @@ const introMessages = [
   },
 ];
 
+const getDefaultMessages = () => normalizeMessages(introMessages);
+
 const normalizeMessages = (items = []) =>
   items.map((item) => ({
     ...item,
@@ -30,13 +32,69 @@ const normalizeMessages = (items = []) =>
     isStreaming: false,
   }));
 
+const readStoredMessages = () => {
+  try {
+    const savedMessages = localStorage.getItem(CHAT_STORAGE_KEY);
+
+    if (!savedMessages) {
+      return getDefaultMessages();
+    }
+
+    const parsedMessages = JSON.parse(savedMessages);
+
+    if (!Array.isArray(parsedMessages) || parsedMessages.length === 0) {
+      return getDefaultMessages();
+    }
+
+    return normalizeMessages(parsedMessages);
+  } catch {
+    return getDefaultMessages();
+  }
+};
+
+const writeStoredMessages = (messages) => {
+  localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(messages));
+};
+
+const getHighestMessageId = (messages) =>
+  messages.reduce((maxId, message) => Math.max(maxId, message.id || 0), 0);
+
+const getResetMessageId = () => introMessages.length + 1;
+
+const createUserMessage = (id, text) => ({
+  id,
+  sender: "user",
+  text,
+  ctas: [],
+  isStreaming: false,
+});
+
+const createAssistantMessage = (id) => ({
+  id,
+  sender: "ai",
+  text: "",
+  ctas: [],
+  isStreaming: true,
+});
+
+const updateMessageById = (messages, messageId, updater) =>
+  messages.map((message) =>
+    message.id === messageId ? updater(message) : message
+  );
+
+const isResetCommand = (input) => {
+  const normalizedInput = input.toLowerCase().trim();
+
+  return normalizedInput === "clear" || normalizedInput === "reset";
+};
+
 const useChatbot = () => {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
   const [input, setInput] = useState("");
   const chatEndRef = useRef(null);
   const abortControllerRef = useRef(null);
-  const nextMessageIdRef = useRef(introMessages.length + 1);
+  const nextMessageIdRef = useRef(getResetMessageId());
   const pendingChunkRef = useRef("");
   const flushTimeoutRef = useRef(null);
 
@@ -60,6 +118,11 @@ const useChatbot = () => {
     }
   };
 
+  const clearPendingChunkState = () => {
+    pendingChunkRef.current = "";
+    clearFlushTimeout();
+  };
+
   const flushPendingChunk = (messageId) => {
     const pendingChunk = pendingChunkRef.current;
     if (!pendingChunk) {
@@ -70,16 +133,109 @@ const useChatbot = () => {
     clearFlushTimeout();
 
     setMessages((prev) =>
-      prev.map((message) =>
-        message.id === messageId
-          ? {
-              ...message,
-              text: `${message.text}${pendingChunk}`,
-            }
-          : message
-      )
+      updateMessageById(prev, messageId, (message) => ({
+        ...message,
+        text: `${message.text}${pendingChunk}`,
+      }))
     );
   };
+
+  const finalizeAssistantMessage = (messageId, { text, ctas }) => {
+    setMessages((prev) =>
+      updateMessageById(prev, messageId, (message) => ({
+        ...message,
+        text: text || message.text,
+        ctas,
+        isStreaming: false,
+      }))
+    );
+  };
+
+  const failAssistantMessage = (messageId) => {
+    setMessages((prev) =>
+      updateMessageById(prev, messageId, (message) => ({
+        ...message,
+        text: "Error: Unable to get response.",
+        ctas: [],
+        isStreaming: false,
+      }))
+    );
+  };
+
+  const resetRequestState = () => {
+    clearPendingChunkState();
+    abortControllerRef.current = null;
+    setLoading(false);
+  };
+
+  const restoreStoredMessages = () => {
+    const storedMessages = readStoredMessages();
+
+    setMessages(storedMessages);
+    nextMessageIdRef.current = getHighestMessageId(storedMessages) + 1;
+
+    if (storedMessages.length === introMessages.length) {
+      writeStoredMessages(storedMessages);
+    }
+  };
+
+  const resetChatState = () => {
+    const defaultMessages = getDefaultMessages();
+
+    nextMessageIdRef.current = getResetMessageId();
+    setMessages(defaultMessages);
+    writeStoredMessages(defaultMessages);
+    setLoading(false);
+  };
+
+  const appendPendingMessages = (userInput) => {
+    const userMessage = createUserMessage(getNextMessageId(), userInput);
+    const aiMessageId = getNextMessageId();
+    const aiMessage = createAssistantMessage(aiMessageId);
+
+    setMessages((prev) => [...prev, userMessage, aiMessage]);
+
+    return aiMessageId;
+  };
+
+  const startStreamingRequest = async (userInput, aiMessageId) => {
+    const abortController = new AbortController();
+    abortControllerRef.current = abortController;
+
+    await askAssistantStream(userInput, {
+      signal: abortController.signal,
+      onText: (chunk) => {
+        scheduleChunkFlush(aiMessageId, chunk);
+      },
+      onDone: ({ text, ctas }) => {
+        flushPendingChunk(aiMessageId);
+        finalizeAssistantMessage(aiMessageId, { text, ctas });
+        resetRequestState();
+      },
+    });
+  };
+
+  useEffect(() => {
+    restoreStoredMessages();
+  }, []);
+
+  // Persist only completed messages so reloads never restore a partially streamed reply.
+  useEffect(() => {
+    if (messages.length > 0 && !messages.some((message) => message.isStreaming)) {
+      writeStoredMessages(messages);
+    }
+  }, [messages]);
+
+  useEffect(() => {
+    chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
+  useEffect(() => {
+    return () => {
+      abortActiveRequest();
+      clearPendingChunkState();
+    };
+  }, []);
 
   const scheduleChunkFlush = (messageId, chunk) => {
     pendingChunkRef.current += chunk;
@@ -99,52 +255,10 @@ const useChatbot = () => {
     }
   };
 
-  useEffect(() => {
-    try {
-      const savedMessages = localStorage.getItem(CHAT_STORAGE_KEY);
-      if (savedMessages && JSON.parse(savedMessages).length > 0) {
-        const normalizedMessages = normalizeMessages(JSON.parse(savedMessages));
-        setMessages(normalizedMessages);
-        const highestId = normalizedMessages.reduce(
-          (maxId, message) => Math.max(maxId, message.id || 0),
-          0
-        );
-        nextMessageIdRef.current = highestId + 1;
-      } else {
-        setMessages(introMessages);
-        localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(introMessages));
-      }
-    } catch {
-      setMessages(introMessages);
-      localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(introMessages));
-    }
-  }, []);
-
-  useEffect(() => {
-    if (messages.length > 0 && !messages.some((message) => message.isStreaming)) {
-      localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(messages));
-    }
-  }, [messages]);
-
-  useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
-
-  useEffect(() => {
-    return () => {
-      abortActiveRequest();
-      clearFlushTimeout();
-    };
-  }, []);
-
   const clearChat = () => {
     abortActiveRequest();
-    clearFlushTimeout();
-    pendingChunkRef.current = "";
-    nextMessageIdRef.current = introMessages.length + 1;
-    setMessages(introMessages);
-    localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(introMessages));
-    setLoading(false);
+    clearPendingChunkState();
+    resetChatState();
   };
 
   const sendMessage = async (userInput) => {
@@ -152,83 +266,25 @@ const useChatbot = () => {
       return;
     }
 
-    const lowerInput = userInput.toLowerCase().trim();
-    if (lowerInput === "clear" || lowerInput === "reset") {
+    if (isResetCommand(userInput)) {
       clearChat();
       return;
     }
 
-    const userMessage = {
-      id: getNextMessageId(),
-      sender: "user",
-      text: userInput,
-      ctas: [],
-      isStreaming: false,
-    };
-
-    const aiMessageId = getNextMessageId();
-    const aiMessage = {
-      id: aiMessageId,
-      sender: "ai",
-      text: "",
-      ctas: [],
-      isStreaming: true,
-    };
-
-    setMessages((prev) => [...prev, userMessage, aiMessage]);
+    const aiMessageId = appendPendingMessages(userInput);
     setLoading(true);
 
-    const abortController = new AbortController();
-    abortControllerRef.current = abortController;
-
     try {
-      await askAssistantStream(userInput, {
-        signal: abortController.signal,
-        onText: (chunk) => {
-          scheduleChunkFlush(aiMessageId, chunk);
-        },
-        onDone: ({ text, ctas }) => {
-          flushPendingChunk(aiMessageId);
-          setMessages((prev) =>
-            prev.map((message) =>
-              message.id === aiMessageId
-                ? {
-                    ...message,
-                    text: text || message.text,
-                    ctas,
-                    isStreaming: false,
-                  }
-                : message
-            )
-          );
-          setLoading(false);
-          abortControllerRef.current = null;
-        },
-      });
+      await startStreamingRequest(userInput, aiMessageId);
     } catch (error) {
       if (error.name === "AbortError") {
-        clearFlushTimeout();
-        pendingChunkRef.current = "";
+        clearPendingChunkState();
         return;
       }
 
       console.error("Error fetching AI response:", error);
-      clearFlushTimeout();
-      pendingChunkRef.current = "";
-      setMessages((prev) =>
-        prev.map((message) =>
-          message.id === aiMessageId
-            ? {
-                ...message,
-                text: "Error: Unable to get response.",
-                ctas: [],
-                isStreaming: false,
-              }
-            : message
-        )
-      );
-      setLoading(false);
-      abortControllerRef.current = null;
+      failAssistantMessage(aiMessageId);
+      resetRequestState();
     }
   };
 
