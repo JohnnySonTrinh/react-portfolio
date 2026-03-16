@@ -1,6 +1,6 @@
 import "../../styles/emailGate.css";
 
-const EmailGate = ({ email, setEmail, error, onSubmit }) => {
+const EmailGate = ({ email, onEmailChange, error, onSubmit }) => {
   return (
     <div className="email-gate">
       <div className="email-intro-box">
@@ -17,7 +17,7 @@ const EmailGate = ({ email, setEmail, error, onSubmit }) => {
             type="email"
             className="email-input"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => onEmailChange(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && onSubmit()}
             placeholder="your@email.com"
             aria-label="Email input"
