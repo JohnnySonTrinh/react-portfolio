@@ -21,6 +21,10 @@ const shuffleLabels = (labels) => {
 };
 
 const getStatusText = (progress, statusLabels) => {
+  if (progress >= 100) {
+    return startupLoaderConfig.text.finalStatusLabel;
+  }
+
   if (statusLabels.length === 0) {
     return "";
   }
@@ -71,6 +75,7 @@ const useStartupLoader = ({ isReady = true } = {}) => {
     }
 
     let elapsedMs = 0;
+    let finalStatusTimeout;
 
     const progressInterval = window.setInterval(() => {
       elapsedMs += STARTUP_INTERVAL_MS;
@@ -82,8 +87,11 @@ const useStartupLoader = ({ isReady = true } = {}) => {
           hasMinimumDurationElapsed && (isReadyRef.current || hasMaxWaitElapsed);
 
         if (canComplete) {
-          setIsComplete(true);
           window.clearInterval(progressInterval);
+          finalStatusTimeout = window.setTimeout(() => {
+            setIsComplete(true);
+          }, startupLoaderConfig.timing.finalStatusHoldMs);
+
           return 100;
         }
 
@@ -93,6 +101,7 @@ const useStartupLoader = ({ isReady = true } = {}) => {
 
     return () => {
       window.clearInterval(progressInterval);
+      window.clearTimeout(finalStatusTimeout);
     };
   }, [settings.enableUiMotion]);
 

@@ -68,6 +68,13 @@ describe("useStartupLoader", () => {
     });
 
     expect(result.current.progress).toBe(100);
+    expect(result.current.statusText).toBe(startupLoaderConfig.text.finalStatusLabel);
+    expect(result.current.isComplete).toBe(false);
+
+    act(() => {
+      jest.advanceTimersByTime(startupLoaderConfig.timing.finalStatusHoldMs);
+    });
+
     expect(result.current.isComplete).toBe(true);
   });
 
@@ -79,6 +86,13 @@ describe("useStartupLoader", () => {
     });
 
     expect(result.current.progress).toBe(100);
+    expect(result.current.statusText).toBe(startupLoaderConfig.text.finalStatusLabel);
+    expect(result.current.isComplete).toBe(false);
+
+    act(() => {
+      jest.advanceTimersByTime(startupLoaderConfig.timing.finalStatusHoldMs);
+    });
+
     expect(result.current.isComplete).toBe(true);
   });
 });

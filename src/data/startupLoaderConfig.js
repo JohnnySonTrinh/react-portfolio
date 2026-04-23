@@ -8,16 +8,20 @@ export const startupLoaderConfig = {
     scrambleTarget: "JOHNNY TRINH",
     // The target text should be fully readable once progress reaches this value.
     scrambleCompleteAtProgress: 60,
-    // Main title in the center of the startup screen.
+    // Main title in the center of the startup screen while loading.
     title: "INITIALIZING",
+    // Main title shown briefly at 100% before the loader fades.
+    finalTitle: "ONLINE",
+    // Brief confirmation shown at 100% before the loader fades away.
+    finalStatusLabel: "PROFILE READY",
     // The loader shuffles this list on each fresh startup run.
     statusLabels: [
       "ESTABLISHING UPLINK",
       "SYNCING ARMOR SYSTEMS",
-      "LOADING MISSION DATA",
-      "VERIFYING CLEARANCE",
       "ACCESSING SERVICE RECORD",
-      "LINKING AI CORE",
+      "INDEXING PROJECT ARCHIVE",
+      "CALIBRATING SKILL MATRIX",
+      "FETCHING PROFILE DATA",
     ],
   },
   timing: {
@@ -27,6 +31,10 @@ export const startupLoaderConfig = {
     maxWaitSeconds: 4,
     // Hold here until required startup content is ready or maxWaitSeconds is reached.
     readinessProgressCap: 88,
+    // Hold the final ready state long enough to read before the fade begins.
+    finalStatusHoldMs: 450,
+    // Time used to scramble into the final title during the ready hold.
+    finalTitleScrambleMs: 320,
     // Let the startup panel fade out smoothly instead of cutting away.
     fadeDurationMs: 900,
     // Fast exit used when interface motion is disabled in settings.

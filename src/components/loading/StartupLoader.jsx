@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import fallbackImage from "../../assets/fallback-image.webp";
 import { startupLoaderConfig } from "../../data/startupLoaderConfig";
 import "../../styles/startupLoader.css";
@@ -36,6 +36,13 @@ const getScrambledText = (text, revealProgress) => {
 
 const StartupLoader = ({ progress, isComplete, isVisible, statusText }) => {
   const revealProgress = progress / 100;
+  const [finalTitleText, setFinalTitleText] = useState(
+    startupLoaderConfig.text.title
+  );
+  const titleText =
+    progress >= 100
+      ? finalTitleText
+      : startupLoaderConfig.text.title;
   const {
     startBlackOverlay,
     endBlackOverlay,
@@ -72,6 +79,43 @@ const StartupLoader = ({ progress, isComplete, isVisible, statusText }) => {
     return eyebrow.replace(scrambleTarget, scrambledTarget);
   }, [progress]);
 
+  useEffect(() => {
+    const { finalTitle, title } = startupLoaderConfig.text;
+    const { finalTitleScrambleMs } = startupLoaderConfig.timing;
+
+    if (progress < 100) {
+      setFinalTitleText(title);
+      return undefined;
+    }
+
+    if (isComplete || finalTitleScrambleMs <= 0) {
+      setFinalTitleText(finalTitle);
+      return undefined;
+    }
+
+    const startedAt = Date.now();
+
+    // Resolve the final title during the PROFILE READY hold instead of
+    // snapping from INITIALIZING to ONLINE.
+    const updateFinalTitle = () => {
+      const elapsedMs = Date.now() - startedAt;
+      const revealProgress = elapsedMs / finalTitleScrambleMs;
+
+      setFinalTitleText(getScrambledText(finalTitle, revealProgress));
+    };
+
+    updateFinalTitle();
+
+    const scrambleInterval = window.setInterval(
+      updateFinalTitle,
+      50
+    );
+
+    return () => {
+      window.clearInterval(scrambleInterval);
+    };
+  }, [isComplete, progress]);
+
   if (!isVisible) {
     return null;
   }
@@ -98,7 +142,7 @@ const StartupLoader = ({ progress, isComplete, isVisible, statusText }) => {
           {scrambledEyebrow}
         </p>
         <h1 className="startup-loader__title glow-green breath">
-          {startupLoaderConfig.text.title}
+          {titleText}
         </h1>
         <p className="startup-loader__status">{statusText}</p>
 
