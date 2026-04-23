@@ -26,6 +26,15 @@ async function loadProfile() {
 
 const emptyProfile = transformProfile({});
 
+export function preloadProfileData() {
+  return loadProfile();
+}
+
+export function resetProfileDataCacheForTests() {
+  cachedProfile = null;
+  cachedProfilePromise = null;
+}
+
 export default function useProfileData() {
   const [profile, setProfile] = useState(cachedProfile || emptyProfile);
   const [isLoading, setIsLoading] = useState(!cachedProfile);

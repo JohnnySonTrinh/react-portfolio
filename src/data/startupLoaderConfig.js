@@ -22,9 +22,13 @@ export const startupLoaderConfig = {
   },
   timing: {
     // Change this if you want a longer intro in seconds.
-    durationSeconds: 2.5,
+    durationSeconds: 1.5,
+    // Safety cap so missing content or slow media can never trap the user.
+    maxWaitSeconds: 4,
+    // Hold here until required startup content is ready or maxWaitSeconds is reached.
+    readinessProgressCap: 88,
     // Let the startup panel fade out smoothly instead of cutting away.
-    fadeDurationMs: 1500,
+    fadeDurationMs: 900,
     // Fast exit used when interface motion is disabled in settings.
     reducedMotionExitMs: 120,
   },

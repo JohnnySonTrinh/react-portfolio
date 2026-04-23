@@ -1,11 +1,10 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useSiteSettings } from "./useSiteSettings";
 import { startupLoaderConfig } from "../data/startupLoaderConfig";
 
-// The progress bar moves in 100 tiny steps so the percentage and width
-// stay visually locked together.
-const STARTUP_INTERVAL_MS =
-  (startupLoaderConfig.timing.durationSeconds * 1000) / 100;
+const STARTUP_INTERVAL_MS = 50;
+const MINIMUM_DURATION_MS = startupLoaderConfig.timing.durationSeconds * 1000;
+const MAX_WAIT_MS = startupLoaderConfig.timing.maxWaitSeconds * 1000;
 
 const shuffleLabels = (labels) => {
   const shuffledLabels = [...labels];
@@ -34,14 +33,28 @@ const getStatusText = (progress, statusLabels) => {
   return statusLabels[labelIndex];
 };
 
-const useStartupLoader = () => {
+const getTimedProgress = (elapsedMs) => {
+  const progress = Math.floor(
+    (elapsedMs / MINIMUM_DURATION_MS) *
+      startupLoaderConfig.timing.readinessProgressCap
+  );
+
+  return Math.min(startupLoaderConfig.timing.readinessProgressCap, progress);
+};
+
+const useStartupLoader = ({ isReady = true } = {}) => {
   const { settings } = useSiteSettings();
+  const isReadyRef = useRef(isReady);
   const [progress, setProgress] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [statusLabels] = useState(() =>
     shuffleLabels(startupLoaderConfig.text.statusLabels)
   );
+
+  useEffect(() => {
+    isReadyRef.current = isReady;
+  }, [isReady]);
 
   useEffect(() => {
     if (!settings.enableUiMotion) {
@@ -57,16 +70,24 @@ const useStartupLoader = () => {
       };
     }
 
-    const progressInterval = window.setInterval(() => {
-      setProgress((currentProgress) => {
-        const nextProgress = Math.min(100, currentProgress + 1);
+    let elapsedMs = 0;
 
-        if (nextProgress === 100) {
-          window.clearInterval(progressInterval);
+    const progressInterval = window.setInterval(() => {
+      elapsedMs += STARTUP_INTERVAL_MS;
+
+      setProgress((currentProgress) => {
+        const hasMinimumDurationElapsed = elapsedMs >= MINIMUM_DURATION_MS;
+        const hasMaxWaitElapsed = elapsedMs >= MAX_WAIT_MS;
+        const canComplete =
+          hasMinimumDurationElapsed && (isReadyRef.current || hasMaxWaitElapsed);
+
+        if (canComplete) {
           setIsComplete(true);
+          window.clearInterval(progressInterval);
+          return 100;
         }
 
-        return nextProgress;
+        return Math.max(currentProgress, getTimedProgress(elapsedMs));
       });
     }, STARTUP_INTERVAL_MS);
 

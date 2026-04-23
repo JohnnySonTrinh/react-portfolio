@@ -1,10 +1,22 @@
+import { useEffect } from "react";
+import PropTypes from "prop-types";
 import "../../styles/background.css";
 import video from "../../assets/bg-universe.mp4";
 import fallbackImage from "../../assets/fallback-image.webp";
 import useBackgroundMedia from "../../hooks/useBackgroundMedia";
 
-const Background = () => {
+const Background = ({ onReady }) => {
   const { videoRef, showBackgroundVideo } = useBackgroundMedia();
+
+  useEffect(() => {
+    if (!showBackgroundVideo) {
+      onReady();
+    }
+  }, [onReady, showBackgroundVideo]);
+
+  const handleVideoReady = () => {
+    onReady();
+  };
 
   return (
     <>
@@ -28,12 +40,21 @@ const Background = () => {
         aria-label="Background video"
         className="bg-video"
         style={{ opacity: showBackgroundVideo ? 1 : 0 }}
+        onLoadedData={handleVideoReady}
       >
         <source src={video} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
     </>
   );
+};
+
+Background.propTypes = {
+  onReady: PropTypes.func,
+};
+
+Background.defaultProps = {
+  onReady: () => {},
 };
 
 export default Background;
