@@ -15,6 +15,8 @@ Previous versions:
 - Voice assistant powered by Vapi for voice-to-voice interaction
 - Shared profile data model in `shared/profile.json` used across the app
 - Automatic profile sync to `public/profile.json` for frontend consumption
+- Startup loader with animated service-record styling, readiness checks, and a final online state
+- Profile data and background media preloading before the main interface fades in
 - Achievement system with persistent progress and reset support
 - New settings page with controls for background video, particles, UI motion, and the floating achievements panel
 - Cleaner split between UI code, shared content, and API logic
@@ -24,6 +26,7 @@ Previous versions:
 - Halo-inspired visual direction with custom AI-assisted art assets
 - React app with functional components, hooks, and reusable UI patterns
 - Smooth keyboard, click, and wheel-based navigation
+- Cinematic startup sequence that protects the first page render while profile and background assets load
 - Dynamic page titles for each route
 - Secure contact form flow with EmailJS
 - Chat assistant trained on portfolio-specific data instead of generic copy
@@ -31,6 +34,17 @@ Previous versions:
 - Accessible labels and interactive states across key UI elements
 
 ## Feature Overview
+
+### Startup Loader
+
+The app opens with a Halo-inspired startup sequence before the main interface appears. It checks profile data, the fallback image, and background readiness so the first visible route feels intentional instead of half-loaded.
+
+Key details:
+
+- Animated service-record text with scrambled name reveal
+- Progress states for profile, project, skill, and system initialization
+- Final `ONLINE` and `PROFILE READY` state before the interface fades in
+- Reduced-motion path that exits quickly when UI motion is paused
 
 ### About
 
@@ -78,6 +92,13 @@ The contact page uses EmailJS with client-side validation and input sanitization
 
 The portfolio includes a lightweight achievement system that rewards exploration and interaction. Progress is stored locally, surfaced in a floating panel, and can be reset from the settings page.
 
+Key details:
+
+- Persistent achievement progress with `localStorage`
+- Floating achievement panel that can be shown or hidden
+- Dedicated achievements page for unlocked and locked progress
+- Reset support from the settings flow
+
 <p align="center">
   <img src="documentation/readme/new-achievements-1.png" width="30%" />
 </p>
@@ -88,7 +109,7 @@ The portfolio includes a lightweight achievement system that rewards exploration
 
 The settings page lets visitors personalize the experience without changing the design language of the site.
 
-![Achievements screenshot](documentation/readme/new-settings.png)
+![Settings screenshot](documentation/readme/new-settings.png)
 
 Current options:
 
@@ -98,6 +119,8 @@ Current options:
 - Show or hide the floating achievements panel
 - Reset achievements
 - Restore default visual settings
+
+The UI motion setting also affects the startup loader and animated skill elements, giving visitors a calmer path through the same experience.
 
 ### 404 Experience
 
@@ -130,6 +153,7 @@ The custom 404 page keeps the theme intact with its own animated presentation in
 The project is organized around a small set of responsibilities:
 
 - `src/` contains the React application, pages, hooks, components, and styles
+- `src/components/layout/AppShell.jsx` wraps the shared background, navigation, startup loader, and route content
 - `api/` contains serverless routes and prompt-building logic
 - `shared/profile.json` is the main source of truth for portfolio content
 - `public/profile.json` is generated automatically from the shared profile for frontend reads
@@ -140,6 +164,8 @@ The project is organized around a small set of responsibilities:
 `shared/profile.json` -> `scripts/sync-profile.js` -> `public/profile.json` -> frontend UI
 
 `shared/profile.json` -> `api/systemMessage.js` -> `api/chat.js` -> chatbot responses
+
+`public/profile.json` -> `preloadProfileData()` -> startup readiness -> page hooks
 
 ## Project Structure
 
@@ -317,6 +343,17 @@ The project is organized around a small set of responsibilities:
 └── package.json
 ```
 
+Recent additions in the current structure:
+
+- `src/components/layout/AppShell.jsx` wraps the shared app chrome, startup loader, and route content
+- `src/components/loading/StartupLoader.jsx` renders the full-screen startup sequence
+- `src/data/startupLoaderConfig.js` keeps loader text, timing, and reveal settings in one place
+- `src/hooks/useBackgroundMedia.js` controls background video behavior from saved settings
+- `src/hooks/useParticleCanvas.js` controls particle rendering from saved settings
+- `src/hooks/useStartupLoader.js` manages loader progress, readiness checks, and reduced-motion exit behavior
+- `src/routes/AppRoutes.jsx` owns the route map used by `App.js`
+- `src/styles/startupLoader.css` contains the startup loader presentation
+
 ## Getting Started
 
 ### 1. Clone the repository
@@ -389,3 +426,16 @@ Creative and technical inspiration/tools used across versions:
 - Devicon
 - Vapi
 - OpenAI
+
+## Next Feature Todo
+
+### Fix Web API Voice Chat
+
+- Verify the current voice assistant flow in `src/hooks/useVoiceAssistant.js` and `src/components/assistant/VoiceAssistant.jsx`
+- Confirm required Vapi environment variables are present and fail clearly when they are missing
+- Check microphone permission handling and browser support states
+- Review the Web API voice connection lifecycle for start, active, stop, and error states
+- Improve user-facing feedback when voice chat cannot connect or loses connection
+- Keep the voice assistant aligned with the same portfolio-aware data used by the chat assistant
+- Add or update focused tests for voice chat state handling
+- Run a browser sanity check for the voice assistant after the fix
