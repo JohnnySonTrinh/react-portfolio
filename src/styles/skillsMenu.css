@@ -100,6 +100,14 @@
     fadeIn 5s ease-out forwards;
 }
 
+body.motion-paused .skill-menu,
+body.motion-paused .skill-icon,
+body.motion-paused .filled,
+body.motion-paused .unfilled {
+  animation: none !important;
+  opacity: 1;
+}
+
 .filled {
   background: linear-gradient(180deg, #236473, #25afce, #7ce7ff);
 }
