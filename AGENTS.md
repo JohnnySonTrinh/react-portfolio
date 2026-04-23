@@ -29,11 +29,12 @@ This file tells coding agents how to work safely and efficiently in this reposit
 
 ## Commands
 - Install dependencies: `npm install`
-- Start local app: `npm start`
-- Build production bundle: `npm run build`
+- Start local app: `npm start` (runs `npm run sync:profile` first via `prestart`)
+- Build production bundle: `npm run build` (runs `npm run sync:profile` first via `prebuild`)
 - Run tests: `npm test -- --watch=false`
 - Run ESLint on targeted files: `npx eslint <file ...>`
 - Sync shared profile data: `npm run sync:profile`
+- Deployment runtime: Vercel uses Node `20.10.0` from `vercel.json`
 
 ## Architecture Notes
 
@@ -46,6 +47,7 @@ This file tells coding agents how to work safely and efficiently in this reposit
 ### API
 - `api/chat.js` handles the OpenAI-backed chat route.
 - `api/systemMessage.js` builds the portfolio-aware system prompt.
+- `api/profile.js` exposes `shared/profile.json` through `api/profileData.js`; the frontend currently reads the generated `/profile.json` through `src/api/profileClient.js`.
 - API changes should preserve current request and response shapes unless the task requires coordinated frontend updates.
 
 ### Content Flow
@@ -91,6 +93,7 @@ Rules:
 - For API changes, verify request validation, error handling, and client compatibility.
 - For profile/content changes, sync the generated profile file and sanity-check affected pages.
 - For refactors, run targeted ESLint on the files you changed alongside the smallest useful test command.
+- For planned refactors, follow `documentation/refactor-workflow.md` and keep the unit of work to one hook, component pair, page flow, API client, or small utility cluster.
 
 ## Good Change Patterns
 - Update source data, then sync generated data.
