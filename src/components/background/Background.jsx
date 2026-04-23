@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import PropTypes from "prop-types";
 import "../../styles/background.css";
-import video from "../../assets/bg-universe.mp4";
+import video from "../../assets/background-transition.mp4";
 import fallbackImage from "../../assets/fallback-image.webp";
 import useBackgroundMedia from "../../hooks/useBackgroundMedia";
 
