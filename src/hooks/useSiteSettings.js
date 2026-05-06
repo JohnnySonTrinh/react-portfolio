@@ -11,7 +11,7 @@ const STORAGE_KEY = "site_settings_v1";
 
 const defaultSettings = {
   showBackgroundVideo: true,
-  showParticles: true,
+  showParticles: false,
   enableUiMotion: true,
   showAchievementsPanel: true,
 };
