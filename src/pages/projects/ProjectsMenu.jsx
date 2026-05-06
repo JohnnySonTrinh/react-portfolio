@@ -3,7 +3,6 @@ import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 import useActiveProject from "../../hooks/useActiveProject";
 import { useAchievements } from "../../hooks/achievements/useAchievement";
 import handleProjectWheel from "../../utils/handleProjectWheel";
-import { TooltipWrapper } from "../../components/common";
 import useProfileData from "../../hooks/useProfileData";
 
 // ProjectsMenu component
@@ -55,11 +54,35 @@ const ProjectsMenu = () => {
     return <div className="project-menu fade-in"><p>No projects available.</p></div>;
   }
 
+  const getProjectLinks = (project) => {
+    const links = [];
+
+    if (project.github) {
+      links.push({
+        href: project.github,
+        label: "GITHUB",
+        ariaLabel: `View ${project.title} on GitHub`,
+      });
+    }
+
+    if (project.live) {
+      links.push({
+        href: project.live,
+        label: "LIVE",
+        ariaLabel: `View live demo of ${project.title}`,
+      });
+    }
+
+    return links;
+  };
+
   // Function to render the content
   const renderContent = (project) => {
     if (!project) {
       return null;
     }
+
+    const projectLinks = getProjectLinks(project);
 
     return (
       <div className={`project-sub-container-${activeProject} fade-in`}>
@@ -78,27 +101,22 @@ const ProjectsMenu = () => {
             </div>
           </div>
         </div>
-        <TooltipWrapper title="Hover over image to see tech stack">
-          <p>{project.description}</p>
-        </TooltipWrapper>
-        <div className="link-container">
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`View ${project.title} on GitHub`}
-          >
-            GITHUB
-          </a>
-          <a
-            href={project.live}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`View live demo of ${project.title}`}
-          >
-            LIVE
-          </a>
-        </div>
+        <p>{project.description}</p>
+        {projectLinks.length > 0 ? (
+          <div className="link-container">
+            {projectLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={link.ariaLabel}
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        ) : null}
       </div>
     );
   };
