@@ -67,7 +67,7 @@
     {
       "title": "Role Ready",
       "image": "https://raw.githubusercontent.com/JohnnySonTrinh/JohnnySonTrinh/main/projects/roleready.webp",
-      "description": "Role Ready is an AI-powered job preparation tool that helps users understand job listings before applying. By pasting a job ad, users get structured insights into the role, the company, and likely interview questions, making it easier to prepare and practice in a focused way. The project is built with a strong emphasis on clean architecture, modern frontend patterns, and scalable auth and layout design.",
+      "description": "Role Ready is an AI-powered job prep tool that turns job listings into clear role insights, company context, and likely interview questions.",
       "role": "Fullstack product builder focused on frontend architecture, UX, auth flow, and AI-powered experience design.",
       "problem": "Job listings are often dense and vague, which makes it harder for applicants to understand the role quickly and prepare with confidence.",
       "solution": "Role Ready turns a pasted job listing into structured role insights, company context, and likely interview questions so users can prepare in a more focused way.",
@@ -85,7 +85,6 @@
       ],
       "whyItMatters": "This is one of the strongest examples of Johnny building a practical AI-assisted product with both frontend polish and real user value.",
       "techStack": ["TypeScript", "Tailwind CSS", "Vercel", "Supabase"],
-      "github": "https://github.com/JohnnySonTrinh/role-ready",
       "live": "https://role-ready-six.vercel.app"
     },
     {
