@@ -7,6 +7,7 @@ import Chatbot from "../pages/chatbot/Chatbot";
 import Achievement from "../pages/achievements/Achievement";
 import Contact from "../pages/contact/Contact";
 import Settings from "../pages/settings/Settings";
+import Reviews from "../pages/reviews/Reviews";
 import NotFound from "../pages/404page/NotFound";
 
 const AppRoutes = () => {
@@ -20,6 +21,7 @@ const AppRoutes = () => {
       <Route path="/achievements" element={<Achievement />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/settings" element={<Settings />} />
+      <Route path="/reviews" element={<Reviews />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
